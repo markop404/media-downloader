@@ -1,6 +1,6 @@
 # Media Downloader
 Web video/audio downloader
-<img src="screenshots/media-downloader.png" width="600px"><br>
+<br><img src="screenshots/media-downloader.png" width="600px"><br>
 A simple qt6 frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in Python using PySide6.
 - Supports [hundreds of websites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
 - Supports downloading mp3 and mp4
@@ -20,7 +20,7 @@ This project aims to create a program that:
 - is lightweight and has a small amount of dependencies
 ## Contributing
 Contributions are very appreciated, but before contributing, please read the 
-[Goals Of This Project](#goals-of-this-project) section to understand what contributions might get rejected.
+'Goals Of This Project' section to understand what contributions might get rejected.
 ## License
 All versions above 3.1.0 are licensed under [GPL version 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). All versions below 3.1.0 are closed source and are not available in this repository.
 ## Additional Information
