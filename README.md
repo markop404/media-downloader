@@ -1,6 +1,6 @@
 # Media Downloader
 Web video/audio downloader
-![Screenshot](screenshots/media-downloader.png)
+<img src="screenshots/media-downloader.png" width="200px">
 A simple qt6 frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in Python using PySide6.
 - Supports [hundreds of websites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
 - Supports downloading mp3 and mp4
