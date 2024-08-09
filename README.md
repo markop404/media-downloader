@@ -24,11 +24,11 @@ Contributions are very appreciated, but before contributing, please read the
 ## License
 All versions above 3.1.0 are licensed under [GPL version 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). All versions below 3.1.0 are closed source and are not available in this repository.
 ## Additional Information
-#### Theming
+### Theming
 The program uses the QT's Fusion theme. This setting is hard-coded, so the program does not respond to themes set globally in a system (apart from responding to light/dark theme).
-#### Translations
+### Translations
 There is currently no interest in translating this program to other languages. Also, the current code is not written in a way that supports translating.
-#### Update Mechanism
+### Update Mechanism
 This program currently has no update mechanism. However, there are plans to add it in a future version.
 ## Disclaimer
 The creator of Media Downloader is not responsible/liable for any misuse of this program that may violate local copyright/DMCA laws. Users use this application at their own risk.
