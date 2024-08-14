@@ -26,7 +26,7 @@ from . import utils
 from . import youtubedl_helpers as yt_dlp_h
 
 from PySide6.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QDialog
-from PySide6.QtCore import QEvent, QObject, QCoreApplication, QUrl
+from PySide6.QtCore import QEvent, QObject, QCoreApplication, QUrl, QDir, QStandardPaths
 
 
 class Window(QMainWindow):
@@ -49,7 +49,7 @@ class Window(QMainWindow):
 
 
     def setup_vars(self):
-        self.download_location = os.getcwd().replace("\\", "/")
+        self.download_location = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
         self.thread_running = False
         self.cancel_progress = False
         self.subtitles = {}
