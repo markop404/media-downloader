@@ -17,7 +17,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import os
 from threading import Thread
 from time import sleep
 
