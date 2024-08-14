@@ -459,7 +459,7 @@ class Window(QMainWindow):
     
 
     def show_new_download_folder(self):
-        base_name = os.path.basename(self.download_location)
+        base_name = QDir(self.download_location).dirName()
         href = QUrl.fromLocalFile(self.download_location).toString()
 
         if base_name:
