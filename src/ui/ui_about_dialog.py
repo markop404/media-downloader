@@ -101,5 +101,5 @@ class Ui_aboutDialog(object):
         self.versionLabel.setText(QCoreApplication.translate("aboutDialog", u"v3.1.0 &nbsp;|&nbsp; <a href=\"https://downloader.markopejic.com/\" style=\"text-decoration: none;\">Website</a>", None))
         self.descriptionLabel.setText(QCoreApplication.translate("aboutDialog", u"A simple and lightweight program for downloading media from <a href=\"https://downloader.markopejic.com/supported-websites\">hundreds of websites</a>.", None))
         self.licenseLabel.setText(QCoreApplication.translate("aboutDialog", u"This program comes with absolutely no warranty. See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General Public License, version 3 or later</a> for details.", None))
-        self.copyrightLabel.setText(QCoreApplication.translate("aboutDialog", u"Copyright \u00a9 2024  Marko Peji\u0107", None))
+        self.copyrightLabel.setText(QCoreApplication.translate("aboutDialog", u"Copyright \u00a9 2024 Marko Peji\u0107", None))
     # retranslateUi
