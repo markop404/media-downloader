@@ -62,6 +62,7 @@ class Window(QMainWindow):
     def setup_filedialog(self):
         self.file_dialog = QFileDialog(self)
         self.file_dialog.setFileMode(QFileDialog.Directory)
+        self.file_dialog.setDirectory(self.download_location)
     
 
     def connect_signals_and_slots(self, app):
