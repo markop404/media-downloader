@@ -26,7 +26,7 @@ class Ui_aboutDialog(object):
         aboutDialog.setMinimumSize(QSize(350, 335))
         aboutDialog.setMaximumSize(QSize(350, 335))
         icon = QIcon()
-        icon.addFile("icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile("icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         aboutDialog.setWindowIcon(icon)
         self.verticalLayout = QVBoxLayout(aboutDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
