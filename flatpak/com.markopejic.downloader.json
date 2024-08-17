@@ -99,6 +99,7 @@
                 "install -D src/icon.png /app/bin/icons/icon.png",
                 "install -D src/main.py /app/bin/main.py",
                 "install -D src/flatpak/runner /app/bin/com.markopejic.downloader",
+                "pip3 install --no-index --find-links=\"file://${PWD}\" setuptools",
                 "pip3 install --compile src"
             ],
             "cleanup": [
@@ -110,6 +111,11 @@
                     "url": "https://github.com/markop404/media-downloader/",
                     "tag": "v3.2.0",
                     "dest": "src"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/6e/ec/06715d912351edc453e37f93f3fc80dcffd5ca0e70386c87529aca296f05/setuptools-72.2.0-py3-none-any.whl",
+                    "sha256": "f11dd94b7bae3a156a95ec151f24e4637fb4fa19c878e4d191bfb8b2d82728c4"
                 }
             ]
         },
