@@ -22,7 +22,7 @@ import sys
 from PySide6.QtWidgets import QApplication
 from PySide6 import QtGui
 
-from src.app import Window
+from src import Window
 
 
 app = QApplication([])
