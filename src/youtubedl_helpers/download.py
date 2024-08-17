@@ -26,7 +26,8 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
     options = {
         "outtmpl": f"{download_location}/%(title)s.%(ext)s",
         "noplaylist": True,
-        "postprocessors": [{"key": "FFmpegMetadata"}],
+        "postprocessors": [{"key": "FFmpegMetadata"}, {"key": "EmbedThumbnail"}],
+        "writethumbnail": True,
     }
     failed_urls = []
     TOTAL_URL_COUNT = len(urls)
@@ -57,10 +58,12 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
             options["postprocessors"].append({"key": "FFmpegEmbedSubtitle"})
     
     elif file_type == "audio":
-        options["postprocessors"].append({
-            "key": "FFmpegExtractAudio",
-            "preferredcodec": "mp3",
-        })
+        options["postprocessors"] = [
+            {
+                "key": "FFmpegExtractAudio",
+                "preferredcodec": "mp3"
+            }
+        ] + options["postprocessors"]
         options["format"] = "bestaudio"
         if quality:
             options["format_sort"] = [f"abr:{quality_int}"]
