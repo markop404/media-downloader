@@ -9,7 +9,7 @@ A simple qt6 frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in 
 - Automatically embeds video chapters, thumbnails & metadata
 - Quickly download media anywhere - standalone executable
 ## Platform Support
-Currently, only Windows 10 and 11 are supported. Users of other operating systems should consider running from source. However, there is work going underway for supporting Linux.
+Currently, only Windows 10 and 11 are supported. Users of other operating systems should consider running from source. However a flatpak will be published on Flathub soon. Progress can be checked [here](https://github.com/flathub/flathub/pull/5516).
 ## Dependencies
 Apart from a few Python packages, listed in [requirements.txt](./requirements.txt), only [ffmpeg](https://ffmpeg.org) is required.
 ## Goals Of This Project
