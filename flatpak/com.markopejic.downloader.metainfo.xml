@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2024 Marko Pejić -->
 <component type="desktop-application">
   <id>com.markopejic.downloader</id>
   
