@@ -31,7 +31,8 @@
   <launchable type="desktop-id">com.markopejic.downloader.desktop</launchable>
   <screenshots>
     <screenshot type="default">
-      <image>https://github.com/markop404/media-downloader/blob/main/screenshots/kde-plasma.png</image>
+      <image>https://raw.githubusercontent.com/markop404/media-downloader/main/screenshots/kde-plasma.png</image>
+      <caption>Main Window</caption>
     </screenshot>
   </screenshots>
 </component>
