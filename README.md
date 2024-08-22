@@ -8,8 +8,9 @@ A simple qt6 frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in 
 - Allows you to work with multiple URLs at once
 - Automatically embeds video chapters, thumbnails & metadata
 - Quickly download media anywhere - standalone executable
-## Platform Support
-Currently, only Windows 10 and 11 are supported. However, a flatpak will be published on Flathub soon. Progress can be checked [here](https://github.com/flathub/flathub/pull/5516). Users of other operating systems should consider running from source.
+## Installation
+<p><a href="https://flathub.org/apps/com.markopejic.downloader"><img width="150" alt='Download from Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-en.png'/></a></p>
+<p><a href="https://github.com/markop404/media-downloader/releases"><img width='140' alt="Download for Windows" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Windows_logo_and_wordmark_-_2021.svg"/></a></p>
 ## Dependencies
 Apart from a few Python packages, listed in [requirements.txt](./requirements.txt), only [ffmpeg](https://ffmpeg.org) is required.
 ## Goals Of This Project
