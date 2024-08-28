@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>590</width>
-    <height>655</height>
+    <height>665</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -22,7 +22,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>icons/icon.png</normaloff>icon.png</iconset>
+    <normaloff>icons/icon.png</normaloff>icons/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -189,6 +189,16 @@
       </property>
       <property name="checked">
        <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <widget class="QCheckBox" name="cropthumbnailsCheckBox">
+      <property name="toolTip">
+       <string>Useful when downloading music.</string>
+      </property>
+      <property name="text">
+       <string>Crop thumbnails / album arts</string>
       </property>
      </widget>
     </item>
