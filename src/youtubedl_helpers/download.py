@@ -28,6 +28,7 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
         "noplaylist": True,
         "postprocessors": [{"key": "FFmpegMetadata"}, {"key": "EmbedThumbnail"}],
         "writethumbnail": True,
+        "embedthumbnail": True,
     }
     failed_urls = []
     TOTAL_URL_COUNT = len(urls)
