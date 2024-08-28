@@ -342,6 +342,7 @@ class Window(QMainWindow):
                 postprocessor_progress=self.postprocess_progress,
                 on_url_progress=self.url_download_progress,
                 embed_subtitles=embed_subtitles,
+                crop_thumbnails=self.ui.cropthumbnailsCheckBox.isChecked(),
             )
         except SystemExit:
             self.prep_thread_exit(Text.STATUS_MESSAGES["download_cancelled"])
