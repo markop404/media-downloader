@@ -17,6 +17,14 @@
   <url type="vcs-browser">https://github.com/markop404/media-downloader</url>
 
   <releases>
+    <release version="3.3.0" date="2024-08-28">
+      <description>
+        <ul>
+          <li>Added the ability to crop thumbnails / album arts</li>
+          <li>Fixed some issues with data refreshing</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.2.0" date="2024-08-18">
       <description>
         <ul>
@@ -45,7 +53,7 @@
   <launchable type="desktop-id">com.markopejic.downloader.desktop</launchable>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/markop404/media-downloader/v3.2.2/screenshots/kde-plasma-light.png</image>
+      <image>https://raw.githubusercontent.com/markop404/media-downloader/v3.3.0/screenshots/kde-plasma-light.png</image>
       <caption>Media Downloader's Interface</caption>
     </screenshot>
   </screenshots>
