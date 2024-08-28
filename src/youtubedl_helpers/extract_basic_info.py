@@ -79,7 +79,7 @@ def extract_basic_info(data_list):
     
         if all_subtitles:
             for subtitle in all_subtitles:
-                if len(subtitle_data[subtitle]) > 0:
+                if len(subtitle_data[subtitle]) > 0 and "name" in subtitle_data[subtitle][0]:
                     subtitles[subtitle_data[subtitle][0]["name"]] = subtitle
 
             subtitles = sorted(subtitles.items())
