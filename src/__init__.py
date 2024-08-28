@@ -329,7 +329,6 @@ class Window(QMainWindow):
             subtitles = None
         else:
             subtitles = [self.subtitles[subtitles]]
-        embed_subtitles = self.ui.embedSubtitlesCheckBox.isChecked()
 
         try:
             failed_urls2, exit_status = yt_dlp_h.download(
@@ -341,7 +340,7 @@ class Window(QMainWindow):
                 quality=quality,
                 postprocessor_progress=self.postprocess_progress,
                 on_url_progress=self.url_download_progress,
-                embed_subtitles=embed_subtitles,
+                embed_subtitles=self.ui.embedSubtitlesCheckBox.isChecked(),
                 crop_thumbnails=self.ui.cropthumbnailsCheckBox.isChecked(),
             )
         except SystemExit:
