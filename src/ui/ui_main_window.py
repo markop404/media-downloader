@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowEUtWHd.ui'
+## Form generated from reading UI file 'main_windowuEQJii.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(590, 655)
+        MainWindow.resize(590, 665)
         MainWindow.setMinimumSize(QSize(400, 550))
         icon = QIcon()
         icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -130,6 +130,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.urlremovalCheckBox, 0, Qt.AlignmentFlag.AlignHCenter)
 
+        self.cropthumbnailsCheckBox = QCheckBox(self.centralwidget)
+        self.cropthumbnailsCheckBox.setObjectName(u"cropthumbnailsCheckBox")
+
+        self.verticalLayout.addWidget(self.cropthumbnailsCheckBox, 0, Qt.AlignmentFlag.AlignHCenter)
+
         self.embedSubtitlesCheckBox = QCheckBox(self.centralwidget)
         self.embedSubtitlesCheckBox.setObjectName(u"embedSubtitlesCheckBox")
         self.embedSubtitlesCheckBox.setChecked(True)
@@ -225,6 +230,10 @@ class Ui_MainWindow(object):
         self.urlremovalCheckBox.setToolTip(QCoreApplication.translate("MainWindow", u"Removes each URL from the text entry when it finishes downloading.", None))
 #endif // QT_CONFIG(tooltip)
         self.urlremovalCheckBox.setText(QCoreApplication.translate("MainWindow", u"Remove URLs as they are downloaded", None))
+#if QT_CONFIG(tooltip)
+        self.cropthumbnailsCheckBox.setToolTip(QCoreApplication.translate("MainWindow", u"Useful when downloading music.", None))
+#endif // QT_CONFIG(tooltip)
+        self.cropthumbnailsCheckBox.setText(QCoreApplication.translate("MainWindow", u"Crop thumbnails / album arts", None))
 #if QT_CONFIG(tooltip)
         self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("MainWindow", u"Embeds subtitles into downloaded videos.", None))
 #endif // QT_CONFIG(tooltip)
