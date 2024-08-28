@@ -28,7 +28,6 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
         "noplaylist": True,
         "postprocessors": [{"key": "FFmpegMetadata"}, {"key": "EmbedThumbnail", "already_have_thumbnail": False}],
         "writethumbnail": True,
-        "embedthumbnail": True,
         "postprocessor_args": {},
     }
     failed_urls = []
