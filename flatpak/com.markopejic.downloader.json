@@ -89,7 +89,7 @@
                 "install -D src/icons/icon.png /app/icons/icon.png",
                 "install -D src/main.py /app/main.py",
                 "install -D src/flatpak/runner /app/bin/com.markopejic.downloader",
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} setuptools ./src --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} --compile setuptools ./src --no-build-isolation"
             ],
             "sources": [
                 {
