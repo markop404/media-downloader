@@ -1,8 +1,8 @@
 # -*- mode: python ; coding: utf-8 -*-
 
-VERSION = "3.3"
-ICON = "icon.png"
-BINARIES = [('ffmpeg.exe', '.')]
+VERSION = "3.3.1"
+ICON = "icons/icon.png"
+BINARIES = [("ffmpeg.exe", "."), ("ffprobe.exe", ".")]
 NAME = f"Media Downloader {VERSION}"
 
 
@@ -10,7 +10,7 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=BINARIES,
-    datas=[(ICON, '.')],
+    datas=[(ICON, 'icons')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -24,7 +24,7 @@ pyz = PYZ(a.pure)
 exe = EXE(
     pyz,
     a.scripts,
-    a.binaries,
+    a.binaries,('ffmpeg.exe', '.')
     a.datas,
     [],
     name=NAME,
