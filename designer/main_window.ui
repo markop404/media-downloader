@@ -195,7 +195,7 @@
     <item alignment="Qt::AlignmentFlag::AlignHCenter">
      <widget class="QCheckBox" name="cropthumbnailsCheckBox">
       <property name="toolTip">
-       <string>Useful when downloading music.</string>
+       <string>Makes thumbnails / album arts square. Useful when downloading music.</string>
       </property>
       <property name="text">
        <string>Crop thumbnails / album arts</string>
