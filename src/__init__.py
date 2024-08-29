@@ -101,8 +101,6 @@ class Window(QMainWindow):
 
         self.run_in_gui_thread(lambda: self.ui.progressBar.setValue(percentage))
         self.run_in_gui_thread(lambda: self.ui.statusLabel.setText(message))
-
-        yt_dlp_h.delete_temp_files(self.download_location)
     
     
     def start_update_info(self):
