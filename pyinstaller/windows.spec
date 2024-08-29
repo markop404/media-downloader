@@ -24,7 +24,7 @@ pyz = PYZ(a.pure)
 exe = EXE(
     pyz,
     a.scripts,
-    a.binaries,('ffmpeg.exe', '.')
+    a.binaries,
     a.datas,
     [],
     name=NAME,
