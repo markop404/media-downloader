@@ -17,10 +17,11 @@
   <url type="vcs-browser">https://github.com/markop404/media-downloader</url>
 
   <releases>
-    <release version="3.3.1" date="2024-08-29">
+    <release version="3.4.0" date="2024-08-29">
       <description>
         <ul>
           <li>Improved tooltips</li>
+          <li>The app now does not delete temporary downloaded files after failed / cancelled download (so downloading can be continued later)</li>
         </ul>
       </description>
     </release>
