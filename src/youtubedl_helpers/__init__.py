@@ -20,6 +20,5 @@
 from .download import download
 from .extract_data import extract_data
 from .extract_basic_info import extract_basic_info
-from .delete_temp_files import delete_temp_files
 from .check_internet_connection import check_internet_connection
 from .extract_urls import extract_urls
