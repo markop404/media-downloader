@@ -55,6 +55,7 @@
         <li>Supports downloading and embedding subtitles</li>
         <li>Allows you to work with multiple URLs at once</li>
         <li>Automatically embeds video chapters, thumbnails and metadata</li>
+        <li>Supports cropping thumbnails / album arts to square shape (ideal for downloading music)</li>
       </ul>
   </description>
   
