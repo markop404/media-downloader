@@ -231,7 +231,7 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.urlremovalCheckBox.setText(QCoreApplication.translate("MainWindow", u"Remove URLs as they are downloaded", None))
 #if QT_CONFIG(tooltip)
-        self.cropthumbnailsCheckBox.setToolTip(QCoreApplication.translate("MainWindow", u"Useful when downloading music.", None))
+        self.cropthumbnailsCheckBox.setToolTip(QCoreApplication.translate("MainWindow", u"Makes thumbnails / album arts square. Useful when downloading music.", None))
 #endif // QT_CONFIG(tooltip)
         self.cropthumbnailsCheckBox.setText(QCoreApplication.translate("MainWindow", u"Crop thumbnails / album arts", None))
 #if QT_CONFIG(tooltip)
