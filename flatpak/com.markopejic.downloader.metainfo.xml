@@ -49,14 +49,14 @@
   </branding>
   
   <description>
-      <ul>
-        <li>Supports hundreds of websites</li>
-        <li>Supports downloading mp3 and mp4</li>
-        <li>Supports downloading and embedding subtitles</li>
-        <li>Allows you to work with multiple URLs at once</li>
-        <li>Automatically embeds video chapters, thumbnails and metadata</li>
-        <li>Supports cropping thumbnails / album arts to square shape (ideal for downloading music)</li>
-      </ul>
+    <ul>
+        <li>Download from hundreds of websites</li>
+        <li>Download mp3 (audio) or mp4 (video)</li>
+        <li>Download or embed subtitles</li>
+        <li>Embed video chapters, thumbnails and metadata</li>
+        <li>Crop thumbnails / album arts to square shape (useful when downloading music)</li>
+        <li>Work with multiple URLs at once</li>
+    </ul>
   </description>
   
   <launchable type="desktop-id">com.markopejic.downloader.desktop</launchable>
