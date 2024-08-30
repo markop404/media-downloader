@@ -95,7 +95,7 @@
    <item>
     <widget class="QLabel" name="descriptionLabel">
      <property name="text">
-      <string>A simple and lightweight program for downloading media from &lt;a href=&quot;https://downloader.markopejic.com/supported-websites&quot;&gt;hundreds of websites&lt;/a&gt;.</string>
+      <string>Web video / audio downloader that supports &lt;a href=&quot;https://downloader.markopejic.com/supported-websites&quot;&gt;hundreds of websites&lt;/a&gt;.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignCenter</set>
