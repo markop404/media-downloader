@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowuEQJii.ui'
+## Form generated from reading UI file 'main_windowDAMztV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -32,12 +32,16 @@ class Ui_MainWindow(object):
         MainWindow.setWindowIcon(icon)
         self.actionExit = QAction(MainWindow)
         self.actionExit.setObjectName(u"actionExit")
-        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ApplicationExit))
+        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.WindowClose))
         self.actionExit.setIcon(icon1)
         self.actionAbout = QAction(MainWindow)
         self.actionAbout.setObjectName(u"actionAbout")
         icon2 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.HelpAbout))
         self.actionAbout.setIcon(icon2)
+        self.actionNewWindow = QAction(MainWindow)
+        self.actionNewWindow.setObjectName(u"actionNewWindow")
+        icon3 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.WindowNew))
+        self.actionNewWindow.setIcon(icon3)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -108,8 +112,8 @@ class Ui_MainWindow(object):
         self.setDownloadFolderPushButton = QPushButton(self.centralwidget)
         self.setDownloadFolderPushButton.setObjectName(u"setDownloadFolderPushButton")
         self.setDownloadFolderPushButton.setMaximumSize(QSize(72, 16777215))
-        icon3 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentSaveAs))
-        self.setDownloadFolderPushButton.setIcon(icon3)
+        icon4 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentSaveAs))
+        self.setDownloadFolderPushButton.setIcon(icon4)
         self.setDownloadFolderPushButton.setIconSize(QSize(18, 12))
 
         self.downloadFolderHorizontalLayout.addWidget(self.setDownloadFolderPushButton)
@@ -149,16 +153,16 @@ class Ui_MainWindow(object):
         self.actionButtonsHorizontalLayout.setObjectName(u"actionButtonsHorizontalLayout")
         self.refreshPushButton = QPushButton(self.centralwidget)
         self.refreshPushButton.setObjectName(u"refreshPushButton")
-        icon4 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh))
-        self.refreshPushButton.setIcon(icon4)
+        icon5 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh))
+        self.refreshPushButton.setIcon(icon5)
         self.refreshPushButton.setIconSize(QSize(18, 12))
 
         self.actionButtonsHorizontalLayout.addWidget(self.refreshPushButton, 0, Qt.AlignmentFlag.AlignRight)
 
         self.downloadPushButton = QPushButton(self.centralwidget)
         self.downloadPushButton.setObjectName(u"downloadPushButton")
-        icon5 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown))
-        self.downloadPushButton.setIcon(icon5)
+        icon6 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown))
+        self.downloadPushButton.setIcon(icon6)
         self.downloadPushButton.setIconSize(QSize(18, 12))
 
         self.actionButtonsHorizontalLayout.addWidget(self.downloadPushButton, 0, Qt.AlignmentFlag.AlignLeft)
@@ -190,14 +194,12 @@ class Ui_MainWindow(object):
         self.menubar.setGeometry(QRect(0, 0, 590, 30))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
-        self.menuHelp = QMenu(self.menubar)
-        self.menuHelp.setObjectName(u"menuHelp")
         MainWindow.setMenuBar(self.menubar)
 
         self.menubar.addAction(self.menuFile.menuAction())
-        self.menubar.addAction(self.menuHelp.menuAction())
+        self.menuFile.addAction(self.actionNewWindow)
+        self.menuFile.addAction(self.actionAbout)
         self.menuFile.addAction(self.actionExit)
-        self.menuHelp.addAction(self.actionAbout)
 
         self.retranslateUi(MainWindow)
 
@@ -211,6 +213,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Media Downloader", None))
         self.actionExit.setText(QCoreApplication.translate("MainWindow", u"&Exit", None))
         self.actionAbout.setText(QCoreApplication.translate("MainWindow", u"&About", None))
+        self.actionNewWindow.setText(QCoreApplication.translate("MainWindow", u"&New window", None))
         self.plainTextEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Paste URLs here...", None))
         self.formatLabel.setText(QCoreApplication.translate("MainWindow", u"Format:", None))
         self.formatComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Video", None))
@@ -243,6 +246,5 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.refreshPushButton.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.downloadPushButton.setText(QCoreApplication.translate("MainWindow", u"Download", None))
-        self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"Fi&le", None))
-        self.menuHelp.setTitle(QCoreApplication.translate("MainWindow", u"Help", None))
+        self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"&Menu", None))
     # retranslateUi
