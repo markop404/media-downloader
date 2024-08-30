@@ -312,22 +312,17 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>Fi&amp;le</string>
+     <string>&amp;Menu</string>
     </property>
+    <addaction name="actionNewWindow"/>
+    <addaction name="actionAbout"/>
     <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuHelp">
-    <property name="title">
-     <string>Help</string>
-    </property>
-    <addaction name="actionAbout"/>
-   </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuHelp"/>
   </widget>
   <action name="actionExit">
    <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::ApplicationExit"/>
+    <iconset theme="QIcon::ThemeIcon::WindowClose"/>
    </property>
    <property name="text">
     <string>&amp;Exit</string>
@@ -338,7 +333,15 @@
     <iconset theme="QIcon::ThemeIcon::HelpAbout"/>
    </property>
    <property name="text">
-    <string>&amp;About</string>
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionNewWindow">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::WindowNew"/>
+   </property>
+   <property name="text">
+    <string>New window</string>
    </property>
   </action>
  </widget>
