@@ -19,6 +19,8 @@
 
 from threading import Thread
 from time import sleep
+import sys
+import subprocess
 
 from .ui import Text, Ui_MainWindow, Ui_aboutDialog
 from . import utils
@@ -69,9 +71,14 @@ class Window(QMainWindow):
         self.ui.downloadPushButton.clicked.connect(self.start_download)
         self.ui.setDownloadFolderPushButton.clicked.connect(self.set_download_location)
         self.ui.formatComboBox.currentTextChanged.connect(self.show_new_qualities)
+        self.ui.actionNewWindow.triggered.connect(self.create_new_instance)
         self.ui.actionAbout.triggered.connect(self.about_window.exec)
         self.ui.actionExit.triggered.connect(self.close)
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
+
+    
+    def create_new_instance(self):
+        subprocess.Popen([sys.executable, sys.modules["__main__"].__file__])
 
 
     def prep_thread_start(self):
