@@ -29,7 +29,7 @@ from PySide6.QtCore import QEvent, QObject, QCoreApplication, QUrl, QDir, QStand
 
 
 class Window(QMainWindow):
-    def __init__(self, app):
+    def __init__(self):
         super().__init__()
         self.setup_ui()
         self.setup_vars()
@@ -39,7 +39,7 @@ class Window(QMainWindow):
         self.event_invoker = utils.Invoker()
         self.about_window = AboutWindow(self)
 
-        self.connect_signals_and_slots(app)
+        self.connect_signals_and_slots()
 
 
     def setup_ui(self):
@@ -64,13 +64,13 @@ class Window(QMainWindow):
         self.file_dialog.setDirectory(self.download_location)
     
 
-    def connect_signals_and_slots(self, app):
+    def connect_signals_and_slots(self):
         self.ui.refreshPushButton.clicked.connect(self.start_update_info)
         self.ui.downloadPushButton.clicked.connect(self.start_download)
         self.ui.setDownloadFolderPushButton.clicked.connect(self.set_download_location)
         self.ui.formatComboBox.currentTextChanged.connect(self.show_new_qualities)
         self.ui.actionAbout.triggered.connect(self.about_window.exec)
-        self.ui.actionExit.triggered.connect(app.quit)
+        self.ui.actionExit.triggered.connect(self.close)
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
 
 
