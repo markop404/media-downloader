@@ -27,7 +27,7 @@ from . import utils
 from . import youtubedl_helpers as yt_dlp_h
 
 from PySide6.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QDialog
-from PySide6.QtCore import QEvent, QObject, QCoreApplication, QUrl, QDir, QStandardPaths
+from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths
 
 
 class Window(QMainWindow):
