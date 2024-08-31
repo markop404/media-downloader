@@ -21,7 +21,5 @@ from setuptools import setup, find_packages
 
 setup(
     name="src",
-    version='3.2.0',
-    description="Source code of Media Downloader",
     packages=find_packages(),
 )
