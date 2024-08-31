@@ -37,9 +37,9 @@ def extract_data(urls, on_progress=None, options={}):
         for url in urls:
             try:
                 data += _extract_data(ydl, url)
+                processed_url_count += 1
                 if on_progress:
                     on_progress(processed_url_count, TOTAL_URL_COUNT)
-                processed_url_count += 1
             except yt_dlp.utils.DownloadError as e:
                 print(e)
                 if not check_internet_connection():
@@ -51,9 +51,9 @@ def extract_data(urls, on_progress=None, options={}):
             for url in failed_urls:
                 try:
                     data += _extract_data(ydl, url)
+                    processed_url_count += 1
                     if on_progress:
                         on_progress(processed_url_count, TOTAL_URL_COUNT)
-                    processed_url_count += 1
                     failed_urls.discard(url)
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
