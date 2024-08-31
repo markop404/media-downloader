@@ -58,6 +58,10 @@ class Window(QMainWindow):
         self.popup_window_running = False
         self.user_answer = None
         self.changing_plain_text_edit = False
+        if "__main__" in sys.modules:
+            self.create_new_instance_command = [sys.executable, sys.modules["__main__"].__file__]
+        else:
+            self.create_new_instance_command = None
     
 
     def setup_filedialog(self):
@@ -78,7 +82,8 @@ class Window(QMainWindow):
 
     
     def create_new_instance(self):
-        subprocess.Popen([sys.executable, sys.modules["__main__"].__file__])
+        if self.create_new_instance_command:
+            subprocess.Popen(self.create_new_instance_command)
 
 
     def prep_thread_start(self):
