@@ -20,7 +20,7 @@
     <release version="3.6.0" date="2024-08-31">
       <description>
         <ul>
-          <li>Fixed progress not updating on time during data refresh</li>
+          <li>Fixed progress bar not updating on time during data refresh</li>
           <li>While downloading / refreshing data, the app dynamically disables UI elements that are not supposed to be used during the process</li>
           <li>Minor bugfixes</li>
         </ul>
