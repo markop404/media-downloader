@@ -79,8 +79,12 @@
   <launchable type="desktop-id">com.markopejic.downloader.desktop</launchable>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/markop404/media-downloader/v3.6.0/screenshots/kde-plasma-light.png</image>
-      <caption>Media Downloader's Interface</caption>
+      <image>https://raw.githubusercontent.com/markop404/media-downloader/v3.6.0/screenshots/kde-interface.png</image>
+      <caption>Media Downloader's interface</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/markop404/media-downloader/v3.6.0/screenshots/kde-downloading.png</image>
+      <caption>Media Downloader in action</caption>
     </screenshot>
   </screenshots>
 </component>
