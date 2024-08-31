@@ -150,16 +150,19 @@ class Window(QMainWindow):
     def url_extraction_progress(self, processed_url_count, total_url_count, text):
         if self.cancel_progress:
             raise SystemExit
-        if processed_url_count <= total_url_count:
-            try:
-                percentage = int((processed_url_count / total_url_count) * 100)
-            except:
-                return
-            self.run_in_gui_thread(lambda: self.ui.progressBar.setValue(percentage))
         if processed_url_count + 1 <= total_url_count:
-            text = text.replace("<repetition>", str(processed_url_count + 1))
-            text = text.replace("<repetitions>", str(total_url_count))
-            self.run_in_gui_thread(lambda: self.ui.statusLabel.setText(text))
+            processed_url_count += 1
+
+        text = text.replace("<repetition>", str(processed_url_count))
+        text = text.replace("<repetitions>", str(total_url_count))
+
+        try:
+            percentage = int(((processed_url_count - 1) / total_url_count) * 100)
+        except:
+            return
+
+        self.run_in_gui_thread(lambda: self.ui.statusLabel.setText(text))
+        self.run_in_gui_thread(lambda: self.ui.progressBar.setValue(percentage))
 
 
     def download_progress(self, data, processed_url_count, total_url_count):
