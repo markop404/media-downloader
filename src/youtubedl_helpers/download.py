@@ -92,9 +92,9 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
                 try:
                     ydl.download(failed_urls)
                     failed_urls.remove(url)
+                    processed_url_count += 1
                     if on_url_progress:
                         on_url_progress(url, processed_url_count, TOTAL_URL_COUNT)
-                    processed_url_count += 1
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
                     if not check_internet_connection():
@@ -112,9 +112,9 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
                 try:
                     ydl.download(url)
                     failed_urls.remove(url)
+                    processed_url_count += 1
                     if on_url_progress:
                         on_url_progress(url, processed_url_count, TOTAL_URL_COUNT)
-                    processed_url_count += 1
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
                     if not check_internet_connection():
