@@ -98,6 +98,10 @@ class Window(QMainWindow):
         self.ui.statusLabel.setText(text)
         self.ui.progressBar.setValue(0)
 
+        self.ui.plainTextEdit.setReadOnly(True)
+        self.ui.qualityComboBox.setEnabled(False)
+        self.ui.subtitlesComboBox.setEnabled(False)
+
         return urls
     
 
@@ -105,14 +109,25 @@ class Window(QMainWindow):
         self.thread_running = False
         self.cancel_progress = False
 
-        self.ui.refreshPushButton.setEnabled(True)
-        self.ui.downloadPushButton.setEnabled(True)
+        to_run_in_main_thread = [
+            lambda: self.ui.plainTextEdit.setReadOnly(False),
+            lambda: self.ui.formatComboBox.setEnabled(True),
+            lambda: self.ui.qualityComboBox.setEnabled(True),
+            lambda: self.ui.subtitlesComboBox.setEnabled(True),
+            lambda: self.ui.setDownloadFolderPushButton.setEnabled(True),
+            lambda: self.ui.embedSubtitlesCheckBox.setEnabled(True),
+            lambda: self.ui.cropthumbnailsCheckBox.setEnabled(True),
+            lambda: self.ui.refreshPushButton.setEnabled(True),
+            lambda: self.ui.downloadPushButton.setEnabled(True),
 
-        self.ui.refreshPushButton.setText(Text.BUTTON_TEXT["refresh"]["default"])
-        self.ui.downloadPushButton.setText(Text.BUTTON_TEXT["download"]["default"])
+            lambda: self.ui.refreshPushButton.setText(Text.BUTTON_TEXT["refresh"]["default"]),
+            lambda: self.ui.downloadPushButton.setText(Text.BUTTON_TEXT["download"]["default"]),
+            lambda: self.ui.progressBar.setValue(percentage),
+            lambda: self.ui.statusLabel.setText(message),
+        ]
 
-        self.run_in_gui_thread(lambda: self.ui.progressBar.setValue(percentage))
-        self.run_in_gui_thread(lambda: self.ui.statusLabel.setText(message))
+        for func in to_run_in_main_thread:
+            self.run_in_gui_thread(func)
     
     
     def start_update_info(self):
@@ -138,7 +153,13 @@ class Window(QMainWindow):
         if not self.thread_running:
             urls = self.prep_thread_start()
             self.ui.downloadPushButton.setText(Text.BUTTON_TEXT["download"]["secondary"])
+
             self.ui.refreshPushButton.setEnabled(False)
+            self.ui.formatComboBox.setEnabled(False)
+            self.ui.setDownloadFolderPushButton.setEnabled(False)
+            self.ui.embedSubtitlesCheckBox.setEnabled(False)
+            self.ui.cropthumbnailsCheckBox.setEnabled(False)
+            
             Thread(target=lambda: self.download(urls), daemon=True).start()
 
         else:
