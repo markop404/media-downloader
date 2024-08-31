@@ -2,18 +2,19 @@
 <!-- Copyright 2024 Marko Pejić -->
 <component type="desktop-application">
   <id>com.markopejic.downloader</id>
-  
   <name>Media Downloader</name>
   <summary>Web video/audio downloader</summary>
 
   <content_rating type="oars-1.0" />
-  <url type="homepage">https://downloader.markopejic.com</url>
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
 
   <developer id="com.markopejic">
     <name>Marko Pejić</name>
   </developer>
+  <url type="donation">https://ko-fi.com/markopejic</url>
+
+  <url type="homepage">https://downloader.markopejic.com</url>
   <url type="vcs-browser">https://github.com/markop404/media-downloader</url>
 
   <releases>
@@ -77,6 +78,7 @@
   </description>
   
   <launchable type="desktop-id">com.markopejic.downloader.desktop</launchable>
+  
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/markop404/media-downloader/v3.6.1/screenshots/kde-light-downloading.png</image>
