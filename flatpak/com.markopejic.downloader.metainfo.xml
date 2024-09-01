@@ -12,8 +12,10 @@
   <developer id="com.markopejic">
     <name>Marko Pejić</name>
   </developer>
-  <url type="donation">https://ko-fi.com/markopejic</url>
 
+  <url type="bugtracker">https://github.com/markop404/media-downloader/issues</url>
+  <url type="contact">https://markopejic.com</url>
+  <url type="donation">https://ko-fi.com/markopejic</url>
   <url type="homepage">https://downloader.markopejic.com</url>
   <url type="vcs-browser">https://github.com/markop404/media-downloader</url>
 
@@ -70,6 +72,7 @@
     <ul>
         <li>Download from hundreds of websites</li>
         <li>Download mp3 (audio) or mp4 (video)</li>
+        <li>Download playlists and channel pages</li>
         <li>Download or embed subtitles</li>
         <li>Embed video chapters, thumbnails and metadata</li>
         <li>Crop thumbnails / album arts to square shape (useful when downloading music)</li>
@@ -81,12 +84,7 @@
   
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/markop404/media-downloader/v3.6.1/screenshots/kde-light-downloading.png</image>
-      <caption>Media Downloader in action</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/markop404/media-downloader/v3.6.1/screenshots/kde-light-interface.png</image>
-      <caption>Media Downloader's interface</caption>
+      <image>https://raw.githubusercontent.com/markop404/media-downloader/v3.6.2/screenshots/kde-light-downloading.png</image>
     </screenshot>
   </screenshots>
 </component>
