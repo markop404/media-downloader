@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_windowIlTcBo.ui'
+## Form generated from reading UI file 'about_windowfENZcU.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -26,7 +26,7 @@ class Ui_aboutDialog(object):
         aboutDialog.setMinimumSize(QSize(350, 335))
         aboutDialog.setMaximumSize(QSize(350, 335))
         icon = QIcon()
-        icon.addFile("icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         aboutDialog.setWindowIcon(icon)
         self.verticalLayout = QVBoxLayout(aboutDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -86,6 +86,7 @@ class Ui_aboutDialog(object):
         self.copyrightLabel = QLabel(aboutDialog)
         self.copyrightLabel.setObjectName(u"copyrightLabel")
         self.copyrightLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.copyrightLabel.setOpenExternalLinks(True)
 
         self.verticalLayout.addWidget(self.copyrightLabel)
 
@@ -98,8 +99,9 @@ class Ui_aboutDialog(object):
     def retranslateUi(self, aboutDialog):
         aboutDialog.setWindowTitle(QCoreApplication.translate("aboutDialog", u"About Media Downloader", None))
         self.titleLabel.setText(QCoreApplication.translate("aboutDialog", u"Media Downloader", None))
-        self.versionLabel.setText(QCoreApplication.translate("aboutDialog", u"v3.6.0 &nbsp;|&nbsp; <a href=\"https://downloader.markopejic.com/\" style=\"text-decoration: none;\">Website</a>", None))
+        self.versionLabel.setText(QCoreApplication.translate("aboutDialog", u"v4.0.0 &nbsp;|&nbsp; <a href=\"https://downloader.markopejic.com/\" >Website</a>", None))
         self.descriptionLabel.setText(QCoreApplication.translate("aboutDialog", u"Web video / audio downloader that supports <a href=\"https://downloader.markopejic.com/supported-websites\">hundreds of websites</a>.", None))
         self.licenseLabel.setText(QCoreApplication.translate("aboutDialog", u"This program comes with absolutely no warranty. See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General Public License, version 3 or later</a> for details.", None))
-        self.copyrightLabel.setText(QCoreApplication.translate("aboutDialog", u"Copyright \u00a9 2024 Marko Peji\u0107", None))
+        self.copyrightLabel.setText(QCoreApplication.translate("aboutDialog", u"Copyright \u00a9 2024 <a href=\"https://markopejic.com\">Marko Peji\u0107</a>", None))
     # retranslateUi
+

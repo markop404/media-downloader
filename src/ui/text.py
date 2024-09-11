@@ -25,23 +25,31 @@ class Text:
         "download_cancelled": "Downloading Cancelled.",
         "download_finished": "Downloading Finished.",
         "cancelling_download": "Cancelling Download...",
-        "downloading": "Downloading... (<repetition>/<repetitions>)",
+        "downloading": "Downloading... (<current>/<total>)",
         
-        "extracting_urls": "Analyzing URLs... (<repetition>/<repetitions>)",
+        "extracting_urls": "Analyzing URLs... (<current>/<total>)",
         
         "refresh_failed": "Data Refresh Failed.",
         "refresh_cancelled": "Data Refresh Cancelled.",
         "refresh_finished": "Data Refresh Finished.",
-        "refreshing": "Refreshing Data... (<repetition>/<repetitions>)",
+        "refreshing": "Refreshing Data... (<current>/<total>)",
         "cancelling_refresh": "Cancelling Data Refresh...",
 
-        "converting": "Processing... (<repetition>/<repetitions>)",
+        "converting": "Processing... (<current>/<total>)",
+
+        "tab_name": "<tab_number>",
+        # "tab_downloading": f"{STATUS_MESSAGES['tab_name']} - Downloading <current>/<total>",
+        # "tab_refreshing": f"{STATUS_MESSAGES['tab_name']} - Refreshing <current>/<total>",
+        # "tab_extracting_urls": f"{STATUS_MESSAGES['tab_name']} - Analyzing <current>/<total>",
+    }
+
+    TAB_TITLE_TEXT = {
+        "downloading"
     }
 
     WINDOW_TITLES = {
         "root": APP_NAME,
         "error": f"Error - {APP_NAME}",
-        "about": f"About {APP_NAME}",
     }
 
     BUTTON_TEXT = {
