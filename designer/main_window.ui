@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author>Marko Pejić</author>
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>590</width>
-    <height>665</height>
+    <width>618</width>
+    <height>705</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -27,305 +26,58 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPlainTextEdit" name="plainTextEdit">
-      <property name="placeholderText">
-       <string>Paste URLs here...</string>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>1</number>
       </property>
-     </widget>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer1">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <layout class="QFormLayout" name="downloadOptionsFormLayout">
-      <property name="fieldGrowthPolicy">
-       <enum>QFormLayout::FieldGrowthPolicy::FieldsStayAtSizeHint</enum>
-      </property>
-      <property name="rowWrapPolicy">
-       <enum>QFormLayout::RowWrapPolicy::WrapLongRows</enum>
-      </property>
-      <property name="labelAlignment">
-       <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
-      </property>
-      <property name="formAlignment">
-       <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
-      </property>
-      <item row="0" column="0">
-       <widget class="QLabel" name="formatLabel">
-        <property name="text">
-         <string>Format:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QComboBox" name="formatComboBox">
-        <item>
-         <property name="text">
-          <string>Video</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Audio</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="qualityLabel">
-        <property name="text">
-         <string>Quality:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QComboBox" name="qualityComboBox">
-        <property name="sizeAdjustPolicy">
-         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
-        </property>
-        <property name="placeholderText">
-         <string>Best</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="subtitlesLabel">
-        <property name="text">
-         <string>Subtitles:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QComboBox" name="subtitlesComboBox">
-        <property name="sizeAdjustPolicy">
-         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
-        </property>
-        <property name="placeholderText">
-         <string>None</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="downloadFolderLabel">
-        <property name="toolTip">
-         <string>The folder where everything will be saved.</string>
-        </property>
-        <property name="text">
-         <string>Download Folder:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <layout class="QHBoxLayout" name="downloadFolderHorizontalLayout">
-        <property name="spacing">
-         <number>5</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="downloadFolderIndicatorLabel">
-          <property name="text">
-           <string>None</string>
-          </property>
-          <property name="openExternalLinks">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="setDownloadFolderPushButton">
-          <property name="maximumSize">
-           <size>
-            <width>72</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Change</string>
-          </property>
-          <property name="icon">
-           <iconset theme="QIcon::ThemeIcon::DocumentSaveAs"/>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>18</width>
-            <height>12</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer2">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>15</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item alignment="Qt::AlignmentFlag::AlignHCenter">
-     <widget class="QCheckBox" name="urlremovalCheckBox">
-      <property name="toolTip">
-       <string>Removes each URL from the text entry when it finishes downloading.</string>
-      </property>
-      <property name="text">
-       <string>Remove URLs as they are downloaded</string>
-      </property>
-      <property name="checked">
+      <property name="movable">
        <bool>true</bool>
       </property>
-     </widget>
-    </item>
-    <item alignment="Qt::AlignmentFlag::AlignHCenter">
-     <widget class="QCheckBox" name="cropthumbnailsCheckBox">
-      <property name="toolTip">
-       <string>Makes thumbnails / album arts square. Useful when downloading music.</string>
-      </property>
-      <property name="text">
-       <string>Crop thumbnails / album arts</string>
-      </property>
-     </widget>
-    </item>
-    <item alignment="Qt::AlignmentFlag::AlignHCenter">
-     <widget class="QCheckBox" name="embedSubtitlesCheckBox">
-      <property name="toolTip">
-       <string>Embeds subtitles into downloaded videos.</string>
-      </property>
-      <property name="text">
-       <string>Embed subtitles</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer3">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="actionButtonsHorizontalLayout">
-      <item alignment="Qt::AlignmentFlag::AlignRight">
-       <widget class="QPushButton" name="refreshPushButton">
-        <property name="toolTip">
-         <string>Refreshes the data from the URLs, allowing you to set a custom quality and subtitle language to download.</string>
-        </property>
-        <property name="text">
-         <string>Refresh</string>
-        </property>
-        <property name="icon">
-         <iconset theme="QIcon::ThemeIcon::ViewRefresh"/>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>18</width>
-          <height>12</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item alignment="Qt::AlignmentFlag::AlignLeft">
-       <widget class="QPushButton" name="downloadPushButton">
-        <property name="text">
-         <string>Download</string>
-        </property>
-        <property name="icon">
-         <iconset theme="QIcon::ThemeIcon::GoDown"/>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>18</width>
-          <height>12</height>
-         </size>
-        </property>
-        <property name="default">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer4">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>60</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item alignment="Qt::AlignmentFlag::AlignHCenter">
-     <widget class="QLabel" name="statusLabel">
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QProgressBar" name="progressBar">
-      <property name="value">
-       <number>0</number>
-      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="icon">
+        <iconset theme="QIcon::ThemeIcon::GoDown"/>
+       </attribute>
+       <attribute name="title">
+        <string>Downloading 1/30</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="icon">
+        <iconset theme="QIcon::ThemeIcon::AppointmentNew"/>
+       </attribute>
+       <attribute name="title">
+        <string>Analyzing 3/5</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="icon">
+        <iconset theme="QIcon::ThemeIcon::SystemReboot"/>
+       </attribute>
+       <attribute name="title">
+        <string>Refreshing 5/13</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="icon">
+        <iconset theme="QIcon::ThemeIcon::MediaPlaybackStart"/>
+       </attribute>
+       <attribute name="title">
+        <string>Finished</string>
+       </attribute>
+      </widget>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>590</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>&amp;Menu</string>
-    </property>
-    <addaction name="actionNewWindow"/>
-    <addaction name="actionAbout"/>
-    <addaction name="actionExit"/>
-   </widget>
-   <addaction name="menuFile"/>
-  </widget>
-  <action name="actionExit">
+  <action name="actionNewWindow">
    <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::WindowClose"/>
+    <iconset theme="QIcon::ThemeIcon::WindowNew"/>
    </property>
    <property name="text">
-    <string>&amp;Exit</string>
+    <string>New Window</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
   <action name="actionAbout">
@@ -334,14 +86,6 @@
    </property>
    <property name="text">
     <string>About</string>
-   </property>
-  </action>
-  <action name="actionNewWindow">
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::WindowNew"/>
-   </property>
-   <property name="text">
-    <string>New window</string>
    </property>
   </action>
  </widget>
