@@ -19,7 +19,7 @@
 
 import sys
 from PySide6.QtWidgets import QApplication
-from src import Window
+from src import MainWindow
 
 app = QApplication([])
 app.setStyle("Fusion")
