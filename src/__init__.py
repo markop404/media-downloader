@@ -112,18 +112,16 @@ class MainWindow(QMainWindow):
         text = f"{index} - {ui.Text.TAB_TITLE_TEXT[situation]}{progress_text}"
         self.ui.tabWidget.setTabText(index, text)
 
-        if situation == "downloading":
+        if "fail" in situation or "cancel" in situation:
+            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)))
+        elif "finish" in situation:
+            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)))
+        elif "download" in situation:
             self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)))
-        elif situation == "pulling_data":
+        elif "pull" in situation:
             self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.SystemReboot)))
-        elif situation == "extracting_urls":
+        elif "extract" in situation:
             self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew)))
-        elif situation == "failed":
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)))
-        elif situation == "cancelled":
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)))
-        else:
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)))
 
 
 
@@ -275,10 +273,9 @@ class Tab(QWidget):
     def download_progress(self, data, processed_url_count, total_url_count):
         if self.cancel_progress:
             raise SystemExit
+        percentage = None
     
-        if data["status"] == "downloading":
-            percentage = None            
-            
+        if data["status"] == "downloading":            
             if "downloaded_bytes" in data and "total_bytes" in data:
                 if data["downloaded_bytes"] and data["total_bytes"]:
                     try:
