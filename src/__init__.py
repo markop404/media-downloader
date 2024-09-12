@@ -109,19 +109,26 @@ class MainWindow(QMainWindow):
         else:
             progress_text = ""
 
-        text = f"{index} - {ui.Text.TAB_TITLE_TEXT[situation]}{progress_text}"
+        if situation:
+            text = f"{index + 1} - {ui.Text.TAB_TITLE_TEXT[situation]}{progress_text}"
+        else:
+            text = f"{index + 1}"
         self.ui.tabWidget.setTabText(index, text)
 
-        if "fail" in situation or "cancel" in situation:
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)))
-        elif "finish" in situation:
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)))
-        elif "download" in situation:
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)))
-        elif "pull" in situation:
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.SystemReboot)))
-        elif "extract" in situation:
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew)))
+        icon = QIcon()
+        if situation:
+            if "fail" in situation or "cancel" in situation:
+                icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning))
+            elif "finish" in situation:
+                icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation))
+            elif "download" in situation:
+                icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown))
+            elif "pull" in situation:
+                icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.SystemReboot))
+            elif "extract" in situation:
+                icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew))
+            
+        self.ui.tabWidget.setTabIcon(index, icon)
 
 
 
@@ -168,16 +175,21 @@ class Tab(QWidget):
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
 
 
-    def update_status_indicators(self, situation, progress=None, percentage=None):
+    def update_status_indicators(self, situation=None, progress=None, percentage=None):
         if progress and len(progress) == 2:
             progress_text = f" ({progress[0]}/{progress[1]})"
         else:
             progress_text = ""
+        if situation:
+            text = f"{ui.Text.STATUS_LABEL_TEXT[situation]}{progress_text}"
+        else:
+            text = ""
 
-        self.ui.statusLabel.setText(f"{ui.Text.STATUS_LABEL_TEXT[situation]}{progress_text}")
-        self.tab_update_func(self.tab_number, situation, progress)
-        if percentage:
+        if percentage or percentage == 0:
             self.ui.progressBar.setValue(percentage)
+
+        self.ui.statusLabel.setText(text)
+        self.tab_update_func(self.tab_number, situation, progress)
 
 
     def prep_thread_start(self):
@@ -521,8 +533,7 @@ class Tab(QWidget):
         if not self.changing_plain_text_edit and not self.thread_running:
             utils.update_combobox_items(self.ui.qualityComboBox)
             utils.update_combobox_items(self.ui.subtitlesComboBox)
-            self.ui.statusLabel.setText("")
-            self.ui.progressBar.setValue(0)
+            self.update_status_indicators(percentage=0)
             self.subtitles = {}
             self.qualities = {"video": {}, "audio": []}
 
