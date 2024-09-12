@@ -20,31 +20,44 @@
 class Text:
     APP_NAME = "Media Downloader"
 
-    STATUS_MESSAGES = {
+    STATUS_LABEL_TEXT = {
         "download_failed": "Downloading Failed.",
         "download_cancelled": "Downloading Cancelled.",
         "download_finished": "Downloading Finished.",
         "cancelling_download": "Cancelling Download...",
-        "downloading": "Downloading... (<current>/<total>)",
+        "downloading": "Downloading...",
         
-        "extracting_urls": "Analyzing URLs... (<current>/<total>)",
+        "extracting_urls": "Analyzing URLs...",
         
-        "refresh_failed": "Data Refresh Failed.",
-        "refresh_cancelled": "Data Refresh Cancelled.",
-        "refresh_finished": "Data Refresh Finished.",
-        "refreshing": "Refreshing Data... (<current>/<total>)",
-        "cancelling_refresh": "Cancelling Data Refresh...",
+        "data_pull_failed": "Data Pull Failed.",
+        "data_pull_cancelled": "Data Pull Cancelled.",
+        "data_pull_finished": "Data Pull Finished.",
+        "pulling_data": "Pulling Data...",
+        "cancelling_data_pull": "Cancelling Data Pull...",
 
-        "converting": "Processing... (<current>/<total>)",
+        "converting": "Processing...",
 
-        "tab_name": "<tab_number>",
-        # "tab_downloading": f"{STATUS_MESSAGES['tab_name']} - Downloading <current>/<total>",
-        # "tab_refreshing": f"{STATUS_MESSAGES['tab_name']} - Refreshing <current>/<total>",
-        # "tab_extracting_urls": f"{STATUS_MESSAGES['tab_name']} - Analyzing <current>/<total>",
+        "no_internet": "No internet connection.",
     }
 
     TAB_TITLE_TEXT = {
-        "downloading"
+        "download_failed": "Failed",
+        "download_cancelled": "Cancelled",
+        "download_finished": "Finished",
+        "cancelling_download": "Cancelling",
+        "downloading": "Downloading",
+        
+        "extracting_urls": "Analyzing",
+        
+        "data_pull_failed": "Failed",
+        "data_pull_cancelled": "Cancelled",
+        "data_pull_finished": "Finished",
+        "pulling_data": "Pulling Data",
+        "cancelling_data_pull": "Cancelling",
+
+        "converting": "Processing",
+
+        "no_internet": "Failed",
     }
 
     WINDOW_TITLES = {
@@ -54,7 +67,7 @@ class Text:
 
     BUTTON_TEXT = {
         "download": {"default": "Download", "secondary": "Cancel Download"},
-        "refresh": {"default": "Refresh", "secondary": "Cancel Refresh"},
+        "refresh": {"default": "Pull Data", "secondary": "Cancel Data Pull"},
     }
 
     FORMATS = {
