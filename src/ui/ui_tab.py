@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabLeXhCA.ui'
+## Form generated from reading UI file 'tabsmrSeh.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -187,9 +187,6 @@ class Ui_Tab(object):
         self.qualityComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"Best", None))
         self.subtitlesLabel.setText(QCoreApplication.translate("Tab", u"Subtitles:", None))
         self.subtitlesComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"None", None))
-#if QT_CONFIG(tooltip)
-        self.downloadFolderLabel.setToolTip(QCoreApplication.translate("Tab", u"The folder where everything will be saved.", None))
-#endif // QT_CONFIG(tooltip)
         self.downloadFolderLabel.setText(QCoreApplication.translate("Tab", u"Download Folder:", None))
         self.downloadFolderIndicatorLabel.setText(QCoreApplication.translate("Tab", u"None", None))
         self.setDownloadFolderPushButton.setText(QCoreApplication.translate("Tab", u"Change", None))
