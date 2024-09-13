@@ -1,3 +1,4 @@
+
 # Media Downloader - Web video/audio downloader
 # Copyright (C) 2024  Marko Pejić
 
@@ -26,7 +27,7 @@ from . import ui, utils, ytdlp_helpers
 
 from PySide6.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QDialog, QWidget, QPushButton, QVBoxLayout, QMenu
 from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize
-from PySide6.QtGui import QIcon
+from PySide6.QtGui import QIcon, QDesktopServices
 
 
 class MainWindow(QMainWindow):
@@ -109,26 +110,19 @@ class MainWindow(QMainWindow):
         else:
             progress_text = ""
 
-        if situation:
-            text = f"{index + 1} - {ui.Text.TAB_TITLE_TEXT[situation]}{progress_text}"
-        else:
-            text = f"{index + 1}"
+        text = f"{index} - {ui.Text.TAB_TITLE_TEXT[situation]}{progress_text}"
         self.ui.tabWidget.setTabText(index, text)
 
-        icon = QIcon()
-        if situation:
-            if "fail" in situation or "cancel" in situation:
-                icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning))
-            elif "finish" in situation:
-                icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation))
-            elif "download" in situation:
-                icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown))
-            elif "pull" in situation:
-                icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.SystemReboot))
-            elif "extract" in situation:
-                icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew))
-            
-        self.ui.tabWidget.setTabIcon(index, icon)
+        if "fail" in situation or "cancel" in situation:
+            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)))
+        elif "finish" in situation:
+            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)))
+        elif "download" in situation:
+            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)))
+        elif "pull" in situation:
+            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.SystemReboot)))
+        elif "extract" in situation:
+            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew)))
 
 
 
@@ -175,21 +169,16 @@ class Tab(QWidget):
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
 
 
-    def update_status_indicators(self, situation=None, progress=None, percentage=None):
+    def update_status_indicators(self, situation, progress=None, percentage=None):
         if progress and len(progress) == 2:
             progress_text = f" ({progress[0]}/{progress[1]})"
         else:
             progress_text = ""
-        if situation:
-            text = f"{ui.Text.STATUS_LABEL_TEXT[situation]}{progress_text}"
-        else:
-            text = ""
 
-        if percentage or percentage == 0:
-            self.ui.progressBar.setValue(percentage)
-
-        self.ui.statusLabel.setText(text)
+        self.ui.statusLabel.setText(f"{ui.Text.STATUS_LABEL_TEXT[situation]}{progress_text}")
         self.tab_update_func(self.tab_number, situation, progress)
+        if percentage:
+            self.ui.progressBar.setValue(percentage)
 
 
     def prep_thread_start(self):
@@ -533,7 +522,8 @@ class Tab(QWidget):
         if not self.changing_plain_text_edit and not self.thread_running:
             utils.update_combobox_items(self.ui.qualityComboBox)
             utils.update_combobox_items(self.ui.subtitlesComboBox)
-            self.update_status_indicators(percentage=0)
+            self.ui.statusLabel.setText("")
+            self.ui.progressBar.setValue(0)
             self.subtitles = {}
             self.qualities = {"video": {}, "audio": []}
 
@@ -576,5 +566,14 @@ class Tab(QWidget):
 class AboutWindow(QDialog):
     def __init__(self, parent):
         super().__init__(parent)
-        self.ui = ui.Ui_aboutDialog()
+        self.ui = ui.Ui_AboutDialog()
         self.ui.setupUi(self)
+        self.connect_signals_and_slots()
+    
+
+    def connect_signals_and_slots(self):
+        self.ui.closeDialogButton.clicked.connect(self.close)
+        self.ui.donateButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/donate"))
+        self.ui.websiteButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/"))
+        self.ui.supportedWebsitesButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/supported-websites"))
+        self.ui.whatsNewButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/whats-new"))
