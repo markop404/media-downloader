@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonsFIUyUW.ui'
+## Form generated from reading UI file 'tab_buttonsJvpZXf.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -22,12 +22,14 @@ class Ui_TabButtons(object):
     def setupUi(self, TabButtons):
         if not TabButtons.objectName():
             TabButtons.setObjectName(u"TabButtons")
+        TabButtons.resize(102, 35)
         self.horizontalLayout = QHBoxLayout(TabButtons)
         self.horizontalLayout.setSpacing(8)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(-1, 0, 0, 0)
         self.newTabPushButton = QPushButton(TabButtons)
         self.newTabPushButton.setObjectName(u"newTabPushButton")
+        self.newTabPushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ContactNew))
         self.newTabPushButton.setIcon(icon)
 
@@ -35,6 +37,7 @@ class Ui_TabButtons(object):
 
         self.menuPushButton = QPushButton(TabButtons)
         self.menuPushButton.setObjectName(u"menuPushButton")
+        self.menuPushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.FormatJustifyFill))
         self.menuPushButton.setIcon(icon1)
 

@@ -33,7 +33,7 @@ class Ui_AboutDialog(object):
         self.appIconLabel = QLabel(AboutDialog)
         self.appIconLabel.setObjectName(u"appIconLabel")
         self.appIconLabel.setMaximumSize(QSize(65, 65))
-        self.appIconLabel.setPixmap(QPixmap(u"../80c1a87e/icon.png"))
+        self.appIconLabel.setPixmap(QPixmap(u"icons/icon.png"))
         self.appIconLabel.setScaledContents(True)
         self.appIconLabel.setMargin(2)
         self.appIconLabel.setIndent(0)

@@ -57,6 +57,9 @@
      </item>
      <item row="0" column="1">
       <widget class="QComboBox" name="formatComboBox">
+       <property name="focusPolicy">
+        <enum>Qt::FocusPolicy::NoFocus</enum>
+       </property>
        <item>
         <property name="text">
          <string>Video</string>
@@ -78,6 +81,9 @@
      </item>
      <item row="1" column="1">
       <widget class="QComboBox" name="qualityComboBox">
+       <property name="focusPolicy">
+        <enum>Qt::FocusPolicy::NoFocus</enum>
+       </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
        </property>
@@ -95,6 +101,9 @@
      </item>
      <item row="2" column="1">
       <widget class="QComboBox" name="subtitlesComboBox">
+       <property name="focusPolicy">
+        <enum>Qt::FocusPolicy::NoFocus</enum>
+       </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
        </property>
@@ -105,9 +114,6 @@
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="downloadFolderLabel">
-       <property name="toolTip">
-        <string>The folder where everything will be saved.</string>
-       </property>
        <property name="text">
         <string>Download Folder:</string>
        </property>
@@ -135,6 +141,9 @@
            <width>72</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::FocusPolicy::NoFocus</enum>
          </property>
          <property name="text">
           <string>Change</string>
@@ -169,6 +178,9 @@
    </item>
    <item alignment="Qt::AlignmentFlag::AlignHCenter">
     <widget class="QCheckBox" name="cropthumbnailsCheckBox">
+     <property name="focusPolicy">
+      <enum>Qt::FocusPolicy::NoFocus</enum>
+     </property>
      <property name="toolTip">
       <string>Useful when downloading music.</string>
      </property>
@@ -179,6 +191,9 @@
    </item>
    <item alignment="Qt::AlignmentFlag::AlignHCenter">
     <widget class="QCheckBox" name="urlremovalCheckBox">
+     <property name="focusPolicy">
+      <enum>Qt::FocusPolicy::NoFocus</enum>
+     </property>
      <property name="toolTip">
       <string>Removes each URL from the text entry when it finishes downloading.</string>
      </property>
@@ -192,6 +207,9 @@
    </item>
    <item alignment="Qt::AlignmentFlag::AlignHCenter">
     <widget class="QCheckBox" name="embedSubtitlesCheckBox">
+     <property name="focusPolicy">
+      <enum>Qt::FocusPolicy::NoFocus</enum>
+     </property>
      <property name="toolTip">
       <string>Embeds subtitles into downloaded videos.</string>
      </property>
@@ -218,8 +236,24 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="actionButtonsHorizontalLayout">
-     <item alignment="Qt::AlignmentFlag::AlignRight">
+     <item>
+      <spacer name="horizontalSpacer4">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item alignment="Qt::AlignmentFlag::AlignHCenter">
       <widget class="QPushButton" name="refreshPushButton">
+       <property name="focusPolicy">
+        <enum>Qt::FocusPolicy::NoFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.</string>
        </property>
@@ -235,10 +269,16 @@
          <height>12</height>
         </size>
        </property>
+       <property name="shortcut">
+        <string>Ctrl+Shift+P</string>
+       </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="Qt::AlignmentFlag::AlignHCenter">
       <widget class="QPushButton" name="downloadPushButton">
+       <property name="focusPolicy">
+        <enum>Qt::FocusPolicy::NoFocus</enum>
+       </property>
        <property name="text">
         <string>Download</string>
        </property>
@@ -251,12 +291,28 @@
          <height>12</height>
         </size>
        </property>
+       <property name="shortcut">
+        <string>Ctrl+Shift+D</string>
+       </property>
       </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer5">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>
    <item>
-    <spacer name="horizontalSpacer4">
+    <spacer name="horizontalSpacer6">
      <property name="orientation">
       <enum>Qt::Orientation::Horizontal</enum>
      </property>
@@ -269,19 +325,54 @@
     </spacer>
    </item>
    <item>
-    <widget class="QLabel" name="statusLabel">
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignmentFlag::AlignCenter</set>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="statusIndicatorsLayout">
+     <item>
+      <spacer name="horizontalSpacer7">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="statusIconLabel">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="statusLabel">
+       <property name="font">
+        <font>
+         <family>Cantarell</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer8">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QProgressBar" name="progressBar">

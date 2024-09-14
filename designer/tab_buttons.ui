@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>TabButtons</class>
  <widget class="QWidget" name="TabButtons">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>102</width>
+    <height>35</height>
+   </rect>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
     <number>8</number>
@@ -17,11 +25,8 @@
    </property>
    <item alignment="Qt::AlignmentFlag::AlignTop">
     <widget class="QPushButton" name="newTabPushButton">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>35</height>
-      </size>
+     <property name="focusPolicy">
+      <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="toolTip">
       <string>New Tab (Ctrl+T)</string>
@@ -39,11 +44,8 @@
    </item>
    <item alignment="Qt::AlignmentFlag::AlignTop">
     <widget class="QPushButton" name="menuPushButton">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>35</height>
-      </size>
+     <property name="focusPolicy">
+      <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="text">
       <string/>

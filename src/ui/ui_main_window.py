@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowXXVliB.ui'
+## Form generated from reading UI file 'main_windowFqGLnm.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(590, 670)
+        MainWindow.resize(648, 705)
         MainWindow.setMinimumSize(QSize(400, 550))
         icon = QIcon()
         icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -36,17 +36,13 @@ class Ui_MainWindow(object):
         self.actionAbout.setObjectName(u"actionAbout")
         icon2 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.HelpAbout))
         self.actionAbout.setIcon(icon2)
-        self.actionQuit = QAction(MainWindow)
-        self.actionQuit.setObjectName(u"actionQuit")
-        icon3 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.WindowClose))
-        self.actionQuit.setIcon(icon3)
-        self.actionQuit.setMenuRole(QAction.MenuRole.NoRole)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.tabWidget = QTabWidget(self.centralwidget)
         self.tabWidget.setObjectName(u"tabWidget")
+        self.tabWidget.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.tabWidget.setMovable(True)
 
         self.verticalLayout.addWidget(self.tabWidget)
@@ -54,6 +50,9 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
+
+        self.tabWidget.setCurrentIndex(-1)
+
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
@@ -65,9 +64,5 @@ class Ui_MainWindow(object):
         self.actionNewWindow.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+N", None))
 #endif // QT_CONFIG(shortcut)
         self.actionAbout.setText(QCoreApplication.translate("MainWindow", u"About", None))
-        self.actionQuit.setText(QCoreApplication.translate("MainWindow", u"Quit", None))
-#if QT_CONFIG(shortcut)
-        self.actionQuit.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+Q", None))
-#endif // QT_CONFIG(shortcut)
     # retranslateUi
 

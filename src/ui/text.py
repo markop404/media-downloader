@@ -1,3 +1,4 @@
+
 # Media Downloader - Web video/audio downloader
 # Copyright (C) 2024  Marko Pejić
 
@@ -26,13 +27,17 @@ class Text:
         "download_finished": "Downloading Finished.",
         "cancelling_download": "Cancelling Download...",
         "downloading": "Downloading...",
+        
         "extracting_urls": "Analyzing URLs...",
+        
         "data_pull_failed": "Data Pull Failed.",
         "data_pull_cancelled": "Data Pull Cancelled.",
         "data_pull_finished": "Data Pull Finished.",
         "pulling_data": "Pulling Data...",
         "cancelling_data_pull": "Cancelling Data Pull...",
+
         "converting": "Processing...",
+
         "no_internet": "No internet connection.",
     }
 
@@ -42,19 +47,22 @@ class Text:
         "download_finished": "Finished",
         "cancelling_download": "Cancelling",
         "downloading": "Downloading",
+        
         "extracting_urls": "Analyzing",
+        
         "data_pull_failed": "Failed",
         "data_pull_cancelled": "Cancelled",
         "data_pull_finished": "Finished",
         "pulling_data": "Pulling Data",
         "cancelling_data_pull": "Cancelling",
+
         "converting": "Processing",
+
         "no_internet": "Failed",
     }
 
     WINDOW_TITLES = {
-        "root": APP_NAME,
-        "error": f"Error - {APP_NAME}",
+        "error": f"Error - Tab <pretty_tab_number> | {APP_NAME}",
     }
 
     BUTTON_TEXT = {

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>618</width>
+    <width>648</width>
     <height>705</height>
    </rect>
   </property>
@@ -27,44 +27,15 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTabWidget" name="tabWidget">
+      <property name="focusPolicy">
+       <enum>Qt::FocusPolicy::NoFocus</enum>
+      </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>-1</number>
       </property>
       <property name="movable">
        <bool>true</bool>
       </property>
-      <widget class="QWidget" name="tab">
-       <attribute name="icon">
-        <iconset theme="QIcon::ThemeIcon::GoDown"/>
-       </attribute>
-       <attribute name="title">
-        <string>Downloading 1/30</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="tab_2">
-       <attribute name="icon">
-        <iconset theme="QIcon::ThemeIcon::AppointmentNew"/>
-       </attribute>
-       <attribute name="title">
-        <string>Analyzing 3/5</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="tab_3">
-       <attribute name="icon">
-        <iconset theme="QIcon::ThemeIcon::SystemReboot"/>
-       </attribute>
-       <attribute name="title">
-        <string>Refreshing 5/13</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="tab_4">
-       <attribute name="icon">
-        <iconset theme="QIcon::ThemeIcon::MediaPlaybackStart"/>
-       </attribute>
-       <attribute name="title">
-        <string>Finished</string>
-       </attribute>
-      </widget>
      </widget>
     </item>
    </layout>

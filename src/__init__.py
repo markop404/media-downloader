@@ -27,7 +27,7 @@ from . import ui, utils, ytdlp_helpers
 
 from PySide6.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QDialog, QWidget, QPushButton, QVBoxLayout, QMenu
 from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize
-from PySide6.QtGui import QIcon, QDesktopServices
+from PySide6.QtGui import QIcon, QDesktopServices, QPixmap
 
 
 class MainWindow(QMainWindow):
@@ -65,7 +65,6 @@ class MainWindow(QMainWindow):
     def connect_signals_and_slots(self):
         self.ui.actionAbout.triggered.connect(self.about_window.exec)
         self.ui.actionNewWindow.triggered.connect(self.create_new_instance)
-        self.ui.actionQuit.triggered.connect(self.close)
         self.tab_buttons.newTabPushButton.clicked.connect(self.create_new_tab)
 
 
@@ -76,10 +75,11 @@ class MainWindow(QMainWindow):
 
     def create_new_tab(self):
         self.highest_tab_number += 1
-        tab_object = Tab(self.update_tab, self.highest_tab_number - 1)
+        tab_object = Tab(self.update_tab, self.ui.tabWidget.indexOf, self.highest_tab_number)
 
         tab_index = self.ui.tabWidget.addTab(tab_object, str(self.highest_tab_number))
         self.ui.tabWidget.setCurrentIndex(tab_index)
+        self.ui.tabWidget.setCurrentWidget(tab_object.ui.plainTextEdit)
 
         if self.ui.tabWidget.count() > 1:
             self.ui.tabWidget.setTabsClosable(True)
@@ -95,42 +95,46 @@ class MainWindow(QMainWindow):
 
         if self.ui.tabWidget.count() <= 1:
             self.ui.tabWidget.setTabsClosable(False)
-    
+
 
     def delete_tab_ui(self, tab_object):
         tab_object.cancel_progress = True
         while tab_object.thread_running:
-            sleep(0.01)
+            sleep(0.001)
         tab_object.deleteLater()
     
 
-    def update_tab(self, index, situation=None, progress=None):
-        if progress and len(progress) == 2:
-            progress_text = f" {progress[0]}/{progress[1]}"
+    def update_tab(self, index, pretty_tab_number, situation=None, progress=None):
+        if situation:
+            if progress and len(progress) == 2:
+                progress_text = f" {progress[0]}/{progress[1]}"
+            else:
+                progress_text = ""
+
+            text = f"{pretty_tab_number} - {ui.Text.TAB_TITLE_TEXT[situation]}{progress_text}"
+            self.ui.tabWidget.setTabText(index, text)
+
+            if "fail" in situation or "cancel" in situation:
+                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)))
+            elif "finish" in situation:
+                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)))
+            elif "download" in situation:
+                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)))
+            elif "pull" in situation:
+                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.SystemReboot)))
+            elif "extract" in situation:
+                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew)))
         else:
-            progress_text = ""
-
-        text = f"{index} - {ui.Text.TAB_TITLE_TEXT[situation]}{progress_text}"
-        self.ui.tabWidget.setTabText(index, text)
-
-        if "fail" in situation or "cancel" in situation:
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)))
-        elif "finish" in situation:
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)))
-        elif "download" in situation:
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)))
-        elif "pull" in situation:
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.SystemReboot)))
-        elif "extract" in situation:
-            self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew)))
+            self.ui.tabWidget.setTabText(index, str(pretty_tab_number))
+            self.ui.tabWidget.setTabIcon(index, QIcon())
 
 
 
 class Tab(QWidget):
-    def __init__(self, tab_update_func, tab_number):
+    def __init__(self, tab_update_func, index_of_func, pretty_tab_number):
         super().__init__()
         self.setup_ui()
-        self.setup_vars(tab_update_func, tab_number)
+        self.setup_vars(tab_update_func, index_of_func, pretty_tab_number)
         self.setup_filedialog()
         self.show_new_download_folder()
         self.event_invoker = utils.Invoker()
@@ -142,9 +146,10 @@ class Tab(QWidget):
         self.ui.setupUi(self)
 
 
-    def setup_vars(self, tab_update_func, tab_number):
-        self.tab_update_func = tab_update_func
-        self.tab_number = tab_number
+    def setup_vars(self, tab_update_func, index_of_func, pretty_tab_number):
+        self.update_tab = tab_update_func
+        self.pretty_tab_number = pretty_tab_number
+        self.index_of = index_of_func
         self.download_location = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
         self.thread_running = False
         self.cancel_progress = False
@@ -169,16 +174,33 @@ class Tab(QWidget):
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
 
 
-    def update_status_indicators(self, situation, progress=None, percentage=None):
-        if progress and len(progress) == 2:
-            progress_text = f" ({progress[0]}/{progress[1]})"
-        else:
-            progress_text = ""
+    def update_status_indicators(self, situation=None, progress=None, percentage=None):
+        if situation:
+            if progress and len(progress) == 2:
+                progress_text = f" ({progress[0]}/{progress[1]})"
+            else:
+                progress_text = ""
 
-        self.ui.statusLabel.setText(f"{ui.Text.STATUS_LABEL_TEXT[situation]}{progress_text}")
-        self.tab_update_func(self.tab_number, situation, progress)
-        if percentage:
-            self.ui.progressBar.setValue(percentage)
+            self.ui.statusLabel.setText(f"{ui.Text.STATUS_LABEL_TEXT[situation]}{progress_text}")
+            if percentage:
+                self.ui.progressBar.setValue(percentage)
+            self.update_tab(self.index_of(self), self.pretty_tab_number, situation, progress)
+
+            if "fail" in situation or "cancel" in situation:
+                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)).pixmap(QSize(32, 32)))
+            elif "finish" in situation:
+                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)).pixmap(QSize(32, 32)))
+            elif "download" in situation:
+                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)).pixmap(QSize(32, 32)))
+            elif "pull" in situation:
+                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.SystemReboot)).pixmap(QSize(32, 32)))
+            elif "extract" in situation:
+                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew)).pixmap(QSize(32, 32)))
+        else:
+            self.ui.statusLabel.setText(str())
+            self.ui.progressBar.setValue(0)
+            self.update_tab(self.index_of(self), self.pretty_tab_number)
+            self.ui.statusIconLabel.setPixmap(QPixmap())
 
 
     def prep_thread_start(self):
@@ -466,7 +488,7 @@ class Tab(QWidget):
     def display_invalid_url_warning(self, text):
         answer = QMessageBox.warning(
             self,
-            ui.Text.WINDOW_TITLES["error"],
+            ui.Text.WINDOW_TITLES["error"].replace("<pretty_tab_number>", str(self.pretty_tab_number)),
             text,
             buttons=QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
             defaultButton=QMessageBox.StandardButton.Yes,
@@ -522,8 +544,7 @@ class Tab(QWidget):
         if not self.changing_plain_text_edit and not self.thread_running:
             utils.update_combobox_items(self.ui.qualityComboBox)
             utils.update_combobox_items(self.ui.subtitlesComboBox)
-            self.ui.statusLabel.setText("")
-            self.ui.progressBar.setValue(0)
+            self.update_status_indicators()
             self.subtitles = {}
             self.qualities = {"video": {}, "audio": []}
 
