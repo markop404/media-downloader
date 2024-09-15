@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabZrkrUr.ui'
+## Form generated from reading UI file 'tabpiURtR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -24,7 +24,7 @@ class Ui_Tab(object):
     def setupUi(self, Tab):
         if not Tab.objectName():
             Tab.setObjectName(u"Tab")
-        Tab.resize(609, 738)
+        Tab.resize(636, 682)
         self.verticalLayout = QVBoxLayout(Tab)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.plainTextEdit = QPlainTextEdit(Tab)
@@ -85,7 +85,6 @@ class Ui_Tab(object):
         self.downloadOptionsFormLayout.setWidget(3, QFormLayout.LabelRole, self.downloadFolderLabel)
 
         self.downloadFolderHorizontalLayout = QHBoxLayout()
-        self.downloadFolderHorizontalLayout.setSpacing(5)
         self.downloadFolderHorizontalLayout.setObjectName(u"downloadFolderHorizontalLayout")
         self.downloadFolderIndicatorLabel = QLabel(Tab)
         self.downloadFolderIndicatorLabel.setObjectName(u"downloadFolderIndicatorLabel")
@@ -212,7 +211,6 @@ class Ui_Tab(object):
     # setupUi
 
     def retranslateUi(self, Tab):
-        Tab.setWindowTitle(QCoreApplication.translate("Tab", u"Form", None))
         self.plainTextEdit.setPlaceholderText(QCoreApplication.translate("Tab", u"Paste URLs here...", None))
         self.formatLabel.setText(QCoreApplication.translate("Tab", u"Format:", None))
         self.formatComboBox.setItemText(0, QCoreApplication.translate("Tab", u"Video", None))
@@ -224,31 +222,25 @@ class Ui_Tab(object):
         self.subtitlesComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"None", None))
         self.downloadFolderLabel.setText(QCoreApplication.translate("Tab", u"Download Folder:", None))
         self.downloadFolderIndicatorLabel.setText(QCoreApplication.translate("Tab", u"None", None))
-        self.setDownloadFolderPushButton.setText(QCoreApplication.translate("Tab", u"Change", None))
+        self.setDownloadFolderPushButton.setText(QCoreApplication.translate("Tab", u"&Change", None))
 #if QT_CONFIG(tooltip)
         self.cropthumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music.", None))
 #endif // QT_CONFIG(tooltip)
-        self.cropthumbnailsCheckBox.setText(QCoreApplication.translate("Tab", u"Crop thumbnails / album arts to square shape", None))
+        self.cropthumbnailsCheckBox.setText(QCoreApplication.translate("Tab", u"Crop &thumbnails / album arts to square shape", None))
 #if QT_CONFIG(tooltip)
         self.urlremovalCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Removes each URL from the text entry when it finishes downloading.", None))
 #endif // QT_CONFIG(tooltip)
-        self.urlremovalCheckBox.setText(QCoreApplication.translate("Tab", u"Remove URLs as they are downloaded", None))
+        self.urlremovalCheckBox.setText(QCoreApplication.translate("Tab", u"&Remove URLs as they are downloaded", None))
 #if QT_CONFIG(tooltip)
         self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Embeds subtitles into downloaded videos.", None))
 #endif // QT_CONFIG(tooltip)
-        self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"Embed subtitles", None))
+        self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"&Embed subtitles", None))
 #if QT_CONFIG(tooltip)
         self.refreshPushButton.setToolTip(QCoreApplication.translate("Tab", u"Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.", None))
 #endif // QT_CONFIG(tooltip)
-        self.refreshPushButton.setText(QCoreApplication.translate("Tab", u"Pull Data", None))
-#if QT_CONFIG(shortcut)
-        self.refreshPushButton.setShortcut(QCoreApplication.translate("Tab", u"Ctrl+Shift+P", None))
-#endif // QT_CONFIG(shortcut)
-        self.downloadPushButton.setText(QCoreApplication.translate("Tab", u"Download", None))
-#if QT_CONFIG(shortcut)
-        self.downloadPushButton.setShortcut(QCoreApplication.translate("Tab", u"Ctrl+Shift+D", None))
-#endif // QT_CONFIG(shortcut)
+        self.refreshPushButton.setText(QCoreApplication.translate("Tab", u"&Pull Data", None))
+        self.downloadPushButton.setText(QCoreApplication.translate("Tab", u"&Download", None))
         self.statusIconLabel.setText("")
         self.statusLabel.setText("")
+        pass
     # retranslateUi
-

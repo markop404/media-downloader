@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonsJvpZXf.ui'
+## Form generated from reading UI file 'tab_buttonsUrWhDI.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -30,7 +30,7 @@ class Ui_TabButtons(object):
         self.newTabPushButton = QPushButton(TabButtons)
         self.newTabPushButton.setObjectName(u"newTabPushButton")
         self.newTabPushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ContactNew))
+        icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ListAdd))
         self.newTabPushButton.setIcon(icon)
 
         self.horizontalLayout.addWidget(self.newTabPushButton, 0, Qt.AlignmentFlag.AlignTop)

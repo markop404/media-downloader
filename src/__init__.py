@@ -115,13 +115,13 @@ class MainWindow(QMainWindow):
             self.ui.tabWidget.setTabText(index, text)
 
             if "fail" in situation or "cancel" in situation:
-                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)))
+                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogError)))
             elif "finish" in situation:
                 self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)))
             elif "download" in situation:
                 self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)))
             elif "pull" in situation:
-                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.SystemReboot)))
+                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)))
             elif "extract" in situation:
                 self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew)))
         else:
@@ -187,13 +187,13 @@ class Tab(QWidget):
             self.update_tab(self.index_of(self), self.pretty_tab_number, situation, progress)
 
             if "fail" in situation or "cancel" in situation:
-                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)).pixmap(QSize(32, 32)))
+                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogError)).pixmap(QSize(32, 32)))
             elif "finish" in situation:
                 self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)).pixmap(QSize(32, 32)))
             elif "download" in situation:
                 self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)).pixmap(QSize(32, 32)))
             elif "pull" in situation:
-                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.SystemReboot)).pixmap(QSize(32, 32)))
+                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)).pixmap(QSize(32, 32)))
             elif "extract" in situation:
                 self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew)).pixmap(QSize(32, 32)))
         else:

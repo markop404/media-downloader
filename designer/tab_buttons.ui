@@ -32,7 +32,7 @@
       <string>New Tab (Ctrl+T)</string>
      </property>
      <property name="icon">
-      <iconset theme="QIcon::ThemeIcon::ContactNew"/>
+      <iconset theme="QIcon::ThemeIcon::ListAdd"/>
      </property>
      <property name="shortcut">
       <string>Ctrl+T</string>

@@ -66,8 +66,8 @@ class Text:
     }
 
     BUTTON_TEXT = {
-        "download": {"default": "Download", "secondary": "Cancel Download"},
-        "refresh": {"default": "Pull Data", "secondary": "Cancel Data Pull"},
+        "download": {"default": "&Download", "secondary": "Cancel &Download"},
+        "refresh": {"default": "&Pull Data", "secondary": "Cancel Data &Pull"},
     }
 
     FORMATS = {

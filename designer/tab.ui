@@ -6,12 +6,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>609</width>
-    <height>738</height>
+    <width>636</width>
+    <height>682</height>
    </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -121,9 +118,6 @@
      </item>
      <item row="3" column="1">
       <layout class="QHBoxLayout" name="downloadFolderHorizontalLayout">
-       <property name="spacing">
-        <number>5</number>
-       </property>
        <item>
         <widget class="QLabel" name="downloadFolderIndicatorLabel">
          <property name="text">
@@ -146,7 +140,7 @@
           <enum>Qt::FocusPolicy::NoFocus</enum>
          </property>
          <property name="text">
-          <string>Change</string>
+          <string>&amp;Change</string>
          </property>
          <property name="icon">
           <iconset theme="QIcon::ThemeIcon::DocumentSaveAs"/>
@@ -185,7 +179,7 @@
       <string>Useful when downloading music.</string>
      </property>
      <property name="text">
-      <string>Crop thumbnails / album arts to square shape</string>
+      <string>Crop &amp;thumbnails / album arts to square shape</string>
      </property>
     </widget>
    </item>
@@ -198,7 +192,7 @@
       <string>Removes each URL from the text entry when it finishes downloading.</string>
      </property>
      <property name="text">
-      <string>Remove URLs as they are downloaded</string>
+      <string>&amp;Remove URLs as they are downloaded</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -214,7 +208,7 @@
       <string>Embeds subtitles into downloaded videos.</string>
      </property>
      <property name="text">
-      <string>Embed subtitles</string>
+      <string>&amp;Embed subtitles</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -258,7 +252,7 @@
         <string>Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.</string>
        </property>
        <property name="text">
-        <string>Pull Data</string>
+        <string>&amp;Pull Data</string>
        </property>
        <property name="icon">
         <iconset theme="QIcon::ThemeIcon::ViewRefresh"/>
@@ -269,9 +263,6 @@
          <height>12</height>
         </size>
        </property>
-       <property name="shortcut">
-        <string>Ctrl+Shift+P</string>
-       </property>
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
@@ -280,7 +271,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="text">
-        <string>Download</string>
+        <string>&amp;Download</string>
        </property>
        <property name="icon">
         <iconset theme="QIcon::ThemeIcon::GoDown"/>
@@ -290,9 +281,6 @@
          <width>18</width>
          <height>12</height>
         </size>
-       </property>
-       <property name="shortcut">
-        <string>Ctrl+Shift+D</string>
        </property>
       </widget>
      </item>
