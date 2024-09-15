@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowPUGeVV.ui'
+## Form generated from reading UI file 'main_windowtxxpou.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -36,6 +36,11 @@ class Ui_MainWindow(object):
         self.actionAbout.setObjectName(u"actionAbout")
         icon2 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.HelpAbout))
         self.actionAbout.setIcon(icon2)
+        self.actionCloseTab = QAction(MainWindow)
+        self.actionCloseTab.setObjectName(u"actionCloseTab")
+        icon3 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.WindowClose))
+        self.actionCloseTab.setIcon(icon3)
+        self.actionCloseTab.setMenuRole(QAction.MenuRole.NoRole)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -61,5 +66,9 @@ class Ui_MainWindow(object):
         self.actionNewWindow.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+N", None))
 #endif // QT_CONFIG(shortcut)
         self.actionAbout.setText(QCoreApplication.translate("MainWindow", u"About", None))
+        self.actionCloseTab.setText(QCoreApplication.translate("MainWindow", u"Close Tab", None))
+#if QT_CONFIG(shortcut)
+        self.actionCloseTab.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+W", None))
+#endif // QT_CONFIG(shortcut)
     # retranslateUi
 

@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setup_ui()
-        self.about_window = AboutWindow(self)
+        self.about_window = AboutDialog(self)
         self.connect_signals_and_slots()
         self.highest_tab_number = 0
         self.create_new_tab()
@@ -54,6 +54,7 @@ class MainWindow(QMainWindow):
         self.tab_buttons.setupUi(self.tab_button_layout)
         
         self.main_menu = QMenu()
+        self.main_menu.addAction(self.ui.actionCloseTab)
         self.main_menu.addAction(self.ui.actionNewWindow)
         self.main_menu.addAction(self.ui.actionAbout)
         self.tab_buttons.menuPushButton.setMenu(self.main_menu)
@@ -65,6 +66,7 @@ class MainWindow(QMainWindow):
     def connect_signals_and_slots(self):
         self.ui.actionAbout.triggered.connect(self.about_window.exec)
         self.ui.actionNewWindow.triggered.connect(self.create_new_instance)
+        self.ui.actionCloseTab.triggered.connect(self.close_tab)
         self.tab_buttons.newTabPushButton.clicked.connect(self.create_new_tab)
 
 
@@ -584,7 +586,7 @@ class Tab(QWidget):
 
 
 
-class AboutWindow(QDialog):
+class AboutDialog(QDialog):
     def __init__(self, parent):
         super().__init__(parent)
         self.ui = ui.Ui_AboutDialog()
