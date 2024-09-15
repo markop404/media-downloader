@@ -1,4 +1,3 @@
-
 # Media Downloader - Web video/audio downloader
 # Copyright (C) 2024  Marko Pejić
 
@@ -57,7 +56,7 @@ class MainWindow(QMainWindow):
         self.main_menu.addAction(self.ui.actionCloseTab)
         self.main_menu.addAction(self.ui.actionNewWindow)
         self.main_menu.addAction(self.ui.actionAbout)
-        self.tab_buttons.menuPushButton.setMenu(self.main_menu)
+        self.tab_buttons.menuButton.setMenu(self.main_menu)
 
         self.ui.tabWidget.setCornerWidget(self.tab_button_layout)
         self.ui.tabWidget.tabCloseRequested.connect(self.close_tab)
@@ -67,7 +66,7 @@ class MainWindow(QMainWindow):
         self.ui.actionAbout.triggered.connect(self.about_window.exec)
         self.ui.actionNewWindow.triggered.connect(self.create_new_instance)
         self.ui.actionCloseTab.triggered.connect(self.close_tab)
-        self.tab_buttons.newTabPushButton.clicked.connect(self.create_new_tab)
+        self.tab_buttons.newTabButton.clicked.connect(self.create_new_tab)
 
 
     def create_new_instance(self):
@@ -115,17 +114,7 @@ class MainWindow(QMainWindow):
 
             text = f"{pretty_tab_number} - {ui.Text.TAB_TITLE_TEXT[situation]}{progress_text}"
             self.ui.tabWidget.setTabText(index, text)
-
-            if "fail" in situation or "cancel" in situation:
-                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogError)))
-            elif "finish" in situation:
-                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)))
-            elif "download" in situation:
-                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)))
-            elif "pull" in situation:
-                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)))
-            elif "extract" in situation:
-                self.ui.tabWidget.setTabIcon(index, QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew)))
+            self.ui.tabWidget.setTabIcon(index, ui.ICONS[situation])
         else:
             self.ui.tabWidget.setTabText(index, str(pretty_tab_number))
             self.ui.tabWidget.setTabIcon(index, QIcon())
@@ -169,9 +158,9 @@ class Tab(QWidget):
     
 
     def connect_signals_and_slots(self):
-        self.ui.refreshPushButton.clicked.connect(self.start_update_info)
-        self.ui.downloadPushButton.clicked.connect(self.start_download)
-        self.ui.setDownloadFolderPushButton.clicked.connect(self.set_download_location)
+        self.ui.dataPullButton.clicked.connect(self.start_update_info)
+        self.ui.downloadButton.clicked.connect(self.start_download)
+        self.ui.setDownloadFolderButton.clicked.connect(self.set_download_location)
         self.ui.formatComboBox.currentTextChanged.connect(self.show_new_qualities)
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
 
@@ -187,17 +176,7 @@ class Tab(QWidget):
             if percentage:
                 self.ui.progressBar.setValue(percentage)
             self.update_tab(self.index_of(self), self.pretty_tab_number, situation, progress)
-
-            if "fail" in situation or "cancel" in situation:
-                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogError)).pixmap(QSize(32, 32)))
-            elif "finish" in situation:
-                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)).pixmap(QSize(32, 32)))
-            elif "download" in situation:
-                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)).pixmap(QSize(32, 32)))
-            elif "pull" in situation:
-                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)).pixmap(QSize(32, 32)))
-            elif "extract" in situation:
-                self.ui.statusIconLabel.setPixmap(QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew)).pixmap(QSize(32, 32)))
+            self.ui.statusIconLabel.setPixmap(ui.ICONS[situation].pixmap(QSize(32, 32)))
         else:
             self.ui.statusLabel.setText(str())
             self.ui.progressBar.setValue(0)
@@ -228,14 +207,14 @@ class Tab(QWidget):
             lambda: self.ui.formatComboBox.setEnabled(True),
             lambda: self.ui.qualityComboBox.setEnabled(True),
             lambda: self.ui.subtitlesComboBox.setEnabled(True),
-            lambda: self.ui.setDownloadFolderPushButton.setEnabled(True),
+            lambda: self.ui.setDownloadFolderButton.setEnabled(True),
             lambda: self.ui.embedSubtitlesCheckBox.setEnabled(True),
-            lambda: self.ui.cropthumbnailsCheckBox.setEnabled(True),
-            lambda: self.ui.refreshPushButton.setEnabled(True),
-            lambda: self.ui.downloadPushButton.setEnabled(True),
+            lambda: self.ui.cropThumbnailsCheckBox.setEnabled(True),
+            lambda: self.ui.dataPullButton.setEnabled(True),
+            lambda: self.ui.downloadButton.setEnabled(True),
 
-            lambda: self.ui.refreshPushButton.setText(ui.Text.BUTTON_TEXT["refresh"]["default"]),
-            lambda: self.ui.downloadPushButton.setText(ui.Text.BUTTON_TEXT["download"]["default"]),
+            lambda: self.ui.dataPullButton.setText(ui.Text.BUTTON_TEXT["refresh"]["default"]),
+            lambda: self.ui.downloadButton.setText(ui.Text.BUTTON_TEXT["download"]["default"]),
             lambda: self.update_status_indicators(situation, percentage=percentage),
         ]
 
@@ -249,13 +228,13 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            self.ui.refreshPushButton.setText(ui.Text.BUTTON_TEXT["refresh"]["secondary"])
-            self.ui.downloadPushButton.setEnabled(False)
+            self.ui.dataPullButton.setText(ui.Text.BUTTON_TEXT["refresh"]["secondary"])
+            self.ui.downloadButton.setEnabled(False)
             Thread(target=lambda: self.update_info(urls), daemon=True).start()
 
         elif self.thread_running:
             self.cancel_progress = True
-            self.ui.refreshPushButton.setEnabled(False)
+            self.ui.dataPullButton.setEnabled(False)
             self.update_status_indicators("cancelling_data_pull")
 
 
@@ -265,19 +244,19 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            self.ui.downloadPushButton.setText(ui.Text.BUTTON_TEXT["download"]["secondary"])
+            self.ui.downloadButton.setText(ui.Text.BUTTON_TEXT["download"]["secondary"])
 
-            self.ui.refreshPushButton.setEnabled(False)
+            self.ui.dataPullButton.setEnabled(False)
             self.ui.formatComboBox.setEnabled(False)
-            self.ui.setDownloadFolderPushButton.setEnabled(False)
+            self.ui.setDownloadFolderButton.setEnabled(False)
             self.ui.embedSubtitlesCheckBox.setEnabled(False)
-            self.ui.cropthumbnailsCheckBox.setEnabled(False)
+            self.ui.cropThumbnailsCheckBox.setEnabled(False)
             
             Thread(target=lambda: self.download(urls), daemon=True).start()
 
         else:
             self.cancel_progress = True
-            self.ui.downloadPushButton.setEnabled(False)
+            self.ui.downloadButton.setEnabled(False)
             self.update_status_indicators(situation="cancelling_download")
 
 
@@ -464,7 +443,7 @@ class Tab(QWidget):
                 postprocessor_progress=self.postprocess_progress,
                 on_url_progress=self.url_download_progress,
                 embed_subtitles=self.ui.embedSubtitlesCheckBox.isChecked(),
-                crop_thumbnails=self.ui.cropthumbnailsCheckBox.isChecked(),
+                crop_thumbnails=self.ui.cropThumbnailsCheckBox.isChecked(),
             )
         except SystemExit:
             self.prep_thread_exit("download_cancelled")

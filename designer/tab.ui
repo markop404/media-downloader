@@ -117,7 +117,7 @@
       </widget>
      </item>
      <item row="3" column="1">
-      <layout class="QHBoxLayout" name="downloadFolderHorizontalLayout">
+      <layout class="QHBoxLayout" name="downloadFolderLayout">
        <item>
         <widget class="QLabel" name="downloadFolderIndicatorLabel">
          <property name="text">
@@ -129,7 +129,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="setDownloadFolderPushButton">
+        <widget class="QPushButton" name="setDownloadFolderButton">
          <property name="maximumSize">
           <size>
            <width>72</width>
@@ -171,7 +171,7 @@
     </spacer>
    </item>
    <item alignment="Qt::AlignmentFlag::AlignHCenter">
-    <widget class="QCheckBox" name="cropthumbnailsCheckBox">
+    <widget class="QCheckBox" name="cropThumbnailsCheckBox">
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
@@ -229,7 +229,7 @@
     </spacer>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="actionButtonsHorizontalLayout">
+    <layout class="QHBoxLayout" name="actionButtonsLayout">
      <item>
       <spacer name="horizontalSpacer4">
        <property name="orientation">
@@ -244,7 +244,7 @@
       </spacer>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QPushButton" name="refreshPushButton">
+      <widget class="QPushButton" name="dataPullButton">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
@@ -266,7 +266,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QPushButton" name="downloadPushButton">
+      <widget class="QPushButton" name="downloadButton">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>

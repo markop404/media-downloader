@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabpiURtR.ui'
+## Form generated from reading UI file 'tabVglfnl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -84,26 +84,26 @@ class Ui_Tab(object):
 
         self.downloadOptionsFormLayout.setWidget(3, QFormLayout.LabelRole, self.downloadFolderLabel)
 
-        self.downloadFolderHorizontalLayout = QHBoxLayout()
-        self.downloadFolderHorizontalLayout.setObjectName(u"downloadFolderHorizontalLayout")
+        self.downloadFolderLayout = QHBoxLayout()
+        self.downloadFolderLayout.setObjectName(u"downloadFolderLayout")
         self.downloadFolderIndicatorLabel = QLabel(Tab)
         self.downloadFolderIndicatorLabel.setObjectName(u"downloadFolderIndicatorLabel")
         self.downloadFolderIndicatorLabel.setOpenExternalLinks(True)
 
-        self.downloadFolderHorizontalLayout.addWidget(self.downloadFolderIndicatorLabel)
+        self.downloadFolderLayout.addWidget(self.downloadFolderIndicatorLabel)
 
-        self.setDownloadFolderPushButton = QPushButton(Tab)
-        self.setDownloadFolderPushButton.setObjectName(u"setDownloadFolderPushButton")
-        self.setDownloadFolderPushButton.setMaximumSize(QSize(72, 16777215))
-        self.setDownloadFolderPushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.setDownloadFolderButton = QPushButton(Tab)
+        self.setDownloadFolderButton.setObjectName(u"setDownloadFolderButton")
+        self.setDownloadFolderButton.setMaximumSize(QSize(72, 16777215))
+        self.setDownloadFolderButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentSaveAs))
-        self.setDownloadFolderPushButton.setIcon(icon)
-        self.setDownloadFolderPushButton.setIconSize(QSize(18, 12))
+        self.setDownloadFolderButton.setIcon(icon)
+        self.setDownloadFolderButton.setIconSize(QSize(18, 12))
 
-        self.downloadFolderHorizontalLayout.addWidget(self.setDownloadFolderPushButton)
+        self.downloadFolderLayout.addWidget(self.setDownloadFolderButton)
 
 
-        self.downloadOptionsFormLayout.setLayout(3, QFormLayout.FieldRole, self.downloadFolderHorizontalLayout)
+        self.downloadOptionsFormLayout.setLayout(3, QFormLayout.FieldRole, self.downloadFolderLayout)
 
 
         self.verticalLayout.addLayout(self.downloadOptionsFormLayout)
@@ -112,11 +112,11 @@ class Ui_Tab(object):
 
         self.verticalLayout.addItem(self.horizontalSpacer2)
 
-        self.cropthumbnailsCheckBox = QCheckBox(Tab)
-        self.cropthumbnailsCheckBox.setObjectName(u"cropthumbnailsCheckBox")
-        self.cropthumbnailsCheckBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.cropThumbnailsCheckBox = QCheckBox(Tab)
+        self.cropThumbnailsCheckBox.setObjectName(u"cropThumbnailsCheckBox")
+        self.cropThumbnailsCheckBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.verticalLayout.addWidget(self.cropthumbnailsCheckBox, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.verticalLayout.addWidget(self.cropThumbnailsCheckBox, 0, Qt.AlignmentFlag.AlignHCenter)
 
         self.urlremovalCheckBox = QCheckBox(Tab)
         self.urlremovalCheckBox.setObjectName(u"urlremovalCheckBox")
@@ -136,36 +136,36 @@ class Ui_Tab(object):
 
         self.verticalLayout.addItem(self.horizontalSpacer3)
 
-        self.actionButtonsHorizontalLayout = QHBoxLayout()
-        self.actionButtonsHorizontalLayout.setObjectName(u"actionButtonsHorizontalLayout")
+        self.actionButtonsLayout = QHBoxLayout()
+        self.actionButtonsLayout.setObjectName(u"actionButtonsLayout")
         self.horizontalSpacer4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.actionButtonsHorizontalLayout.addItem(self.horizontalSpacer4)
+        self.actionButtonsLayout.addItem(self.horizontalSpacer4)
 
-        self.refreshPushButton = QPushButton(Tab)
-        self.refreshPushButton.setObjectName(u"refreshPushButton")
-        self.refreshPushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.dataPullButton = QPushButton(Tab)
+        self.dataPullButton.setObjectName(u"dataPullButton")
+        self.dataPullButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh))
-        self.refreshPushButton.setIcon(icon1)
-        self.refreshPushButton.setIconSize(QSize(18, 12))
+        self.dataPullButton.setIcon(icon1)
+        self.dataPullButton.setIconSize(QSize(18, 12))
 
-        self.actionButtonsHorizontalLayout.addWidget(self.refreshPushButton, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.actionButtonsLayout.addWidget(self.dataPullButton, 0, Qt.AlignmentFlag.AlignHCenter)
 
-        self.downloadPushButton = QPushButton(Tab)
-        self.downloadPushButton.setObjectName(u"downloadPushButton")
-        self.downloadPushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.downloadButton = QPushButton(Tab)
+        self.downloadButton.setObjectName(u"downloadButton")
+        self.downloadButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon2 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown))
-        self.downloadPushButton.setIcon(icon2)
-        self.downloadPushButton.setIconSize(QSize(18, 12))
+        self.downloadButton.setIcon(icon2)
+        self.downloadButton.setIconSize(QSize(18, 12))
 
-        self.actionButtonsHorizontalLayout.addWidget(self.downloadPushButton, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.actionButtonsLayout.addWidget(self.downloadButton, 0, Qt.AlignmentFlag.AlignHCenter)
 
         self.horizontalSpacer5 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.actionButtonsHorizontalLayout.addItem(self.horizontalSpacer5)
+        self.actionButtonsLayout.addItem(self.horizontalSpacer5)
 
 
-        self.verticalLayout.addLayout(self.actionButtonsHorizontalLayout)
+        self.verticalLayout.addLayout(self.actionButtonsLayout)
 
         self.horizontalSpacer6 = QSpacerItem(697, 60, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
@@ -222,11 +222,11 @@ class Ui_Tab(object):
         self.subtitlesComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"None", None))
         self.downloadFolderLabel.setText(QCoreApplication.translate("Tab", u"Download Folder:", None))
         self.downloadFolderIndicatorLabel.setText(QCoreApplication.translate("Tab", u"None", None))
-        self.setDownloadFolderPushButton.setText(QCoreApplication.translate("Tab", u"&Change", None))
+        self.setDownloadFolderButton.setText(QCoreApplication.translate("Tab", u"&Change", None))
 #if QT_CONFIG(tooltip)
-        self.cropthumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music.", None))
+        self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music.", None))
 #endif // QT_CONFIG(tooltip)
-        self.cropthumbnailsCheckBox.setText(QCoreApplication.translate("Tab", u"Crop &thumbnails / album arts to square shape", None))
+        self.cropThumbnailsCheckBox.setText(QCoreApplication.translate("Tab", u"Crop &thumbnails / album arts to square shape", None))
 #if QT_CONFIG(tooltip)
         self.urlremovalCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Removes each URL from the text entry when it finishes downloading.", None))
 #endif // QT_CONFIG(tooltip)
@@ -236,11 +236,12 @@ class Ui_Tab(object):
 #endif // QT_CONFIG(tooltip)
         self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"&Embed subtitles", None))
 #if QT_CONFIG(tooltip)
-        self.refreshPushButton.setToolTip(QCoreApplication.translate("Tab", u"Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.", None))
+        self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.", None))
 #endif // QT_CONFIG(tooltip)
-        self.refreshPushButton.setText(QCoreApplication.translate("Tab", u"&Pull Data", None))
-        self.downloadPushButton.setText(QCoreApplication.translate("Tab", u"&Download", None))
+        self.dataPullButton.setText(QCoreApplication.translate("Tab", u"&Pull Data", None))
+        self.downloadButton.setText(QCoreApplication.translate("Tab", u"&Download", None))
         self.statusIconLabel.setText("")
         self.statusLabel.setText("")
         pass
     # retranslateUi
+

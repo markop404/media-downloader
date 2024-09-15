@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_windowDHitWZ.ui'
+## Form generated from reading UI file 'about_dialogbZEfBQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -30,16 +30,15 @@ class Ui_AboutDialog(object):
         AboutDialog.setWindowIcon(icon)
         self.verticalLayout = QVBoxLayout(AboutDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.headerBoxLayout = QHBoxLayout()
-        self.headerBoxLayout.setObjectName(u"headerBoxLayout")
+        self.headerLayout = QHBoxLayout()
+        self.headerLayout.setObjectName(u"headerLayout")
         self.appIconLabel = QLabel(AboutDialog)
         self.appIconLabel.setObjectName(u"appIconLabel")
         self.appIconLabel.setMaximumSize(QSize(65, 65))
         self.appIconLabel.setPixmap(QPixmap(u"icons/icon.png"))
         self.appIconLabel.setScaledContents(True)
-        self.appIconLabel.setMargin(2)
 
-        self.headerBoxLayout.addWidget(self.appIconLabel)
+        self.headerLayout.addWidget(self.appIconLabel)
 
         self.appNameLabel = QLabel(AboutDialog)
         self.appNameLabel.setObjectName(u"appNameLabel")
@@ -50,10 +49,10 @@ class Ui_AboutDialog(object):
         self.appNameLabel.setFont(font)
         self.appNameLabel.setMargin(4)
 
-        self.headerBoxLayout.addWidget(self.appNameLabel)
+        self.headerLayout.addWidget(self.appNameLabel)
 
 
-        self.verticalLayout.addLayout(self.headerBoxLayout)
+        self.verticalLayout.addLayout(self.headerLayout)
 
         self.horizontalSpacer1 = QSpacerItem(40, 2, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
@@ -79,39 +78,39 @@ class Ui_AboutDialog(object):
         self.linksTab.setObjectName(u"linksTab")
         self.horizontalLayout_4 = QHBoxLayout(self.linksTab)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.leftColumnLayout = QVBoxLayout()
-        self.leftColumnLayout.setObjectName(u"leftColumnLayout")
+        self.leftColumnButtonLayout = QVBoxLayout()
+        self.leftColumnButtonLayout.setObjectName(u"leftColumnButtonLayout")
         self.websiteButton = QPushButton(self.linksTab)
         self.websiteButton.setObjectName(u"websiteButton")
         self.websiteButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.leftColumnLayout.addWidget(self.websiteButton)
+        self.leftColumnButtonLayout.addWidget(self.websiteButton)
 
         self.whatsNewButton = QPushButton(self.linksTab)
         self.whatsNewButton.setObjectName(u"whatsNewButton")
         self.whatsNewButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.leftColumnLayout.addWidget(self.whatsNewButton, 0, Qt.AlignmentFlag.AlignTop)
+        self.leftColumnButtonLayout.addWidget(self.whatsNewButton, 0, Qt.AlignmentFlag.AlignTop)
 
 
-        self.horizontalLayout_4.addLayout(self.leftColumnLayout)
+        self.horizontalLayout_4.addLayout(self.leftColumnButtonLayout)
 
-        self.rightColumnLayout = QVBoxLayout()
-        self.rightColumnLayout.setObjectName(u"rightColumnLayout")
+        self.rightColumnButtonLayout = QVBoxLayout()
+        self.rightColumnButtonLayout.setObjectName(u"rightColumnButtonLayout")
         self.donateButton = QPushButton(self.linksTab)
         self.donateButton.setObjectName(u"donateButton")
         self.donateButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.rightColumnLayout.addWidget(self.donateButton)
+        self.rightColumnButtonLayout.addWidget(self.donateButton)
 
         self.supportedWebsitesButton = QPushButton(self.linksTab)
         self.supportedWebsitesButton.setObjectName(u"supportedWebsitesButton")
         self.supportedWebsitesButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.rightColumnLayout.addWidget(self.supportedWebsitesButton, 0, Qt.AlignmentFlag.AlignTop)
+        self.rightColumnButtonLayout.addWidget(self.supportedWebsitesButton, 0, Qt.AlignmentFlag.AlignTop)
 
 
-        self.horizontalLayout_4.addLayout(self.rightColumnLayout)
+        self.horizontalLayout_4.addLayout(self.rightColumnButtonLayout)
 
         self.tabWidget.addTab(self.linksTab, "")
         self.disclaimerTab = QWidget()
@@ -130,11 +129,11 @@ class Ui_AboutDialog(object):
         self.licenseTab.setObjectName(u"licenseTab")
         self.horizontalLayout_2 = QHBoxLayout(self.licenseTab)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.textBrowser = QTextBrowser(self.licenseTab)
-        self.textBrowser.setObjectName(u"textBrowser")
-        self.textBrowser.setOpenExternalLinks(True)
+        self.licenseBrowser = QTextBrowser(self.licenseTab)
+        self.licenseBrowser.setObjectName(u"licenseBrowser")
+        self.licenseBrowser.setOpenExternalLinks(True)
 
-        self.horizontalLayout_2.addWidget(self.textBrowser)
+        self.horizontalLayout_2.addWidget(self.licenseBrowser)
 
         self.tabWidget.addTab(self.licenseTab, "")
 
@@ -157,6 +156,9 @@ class Ui_AboutDialog(object):
 
         self.retranslateUi(AboutDialog)
 
+        self.tabWidget.setCurrentIndex(0)
+
+
         QMetaObject.connectSlotsByName(AboutDialog)
     # setupUi
 
@@ -173,7 +175,7 @@ class Ui_AboutDialog(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.linksTab), QCoreApplication.translate("AboutDialog", u"Links", None))
         self.disclaimerLabel.setText(QCoreApplication.translate("AboutDialog", u"The authors of Media Downloader are not responsible/liable for any misuse of this program that may violate local copyright/DMCA laws. Users use this application at their own risk.", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.disclaimerTab), QCoreApplication.translate("AboutDialog", u"Disclaimer", None))
-        self.textBrowser.setHtml(QCoreApplication.translate("AboutDialog", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.licenseBrowser.setHtml(QCoreApplication.translate("AboutDialog", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><title>GNU General Public License v3.0 - GNU Project - Free Software Foundation (FSF)</title><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "hr { height: 1px; border-width: 0; }\n"

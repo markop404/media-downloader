@@ -24,7 +24,7 @@
     <number>0</number>
    </property>
    <item alignment="Qt::AlignmentFlag::AlignTop">
-    <widget class="QPushButton" name="newTabPushButton">
+    <widget class="QPushButton" name="newTabButton">
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
@@ -43,7 +43,7 @@
     </widget>
    </item>
    <item alignment="Qt::AlignmentFlag::AlignTop">
-    <widget class="QPushButton" name="menuPushButton">
+    <widget class="QPushButton" name="menuButton">
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>

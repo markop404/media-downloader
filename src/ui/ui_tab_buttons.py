@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonsUrWhDI.ui'
+## Form generated from reading UI file 'tab_buttonswEHQoR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -27,26 +27,26 @@ class Ui_TabButtons(object):
         self.horizontalLayout.setSpacing(8)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(-1, 0, 0, 0)
-        self.newTabPushButton = QPushButton(TabButtons)
-        self.newTabPushButton.setObjectName(u"newTabPushButton")
-        self.newTabPushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.newTabButton = QPushButton(TabButtons)
+        self.newTabButton.setObjectName(u"newTabButton")
+        self.newTabButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ListAdd))
-        self.newTabPushButton.setIcon(icon)
+        self.newTabButton.setIcon(icon)
 
-        self.horizontalLayout.addWidget(self.newTabPushButton, 0, Qt.AlignmentFlag.AlignTop)
+        self.horizontalLayout.addWidget(self.newTabButton, 0, Qt.AlignmentFlag.AlignTop)
 
-        self.menuPushButton = QPushButton(TabButtons)
-        self.menuPushButton.setObjectName(u"menuPushButton")
-        self.menuPushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.menuButton = QPushButton(TabButtons)
+        self.menuButton.setObjectName(u"menuButton")
+        self.menuButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.FormatJustifyFill))
-        self.menuPushButton.setIcon(icon1)
+        self.menuButton.setIcon(icon1)
 
-        self.horizontalLayout.addWidget(self.menuPushButton, 0, Qt.AlignmentFlag.AlignTop)
+        self.horizontalLayout.addWidget(self.menuButton, 0, Qt.AlignmentFlag.AlignTop)
 
 
         self.retranslateUi(TabButtons)
 
-        self.newTabPushButton.setDefault(True)
+        self.newTabButton.setDefault(True)
 
 
         QMetaObject.connectSlotsByName(TabButtons)
@@ -54,12 +54,12 @@ class Ui_TabButtons(object):
 
     def retranslateUi(self, TabButtons):
 #if QT_CONFIG(tooltip)
-        self.newTabPushButton.setToolTip(QCoreApplication.translate("TabButtons", u"New Tab (Ctrl+T)", None))
+        self.newTabButton.setToolTip(QCoreApplication.translate("TabButtons", u"New Tab (Ctrl+T)", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(shortcut)
-        self.newTabPushButton.setShortcut(QCoreApplication.translate("TabButtons", u"Ctrl+T", None))
+        self.newTabButton.setShortcut(QCoreApplication.translate("TabButtons", u"Ctrl+T", None))
 #endif // QT_CONFIG(shortcut)
-        self.menuPushButton.setText("")
+        self.menuButton.setText("")
         pass
     # retranslateUi
 
