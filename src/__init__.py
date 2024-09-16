@@ -97,7 +97,7 @@ class MainWindow(QMainWindow):
 
     def delete_tab_ui(self, tab_object):
         tab_object.cancel_progress = True
-        while tab_child.thread_running:
+        while tab_object.thread_running:
             sleep(0.001)
         tab_object.deleteLater()
     

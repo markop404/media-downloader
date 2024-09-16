@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>648</width>
+    <width>730</width>
     <height>705</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>400</width>
-    <height>550</height>
+    <width>500</width>
+    <height>650</height>
    </size>
   </property>
   <property name="windowTitle">

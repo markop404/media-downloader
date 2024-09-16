@@ -28,17 +28,13 @@ class Text:
         "download_finished": "Downloading Finished.",
         "cancelling_download": "Cancelling Download...",
         "downloading": "Downloading...",
-        
         "extracting_urls": "Analyzing URLs...",
-        
         "data_pull_failed": "Data Pull Failed.",
         "data_pull_cancelled": "Data Pull Cancelled.",
         "data_pull_finished": "Data Pull Finished.",
-        "pulling_data": "Pulling Data...",
         "cancelling_data_pull": "Cancelling Data Pull...",
-
+        "pulling_data": "Pulling Data...",
         "converting": "Processing...",
-
         "no_internet": "No internet connection.",
     }
 
@@ -48,17 +44,13 @@ class Text:
         "download_finished": "Finished",
         "cancelling_download": "Cancelling",
         "downloading": "Downloading",
-        
         "extracting_urls": "Analyzing",
-        
         "data_pull_failed": "Failed",
         "data_pull_cancelled": "Cancelled",
         "data_pull_finished": "Finished",
-        "pulling_data": "Pulling Data",
         "cancelling_data_pull": "Cancelling",
-
+        "pulling_data": "Pulling Data",
         "converting": "Processing",
-
         "no_internet": "Failed",
     }
 
@@ -83,16 +75,12 @@ ICONS = {
     "download_finished": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)),
     "cancelling_download": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
     "downloading": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
-    
-    "extracting_urls": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentNew)),
-    
+    "extracting_urls": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentSoon)),
     "data_pull_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
     "data_pull_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
     "data_pull_finished": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)),
-    "pulling_data": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)),
     "cancelling_data_pull": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-
-    "converting": "Processing",
-
+    "pulling_data": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)),
+    "converting": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
     "no_internet": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
 }
