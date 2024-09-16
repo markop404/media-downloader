@@ -130,12 +130,6 @@
        </item>
        <item>
         <widget class="QPushButton" name="setDownloadFolderButton">
-         <property name="maximumSize">
-          <size>
-           <width>72</width>
-           <height>16777215</height>
-          </size>
-         </property>
          <property name="focusPolicy">
           <enum>Qt::FocusPolicy::NoFocus</enum>
          </property>
