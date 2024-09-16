@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowqmHIoK.ui'
+## Form generated from reading UI file 'main_windowZMekDO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(648, 705)
+        MainWindow.resize(705, 705)
         MainWindow.setMinimumSize(QSize(400, 550))
         icon = QIcon()
         icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -72,4 +72,3 @@ class Ui_MainWindow(object):
         self.actionCloseTab.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+W", None))
 #endif // QT_CONFIG(shortcut)
     # retranslateUi
-
