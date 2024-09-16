@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabbmvaQH.ui'
+## Form generated from reading UI file 'tabeTnctn.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -98,7 +98,6 @@ class Ui_Tab(object):
         self.setDownloadFolderButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentSaveAs))
         self.setDownloadFolderButton.setIcon(icon)
-        self.setDownloadFolderButton.setIconSize(QSize(18, 12))
 
         self.downloadFolderLayout.addWidget(self.setDownloadFolderButton)
 
@@ -230,11 +229,11 @@ class Ui_Tab(object):
 #if QT_CONFIG(tooltip)
         self.urlremovalCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Removes each URL from the text entry when it finishes downloading.", None))
 #endif // QT_CONFIG(tooltip)
-        self.urlremovalCheckBox.setText(QCoreApplication.translate("Tab", u"&Remove URLs as they are downloaded", None))
+        self.urlremovalCheckBox.setText(QCoreApplication.translate("Tab", u"Remove &URLs as they are downloaded", None))
 #if QT_CONFIG(tooltip)
         self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Embeds subtitles into downloaded videos.", None))
 #endif // QT_CONFIG(tooltip)
-        self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"&Embed subtitles", None))
+        self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"Embed &subtitles", None))
 #if QT_CONFIG(tooltip)
         self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.", None))
 #endif // QT_CONFIG(tooltip)
@@ -244,4 +243,3 @@ class Ui_Tab(object):
         self.statusLabel.setText("")
         pass
     # retranslateUi
-

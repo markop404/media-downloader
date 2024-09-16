@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonswEHQoR.ui'
+## Form generated from reading UI file 'tab_buttonsAzlFDq.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -38,28 +38,23 @@ class Ui_TabButtons(object):
         self.menuButton = QPushButton(TabButtons)
         self.menuButton.setObjectName(u"menuButton")
         self.menuButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.FormatJustifyFill))
-        self.menuButton.setIcon(icon1)
 
         self.horizontalLayout.addWidget(self.menuButton, 0, Qt.AlignmentFlag.AlignTop)
 
 
         self.retranslateUi(TabButtons)
 
-        self.newTabButton.setDefault(True)
-
-
         QMetaObject.connectSlotsByName(TabButtons)
     # setupUi
 
     def retranslateUi(self, TabButtons):
 #if QT_CONFIG(tooltip)
-        self.newTabButton.setToolTip(QCoreApplication.translate("TabButtons", u"New Tab (Ctrl+T)", None))
+        self.newTabButton.setToolTip(QCoreApplication.translate("TabButtons", u"Ctrl+T", None))
 #endif // QT_CONFIG(tooltip)
+        self.newTabButton.setText(QCoreApplication.translate("TabButtons", u"New Tab", None))
 #if QT_CONFIG(shortcut)
         self.newTabButton.setShortcut(QCoreApplication.translate("TabButtons", u"Ctrl+T", None))
 #endif // QT_CONFIG(shortcut)
-        self.menuButton.setText("")
+        self.menuButton.setText(QCoreApplication.translate("TabButtons", u"Menu", None))
         pass
     # retranslateUi
-

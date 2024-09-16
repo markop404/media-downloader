@@ -29,16 +29,16 @@
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="toolTip">
-      <string>New Tab (Ctrl+T)</string>
+      <string>Ctrl+T</string>
+     </property>
+     <property name="text">
+      <string>New Tab</string>
      </property>
      <property name="icon">
       <iconset theme="QIcon::ThemeIcon::ListAdd"/>
      </property>
      <property name="shortcut">
       <string>Ctrl+T</string>
-     </property>
-     <property name="default">
-      <bool>true</bool>
      </property>
     </widget>
    </item>
@@ -48,10 +48,7 @@
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset theme="QIcon::ThemeIcon::FormatJustifyFill"/>
+      <string>Menu</string>
      </property>
     </widget>
    </item>

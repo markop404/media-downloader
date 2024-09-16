@@ -171,7 +171,7 @@ class Tab(QWidget):
             if percentage:
                 self.ui.progressBar.setValue(percentage)
             self.update_tab(self.index_of(self), self.pretty_tab_number, situation, progress)
-            self.ui.statusIconLabel.setPixmap(ui.ICONS[situation].pixmap(QSize(32, 32)))
+            self.ui.statusIconLabel.setPixmap(ui.ICONS[situation].pixmap(QSize(28, 28)))
         else:
             self.ui.statusLabel.setText(str())
             self.ui.progressBar.setValue(0)
