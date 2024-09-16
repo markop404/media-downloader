@@ -237,7 +237,6 @@ class Tab(QWidget):
             self.ui.dataPullButton.setText(ui.Text.BUTTON_TEXT["refresh"]["secondary"])
             self.ui.downloadButton.setEnabled(False)
             Thread(target=lambda: self.update_info(urls), daemon=True).start()
-
         elif self.thread_running:
             self.cancel_progress = True
             self.ui.dataPullButton.setEnabled(False)
@@ -289,7 +288,6 @@ class Tab(QWidget):
                         percentage = int((data["downloaded_bytes"] / data["total_bytes"]) * 100)
                     except:
                         percentage = None
-            
             elif "fragment_index" in data and "fragment_count" in data:
                 if data["fragment_index"] and data["fragment_count"]:
                     try:
