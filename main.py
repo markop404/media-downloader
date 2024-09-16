@@ -24,7 +24,7 @@ from src import MainWindow
 app = QApplication([])
 app.setStyle("Fusion")
 
-window = Window()
+window = MainWindow()
 window.show()
 
 sys.exit(app.exec())
