@@ -124,7 +124,7 @@ class Tab(QWidget):
         self.setup_ui()
         self.setup_vars(parent, pretty_tab_number)
         self.setup_filedialog()
-        self.show_new_download_folder()
+        self.update_download_directory_indicators()
         self.event_invoker = utils.Invoker()
         self.connect_signals_and_slots()
 
@@ -178,6 +178,19 @@ class Tab(QWidget):
             self.ui.progressBar.setValue(0)
             self.parent.update_tab(tab_index, self.pretty_tab_number)
             self.ui.statusIconLabel.setPixmap(QPixmap())
+
+
+    def update_download_directory_indicators(self):
+        base_name = QDir(self.download_location).dirName()
+        href = QUrl.fromLocalFile(self.download_location).toString()
+
+        if base_name:
+            new_text = f"<a href=\"{href}\">{base_name}</a>"
+        else:
+            new_text = f"<a href=\"{href}\">{self.download_location}</a>"
+
+        self.ui.downloadFolderIndicatorLabel.setText(new_text)
+        self.ui.downloadFolderIndicatorLabel.setToolTip(self.download_location)
 
 
     def prep_thread_start(self):
@@ -502,12 +515,6 @@ class Tab(QWidget):
     def remove_urls_from_entry(self, urls):
         text = self.ui.plainTextEdit.toPlainText()
         self.run_in_gui_thread(lambda: self.change_plain_text_edit(utils.remove_lines(text, urls)))
-
-
-    def set_download_location(self):
-        if self.file_dialog.exec():
-            self.download_location = self.file_dialog.selectedFiles()[0]
-            self.show_new_download_folder()
    
 
     def on_text_change(self):
@@ -524,19 +531,12 @@ class Tab(QWidget):
             self.event_invoker,
             utils.InvokeEvent(fn)
         )
-    
 
-    def show_new_download_folder(self):
-        base_name = QDir(self.download_location).dirName()
-        href = QUrl.fromLocalFile(self.download_location).toString()
 
-        if base_name:
-            new_text = f"<a href=\"{href}\">{base_name}</a>"
-        else:
-            new_text = f"<a href=\"{href}\">{self.download_location}</a>"
-
-        self.ui.downloadFolderIndicatorLabel.setText(new_text)
-        self.ui.downloadFolderIndicatorLabel.setToolTip(self.download_location)
+    def set_download_location(self):
+        if self.file_dialog.exec():
+            self.download_location = self.file_dialog.selectedFiles()[0]
+            self.update_download_directory_indicators()
 
 
     def show_new_qualities(self):
