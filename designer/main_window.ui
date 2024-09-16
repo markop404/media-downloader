@@ -30,6 +30,9 @@
       <property name="focusPolicy">
        <enum>Qt::FocusPolicy::NoFocus</enum>
       </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
       <property name="movable">
        <bool>true</bool>
       </property>

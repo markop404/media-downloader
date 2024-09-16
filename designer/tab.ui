@@ -192,7 +192,7 @@
       <string>Removes each URL from the text entry when it finishes downloading.</string>
      </property>
      <property name="text">
-      <string>&amp;Remove URLs as they are downloaded</string>
+      <string>Remove &amp;URLs as they are downloaded</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -208,7 +208,7 @@
       <string>Embeds subtitles into downloaded videos.</string>
      </property>
      <property name="text">
-      <string>&amp;Embed subtitles</string>
+      <string>Embed &amp;subtitles</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -243,8 +243,14 @@
        </property>
       </spacer>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item>
       <widget class="QPushButton" name="dataPullButton">
+       <property name="minimumSize">
+        <size>
+         <width>110</width>
+         <height>32</height>
+        </size>
+       </property>
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
@@ -257,16 +263,16 @@
        <property name="icon">
         <iconset theme="QIcon::ThemeIcon::ViewRefresh"/>
        </property>
-       <property name="iconSize">
-        <size>
-         <width>18</width>
-         <height>12</height>
-        </size>
-       </property>
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
       <widget class="QPushButton" name="downloadButton">
+       <property name="minimumSize">
+        <size>
+         <width>110</width>
+         <height>32</height>
+        </size>
+       </property>
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
@@ -275,12 +281,6 @@
        </property>
        <property name="icon">
         <iconset theme="QIcon::ThemeIcon::GoDown"/>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>18</width>
-         <height>12</height>
-        </size>
        </property>
       </widget>
      </item>

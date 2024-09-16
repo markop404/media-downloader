@@ -80,29 +80,24 @@ class MainWindow(QMainWindow):
 
         tab_index = self.ui.tabWidget.addTab(tab_object, str(self.highest_tab_number))
         self.ui.tabWidget.setCurrentIndex(tab_index)
-        self.ui.tabWidget.setCurrentWidget(tab_object.ui.plainTextEdit)
-
-        if self.ui.tabWidget.count() > 1:
-            self.ui.tabWidget.setTabsClosable(True)
     
 
     def close_tab(self, index=None):
+        if self.ui.tabWidget.count() == 1:
+            self.close()
         if not index:
             index = self.ui.tabWidget.currentIndex()
-        if self.ui.tabWidget.count() > 1:
-            tab_children = self.ui.tabWidget.widget(index)
-            self.ui.tabWidget.removeTab(index)
-            Thread(target=lambda: self.delete_tab_ui(tab_children), daemon=True).start()
 
-        if self.ui.tabWidget.count() <= 1:
-            self.ui.tabWidget.setTabsClosable(False)
+        tab_child = self.ui.tabWidget.widget(index)
+        self.ui.tabWidget.removeTab(index)
+        Thread(target=lambda: self.delete_tab_ui(tab_child), daemon=True).start()
 
 
-    def delete_tab_ui(self, tab_object):
-        tab_object.cancel_progress = True
-        while tab_object.thread_running:
+    def delete_tab_ui(self, tab_child):
+        tab_child.cancel_progress = True
+        while tab_child.thread_running:
             sleep(0.001)
-        tab_object.deleteLater()
+        tab_child.deleteLater()
     
 
     def update_tab(self, index, pretty_tab_number, situation=None, progress=None):
@@ -198,28 +193,25 @@ class Tab(QWidget):
         return urls
     
 
-    def prep_thread_exit(self, situation, percentage=0):
+    def prep_thread_exit(self, situation=None, percentage=0):
         self.thread_running = False
         self.cancel_progress = False
+        self.run_in_gui_thread(lambda: self.enable_disabled_widgets(situation, percentage))
+    
 
-        to_run_in_main_thread = [
-            lambda: self.ui.plainTextEdit.setReadOnly(False),
-            lambda: self.ui.formatComboBox.setEnabled(True),
-            lambda: self.ui.qualityComboBox.setEnabled(True),
-            lambda: self.ui.subtitlesComboBox.setEnabled(True),
-            lambda: self.ui.setDownloadFolderButton.setEnabled(True),
-            lambda: self.ui.embedSubtitlesCheckBox.setEnabled(True),
-            lambda: self.ui.cropThumbnailsCheckBox.setEnabled(True),
-            lambda: self.ui.dataPullButton.setEnabled(True),
-            lambda: self.ui.downloadButton.setEnabled(True),
-
-            lambda: self.ui.dataPullButton.setText(ui.Text.BUTTON_TEXT["refresh"]["default"]),
-            lambda: self.ui.downloadButton.setText(ui.Text.BUTTON_TEXT["download"]["default"]),
-            lambda: self.update_status_indicators(situation, percentage=percentage),
-        ]
-
-        for func in to_run_in_main_thread:
-            self.run_in_gui_thread(func)
+    def enable_disabled_widgets(self, situation, percentage):
+        self.ui.plainTextEdit.setReadOnly(False)
+        self.ui.formatComboBox.setEnabled(True)
+        self.ui.qualityComboBox.setEnabled(True)
+        self.ui.subtitlesComboBox.setEnabled(True)
+        self.ui.setDownloadFolderButton.setEnabled(True)
+        self.ui.embedSubtitlesCheckBox.setEnabled(True)
+        self.ui.cropThumbnailsCheckBox.setEnabled(True)
+        self.ui.dataPullButton.setEnabled(True)
+        self.ui.downloadButton.setEnabled(True)
+        self.ui.dataPullButton.setText(ui.Text.BUTTON_TEXT["refresh"]["default"])
+        self.ui.downloadButton.setText(ui.Text.BUTTON_TEXT["download"]["default"])
+        self.update_status_indicators(situation, percentage=percentage)
     
     
     def start_update_info(self):
@@ -245,15 +237,12 @@ class Tab(QWidget):
         if not self.thread_running:
             urls = self.prep_thread_start()
             self.ui.downloadButton.setText(ui.Text.BUTTON_TEXT["download"]["secondary"])
-
             self.ui.dataPullButton.setEnabled(False)
             self.ui.formatComboBox.setEnabled(False)
             self.ui.setDownloadFolderButton.setEnabled(False)
             self.ui.embedSubtitlesCheckBox.setEnabled(False)
             self.ui.cropThumbnailsCheckBox.setEnabled(False)
-            
             Thread(target=lambda: self.download(urls), daemon=True).start()
-
         else:
             self.cancel_progress = True
             self.ui.downloadButton.setEnabled(False)
@@ -484,17 +473,16 @@ class Tab(QWidget):
 
     def handle_invalid_url_warning(self, urls, error_type="download"):
         if error_type == "download":
-            beggining_text = f"Couldn't download the following {len(urls)} URLs:"
+            beggining_text = f"The following {len(urls)} URLs couldn't be downloaded:"
         else:
             beggining_text = f"The following {len(urls)} URLs are invalid:"
 
         url_list_text = "<ul>"
         for url in urls:
-            url_list_text += f"<li><a href='{url}'>{url}</a></li>"
+            url_list_text += f"<li><a href=\"{url}\">{url}</a></li>"
         url_list_text += "</ul>"
 
         ending_text = "Remove them from the text entry?"
-
         text = beggining_text + url_list_text + ending_text
 
         while self.popup_window_running:

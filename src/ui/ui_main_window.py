@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowtxxpou.ui'
+## Form generated from reading UI file 'main_windowqmHIoK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -48,6 +48,7 @@ class Ui_MainWindow(object):
         self.tabWidget = QTabWidget(self.centralwidget)
         self.tabWidget.setObjectName(u"tabWidget")
         self.tabWidget.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.tabWidget.setTabsClosable(True)
         self.tabWidget.setMovable(True)
 
         self.verticalLayout.addWidget(self.tabWidget)

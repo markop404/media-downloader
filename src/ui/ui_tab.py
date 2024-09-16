@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabVglfnl.ui'
+## Form generated from reading UI file 'tabbmvaQH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -144,19 +144,19 @@ class Ui_Tab(object):
 
         self.dataPullButton = QPushButton(Tab)
         self.dataPullButton.setObjectName(u"dataPullButton")
+        self.dataPullButton.setMinimumSize(QSize(110, 32))
         self.dataPullButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh))
         self.dataPullButton.setIcon(icon1)
-        self.dataPullButton.setIconSize(QSize(18, 12))
 
-        self.actionButtonsLayout.addWidget(self.dataPullButton, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.actionButtonsLayout.addWidget(self.dataPullButton)
 
         self.downloadButton = QPushButton(Tab)
         self.downloadButton.setObjectName(u"downloadButton")
+        self.downloadButton.setMinimumSize(QSize(110, 32))
         self.downloadButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon2 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown))
         self.downloadButton.setIcon(icon2)
-        self.downloadButton.setIconSize(QSize(18, 12))
 
         self.actionButtonsLayout.addWidget(self.downloadButton, 0, Qt.AlignmentFlag.AlignHCenter)
 
