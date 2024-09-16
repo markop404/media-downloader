@@ -35,13 +35,16 @@ class MainWindow(QMainWindow):
         self.setup_ui()
         self.about_window = AboutDialog(self)
         self.connect_signals_and_slots()
+        
         self.highest_tab_number = 0
-        self.create_new_tab()
+        self.popup_window_running = False
 
         if "__main__" in sys.modules:
             self.create_new_instance_command = [sys.executable, sys.modules["__main__"].__file__]
         else:
             self.create_new_instance_command = None
+        
+        self.create_new_tab()
 
 
     def setup_ui(self):
@@ -76,10 +79,9 @@ class MainWindow(QMainWindow):
 
     def create_new_tab(self):
         self.highest_tab_number += 1
-        tab_object = Tab(self.update_tab, self.ui.tabWidget.indexOf, self.highest_tab_number)
-
-        tab_index = self.ui.tabWidget.addTab(tab_object, str(self.highest_tab_number))
-        self.ui.tabWidget.setCurrentIndex(tab_index)
+        new_tab = Tab(self, self.highest_tab_number)
+        new_tab_index = self.ui.tabWidget.addTab(new_tab, str(self.highest_tab_number))
+        self.ui.tabWidget.setCurrentIndex(new_tab_index)
     
 
     def close_tab(self, index=None):
@@ -88,16 +90,16 @@ class MainWindow(QMainWindow):
         if not index:
             index = self.ui.tabWidget.currentIndex()
 
-        tab_child = self.ui.tabWidget.widget(index)
+        tab_object = self.ui.tabWidget.widget(index)
         self.ui.tabWidget.removeTab(index)
-        Thread(target=lambda: self.delete_tab_ui(tab_child), daemon=True).start()
+        Thread(target=lambda: self.delete_tab_ui(tab_object), daemon=True).start()
 
 
-    def delete_tab_ui(self, tab_child):
-        tab_child.cancel_progress = True
+    def delete_tab_ui(self, tab_object):
+        tab_object.cancel_progress = True
         while tab_child.thread_running:
             sleep(0.001)
-        tab_child.deleteLater()
+        tab_object.deleteLater()
     
 
     def update_tab(self, index, pretty_tab_number, situation=None, progress=None):
@@ -117,10 +119,10 @@ class MainWindow(QMainWindow):
 
 
 class Tab(QWidget):
-    def __init__(self, tab_update_func, index_of_func, pretty_tab_number):
+    def __init__(self, parent, pretty_tab_number):
         super().__init__()
         self.setup_ui()
-        self.setup_vars(tab_update_func, index_of_func, pretty_tab_number)
+        self.setup_vars(parent, pretty_tab_number)
         self.setup_filedialog()
         self.show_new_download_folder()
         self.event_invoker = utils.Invoker()
@@ -132,16 +134,14 @@ class Tab(QWidget):
         self.ui.setupUi(self)
 
 
-    def setup_vars(self, tab_update_func, index_of_func, pretty_tab_number):
-        self.update_tab = tab_update_func
+    def setup_vars(self, parent, pretty_tab_number):
+        self.parent = parent
         self.pretty_tab_number = pretty_tab_number
-        self.index_of = index_of_func
         self.download_location = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
         self.thread_running = False
         self.cancel_progress = False
         self.subtitles = {}
         self.qualities = {"video": {}, "audio": []}
-        self.popup_window_running = False
         self.user_answer = None
         self.changing_plain_text_edit = False
     
@@ -161,6 +161,7 @@ class Tab(QWidget):
 
 
     def update_status_indicators(self, situation=None, progress=None, percentage=None):
+        tab_index = self.parent.ui.tabWidget.indexOf(self)
         if situation:
             if progress and len(progress) == 2:
                 progress_text = f" ({progress[0]}/{progress[1]})"
@@ -170,12 +171,12 @@ class Tab(QWidget):
             self.ui.statusLabel.setText(f"{ui.Text.STATUS_LABEL_TEXT[situation]}{progress_text}")
             if percentage:
                 self.ui.progressBar.setValue(percentage)
-            self.update_tab(self.index_of(self), self.pretty_tab_number, situation, progress)
+            self.parent.update_tab(tab_index, self.pretty_tab_number, situation, progress)
             self.ui.statusIconLabel.setPixmap(ui.ICONS[situation].pixmap(QSize(28, 28)))
         else:
             self.ui.statusLabel.setText(str())
             self.ui.progressBar.setValue(0)
-            self.update_tab(self.index_of(self), self.pretty_tab_number)
+            self.parent.update_tab(tab_index, self.pretty_tab_number)
             self.ui.statusIconLabel.setPixmap(QPixmap())
 
 
@@ -468,7 +469,7 @@ class Tab(QWidget):
         else:
             self.user_answer = False
 
-        self.popup_window_running = False
+        self.parent.popup_window_running = False
     
 
     def handle_invalid_url_warning(self, urls, error_type="download"):
@@ -485,13 +486,13 @@ class Tab(QWidget):
         ending_text = "Remove them from the text entry?"
         text = beggining_text + url_list_text + ending_text
 
-        while self.popup_window_running:
+        while self.parent.popup_window_running:
             sleep(0.01)
 
-        self.popup_window_running = True
+        self.parent.popup_window_running = True
         self.run_in_gui_thread(lambda: self.display_invalid_url_warning(text))
 
-        while self.popup_window_running:
+        while self.parent.popup_window_running:
             sleep(0.01)
 
         if self.user_answer:
