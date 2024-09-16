@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowfvetWS.ui'
+## Form generated from reading UI file 'main_windowHVNnsm.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(730, 705)
+        MainWindow.resize(840, 710)
         MainWindow.setMinimumSize(QSize(500, 650))
         icon = QIcon()
         icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
