@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabPoaYDJ.ui'
+## Form generated from reading UI file 'tabeCzGLJ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -204,6 +204,10 @@ class Ui_Tab(object):
 
 
         self.retranslateUi(Tab)
+
+        self.dataPullButton.setDefault(True)
+        self.downloadButton.setDefault(True)
+
 
         QMetaObject.connectSlotsByName(Tab)
     # setupUi
