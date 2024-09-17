@@ -176,9 +176,6 @@
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
-     <property name="toolTip">
-      <string>Removes each URL from the text entry when it finishes downloading.</string>
-     </property>
      <property name="text">
       <string>Remove &amp;URLs as they are downloaded</string>
      </property>
@@ -192,11 +189,8 @@
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
-     <property name="toolTip">
-      <string>Embeds subtitles into downloaded videos.</string>
-     </property>
      <property name="text">
-      <string>Embed &amp;subtitles</string>
+      <string>Embed &amp;subtitles to videos</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -251,6 +245,9 @@
        <property name="icon">
         <iconset theme="QIcon::ThemeIcon::ViewRefresh"/>
        </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
@@ -269,6 +266,9 @@
        </property>
        <property name="icon">
         <iconset theme="QIcon::ThemeIcon::GoDown"/>
+       </property>
+       <property name="default">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
