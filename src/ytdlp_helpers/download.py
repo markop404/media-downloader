@@ -30,6 +30,7 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
         "writethumbnail": True,
         "postprocessor_args": {},
         "sockettimeout": 10,
+        "quiet": True,
     }
     errors = set()
     failed_urls = []
