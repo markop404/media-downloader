@@ -67,6 +67,8 @@ class MainWindow(QMainWindow):
         for i in range(1, 10):
             shortcut = QShortcut(QKeySequence(f"Alt+{i}"), self)
             shortcut.activated.connect(lambda i=i: self.switch_tab(i - 1))
+        shortcut = QShortcut(QKeySequence(f"Alt+0"), self)
+        shortcut.activated.connect(lambda: self.switch_tab(9))
 
 
     def connect_signals_and_slots(self):
