@@ -26,7 +26,7 @@ from . import ui, utils, ytdlp_helpers
 
 from PySide6.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QDialog, QWidget, QPushButton, QVBoxLayout, QMenu
 from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize
-from PySide6.QtGui import QIcon, QDesktopServices, QPixmap
+from PySide6.QtGui import QIcon, QDesktopServices, QPixmap, QKeySequence, QShortcut
 
 
 class MainWindow(QMainWindow):
@@ -64,6 +64,10 @@ class MainWindow(QMainWindow):
         self.ui.tabWidget.setCornerWidget(self.tab_button_layout)
         self.ui.tabWidget.tabCloseRequested.connect(self.close_tab)
 
+        for i in range(1, 10):
+            shortcut = QShortcut(QKeySequence(f"Alt+{i}"), self)
+            shortcut.activated.connect(lambda i=i: self.switch_tab(i - 1))
+
 
     def connect_signals_and_slots(self):
         self.ui.actionAbout.triggered.connect(self.about_window.exec)
@@ -80,7 +84,7 @@ class MainWindow(QMainWindow):
     def create_new_tab(self):
         self.highest_tab_number += 1
         new_tab = Tab(self, self.highest_tab_number)
-        new_tab_index = self.ui.tabWidget.addTab(new_tab, str(self.highest_tab_number))
+        new_tab_index = self.ui.tabWidget.addTab(new_tab, f"{self.highest_tab_number}")
         self.ui.tabWidget.setCurrentIndex(new_tab_index)
     
 
@@ -113,8 +117,15 @@ class MainWindow(QMainWindow):
             self.ui.tabWidget.setTabText(index, text)
             self.ui.tabWidget.setTabIcon(index, ui.ICONS[situation])
         else:
-            self.ui.tabWidget.setTabText(index, str(pretty_tab_number))
+            self.ui.tabWidget.setTabText(index, f"{pretty_tab_number}")
             self.ui.tabWidget.setTabIcon(index, QIcon())
+    
+
+    def switch_tab(self, index):
+        if index > self.ui.tabWidget.count():
+            return
+        
+        self.ui.tabWidget.setCurrentIndex(index)
 
 
 
