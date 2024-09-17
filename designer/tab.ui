@@ -176,6 +176,9 @@
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
+     <property name="toolTip">
+      <string>Removes each URL from the text entry when it finishes downloading.</string>
+     </property>
      <property name="text">
       <string>Remove &amp;URLs as they are downloaded</string>
      </property>
@@ -188,6 +191,9 @@
     <widget class="QCheckBox" name="embedSubtitlesCheckBox">
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
+     </property>
+     <property name="toolTip">
+      <string>Embeds subtitles instead of downloading them to a separate file. Only works if downloading in video format.</string>
      </property>
      <property name="text">
       <string>Embed &amp;subtitles to videos</string>
