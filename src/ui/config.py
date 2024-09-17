@@ -50,7 +50,7 @@ class Text:
         "data_pull_finished": "Finished",
         "cancelling_data_pull": "Cancelling",
         "pulling_data": "Pulling Data",
-        "converting": "Processing",
+        "converting": "Downloading",
         "no_internet": "Failed",
     }
 
