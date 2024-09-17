@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabeCzGLJ.ui'
+## Form generated from reading UI file 'tabsPHQWv.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -229,14 +229,8 @@ class Ui_Tab(object):
         self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music.", None))
 #endif // QT_CONFIG(tooltip)
         self.cropThumbnailsCheckBox.setText(QCoreApplication.translate("Tab", u"Crop &thumbnails / album arts to square shape", None))
-#if QT_CONFIG(tooltip)
-        self.urlremovalCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Removes each URL from the text entry when it finishes downloading.", None))
-#endif // QT_CONFIG(tooltip)
         self.urlremovalCheckBox.setText(QCoreApplication.translate("Tab", u"Remove &URLs as they are downloaded", None))
-#if QT_CONFIG(tooltip)
-        self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Embeds subtitles into downloaded videos.", None))
-#endif // QT_CONFIG(tooltip)
-        self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"Embed &subtitles", None))
+        self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"Embed &subtitles to videos", None))
 #if QT_CONFIG(tooltip)
         self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.", None))
 #endif // QT_CONFIG(tooltip)
