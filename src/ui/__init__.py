@@ -18,5 +18,7 @@
 
 
 from .ui_main_window import Ui_MainWindow
-from .ui_about_dialog import Ui_aboutDialog
-from .text import Text
+from .ui_about_dialog import Ui_AboutDialog
+from .ui_tab import Ui_Tab
+from .ui_tab_buttons import Ui_TabButtons
+from .config import *

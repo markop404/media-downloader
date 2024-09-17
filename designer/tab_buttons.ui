@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TabButtons</class>
+ <widget class="QWidget" name="TabButtons">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>102</width>
+    <height>35</height>
+   </rect>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>8</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item alignment="Qt::AlignmentFlag::AlignTop">
+    <widget class="QPushButton" name="newTabButton">
+     <property name="focusPolicy">
+      <enum>Qt::FocusPolicy::NoFocus</enum>
+     </property>
+     <property name="toolTip">
+      <string>Ctrl+T</string>
+     </property>
+     <property name="text">
+      <string>New Tab</string>
+     </property>
+     <property name="icon">
+      <iconset theme="QIcon::ThemeIcon::ListAdd"/>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+T</string>
+     </property>
+    </widget>
+   </item>
+   <item alignment="Qt::AlignmentFlag::AlignTop">
+    <widget class="QPushButton" name="menuButton">
+     <property name="focusPolicy">
+      <enum>Qt::FocusPolicy::NoFocus</enum>
+     </property>
+     <property name="text">
+      <string>Menu</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

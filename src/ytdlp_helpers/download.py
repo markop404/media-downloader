@@ -31,6 +31,7 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
         "postprocessor_args": {},
         "sockettimeout": 10,
     }
+    errors = set()
     failed_urls = []
     TOTAL_URL_COUNT = len(urls)
     processed_url_count = 0
@@ -82,6 +83,7 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
                     on_url_progress(url, processed_url_count, TOTAL_URL_COUNT) 
             except yt_dlp.utils.DownloadError as e:
                 print(e)
+                errors.add(e)
                 if not check_internet_connection():
                     return failed_urls, False
                 failed_urls.append(url)
@@ -97,6 +99,7 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
                         on_url_progress(url, processed_url_count, TOTAL_URL_COUNT)
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
+                    errors.add(e)
                     if not check_internet_connection():
                         return failed_urls, False
 
@@ -117,7 +120,8 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
                         on_url_progress(url, processed_url_count, TOTAL_URL_COUNT)
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
+                    errors.add(e)
                     if not check_internet_connection():
                         return failed_urls, False
 
-    return failed_urls, True
+    return failed_urls, True, errors

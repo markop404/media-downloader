@@ -26,6 +26,7 @@ def extract_urls(urls, on_progress=None):
     total_url_count = len(urls)
     extracted_urls = set()
     failed_urls = set()
+    errors = set()
     options = {"extract_flat": True, "noplaylist": True}
 
     with yt_dlp.YoutubeDL(options) as ydl:
@@ -37,6 +38,7 @@ def extract_urls(urls, on_progress=None):
                     on_progress(processed_url_count, total_url_count)
             except yt_dlp.utils.DownloadError as e:
                 print(e)
+                errors.add(e)
                 if not check_internet_connection():
                     return extracted_urls, failed_urls, False
                 failed_urls.add(url)
@@ -52,10 +54,11 @@ def extract_urls(urls, on_progress=None):
                     failed_urls.discard(url)
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
+                    errors.add(e)
                     if not check_internet_connection():
                         return extracted_urls, failed_urls, False
 
-    return extracted_urls, failed_urls, True
+    return extracted_urls, failed_urls, True, errors
 
 
 def _extract_urls(url, ydl):

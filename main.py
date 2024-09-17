@@ -19,12 +19,12 @@
 
 import sys
 from PySide6.QtWidgets import QApplication
-from src import Window
+from src import MainWindow
 
 app = QApplication([])
 app.setStyle("Fusion")
 
-window = Window()
+window = MainWindow()
 window.show()
 
 sys.exit(app.exec())
