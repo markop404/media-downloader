@@ -23,6 +23,7 @@ from .check_internet_connection import check_internet_connection
 def extract_data(urls, on_progress=None, options={}):
     data = []
     failed_urls = []
+    options["quiet"] = True
     if "noplaylist" not in options:
         options["noplaylist"] = True
     if "writesubtitles" not in options:
