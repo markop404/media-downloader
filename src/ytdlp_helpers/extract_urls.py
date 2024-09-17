@@ -27,7 +27,11 @@ def extract_urls(urls, on_progress=None):
     extracted_urls = set()
     failed_urls = set()
     errors = set()
-    options = {"extract_flat": True, "noplaylist": True}
+    options = {
+        "extract_flat": True,
+        "noplaylist": True,
+        "quiet": True,
+    }
 
     with yt_dlp.YoutubeDL(options) as ydl:
         for url in urls:
