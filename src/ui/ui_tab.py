@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabounoFN.ui'
+## Form generated from reading UI file 'tabGetIXW.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -224,23 +224,29 @@ class Ui_Tab(object):
         self.subtitlesComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"None", None))
         self.downloadFolderLabel.setText(QCoreApplication.translate("Tab", u"Download Folder:", None))
         self.downloadFolderIndicatorLabel.setText(QCoreApplication.translate("Tab", u"None", None))
+#if QT_CONFIG(tooltip)
+        self.setDownloadFolderButton.setToolTip(QCoreApplication.translate("Tab", u"Alt+C", None))
+#endif // QT_CONFIG(tooltip)
         self.setDownloadFolderButton.setText(QCoreApplication.translate("Tab", u"&Change", None))
 #if QT_CONFIG(tooltip)
-        self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music.", None))
+        self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music. (Alt+T)", None))
 #endif // QT_CONFIG(tooltip)
         self.cropThumbnailsCheckBox.setText(QCoreApplication.translate("Tab", u"Crop &thumbnails / album arts to square shape", None))
 #if QT_CONFIG(tooltip)
-        self.urlremovalCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Removes each URL from the text entry when it finishes downloading.", None))
+        self.urlremovalCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Removes each URL from the text entry when it finishes downloading. (Alt+U)", None))
 #endif // QT_CONFIG(tooltip)
         self.urlremovalCheckBox.setText(QCoreApplication.translate("Tab", u"Remove &URLs as they are downloaded", None))
 #if QT_CONFIG(tooltip)
-        self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Embeds subtitles instead of downloading them to a separate file. Only works if downloading in video format.", None))
+        self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Embeds subtitles instead of downloading them to a separate file. Only works if downloading in video format. (Alt+S)", None))
 #endif // QT_CONFIG(tooltip)
         self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"Embed &subtitles to videos", None))
 #if QT_CONFIG(tooltip)
-        self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.", None))
+        self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download. (Alt+P)", None))
 #endif // QT_CONFIG(tooltip)
         self.dataPullButton.setText(QCoreApplication.translate("Tab", u"&Pull Data", None))
+#if QT_CONFIG(tooltip)
+        self.downloadButton.setToolTip(QCoreApplication.translate("Tab", u"Alt+D", None))
+#endif // QT_CONFIG(tooltip)
         self.downloadButton.setText(QCoreApplication.translate("Tab", u"&Download", None))
         self.statusIconLabel.setText("")
         self.statusLabel.setText("")

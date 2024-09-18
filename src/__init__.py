@@ -33,7 +33,8 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setup_ui()
-        self.about_window = AboutDialog(self)
+        self.about_dialog = AboutDialog(self)
+        self.keyboard_shortcuts_dialog = KeyboardShortcutsDialog(self)
         self.connect_signals_and_slots()
         
         self.highest_tab_number = 0
@@ -56,8 +57,8 @@ class MainWindow(QMainWindow):
         self.tab_buttons.setupUi(self.tab_button_layout)
         
         self.main_menu = QMenu()
-        self.main_menu.addAction(self.ui.actionCloseTab)
         self.main_menu.addAction(self.ui.actionNewWindow)
+        self.main_menu.addAction(self.ui.actionKeyboardShortcuts)
         self.main_menu.addAction(self.ui.actionAbout)
         self.tab_buttons.menuButton.setMenu(self.main_menu)
 
@@ -72,9 +73,9 @@ class MainWindow(QMainWindow):
 
 
     def connect_signals_and_slots(self):
-        self.ui.actionAbout.triggered.connect(self.about_window.exec)
+        self.ui.actionAbout.triggered.connect(self.about_dialog.exec)
         self.ui.actionNewWindow.triggered.connect(self.create_new_instance)
-        self.ui.actionCloseTab.triggered.connect(self.close_tab)
+        self.ui.actionKeyboardShortcuts.triggered.connect(self.keyboard_shortcuts_dialog.exec)
         self.tab_buttons.newTabButton.clicked.connect(self.create_new_tab)
 
 
@@ -126,7 +127,6 @@ class MainWindow(QMainWindow):
     def switch_tab(self, index):
         if index > self.ui.tabWidget.count():
             return
-        
         self.ui.tabWidget.setCurrentIndex(index)
 
 
@@ -140,6 +140,9 @@ class Tab(QWidget):
         self.update_download_directory_indicators()
         self.event_invoker = utils.Invoker()
         self.connect_signals_and_slots()
+
+        shortcut = QShortcut(QKeySequence(f"Ctrl+f"), self)
+        shortcut.activated.connect(lambda: self.ui.formatComboBox.setFocus())
 
 
     def setup_ui(self):
@@ -579,3 +582,11 @@ class AboutDialog(QDialog):
         self.ui.websiteButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/"))
         self.ui.supportedWebsitesButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/supported-websites"))
         self.ui.whatsNewButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/whats-new"))
+    
+
+
+class KeyboardShortcutsDialog(QDialog):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.ui = ui.Ui_KeyboardShortcutsDialog()
+        self.ui.setupUi(self)

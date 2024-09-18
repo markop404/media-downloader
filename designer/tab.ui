@@ -133,6 +133,9 @@
          <property name="focusPolicy">
           <enum>Qt::FocusPolicy::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Alt+C</string>
+         </property>
          <property name="text">
           <string>&amp;Change</string>
          </property>
@@ -164,7 +167,7 @@
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="toolTip">
-      <string>Useful when downloading music.</string>
+      <string>Useful when downloading music. (Alt+T)</string>
      </property>
      <property name="text">
       <string>Crop &amp;thumbnails / album arts to square shape</string>
@@ -177,7 +180,7 @@
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="toolTip">
-      <string>Removes each URL from the text entry when it finishes downloading.</string>
+      <string>Removes each URL from the text entry when it finishes downloading. (Alt+U)</string>
      </property>
      <property name="text">
       <string>Remove &amp;URLs as they are downloaded</string>
@@ -193,7 +196,7 @@
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="toolTip">
-      <string>Embeds subtitles instead of downloading them to a separate file. Only works if downloading in video format.</string>
+      <string>Embeds subtitles instead of downloading them to a separate file. Only works if downloading in video format. (Alt+S)</string>
      </property>
      <property name="text">
       <string>Embed &amp;subtitles to videos</string>
@@ -243,7 +246,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.</string>
+        <string>Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download. (Alt+P)</string>
        </property>
        <property name="text">
         <string>&amp;Pull Data</string>
@@ -266,6 +269,9 @@
        </property>
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Alt+D</string>
        </property>
        <property name="text">
         <string>&amp;Download</string>

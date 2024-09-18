@@ -59,15 +59,15 @@
     <string>About</string>
    </property>
   </action>
-  <action name="actionCloseTab">
+  <action name="actionKeyboardShortcuts">
    <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::WindowClose"/>
+    <iconset theme="QIcon::ThemeIcon::InputKeyboard"/>
    </property>
    <property name="text">
-    <string>Close Tab</string>
+    <string>Keyboard Shortcuts</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+W</string>
+    <string>Ctrl+?</string>
    </property>
    <property name="menuRole">
     <enum>QAction::MenuRole::NoRole</enum>
