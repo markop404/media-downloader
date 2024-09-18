@@ -70,6 +70,7 @@ class MainWindow(QMainWindow):
         QShortcut(QKeySequence("Alt+0"), self).activated.connect(lambda: self.switch_tab(9))
         QShortcut(QKeySequence("Ctrl+PgUp"), self).activated.connect(lambda: self.switch_tab(move="left"))
         QShortcut(QKeySequence("Ctrl+PgDown"), self).activated.connect(lambda: self.switch_tab(move="right"))
+        QShortcut(QKeySequence("Ctrl+w"), self).activated.connect(self.close_tab)
 
 
     def connect_signals_and_slots(self):
