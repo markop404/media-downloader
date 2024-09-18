@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogMuiSbq.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogTkjJXm.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -23,7 +23,9 @@ class Ui_KeyboardShortcutsDialog(object):
     def setupUi(self, KeyboardShortcutsDialog):
         if not KeyboardShortcutsDialog.objectName():
             KeyboardShortcutsDialog.setObjectName(u"KeyboardShortcutsDialog")
-        KeyboardShortcutsDialog.resize(454, 575)
+        KeyboardShortcutsDialog.resize(450, 575)
+        KeyboardShortcutsDialog.setMinimumSize(QSize(450, 575))
+        KeyboardShortcutsDialog.setMaximumSize(QSize(650, 775))
         icon = QIcon()
         icon.addFile(u"../6395582b/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         KeyboardShortcutsDialog.setWindowIcon(icon)
@@ -42,7 +44,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.pushButton_9 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_9.setObjectName(u"pushButton_9")
-        self.pushButton_9.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_9.setMaximumSize(QSize(55, 16777215))
         self.pushButton_9.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_9.setAutoDefault(False)
 
@@ -52,13 +54,14 @@ class Ui_KeyboardShortcutsDialog(object):
         self.label_10.setObjectName(u"label_10")
         font1 = QFont()
         font1.setPointSize(15)
+        font1.setWeight(QFont.Light)
         self.label_10.setFont(font1)
 
         self.horizontalLayout_6.addWidget(self.label_10, 0, Qt.AlignmentFlag.AlignHCenter)
 
         self.pushButton_10 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_10.setObjectName(u"pushButton_10")
-        self.pushButton_10.setMaximumSize(QSize(40, 16777215))
+        self.pushButton_10.setMaximumSize(QSize(35, 16777215))
         self.pushButton_10.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_10.setAutoDefault(False)
 
@@ -80,7 +83,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.pushButton_11 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_11.setObjectName(u"pushButton_11")
-        self.pushButton_11.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_11.setMaximumSize(QSize(55, 16777215))
         self.pushButton_11.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_11.setAutoDefault(False)
 
@@ -94,7 +97,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.pushButton_12 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_12.setObjectName(u"pushButton_12")
-        self.pushButton_12.setMaximumSize(QSize(40, 16777215))
+        self.pushButton_12.setMaximumSize(QSize(35, 16777215))
         self.pushButton_12.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_12.setAutoDefault(False)
 
@@ -116,7 +119,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
         self.pushButton_17 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_17.setObjectName(u"pushButton_17")
-        self.pushButton_17.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_17.setMaximumSize(QSize(55, 16777215))
         self.pushButton_17.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_17.setAutoDefault(False)
 
@@ -130,7 +133,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.pushButton_18 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_18.setObjectName(u"pushButton_18")
-        self.pushButton_18.setMaximumSize(QSize(40, 16777215))
+        self.pushButton_18.setMaximumSize(QSize(35, 16777215))
         self.pushButton_18.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_18.setAutoDefault(False)
 
@@ -159,7 +162,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.pushButton_15 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_15.setObjectName(u"pushButton_15")
-        self.pushButton_15.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_15.setMaximumSize(QSize(55, 16777215))
         self.pushButton_15.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_15.setAutoDefault(False)
 
@@ -173,7 +176,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.pushButton_16 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_16.setObjectName(u"pushButton_16")
-        self.pushButton_16.setMaximumSize(QSize(40, 16777215))
+        self.pushButton_16.setMaximumSize(QSize(35, 16777215))
         self.pushButton_16.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_16.setAutoDefault(False)
 
@@ -195,7 +198,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
         self.pushButton_30 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_30.setObjectName(u"pushButton_30")
-        self.pushButton_30.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_30.setMaximumSize(QSize(55, 16777215))
         self.pushButton_30.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_30.setAutoDefault(False)
 
@@ -209,7 +212,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.pushButton_31 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_31.setObjectName(u"pushButton_31")
-        self.pushButton_31.setMaximumSize(QSize(40, 16777215))
+        self.pushButton_31.setMaximumSize(QSize(35, 16777215))
         self.pushButton_31.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_31.setAutoDefault(False)
 
@@ -231,7 +234,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
         self.pushButton_26 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_26.setObjectName(u"pushButton_26")
-        self.pushButton_26.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_26.setMaximumSize(QSize(55, 16777215))
         self.pushButton_26.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_26.setAutoDefault(False)
 
@@ -266,7 +269,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
         self.pushButton_28 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_28.setObjectName(u"pushButton_28")
-        self.pushButton_28.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_28.setMaximumSize(QSize(55, 16777215))
         self.pushButton_28.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_28.setAutoDefault(False)
 
@@ -301,7 +304,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.pushButton_5 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_5.setObjectName(u"pushButton_5")
-        self.pushButton_5.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_5.setMaximumSize(QSize(55, 16777215))
         self.pushButton_5.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_5.setAutoDefault(False)
 
@@ -315,7 +318,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.pushButton_6 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_6.setObjectName(u"pushButton_6")
-        self.pushButton_6.setMaximumSize(QSize(40, 16777215))
+        self.pushButton_6.setMaximumSize(QSize(35, 16777215))
         self.pushButton_6.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_6.setAutoDefault(False)
 
@@ -328,7 +331,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.pushButton_19 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_19.setObjectName(u"pushButton_19")
-        self.pushButton_19.setMaximumSize(QSize(40, 16777215))
+        self.pushButton_19.setMaximumSize(QSize(35, 16777215))
         self.pushButton_19.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_19.setAutoDefault(False)
 
@@ -357,7 +360,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.pushButton_20 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_20.setObjectName(u"pushButton_20")
-        self.pushButton_20.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_20.setMaximumSize(QSize(55, 16777215))
         self.pushButton_20.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_20.setAutoDefault(False)
 
@@ -371,7 +374,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.pushButton_21 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_21.setObjectName(u"pushButton_21")
-        self.pushButton_21.setMaximumSize(QSize(40, 16777215))
+        self.pushButton_21.setMaximumSize(QSize(35, 16777215))
         self.pushButton_21.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_21.setAutoDefault(False)
 
@@ -393,7 +396,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
         self.pushButton_22 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_22.setObjectName(u"pushButton_22")
-        self.pushButton_22.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_22.setMaximumSize(QSize(55, 16777215))
         self.pushButton_22.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_22.setAutoDefault(False)
 
@@ -407,7 +410,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.pushButton_23 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_23.setObjectName(u"pushButton_23")
-        self.pushButton_23.setMaximumSize(QSize(40, 16777215))
+        self.pushButton_23.setMaximumSize(QSize(35, 16777215))
         self.pushButton_23.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_23.setAutoDefault(False)
 
@@ -429,7 +432,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
         self.pushButton_24 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_24.setObjectName(u"pushButton_24")
-        self.pushButton_24.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_24.setMaximumSize(QSize(55, 16777215))
         self.pushButton_24.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_24.setAutoDefault(False)
 
@@ -443,7 +446,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.pushButton_25 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_25.setObjectName(u"pushButton_25")
-        self.pushButton_25.setMaximumSize(QSize(40, 16777215))
+        self.pushButton_25.setMaximumSize(QSize(35, 16777215))
         self.pushButton_25.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_25.setAutoDefault(False)
 
@@ -472,7 +475,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.pushButton = QPushButton(KeyboardShortcutsDialog)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMaximumSize(QSize(60, 16777215))
+        self.pushButton.setMaximumSize(QSize(55, 16777215))
         self.pushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton.setAutoDefault(False)
 
@@ -486,7 +489,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.pushButton_2 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMaximumSize(QSize(40, 16777215))
+        self.pushButton_2.setMaximumSize(QSize(35, 16777215))
         self.pushButton_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_2.setAutoDefault(False)
 
@@ -508,7 +511,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.pushButton_13 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_13.setObjectName(u"pushButton_13")
-        self.pushButton_13.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_13.setMaximumSize(QSize(55, 16777215))
         self.pushButton_13.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_13.setAutoDefault(False)
 
@@ -522,7 +525,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.pushButton_14 = QPushButton(KeyboardShortcutsDialog)
         self.pushButton_14.setObjectName(u"pushButton_14")
-        self.pushButton_14.setMaximumSize(QSize(40, 16777215))
+        self.pushButton_14.setMaximumSize(QSize(35, 16777215))
         self.pushButton_14.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.pushButton_14.setAutoDefault(False)
 
@@ -560,7 +563,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.pushButton_17.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.label_18.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.pushButton_18.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"C", None))
-        self.label_19.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Change Download Location", None))
+        self.label_19.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Change Download Folder", None))
         self.label.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Tabs", None))
         self.pushButton_15.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
         self.label_16.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
@@ -584,7 +587,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.label_20.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"....", None))
         self.pushButton_19.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"9", None))
         self.label_7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Switch to Tab Directly", None))
-        self.label_37.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Quick Options", None))
+        self.label_37.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Quick Toggles", None))
         self.pushButton_20.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.label_23.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.pushButton_21.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"S", None))
@@ -607,4 +610,3 @@ class Ui_KeyboardShortcutsDialog(object):
         self.pushButton_14.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"?", None))
         self.label_15.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"View Shortcuts", None))
     # retranslateUi
-
