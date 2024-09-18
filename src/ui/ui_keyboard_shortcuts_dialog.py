@@ -27,7 +27,7 @@ class Ui_KeyboardShortcutsDialog(object):
         KeyboardShortcutsDialog.setMinimumSize(QSize(450, 615))
         KeyboardShortcutsDialog.setMaximumSize(QSize(650, 775))
         icon = QIcon()
-        icon.addFile(u"../6395582b/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         KeyboardShortcutsDialog.setWindowIcon(icon)
         self.verticalLayout = QVBoxLayout(KeyboardShortcutsDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
