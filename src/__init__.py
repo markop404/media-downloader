@@ -66,10 +66,10 @@ class MainWindow(QMainWindow):
         self.ui.tabWidget.tabCloseRequested.connect(self.close_tab)
 
         for i in range(1, 10):
-            shortcut = QShortcut(QKeySequence(f"Alt+{i}"), self)
-            shortcut.activated.connect(lambda i=i: self.switch_tab(i - 1))
-        shortcut = QShortcut(QKeySequence(f"Alt+0"), self)
-        shortcut.activated.connect(lambda: self.switch_tab(9))
+            QShortcut(QKeySequence(f"Alt+{i}"), self).activated.connect(lambda i=i: self.switch_tab(i - 1))
+        QShortcut(QKeySequence("Alt+0"), self).activated.connect(lambda: self.switch_tab(9))
+        QShortcut(QKeySequence("Ctrl+PgUp"), self).activated.connect(lambda: self.switch_tab(move="left"))
+        QShortcut(QKeySequence("Ctrl+PgDown"), self).activated.connect(lambda: self.switch_tab(move="right"))
 
 
     def connect_signals_and_slots(self):
@@ -124,10 +124,18 @@ class MainWindow(QMainWindow):
             self.ui.tabWidget.setTabIcon(index, QIcon())
     
 
-    def switch_tab(self, index):
-        if index > self.ui.tabWidget.count():
-            return
-        self.ui.tabWidget.setCurrentIndex(index)
+    def switch_tab(self, index=None, move=None):
+        if index:
+            self.ui.tabWidget.setCurrentIndex(index)
+        elif move:
+            current_index = self.ui.tabWidget.currentIndex()
+            new_index = current_index
+            if move == "left":
+                new_index = current_index - 1
+            elif move == "right":
+                new_index = current_index + 1
+            
+            self.ui.tabWidget.setCurrentIndex(new_index)
 
 
 
