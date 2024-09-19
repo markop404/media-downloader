@@ -155,9 +155,9 @@ class Tab(QWidget):
         self.ui = ui.Ui_Tab()
         self.ui.setupUi(self)
 
-        QShortcut(QKeySequence("Alt+f"), self).activated.connect(self.ui.formatComboBox.showPopup)
-        QShortcut(QKeySequence("Alt+q"), self).activated.connect(self.ui.qualityComboBox.showPopup)
-        QShortcut(QKeySequence("Alt+s"), self).activated.connect(self.ui.subtitlesComboBox.showPopup)
+        QShortcut(QKeySequence("Alt+f"), self).activated.connect(lambda: self.show_combobox_popup(self.ui.formatComboBox))
+        QShortcut(QKeySequence("Alt+q"), self).activated.connect(lambda: self.show_combobox_popup(self.ui.qualityComboBox))
+        QShortcut(QKeySequence("Alt+s"), self).activated.connect(lambda: self.show_combobox_popup(self.ui.subtitlesComboBox))
 
 
     def setup_vars(self, parent, pretty_tab_number):
@@ -548,6 +548,11 @@ class Tab(QWidget):
             self.update_status_indicators()
             self.subtitles = {}
             self.qualities = {"video": {}, "audio": []}
+
+
+    def show_combobox_popup(self, combobox):
+        if not self.thread_running:
+            combobox.showPopup()
 
 
     def run_in_gui_thread(self, fn):
