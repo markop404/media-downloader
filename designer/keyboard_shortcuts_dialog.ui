@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>icons/icon.png</normaloff>icons/icon.png</iconset>
+    <normaloff>../6395582b/icon.png</normaloff>../6395582b/icon.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -42,6 +42,9 @@
      </property>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
+     </property>
+     <property name="textInteractionFlags">
+      <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
      </property>
     </widget>
    </item>
@@ -115,6 +118,9 @@
       <widget class="QLabel" name="label_11">
        <property name="text">
         <string>Download</string>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
        </property>
       </widget>
      </item>
@@ -191,6 +197,9 @@
        <property name="text">
         <string>Pull Data</string>
        </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+       </property>
       </widget>
      </item>
     </layout>
@@ -266,6 +275,9 @@
        <property name="text">
         <string>Change Download Folder</string>
        </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+       </property>
       </widget>
      </item>
     </layout>
@@ -282,6 +294,9 @@
      </property>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
+     </property>
+     <property name="textInteractionFlags">
+      <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
      </property>
     </widget>
    </item>
@@ -355,6 +370,9 @@
       <widget class="QLabel" name="label_17">
        <property name="text">
         <string>New Tab</string>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
        </property>
       </widget>
      </item>
@@ -431,6 +449,9 @@
        <property name="text">
         <string>Close Tab</string>
        </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+       </property>
       </widget>
      </item>
     </layout>
@@ -500,6 +521,9 @@
        <property name="text">
         <string>Switch to Tab on the Left</string>
        </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+       </property>
       </widget>
      </item>
     </layout>
@@ -568,6 +592,9 @@
       <widget class="QLabel" name="label_32">
        <property name="text">
         <string>Switch to Tab on the Right</string>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
        </property>
       </widget>
      </item>
@@ -670,6 +697,9 @@
        <property name="text">
         <string>Switch to Tab Directly</string>
        </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+       </property>
       </widget>
      </item>
     </layout>
@@ -686,6 +716,9 @@
      </property>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
+     </property>
+     <property name="textInteractionFlags">
+      <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
      </property>
     </widget>
    </item>
@@ -759,6 +792,9 @@
       <widget class="QLabel" name="label_24">
        <property name="text">
         <string>Toggle Subtitle Embedding</string>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
        </property>
       </widget>
      </item>
@@ -835,6 +871,9 @@
        <property name="text">
         <string>Toggle Thumbnail Cropping</string>
        </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+       </property>
       </widget>
      </item>
     </layout>
@@ -910,6 +949,9 @@
        <property name="text">
         <string>Toggle URL Removal</string>
        </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+       </property>
       </widget>
      </item>
     </layout>
@@ -926,6 +968,9 @@
      </property>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
+     </property>
+     <property name="textInteractionFlags">
+      <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
      </property>
     </widget>
    </item>
@@ -999,6 +1044,9 @@
       <widget class="QLabel" name="label_3">
        <property name="text">
         <string>New Window</string>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
        </property>
       </widget>
      </item>
@@ -1074,6 +1122,9 @@
       <widget class="QLabel" name="label_15">
        <property name="text">
         <string>View Shortcuts</string>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
        </property>
       </widget>
      </item>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogebcqas.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogsxXfhD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -27,7 +27,7 @@ class Ui_KeyboardShortcutsDialog(object):
         KeyboardShortcutsDialog.setMinimumSize(QSize(450, 615))
         KeyboardShortcutsDialog.setMaximumSize(QSize(650, 775))
         icon = QIcon()
-        icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"../6395582b/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         KeyboardShortcutsDialog.setWindowIcon(icon)
         self.verticalLayout = QVBoxLayout(KeyboardShortcutsDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -37,6 +37,7 @@ class Ui_KeyboardShortcutsDialog(object):
         font.setBold(True)
         self.label_21.setFont(font)
         self.label_21.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
+        self.label_21.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.verticalLayout.addWidget(self.label_21)
 
@@ -73,6 +74,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_11 = QLabel(KeyboardShortcutsDialog)
         self.label_11.setObjectName(u"label_11")
+        self.label_11.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout_6.addWidget(self.label_11)
 
@@ -109,6 +111,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_13 = QLabel(KeyboardShortcutsDialog)
         self.label_13.setObjectName(u"label_13")
+        self.label_13.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout_7.addWidget(self.label_13)
 
@@ -145,6 +148,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_19 = QLabel(KeyboardShortcutsDialog)
         self.label_19.setObjectName(u"label_19")
+        self.label_19.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout_10.addWidget(self.label_19)
 
@@ -155,6 +159,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.label.setObjectName(u"label")
         self.label.setFont(font)
         self.label.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
+        self.label.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.verticalLayout.addWidget(self.label)
 
@@ -188,6 +193,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_17 = QLabel(KeyboardShortcutsDialog)
         self.label_17.setObjectName(u"label_17")
+        self.label_17.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout_9.addWidget(self.label_17)
 
@@ -224,6 +230,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_34 = QLabel(KeyboardShortcutsDialog)
         self.label_34.setObjectName(u"label_34")
+        self.label_34.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout_16.addWidget(self.label_34)
 
@@ -259,6 +266,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_30 = QLabel(KeyboardShortcutsDialog)
         self.label_30.setObjectName(u"label_30")
+        self.label_30.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout_14.addWidget(self.label_30)
 
@@ -294,6 +302,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_32 = QLabel(KeyboardShortcutsDialog)
         self.label_32.setObjectName(u"label_32")
+        self.label_32.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout_15.addWidget(self.label_32)
 
@@ -343,6 +352,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_7 = QLabel(KeyboardShortcutsDialog)
         self.label_7.setObjectName(u"label_7")
+        self.label_7.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout_4.addWidget(self.label_7)
 
@@ -353,6 +363,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.label_37.setObjectName(u"label_37")
         self.label_37.setFont(font)
         self.label_37.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
+        self.label_37.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.verticalLayout.addWidget(self.label_37)
 
@@ -386,6 +397,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_24 = QLabel(KeyboardShortcutsDialog)
         self.label_24.setObjectName(u"label_24")
+        self.label_24.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout_11.addWidget(self.label_24)
 
@@ -422,6 +434,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_26 = QLabel(KeyboardShortcutsDialog)
         self.label_26.setObjectName(u"label_26")
+        self.label_26.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout_12.addWidget(self.label_26)
 
@@ -458,6 +471,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_28 = QLabel(KeyboardShortcutsDialog)
         self.label_28.setObjectName(u"label_28")
+        self.label_28.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout_13.addWidget(self.label_28)
 
@@ -468,6 +482,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.label_22.setObjectName(u"label_22")
         self.label_22.setFont(font)
         self.label_22.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
+        self.label_22.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.verticalLayout.addWidget(self.label_22)
 
@@ -501,6 +516,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_3 = QLabel(KeyboardShortcutsDialog)
         self.label_3.setObjectName(u"label_3")
+        self.label_3.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout.addWidget(self.label_3)
 
@@ -537,6 +553,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label_15 = QLabel(KeyboardShortcutsDialog)
         self.label_15.setObjectName(u"label_15")
+        self.label_15.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.horizontalLayout_8.addWidget(self.label_15)
 
