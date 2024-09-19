@@ -70,3 +70,4 @@ def update_combobox_items(combobox, items=[]):
     combobox.clear()
     for item in items:
         combobox.addItem(item)
+    combobox.setCurrentIndex(0)
