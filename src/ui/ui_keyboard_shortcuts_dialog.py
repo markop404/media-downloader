@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogsxXfhD.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogEeQUAj.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -23,9 +23,9 @@ class Ui_KeyboardShortcutsDialog(object):
     def setupUi(self, KeyboardShortcutsDialog):
         if not KeyboardShortcutsDialog.objectName():
             KeyboardShortcutsDialog.setObjectName(u"KeyboardShortcutsDialog")
-        KeyboardShortcutsDialog.resize(450, 615)
-        KeyboardShortcutsDialog.setMinimumSize(QSize(450, 615))
-        KeyboardShortcutsDialog.setMaximumSize(QSize(650, 775))
+        KeyboardShortcutsDialog.resize(450, 715)
+        KeyboardShortcutsDialog.setMinimumSize(QSize(450, 715))
+        KeyboardShortcutsDialog.setMaximumSize(QSize(650, 860))
         icon = QIcon()
         icon.addFile(u"../6395582b/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         KeyboardShortcutsDialog.setWindowIcon(icon)
@@ -118,6 +118,88 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_7)
 
+        self.label_37 = QLabel(KeyboardShortcutsDialog)
+        self.label_37.setObjectName(u"label_37")
+        self.label_37.setFont(font)
+        self.label_37.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
+        self.label_37.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+
+        self.verticalLayout.addWidget(self.label_37)
+
+        self.horizontalLayout_17 = QHBoxLayout()
+        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
+        self.pushButton_32 = QPushButton(KeyboardShortcutsDialog)
+        self.pushButton_32.setObjectName(u"pushButton_32")
+        self.pushButton_32.setMaximumSize(QSize(55, 16777215))
+        self.pushButton_32.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pushButton_32.setAutoDefault(False)
+
+        self.horizontalLayout_17.addWidget(self.pushButton_32, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.label_35 = QLabel(KeyboardShortcutsDialog)
+        self.label_35.setObjectName(u"label_35")
+        self.label_35.setFont(font1)
+
+        self.horizontalLayout_17.addWidget(self.label_35, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.pushButton_33 = QPushButton(KeyboardShortcutsDialog)
+        self.pushButton_33.setObjectName(u"pushButton_33")
+        self.pushButton_33.setMaximumSize(QSize(35, 16777215))
+        self.pushButton_33.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pushButton_33.setAutoDefault(False)
+
+        self.horizontalLayout_17.addWidget(self.pushButton_33)
+
+        self.horizontalSpacer_16 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_17.addItem(self.horizontalSpacer_16)
+
+        self.label_36 = QLabel(KeyboardShortcutsDialog)
+        self.label_36.setObjectName(u"label_36")
+        self.label_36.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+
+        self.horizontalLayout_17.addWidget(self.label_36)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_17)
+
+        self.horizontalLayout_18 = QHBoxLayout()
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.pushButton_34 = QPushButton(KeyboardShortcutsDialog)
+        self.pushButton_34.setObjectName(u"pushButton_34")
+        self.pushButton_34.setMaximumSize(QSize(55, 16777215))
+        self.pushButton_34.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pushButton_34.setAutoDefault(False)
+
+        self.horizontalLayout_18.addWidget(self.pushButton_34, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.label_38 = QLabel(KeyboardShortcutsDialog)
+        self.label_38.setObjectName(u"label_38")
+        self.label_38.setFont(font1)
+
+        self.horizontalLayout_18.addWidget(self.label_38, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.pushButton_35 = QPushButton(KeyboardShortcutsDialog)
+        self.pushButton_35.setObjectName(u"pushButton_35")
+        self.pushButton_35.setMaximumSize(QSize(35, 16777215))
+        self.pushButton_35.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pushButton_35.setAutoDefault(False)
+
+        self.horizontalLayout_18.addWidget(self.pushButton_35)
+
+        self.horizontalSpacer_17 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_18.addItem(self.horizontalSpacer_17)
+
+        self.label_39 = QLabel(KeyboardShortcutsDialog)
+        self.label_39.setObjectName(u"label_39")
+        self.label_39.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+
+        self.horizontalLayout_18.addWidget(self.label_39)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_18)
+
         self.horizontalLayout_10 = QHBoxLayout()
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
         self.pushButton_17 = QPushButton(KeyboardShortcutsDialog)
@@ -154,6 +236,154 @@ class Ui_KeyboardShortcutsDialog(object):
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_10)
+
+        self.horizontalLayout_19 = QHBoxLayout()
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.pushButton_36 = QPushButton(KeyboardShortcutsDialog)
+        self.pushButton_36.setObjectName(u"pushButton_36")
+        self.pushButton_36.setMaximumSize(QSize(55, 16777215))
+        self.pushButton_36.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pushButton_36.setAutoDefault(False)
+
+        self.horizontalLayout_19.addWidget(self.pushButton_36, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.label_40 = QLabel(KeyboardShortcutsDialog)
+        self.label_40.setObjectName(u"label_40")
+        self.label_40.setFont(font1)
+
+        self.horizontalLayout_19.addWidget(self.label_40, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.pushButton_37 = QPushButton(KeyboardShortcutsDialog)
+        self.pushButton_37.setObjectName(u"pushButton_37")
+        self.pushButton_37.setMaximumSize(QSize(35, 16777215))
+        self.pushButton_37.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pushButton_37.setAutoDefault(False)
+
+        self.horizontalLayout_19.addWidget(self.pushButton_37)
+
+        self.horizontalSpacer_18 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_19.addItem(self.horizontalSpacer_18)
+
+        self.label_41 = QLabel(KeyboardShortcutsDialog)
+        self.label_41.setObjectName(u"label_41")
+        self.label_41.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+
+        self.horizontalLayout_19.addWidget(self.label_41)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_19)
+
+        self.horizontalLayout_12 = QHBoxLayout()
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.pushButton_22 = QPushButton(KeyboardShortcutsDialog)
+        self.pushButton_22.setObjectName(u"pushButton_22")
+        self.pushButton_22.setMaximumSize(QSize(55, 16777215))
+        self.pushButton_22.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pushButton_22.setAutoDefault(False)
+
+        self.horizontalLayout_12.addWidget(self.pushButton_22, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.label_25 = QLabel(KeyboardShortcutsDialog)
+        self.label_25.setObjectName(u"label_25")
+        self.label_25.setFont(font1)
+
+        self.horizontalLayout_12.addWidget(self.label_25, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.pushButton_23 = QPushButton(KeyboardShortcutsDialog)
+        self.pushButton_23.setObjectName(u"pushButton_23")
+        self.pushButton_23.setMaximumSize(QSize(35, 16777215))
+        self.pushButton_23.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pushButton_23.setAutoDefault(False)
+
+        self.horizontalLayout_12.addWidget(self.pushButton_23)
+
+        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_12.addItem(self.horizontalSpacer_11)
+
+        self.label_26 = QLabel(KeyboardShortcutsDialog)
+        self.label_26.setObjectName(u"label_26")
+        self.label_26.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+
+        self.horizontalLayout_12.addWidget(self.label_26)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_12)
+
+        self.horizontalLayout_13 = QHBoxLayout()
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.pushButton_24 = QPushButton(KeyboardShortcutsDialog)
+        self.pushButton_24.setObjectName(u"pushButton_24")
+        self.pushButton_24.setMaximumSize(QSize(55, 16777215))
+        self.pushButton_24.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pushButton_24.setAutoDefault(False)
+
+        self.horizontalLayout_13.addWidget(self.pushButton_24, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.label_27 = QLabel(KeyboardShortcutsDialog)
+        self.label_27.setObjectName(u"label_27")
+        self.label_27.setFont(font1)
+
+        self.horizontalLayout_13.addWidget(self.label_27, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.pushButton_25 = QPushButton(KeyboardShortcutsDialog)
+        self.pushButton_25.setObjectName(u"pushButton_25")
+        self.pushButton_25.setMaximumSize(QSize(35, 16777215))
+        self.pushButton_25.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pushButton_25.setAutoDefault(False)
+
+        self.horizontalLayout_13.addWidget(self.pushButton_25)
+
+        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_13.addItem(self.horizontalSpacer_12)
+
+        self.label_28 = QLabel(KeyboardShortcutsDialog)
+        self.label_28.setObjectName(u"label_28")
+        self.label_28.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+
+        self.horizontalLayout_13.addWidget(self.label_28)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_13)
+
+        self.horizontalLayout_11 = QHBoxLayout()
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.pushButton_20 = QPushButton(KeyboardShortcutsDialog)
+        self.pushButton_20.setObjectName(u"pushButton_20")
+        self.pushButton_20.setMaximumSize(QSize(55, 16777215))
+        self.pushButton_20.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pushButton_20.setAutoDefault(False)
+
+        self.horizontalLayout_11.addWidget(self.pushButton_20, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.label_23 = QLabel(KeyboardShortcutsDialog)
+        self.label_23.setObjectName(u"label_23")
+        self.label_23.setFont(font1)
+
+        self.horizontalLayout_11.addWidget(self.label_23, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.pushButton_21 = QPushButton(KeyboardShortcutsDialog)
+        self.pushButton_21.setObjectName(u"pushButton_21")
+        self.pushButton_21.setMaximumSize(QSize(35, 16777215))
+        self.pushButton_21.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pushButton_21.setAutoDefault(False)
+
+        self.horizontalLayout_11.addWidget(self.pushButton_21)
+
+        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_11.addItem(self.horizontalSpacer_10)
+
+        self.label_24 = QLabel(KeyboardShortcutsDialog)
+        self.label_24.setObjectName(u"label_24")
+        self.label_24.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+
+        self.horizontalLayout_11.addWidget(self.label_24)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_11)
 
         self.label = QLabel(KeyboardShortcutsDialog)
         self.label.setObjectName(u"label")
@@ -359,125 +589,6 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_4)
 
-        self.label_37 = QLabel(KeyboardShortcutsDialog)
-        self.label_37.setObjectName(u"label_37")
-        self.label_37.setFont(font)
-        self.label_37.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
-        self.label_37.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
-
-        self.verticalLayout.addWidget(self.label_37)
-
-        self.horizontalLayout_11 = QHBoxLayout()
-        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.pushButton_20 = QPushButton(KeyboardShortcutsDialog)
-        self.pushButton_20.setObjectName(u"pushButton_20")
-        self.pushButton_20.setMaximumSize(QSize(55, 16777215))
-        self.pushButton_20.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.pushButton_20.setAutoDefault(False)
-
-        self.horizontalLayout_11.addWidget(self.pushButton_20, 0, Qt.AlignmentFlag.AlignLeft)
-
-        self.label_23 = QLabel(KeyboardShortcutsDialog)
-        self.label_23.setObjectName(u"label_23")
-        self.label_23.setFont(font1)
-
-        self.horizontalLayout_11.addWidget(self.label_23, 0, Qt.AlignmentFlag.AlignHCenter)
-
-        self.pushButton_21 = QPushButton(KeyboardShortcutsDialog)
-        self.pushButton_21.setObjectName(u"pushButton_21")
-        self.pushButton_21.setMaximumSize(QSize(35, 16777215))
-        self.pushButton_21.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.pushButton_21.setAutoDefault(False)
-
-        self.horizontalLayout_11.addWidget(self.pushButton_21)
-
-        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_11.addItem(self.horizontalSpacer_10)
-
-        self.label_24 = QLabel(KeyboardShortcutsDialog)
-        self.label_24.setObjectName(u"label_24")
-        self.label_24.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
-
-        self.horizontalLayout_11.addWidget(self.label_24)
-
-
-        self.verticalLayout.addLayout(self.horizontalLayout_11)
-
-        self.horizontalLayout_12 = QHBoxLayout()
-        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.pushButton_22 = QPushButton(KeyboardShortcutsDialog)
-        self.pushButton_22.setObjectName(u"pushButton_22")
-        self.pushButton_22.setMaximumSize(QSize(55, 16777215))
-        self.pushButton_22.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.pushButton_22.setAutoDefault(False)
-
-        self.horizontalLayout_12.addWidget(self.pushButton_22, 0, Qt.AlignmentFlag.AlignLeft)
-
-        self.label_25 = QLabel(KeyboardShortcutsDialog)
-        self.label_25.setObjectName(u"label_25")
-        self.label_25.setFont(font1)
-
-        self.horizontalLayout_12.addWidget(self.label_25, 0, Qt.AlignmentFlag.AlignHCenter)
-
-        self.pushButton_23 = QPushButton(KeyboardShortcutsDialog)
-        self.pushButton_23.setObjectName(u"pushButton_23")
-        self.pushButton_23.setMaximumSize(QSize(35, 16777215))
-        self.pushButton_23.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.pushButton_23.setAutoDefault(False)
-
-        self.horizontalLayout_12.addWidget(self.pushButton_23)
-
-        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_12.addItem(self.horizontalSpacer_11)
-
-        self.label_26 = QLabel(KeyboardShortcutsDialog)
-        self.label_26.setObjectName(u"label_26")
-        self.label_26.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
-
-        self.horizontalLayout_12.addWidget(self.label_26)
-
-
-        self.verticalLayout.addLayout(self.horizontalLayout_12)
-
-        self.horizontalLayout_13 = QHBoxLayout()
-        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
-        self.pushButton_24 = QPushButton(KeyboardShortcutsDialog)
-        self.pushButton_24.setObjectName(u"pushButton_24")
-        self.pushButton_24.setMaximumSize(QSize(55, 16777215))
-        self.pushButton_24.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.pushButton_24.setAutoDefault(False)
-
-        self.horizontalLayout_13.addWidget(self.pushButton_24, 0, Qt.AlignmentFlag.AlignLeft)
-
-        self.label_27 = QLabel(KeyboardShortcutsDialog)
-        self.label_27.setObjectName(u"label_27")
-        self.label_27.setFont(font1)
-
-        self.horizontalLayout_13.addWidget(self.label_27, 0, Qt.AlignmentFlag.AlignHCenter)
-
-        self.pushButton_25 = QPushButton(KeyboardShortcutsDialog)
-        self.pushButton_25.setObjectName(u"pushButton_25")
-        self.pushButton_25.setMaximumSize(QSize(35, 16777215))
-        self.pushButton_25.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.pushButton_25.setAutoDefault(False)
-
-        self.horizontalLayout_13.addWidget(self.pushButton_25)
-
-        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_13.addItem(self.horizontalSpacer_12)
-
-        self.label_28 = QLabel(KeyboardShortcutsDialog)
-        self.label_28.setObjectName(u"label_28")
-        self.label_28.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
-
-        self.horizontalLayout_13.addWidget(self.label_28)
-
-
-        self.verticalLayout.addLayout(self.horizontalLayout_13)
-
         self.label_22 = QLabel(KeyboardShortcutsDialog)
         self.label_22.setObjectName(u"label_22")
         self.label_22.setFont(font)
@@ -577,10 +688,35 @@ class Ui_KeyboardShortcutsDialog(object):
         self.label_12.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.pushButton_12.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"P", None))
         self.label_13.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Pull Data", None))
+        self.label_37.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Controls", None))
+        self.pushButton_32.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
+        self.label_35.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
+        self.pushButton_33.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"F", None))
+        self.label_36.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Show Format Options", None))
+        self.pushButton_34.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
+        self.label_38.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
+        self.pushButton_35.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Q", None))
+        self.label_39.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Show Quality Options", None))
         self.pushButton_17.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.label_18.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
-        self.pushButton_18.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"C", None))
-        self.label_19.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Change Download Folder", None))
+        self.pushButton_18.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"S", None))
+        self.label_19.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Show Subtitle Options", None))
+        self.pushButton_36.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
+        self.label_40.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
+        self.pushButton_37.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"C", None))
+        self.label_41.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Change Download Folder", None))
+        self.pushButton_22.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
+        self.label_25.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
+        self.pushButton_23.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"T", None))
+        self.label_26.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle Thumbnail Cropping", None))
+        self.pushButton_24.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
+        self.label_27.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
+        self.pushButton_25.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"U", None))
+        self.label_28.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle URL Removal", None))
+        self.pushButton_20.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
+        self.label_23.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
+        self.pushButton_21.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"E", None))
+        self.label_24.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle Subtitle Embedding", None))
         self.label.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Tabs", None))
         self.pushButton_15.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
         self.label_16.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
@@ -604,19 +740,6 @@ class Ui_KeyboardShortcutsDialog(object):
         self.label_20.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"....", None))
         self.pushButton_19.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"9", None))
         self.label_7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Switch to Tab Directly", None))
-        self.label_37.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Quick Toggles", None))
-        self.pushButton_20.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
-        self.label_23.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
-        self.pushButton_21.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"S", None))
-        self.label_24.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle Subtitle Embedding", None))
-        self.pushButton_22.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
-        self.label_25.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
-        self.pushButton_23.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"T", None))
-        self.label_26.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle Thumbnail Cropping", None))
-        self.pushButton_24.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
-        self.label_27.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
-        self.pushButton_25.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"U", None))
-        self.label_28.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle URL Removal", None))
         self.label_22.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Other", None))
         self.pushButton.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
         self.label_2.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
