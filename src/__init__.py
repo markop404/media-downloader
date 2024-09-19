@@ -126,7 +126,7 @@ class MainWindow(QMainWindow):
     
 
     def switch_tab(self, index=None, move=None):
-        if index:
+        if isinstance(index, int):
             self.ui.tabWidget.setCurrentIndex(index)
         elif move:
             current_index = self.ui.tabWidget.currentIndex()
