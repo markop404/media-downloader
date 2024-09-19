@@ -199,7 +199,7 @@
       <string>Embeds subtitles instead of downloading them to a separate file. Only works if downloading in video format. (Alt+S)</string>
      </property>
      <property name="text">
-      <string>Embed &amp;subtitles to videos</string>
+      <string>&amp;Embed subtitles to videos</string>
      </property>
      <property name="checked">
       <bool>true</bool>

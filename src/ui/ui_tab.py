@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabGetIXW.ui'
+## Form generated from reading UI file 'tabGPBLdr.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -239,7 +239,7 @@ class Ui_Tab(object):
 #if QT_CONFIG(tooltip)
         self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Embeds subtitles instead of downloading them to a separate file. Only works if downloading in video format. (Alt+S)", None))
 #endif // QT_CONFIG(tooltip)
-        self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"Embed &subtitles to videos", None))
+        self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"&Embed subtitles to videos", None))
 #if QT_CONFIG(tooltip)
         self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download. (Alt+P)", None))
 #endif // QT_CONFIG(tooltip)
