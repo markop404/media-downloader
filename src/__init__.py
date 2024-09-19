@@ -150,13 +150,14 @@ class Tab(QWidget):
         self.event_invoker = utils.Invoker()
         self.connect_signals_and_slots()
 
-        shortcut = QShortcut(QKeySequence(f"Ctrl+f"), self)
-        shortcut.activated.connect(lambda: self.ui.formatComboBox.setFocus())
-
 
     def setup_ui(self):
         self.ui = ui.Ui_Tab()
         self.ui.setupUi(self)
+
+        QShortcut(QKeySequence("Alt+f"), self).activated.connect(self.ui.formatComboBox.showPopup)
+        QShortcut(QKeySequence("Alt+q"), self).activated.connect(self.ui.qualityComboBox.showPopup)
+        QShortcut(QKeySequence("Alt+s"), self).activated.connect(self.ui.subtitlesComboBox.showPopup)
 
 
     def setup_vars(self, parent, pretty_tab_number):
