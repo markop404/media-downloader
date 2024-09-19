@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabGPBLdr.ui'
+## Form generated from reading UI file 'tabZEGLEZ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -218,9 +218,18 @@ class Ui_Tab(object):
         self.formatComboBox.setItemText(0, QCoreApplication.translate("Tab", u"Video", None))
         self.formatComboBox.setItemText(1, QCoreApplication.translate("Tab", u"Audio", None))
 
+#if QT_CONFIG(tooltip)
+        self.formatComboBox.setToolTip(QCoreApplication.translate("Tab", u"Show Options (Alt+F)", None))
+#endif // QT_CONFIG(tooltip)
         self.qualityLabel.setText(QCoreApplication.translate("Tab", u"Quality:", None))
+#if QT_CONFIG(tooltip)
+        self.qualityComboBox.setToolTip(QCoreApplication.translate("Tab", u"Show Options (Alt+Q)", None))
+#endif // QT_CONFIG(tooltip)
         self.qualityComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"Best", None))
         self.subtitlesLabel.setText(QCoreApplication.translate("Tab", u"Subtitles:", None))
+#if QT_CONFIG(tooltip)
+        self.subtitlesComboBox.setToolTip(QCoreApplication.translate("Tab", u"Show Options (Alt+S)", None))
+#endif // QT_CONFIG(tooltip)
         self.subtitlesComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"None", None))
         self.downloadFolderLabel.setText(QCoreApplication.translate("Tab", u"Download Folder:", None))
         self.downloadFolderIndicatorLabel.setText(QCoreApplication.translate("Tab", u"None", None))

@@ -57,6 +57,9 @@
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
+       <property name="toolTip">
+        <string>Show Options (Alt+F)</string>
+       </property>
        <item>
         <property name="text">
          <string>Video</string>
@@ -81,6 +84,9 @@
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
+       <property name="toolTip">
+        <string>Show Options (Alt+Q)</string>
+       </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
        </property>
@@ -100,6 +106,9 @@
       <widget class="QComboBox" name="subtitlesComboBox">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Show Options (Alt+S)</string>
        </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
