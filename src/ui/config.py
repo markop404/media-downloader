@@ -19,55 +19,54 @@
 
 from PySide6.QtGui import QIcon
 
-class Text:
-    APP_NAME = "Media Downloader"
 
-    STATUS_LABEL_TEXT = {
-        "download_failed": "Downloading Failed.",
-        "download_cancelled": "Downloading Cancelled.",
-        "download_finished": "Downloading Finished.",
-        "cancelling_download": "Cancelling Download...",
-        "downloading": "Downloading...",
-        "extracting_urls": "Analyzing URLs...",
-        "data_pull_failed": "Data Pull Failed.",
-        "data_pull_cancelled": "Data Pull Cancelled.",
-        "data_pull_finished": "Data Pull Finished.",
-        "cancelling_data_pull": "Cancelling Data Pull...",
-        "pulling_data": "Pulling Data...",
-        "converting": "Processing...",
-        "no_internet": "No internet connection.",
-    }
+APP_NAME = "Media Downloader"
 
-    TAB_TITLE_TEXT = {
-        "download_failed": "Failed",
-        "download_cancelled": "Cancelled",
-        "download_finished": "Finished",
-        "cancelling_download": "Cancelling",
-        "downloading": "Downloading",
-        "extracting_urls": "Analyzing",
-        "data_pull_failed": "Failed",
-        "data_pull_cancelled": "Cancelled",
-        "data_pull_finished": "Finished",
-        "cancelling_data_pull": "Cancelling",
-        "pulling_data": "Pulling Data",
-        "converting": "Downloading",
-        "no_internet": "Failed",
-    }
+STATUS_LABEL_TEXT = {
+    "download_failed": "Downloading Failed.",
+    "download_cancelled": "Downloading Cancelled.",
+    "download_finished": "Downloading Finished.",
+    "cancelling_download": "Cancelling Download...",
+    "downloading": "Downloading...",
+    "extracting_urls": "Analyzing URLs...",
+    "data_pull_failed": "Data Pull Failed.",
+    "data_pull_cancelled": "Data Pull Cancelled.",
+    "data_pull_finished": "Data Pull Finished.",
+    "cancelling_data_pull": "Cancelling Data Pull...",
+    "pulling_data": "Pulling Data...",
+    "converting": "Processing...",
+    "no_internet": "No internet connection.",
+}
 
-    WINDOW_TITLES = {
-        "error": f"Error - Tab <pretty_tab_number> | {APP_NAME}",
-    }
+TAB_TITLE_TEXT = {
+    "download_failed": "Failed",
+    "download_cancelled": "Cancelled",
+    "download_finished": "Finished",
+    "cancelling_download": "Cancelling",
+    "downloading": "Downloading",
+    "extracting_urls": "Analyzing",
+    "data_pull_failed": "Failed",
+    "data_pull_cancelled": "Cancelled",
+    "data_pull_finished": "Finished",
+    "cancelling_data_pull": "Cancelling",
+    "pulling_data": "Pulling Data",
+    "converting": "Downloading",
+    "no_internet": "Failed",
+}
 
-    BUTTON_TEXT = {
-        "download": {"default": "&Download", "secondary": "Cancel &Download"},
-        "refresh": {"default": "&Pull Data", "secondary": "Cancel Data &Pull"},
-    }
+WINDOW_TITLES = {
+    "error": f"Error - Tab <pretty_tab_number> | {APP_NAME}",
+}
 
-    FORMATS = {
-        "Audio": "audio",
-        "Video": "video",
-    }
+BUTTON_TEXT = {
+    "download": {"default": "&Download", "secondary": "Cancel &Download"},
+    "refresh": {"default": "&Pull Data", "secondary": "Cancel Data &Pull"},
+}
 
+FORMATS = {
+    "Audio": "audio",
+    "Video": "video",
+}
 
 ICONS = {
     "download_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
