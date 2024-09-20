@@ -362,11 +362,11 @@ class Tab(QWidget):
             self.prep_thread_exit("data_pull_failed")
             print(e)
             return
-        if not exit_status or not urls:
-            if not exit_status:
-                self.prep_thread_exit("no_internet")
-            elif not urls and failed_urls1:
-                self.handle_invalid_url_warning(failed_urls1, error_type="data_pull")
+        if not exit_status:
+            self.prep_thread_exit("no_internet")
+            return
+        elif not urls and failed_urls1:
+            self.handle_invalid_url_warning(failed_urls1, error_type="data_pull")
             self.prep_thread_exit("data_pull_failed")
             return
 
@@ -389,12 +389,11 @@ class Tab(QWidget):
             self.prep_thread_exit("data_pull_failed")
             return
         failed_urls = failed_urls1.union(failed_urls2)
-
-        if not exit_status or not data:
-            if not exit_status:
-                self.prep_thread_exit("no_internet")
-            elif failed_urls and not data:
-                self.handle_invalid_url_warning(failed_urls, error_type="data_pull")
+        if not exit_status:
+            self.prep_thread_exit("no_internet")
+            return
+        elif failed_urls and not data:
+            self.handle_invalid_url_warning(failed_urls, error_type="data_pull")
             self.prep_thread_exit("data_pull_failed")
             return
         
@@ -436,11 +435,11 @@ class Tab(QWidget):
             print(e)
             self.prep_thread_exit("download_failed")
             return
-        if not exit_status or not urls:
-            if not exit_status:
-                self.prep_thread_exit("no_internet")
-            elif not urls and failed_urls1:
-                self.handle_invalid_url_warning(failed_urls1)
+        if not exit_status:
+            self.prep_thread_exit("no_internet")
+            return
+        elif not urls and failed_urls1:
+            self.handle_invalid_url_warning(failed_urls1)
             self.prep_thread_exit("download_failed")
             return
 
@@ -480,17 +479,17 @@ class Tab(QWidget):
             self.prep_thread_exit("download_failed")
             return
         failed_urls = failed_urls1.union(failed_urls2)
-        
-        if not exit_status or failed_urls == urls:
-            if not exit_status:
-                self.prep_thread_exit("no_internet")
-            elif failed_urls == urls:
-                self.handle_invalid_url_warning(failed_urls)
+        if not exit_status:
+            self.prep_thread_exit("no_internet")
+            return
+        elif failed_urls == urls:
+            self.handle_invalid_url_warning(failed_urls)
             self.prep_thread_exit("download_failed")
-        else:
-            if failed_urls:
-                self.handle_invalid_url_warning(failed_urls)
-            self.prep_thread_exit("download_finished", 100)
+            return
+
+        if failed_urls:
+            self.handle_invalid_url_warning(failed_urls)
+        self.prep_thread_exit("download_finished", 100)
 
 
     def display_invalid_url_warning(self, text):
