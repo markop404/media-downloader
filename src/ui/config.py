@@ -1,4 +1,3 @@
-
 # Media Downloader - Web video/audio downloader
 # Copyright (C) 2024  Marko Pejić
 
