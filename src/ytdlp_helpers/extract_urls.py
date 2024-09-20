@@ -44,7 +44,7 @@ def extract_urls(urls, on_progress=None):
                 print(e)
                 errors.add(e)
                 if not check_internet_connection():
-                    return extracted_urls, failed_urls, False
+                    return extracted_urls, failed_urls, False, errors
                 failed_urls.add(url)
 
     if failed_urls:
@@ -60,7 +60,7 @@ def extract_urls(urls, on_progress=None):
                     print(e)
                     errors.add(e)
                     if not check_internet_connection():
-                        return extracted_urls, failed_urls, False
+                        return extracted_urls, failed_urls, False, errors
 
     return extracted_urls, failed_urls, True, errors
 
