@@ -71,7 +71,7 @@ FORMATS = {
 ICONS = {
     "download_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
     "download_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-    "download_finished": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)),
+    "download_finished": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.MediaPlaybackStart)),
     "cancelling_download": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
     "downloading": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
     "extracting_urls": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentSoon)),
@@ -81,5 +81,5 @@ ICONS = {
     "cancelling_data_pull": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
     "pulling_data": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)),
     "converting": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
-    "no_internet": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "no_internet": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.NetworkOffline)),
 }
