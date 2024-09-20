@@ -117,7 +117,7 @@ class MainWindow(QMainWindow):
             else:
                 progress_text = ""
 
-            text = f"{pretty_tab_number} - {ui.Text.TAB_TITLE_TEXT[situation]}{progress_text}"
+            text = f"{pretty_tab_number} - {ui.TAB_TITLE_TEXT[situation]}{progress_text}"
             self.ui.tabWidget.setTabText(index, text)
             self.ui.tabWidget.setTabIcon(index, ui.ICONS[situation])
         else:
@@ -194,7 +194,7 @@ class Tab(QWidget):
             else:
                 progress_text = ""
 
-            self.ui.statusLabel.setText(f"{ui.Text.STATUS_LABEL_TEXT[situation]}{progress_text}")
+            self.ui.statusLabel.setText(f"{ui.STATUS_LABEL_TEXT[situation]}{progress_text}")
             if percentage:
                 self.ui.progressBar.setValue(percentage)
             self.parent.update_tab(tab_index, self.pretty_tab_number, situation, progress)
@@ -249,8 +249,8 @@ class Tab(QWidget):
         self.ui.cropThumbnailsCheckBox.setEnabled(True)
         self.ui.dataPullButton.setEnabled(True)
         self.ui.downloadButton.setEnabled(True)
-        self.ui.dataPullButton.setText(ui.Text.BUTTON_TEXT["refresh"]["default"])
-        self.ui.downloadButton.setText(ui.Text.BUTTON_TEXT["download"]["default"])
+        self.ui.dataPullButton.setText(ui.BUTTON_TEXT["refresh"]["default"])
+        self.ui.downloadButton.setText(ui.BUTTON_TEXT["download"]["default"])
         self.update_status_indicators(situation, percentage=percentage)
     
     
@@ -260,7 +260,7 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            self.ui.dataPullButton.setText(ui.Text.BUTTON_TEXT["refresh"]["secondary"])
+            self.ui.dataPullButton.setText(ui.BUTTON_TEXT["refresh"]["secondary"])
             self.ui.downloadButton.setEnabled(False)
             Thread(target=lambda: self.update_info(urls), daemon=True).start()
         elif self.thread_running:
@@ -275,7 +275,7 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            self.ui.downloadButton.setText(ui.Text.BUTTON_TEXT["download"]["secondary"])
+            self.ui.downloadButton.setText(ui.BUTTON_TEXT["download"]["secondary"])
             self.ui.dataPullButton.setEnabled(False)
             self.ui.formatComboBox.setEnabled(False)
             self.ui.setDownloadFolderButton.setEnabled(False)
@@ -445,7 +445,7 @@ class Tab(QWidget):
 
         self.run_in_gui_thread(lambda: self.update_status_indicators("downloading", (1, len(urls)), 0))
 
-        file_type = ui.Text.FORMATS[self.ui.formatComboBox.currentText()]
+        file_type = ui.FORMATS[self.ui.formatComboBox.currentText()]
         selected_quality = self.ui.qualityComboBox.currentText()
         if file_type == "video" and selected_quality in self.qualities["video"]:
             quality = self.qualities["video"][selected_quality]
@@ -495,7 +495,7 @@ class Tab(QWidget):
     def display_invalid_url_warning(self, text):
         answer = QMessageBox.warning(
             self,
-            ui.Text.WINDOW_TITLES["error"].replace("<pretty_tab_number>", str(self.pretty_tab_number)),
+            ui.WINDOW_TITLES["error"].replace("<pretty_tab_number>", str(self.pretty_tab_number)),
             text,
             buttons=QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
             defaultButton=QMessageBox.StandardButton.Yes,
@@ -569,9 +569,9 @@ class Tab(QWidget):
 
     def show_new_qualities(self):
         _format = self.ui.formatComboBox.currentText()
-        if ui.Text.FORMATS[_format] == "audio":
+        if ui.FORMATS[_format] == "audio":
             utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["audio"])
-        elif ui.Text.FORMATS[_format] == "video":
+        elif ui.FORMATS[_format] == "video":
             utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["video"].keys())
     
 
