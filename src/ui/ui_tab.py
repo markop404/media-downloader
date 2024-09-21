@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabZEGLEZ.ui'
+## Form generated from reading UI file 'tabCMtAdh.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -180,6 +180,10 @@ class Ui_Tab(object):
 
         self.statusIndicatorsLayout.addWidget(self.statusIconLabel)
 
+        self.horizontalSpacer8 = QSpacerItem(3, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+
+        self.statusIndicatorsLayout.addItem(self.horizontalSpacer8)
+
         self.statusLabel = QLabel(Tab)
         self.statusLabel.setObjectName(u"statusLabel")
         font = QFont()
@@ -189,9 +193,9 @@ class Ui_Tab(object):
 
         self.statusIndicatorsLayout.addWidget(self.statusLabel)
 
-        self.horizontalSpacer8 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer9 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.statusIndicatorsLayout.addItem(self.horizontalSpacer8)
+        self.statusIndicatorsLayout.addItem(self.horizontalSpacer9)
 
 
         self.verticalLayout.addLayout(self.statusIndicatorsLayout)
