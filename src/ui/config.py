@@ -54,7 +54,7 @@ TAB_TITLE_TEXT = {
 }
 
 WINDOW_TITLES = {
-    "error": f"Error - Tab <pretty_tab_number> | {APP_NAME}",
+    "error": "Error - Tab <pretty_tab_number>",
 }
 
 BUTTON_TEXT = {
