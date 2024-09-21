@@ -49,9 +49,8 @@
       <widget class="QLabel" name="appNameLabel">
        <property name="font">
         <font>
-         <family>Cantarell Extra Bold</family>
          <pointsize>16</pointsize>
-         <bold>true</bold>
+         <fontweight>ExtraBold</fontweight>
         </font>
        </property>
        <property name="text">

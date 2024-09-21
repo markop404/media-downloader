@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialogbZEfBQ.ui'
+## Form generated from reading UI file 'about_dialogBqYPOd.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -43,9 +43,8 @@ class Ui_AboutDialog(object):
         self.appNameLabel = QLabel(AboutDialog)
         self.appNameLabel.setObjectName(u"appNameLabel")
         font = QFont()
-        font.setFamilies([u"Cantarell Extra Bold"])
         font.setPointSize(16)
-        font.setBold(True)
+        font.setWeight(QFont.ExtraBold)
         self.appNameLabel.setFont(font)
         self.appNameLabel.setMargin(4)
 
@@ -391,4 +390,3 @@ class Ui_AboutDialog(object):
         self.copyrightLabel.setText(QCoreApplication.translate("AboutDialog", u"Copyright \u00a9 2024 Marko Peji\u0107", None))
         self.closeDialogButton.setText(QCoreApplication.translate("AboutDialog", u"Close", None))
     # retranslateUi
-
