@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogEeQUAj.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogFmpdiR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -27,7 +27,7 @@ class Ui_KeyboardShortcutsDialog(object):
         KeyboardShortcutsDialog.setMinimumSize(QSize(450, 715))
         KeyboardShortcutsDialog.setMaximumSize(QSize(650, 860))
         icon = QIcon()
-        icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"../6395582b/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         KeyboardShortcutsDialog.setWindowIcon(icon)
         self.verticalLayout = QVBoxLayout(KeyboardShortcutsDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
