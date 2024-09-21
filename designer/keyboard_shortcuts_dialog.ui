@@ -31,7 +31,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="label_21">
+    <widget class="QLabel" name="sectionLabel3">
      <property name="font">
       <font>
        <bold>true</bold>
@@ -49,9 +49,9 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_6">
+    <layout class="QHBoxLayout" name="shortcutLayout13">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_9">
+      <widget class="QPushButton" name="keyButton11">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -70,7 +70,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_10">
+      <widget class="QLabel" name="keySeparator6">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -80,10 +80,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_10">
+      <widget class="QPushButton" name="keyButton10">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -102,7 +105,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_5">
+      <spacer name="horizontalSpacer5">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -115,7 +118,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_11">
+      <widget class="QLabel" name="shortcutDescriptionLabel5">
        <property name="text">
         <string>Download</string>
        </property>
@@ -127,9 +130,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_7">
+    <layout class="QHBoxLayout" name="shortcutLayout14">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_11">
+      <widget class="QPushButton" name="keyButton12">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -148,7 +151,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_12">
+      <widget class="QLabel" name="keySeparator7">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -158,10 +161,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_12">
+      <widget class="QPushButton" name="keyButton13">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -180,7 +186,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_6">
+      <spacer name="horizontalSpacer6">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -193,7 +199,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_13">
+      <widget class="QLabel" name="shortcutDescriptionLabel6">
        <property name="text">
         <string>Pull Data</string>
        </property>
@@ -205,7 +211,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="label_37">
+    <widget class="QLabel" name="sectionLabel2">
      <property name="font">
       <font>
        <bold>true</bold>
@@ -223,9 +229,9 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_17">
+    <layout class="QHBoxLayout" name="shortcutLayout9">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_32">
+      <widget class="QPushButton" name="keyButton32">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -244,7 +250,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_35">
+      <widget class="QLabel" name="keySeparator17">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -254,10 +260,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_33">
+      <widget class="QPushButton" name="keyButton33">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -276,7 +285,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_16">
+      <spacer name="horizontalSpacer16">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -289,7 +298,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_36">
+      <widget class="QLabel" name="shortcutDescriptionLabel16">
        <property name="text">
         <string>Show Format Options</string>
        </property>
@@ -301,9 +310,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_18">
+    <layout class="QHBoxLayout" name="shortcutLayout10">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_34">
+      <widget class="QPushButton" name="keyButton3">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -322,7 +331,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_38">
+      <widget class="QLabel" name="keySeparator2">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -332,10 +341,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_35">
+      <widget class="QPushButton" name="keyButton4">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -354,7 +366,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_17">
+      <spacer name="horizontalSpacer2">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -367,7 +379,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_39">
+      <widget class="QLabel" name="shortcutDescriptionLabel2">
        <property name="text">
         <string>Show Quality Options</string>
        </property>
@@ -379,9 +391,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_10">
+    <layout class="QHBoxLayout" name="shortcutLayout2">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_17">
+      <widget class="QPushButton" name="keyButton18">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -400,7 +412,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_18">
+      <widget class="QLabel" name="keySeparator10">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -410,10 +422,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_18">
+      <widget class="QPushButton" name="keyButton19">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -432,7 +447,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_9">
+      <spacer name="horizontalSpacer9">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -445,7 +460,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_19">
+      <widget class="QLabel" name="shortcutDescriptionLabel9">
        <property name="text">
         <string>Show Subtitle Options</string>
        </property>
@@ -457,9 +472,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_19">
+    <layout class="QHBoxLayout" name="shortcutLayout11">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_36">
+      <widget class="QPushButton" name="keyButton5">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -478,7 +493,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_40">
+      <widget class="QLabel" name="keySeparator3">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -488,10 +503,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_37">
+      <widget class="QPushButton" name="keyButton6">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -510,7 +528,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_18">
+      <spacer name="horizontalSpacer3">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -523,7 +541,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_41">
+      <widget class="QLabel" name="shortcutDescriptionLabel3">
        <property name="text">
         <string>Change Download Folder</string>
        </property>
@@ -535,9 +553,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_12">
+    <layout class="QHBoxLayout" name="shortcutLayout4">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_22">
+      <widget class="QPushButton" name="keyButton22">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -556,7 +574,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_25">
+      <widget class="QLabel" name="keySeparator12">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -566,10 +584,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_23">
+      <widget class="QPushButton" name="keyButton23">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -588,7 +609,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_11">
+      <spacer name="horizontalSpacer11">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -601,7 +622,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_26">
+      <widget class="QLabel" name="shortcutDescriptionLabel11">
        <property name="text">
         <string>Toggle Thumbnail Cropping</string>
        </property>
@@ -613,9 +634,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_13">
+    <layout class="QHBoxLayout" name="shortcutLayout5">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_24">
+      <widget class="QPushButton" name="keyButton24">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -634,7 +655,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_27">
+      <widget class="QLabel" name="keySeparator13">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -644,10 +665,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_25">
+      <widget class="QPushButton" name="keyButton25">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -666,7 +690,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_12">
+      <spacer name="horizontalSpacer12">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -679,7 +703,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_28">
+      <widget class="QLabel" name="shortcutDescriptionLabel12">
        <property name="text">
         <string>Toggle URL Removal</string>
        </property>
@@ -691,9 +715,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_11">
+    <layout class="QHBoxLayout" name="shortcutLayout3">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_20">
+      <widget class="QPushButton" name="keyButton20">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -712,7 +736,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_23">
+      <widget class="QLabel" name="keySeparator11">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -722,10 +746,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_21">
+      <widget class="QPushButton" name="keyButton21">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -744,7 +771,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_10">
+      <spacer name="horizontalSpacer10">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -757,7 +784,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_24">
+      <widget class="QLabel" name="shortcutDescriptionLabel10">
        <property name="text">
         <string>Toggle Subtitle Embedding</string>
        </property>
@@ -769,7 +796,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="sectionLabel1">
      <property name="font">
       <font>
        <bold>true</bold>
@@ -787,9 +814,9 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_9">
+    <layout class="QHBoxLayout" name="shortcutLayout16">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_15">
+      <widget class="QPushButton" name="keyButton16">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -808,7 +835,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_16">
+      <widget class="QLabel" name="keySeparator9">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -818,10 +845,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_16">
+      <widget class="QPushButton" name="keyButton17">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -840,7 +870,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_8">
+      <spacer name="horizontalSpacer8">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -853,7 +883,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_17">
+      <widget class="QLabel" name="shortcutDescriptionLabel8">
        <property name="text">
         <string>New Tab</string>
        </property>
@@ -865,9 +895,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_16">
+    <layout class="QHBoxLayout" name="shortcutLayout8">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_30">
+      <widget class="QPushButton" name="keyButton30">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -886,7 +916,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_33">
+      <widget class="QLabel" name="keySeparator16">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -896,10 +926,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_31">
+      <widget class="QPushButton" name="keyButton31">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -918,7 +951,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_15">
+      <spacer name="horizontalSpacer15">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -931,7 +964,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_34">
+      <widget class="QLabel" name="shortcutDescriptionLabel15">
        <property name="text">
         <string>Close Tab</string>
        </property>
@@ -943,9 +976,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_14">
+    <layout class="QHBoxLayout" name="shortcutLayout6">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_26">
+      <widget class="QPushButton" name="keyButton26">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -964,7 +997,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_29">
+      <widget class="QLabel" name="keySeparator14">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -974,10 +1007,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_27">
+      <widget class="QPushButton" name="keyButton27">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
@@ -990,7 +1026,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_13">
+      <spacer name="horizontalSpacer13">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -1003,7 +1039,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_30">
+      <widget class="QLabel" name="shortcutDescriptionLabel13">
        <property name="text">
         <string>Switch to Tab on the Left</string>
        </property>
@@ -1015,9 +1051,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_15">
+    <layout class="QHBoxLayout" name="shortcutLayout7">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_28">
+      <widget class="QPushButton" name="keyButton28">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -1036,7 +1072,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_31">
+      <widget class="QLabel" name="keySeparator15">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -1046,10 +1082,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_29">
+      <widget class="QPushButton" name="keyButton29">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
@@ -1062,7 +1101,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_14">
+      <spacer name="horizontalSpacer14">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -1075,7 +1114,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_32">
+      <widget class="QLabel" name="shortcutDescriptionLabel14">
        <property name="text">
         <string>Switch to Tab on the Right</string>
        </property>
@@ -1087,9 +1126,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <layout class="QHBoxLayout" name="shortcutLayout12">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="keyButton8">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -1108,7 +1147,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_6">
+      <widget class="QLabel" name="keySeparator5">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -1118,10 +1157,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_6">
+      <widget class="QPushButton" name="keyButton9">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -1140,14 +1182,17 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_20">
+      <widget class="QLabel" name="keySeparator4">
        <property name="text">
         <string>....</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_19">
+      <widget class="QPushButton" name="keyButton7">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -1166,7 +1211,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_3">
+      <spacer name="horizontalSpacer4">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -1179,7 +1224,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="shortcutDescriptionLabel4">
        <property name="text">
         <string>Switch to Tab Directly</string>
        </property>
@@ -1191,7 +1236,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="label_22">
+    <widget class="QLabel" name="sectionLabel4">
      <property name="font">
       <font>
        <bold>true</bold>
@@ -1209,9 +1254,9 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="shortcutLayout1">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="keyButton1">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -1230,7 +1275,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="keySeparator1">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -1240,10 +1285,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="keyButton2">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -1262,7 +1310,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer">
+      <spacer name="horizontalSpacer1">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -1275,7 +1323,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="shortcutDescriptionLabel1">
        <property name="text">
         <string>New Window</string>
        </property>
@@ -1287,9 +1335,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_8">
+    <layout class="QHBoxLayout" name="shortcutLayout15">
      <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QPushButton" name="pushButton_13">
+      <widget class="QPushButton" name="keyButton14">
        <property name="maximumSize">
         <size>
          <width>55</width>
@@ -1308,7 +1356,7 @@
       </widget>
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
-      <widget class="QLabel" name="label_14">
+      <widget class="QLabel" name="keySeparator8">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -1318,10 +1366,13 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_14">
+      <widget class="QPushButton" name="keyButton15">
        <property name="maximumSize">
         <size>
          <width>35</width>
@@ -1340,7 +1391,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_7">
+      <spacer name="horizontalSpacer7">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -1353,7 +1404,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_15">
+      <widget class="QLabel" name="shortcutDescriptionLabel7">
        <property name="text">
         <string>View Shortcuts</string>
        </property>
