@@ -37,7 +37,23 @@ STATUS_LABEL_TEXT = {
     "no_internet": "No internet connection.",
 }
 
-TAB_TITLE_TEXT = {
+STATUS_LABEL_ICONS = {
+    "download_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "download_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "download_finished": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.MediaPlaybackStart)),
+    "cancelling_download": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "downloading": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
+    "extracting_urls": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)),
+    "data_pull_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "data_pull_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "data_pull_finished": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)),
+    "cancelling_data_pull": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "pulling_data": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)),
+    "converting": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
+    "no_internet": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.NetworkOffline)),
+}
+
+TAB_TEXT = {
     "download_failed": "Failed",
     "download_cancelled": "Cancelled",
     "download_finished": "Finished",
@@ -53,6 +69,22 @@ TAB_TITLE_TEXT = {
     "no_internet": "Failed",
 }
 
+TAB_ICONS = {
+    "download_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "download_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "download_finished": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.MediaPlaybackStart)),
+    "cancelling_download": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "downloading": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
+    "extracting_urls": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)),
+    "data_pull_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "data_pull_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "data_pull_finished": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)),
+    "cancelling_data_pull": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+    "pulling_data": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)),
+    "converting": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
+    "no_internet": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
+}
+
 WINDOW_TITLES = {
     "error": "Error - Tab <pretty_tab_number>",
 }
@@ -65,20 +97,4 @@ BUTTON_TEXT = {
 FORMATS = {
     "Audio": "audio",
     "Video": "video",
-}
-
-ICONS = {
-    "download_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-    "download_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-    "download_finished": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.MediaPlaybackStart)),
-    "cancelling_download": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-    "downloading": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
-    "extracting_urls": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AppointmentSoon)),
-    "data_pull_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-    "data_pull_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-    "data_pull_finished": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)),
-    "cancelling_data_pull": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-    "pulling_data": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)),
-    "converting": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
-    "no_internet": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.NetworkOffline)),
 }

@@ -117,9 +117,9 @@ class MainWindow(QMainWindow):
             else:
                 progress_text = ""
 
-            text = f"{pretty_tab_number} - {ui.TAB_TITLE_TEXT[situation]}{progress_text}"
+            text = f"{pretty_tab_number} - {ui.TAB_TEXT[situation]}{progress_text}"
             self.ui.tabWidget.setTabText(index, text)
-            self.ui.tabWidget.setTabIcon(index, ui.ICONS[situation])
+            self.ui.tabWidget.setTabIcon(index, ui.TAB_ICONS[situation])
         else:
             self.ui.tabWidget.setTabText(index, f"{pretty_tab_number}")
             self.ui.tabWidget.setTabIcon(index, QIcon())
@@ -198,7 +198,7 @@ class Tab(QWidget):
             if percentage:
                 self.ui.progressBar.setValue(percentage)
             self.parent.update_tab(tab_index, self.pretty_tab_number, situation, progress)
-            self.ui.statusIconLabel.setPixmap(ui.ICONS[situation].pixmap(QSize(26, 26)))
+            self.ui.statusIconLabel.setPixmap(ui.STATUS_LABEL_ICONS[situation].pixmap(QSize(22, 22)))
         else:
             self.ui.statusLabel.setText(str())
             self.ui.progressBar.setValue(0)
