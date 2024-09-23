@@ -596,7 +596,9 @@ class AboutDialog(QDialog):
         self.ui.websiteButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/"))
         self.ui.supportedWebsitesButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/supported-websites"))
         self.ui.whatsNewButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/whats-new"))
-    
+        self.ui.sourceCodeButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/source-code"))
+        self.ui.issueReportButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/report-an-issue"))
+
 
 
 class KeyboardShortcutsDialog(QDialog):

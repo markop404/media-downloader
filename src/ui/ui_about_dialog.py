@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialogBqYPOd.ui'
+## Form generated from reading UI file 'about_dialogqUwPaT.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -89,7 +89,13 @@ class Ui_AboutDialog(object):
         self.whatsNewButton.setObjectName(u"whatsNewButton")
         self.whatsNewButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.leftColumnButtonLayout.addWidget(self.whatsNewButton, 0, Qt.AlignmentFlag.AlignTop)
+        self.leftColumnButtonLayout.addWidget(self.whatsNewButton)
+
+        self.sourceCodeButton = QPushButton(self.linksTab)
+        self.sourceCodeButton.setObjectName(u"sourceCodeButton")
+        self.sourceCodeButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+
+        self.leftColumnButtonLayout.addWidget(self.sourceCodeButton)
 
 
         self.horizontalLayout_4.addLayout(self.leftColumnButtonLayout)
@@ -106,7 +112,13 @@ class Ui_AboutDialog(object):
         self.supportedWebsitesButton.setObjectName(u"supportedWebsitesButton")
         self.supportedWebsitesButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.rightColumnButtonLayout.addWidget(self.supportedWebsitesButton, 0, Qt.AlignmentFlag.AlignTop)
+        self.rightColumnButtonLayout.addWidget(self.supportedWebsitesButton)
+
+        self.issueReportButton = QPushButton(self.linksTab)
+        self.issueReportButton.setObjectName(u"issueReportButton")
+        self.issueReportButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+
+        self.rightColumnButtonLayout.addWidget(self.issueReportButton)
 
 
         self.horizontalLayout_4.addLayout(self.rightColumnButtonLayout)
@@ -169,8 +181,10 @@ class Ui_AboutDialog(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.aboutTab), QCoreApplication.translate("AboutDialog", u"About", None))
         self.websiteButton.setText(QCoreApplication.translate("AboutDialog", u"Website", None))
         self.whatsNewButton.setText(QCoreApplication.translate("AboutDialog", u"What's New", None))
+        self.sourceCodeButton.setText(QCoreApplication.translate("AboutDialog", u"Source Code", None))
         self.donateButton.setText(QCoreApplication.translate("AboutDialog", u"Donate", None))
         self.supportedWebsitesButton.setText(QCoreApplication.translate("AboutDialog", u"Supported Websites", None))
+        self.issueReportButton.setText(QCoreApplication.translate("AboutDialog", u"Report an Issue", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.linksTab), QCoreApplication.translate("AboutDialog", u"Links", None))
         self.disclaimerLabel.setText(QCoreApplication.translate("AboutDialog", u"The authors of Media Downloader are not responsible/liable for any misuse of this program that may violate local copyright/DMCA laws. Users use this application at their own risk.", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.disclaimerTab), QCoreApplication.translate("AboutDialog", u"Disclaimer", None))

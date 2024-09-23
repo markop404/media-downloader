@@ -124,13 +124,23 @@
            </property>
           </widget>
          </item>
-         <item alignment="Qt::AlignmentFlag::AlignTop">
+         <item>
           <widget class="QPushButton" name="whatsNewButton">
            <property name="focusPolicy">
             <enum>Qt::FocusPolicy::NoFocus</enum>
            </property>
            <property name="text">
             <string>What's New</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="sourceCodeButton">
+           <property name="focusPolicy">
+            <enum>Qt::FocusPolicy::NoFocus</enum>
+           </property>
+           <property name="text">
+            <string>Source Code</string>
            </property>
           </widget>
          </item>
@@ -148,13 +158,23 @@
            </property>
           </widget>
          </item>
-         <item alignment="Qt::AlignmentFlag::AlignTop">
+         <item>
           <widget class="QPushButton" name="supportedWebsitesButton">
            <property name="focusPolicy">
             <enum>Qt::FocusPolicy::NoFocus</enum>
            </property>
            <property name="text">
             <string>Supported Websites</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="issueReportButton">
+           <property name="focusPolicy">
+            <enum>Qt::FocusPolicy::NoFocus</enum>
+           </property>
+           <property name="text">
+            <string>Report an Issue</string>
            </property>
           </widget>
          </item>
