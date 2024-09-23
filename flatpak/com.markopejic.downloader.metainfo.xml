@@ -13,11 +13,11 @@
     <name>Marko Pejić</name>
   </developer>
 
-  <url type="bugtracker">https://github.com/markop404/media-downloader/issues</url>
+  <url type="bugtracker">https://downloader.markopejic.com/report-an-issue</url>
   <url type="contact">https://markopejic.com</url>
-  <url type="donation">https://ko-fi.com/markopejic</url>
+  <url type="donation">https://downloader.markopejic.com/donate</url>
   <url type="homepage">https://downloader.markopejic.com</url>
-  <url type="vcs-browser">https://github.com/markop404/media-downloader</url>
+  <url type="vcs-browser">https://downloader.markopejic.com/source-code</url>
 
   <releases>
     <release version="3.6.0" date="2024-08-31">
@@ -84,7 +84,7 @@
   
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/markop404/media-downloader/v3.6.3/screenshots/kde-light-downloading.png</image>
+      <image>https://raw.githubusercontent.com/markop404/media-downloader/v4.0.0/screenshots/kde-light-downloading.png</image>
     </screenshot>
   </screenshots>
 </component>
