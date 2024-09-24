@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonsBHgecg.ui'
+## Form generated from reading UI file 'tab_buttonsPbDKXO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -24,7 +24,6 @@ class Ui_TabButtons(object):
             TabButtons.setObjectName(u"TabButtons")
         TabButtons.resize(184, 35)
         self.horizontalLayout = QHBoxLayout(TabButtons)
-        self.horizontalLayout.setSpacing(8)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(-1, 0, 0, 0)
         self.newTabButton = QPushButton(TabButtons)

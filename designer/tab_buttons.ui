@@ -11,9 +11,6 @@
    </rect>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
-   <property name="spacing">
-    <number>8</number>
-   </property>
    <property name="topMargin">
     <number>0</number>
    </property>
