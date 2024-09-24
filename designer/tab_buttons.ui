@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>102</width>
+    <width>184</width>
     <height>35</height>
    </rect>
   </property>
@@ -23,7 +23,7 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <item alignment="Qt::AlignmentFlag::AlignTop">
+   <item>
     <widget class="QPushButton" name="newTabButton">
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
@@ -42,7 +42,7 @@
      </property>
     </widget>
    </item>
-   <item alignment="Qt::AlignmentFlag::AlignTop">
+   <item>
     <widget class="QPushButton" name="menuButton">
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>

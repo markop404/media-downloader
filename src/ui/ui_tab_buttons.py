@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonsFizhaD.ui'
+## Form generated from reading UI file 'tab_buttonsBHgecg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -33,13 +33,13 @@ class Ui_TabButtons(object):
         icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ListAdd))
         self.newTabButton.setIcon(icon)
 
-        self.horizontalLayout.addWidget(self.newTabButton, 0, Qt.AlignmentFlag.AlignTop)
+        self.horizontalLayout.addWidget(self.newTabButton)
 
         self.menuButton = QPushButton(TabButtons)
         self.menuButton.setObjectName(u"menuButton")
         self.menuButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.horizontalLayout.addWidget(self.menuButton, 0, Qt.AlignmentFlag.AlignTop)
+        self.horizontalLayout.addWidget(self.menuButton)
 
 
         self.retranslateUi(TabButtons)
