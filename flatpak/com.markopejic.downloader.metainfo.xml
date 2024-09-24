@@ -20,6 +20,16 @@
   <url type="vcs-browser">https://downloader.markopejic.com/source-code</url>
 
   <releases>
+    <release version="4.0.0" date="2024-09-24">
+      <description>
+        <ul>
+          <li>Added the ability to work with multiple entirely independent groups of URLs</li>
+          <li>Redesigned about window</li>
+          <li>The app is now entirely keyboard driven</li>
+          <li>Improved user interface</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.6.0" date="2024-08-31">
       <description>
         <ul>
@@ -76,7 +86,7 @@
         <li>Download or embed subtitles</li>
         <li>Embed video chapters, thumbnails and metadata</li>
         <li>Crop thumbnails / album arts to square shape (useful when downloading music)</li>
-        <li>Work with multiple URLs at once</li>
+        <li>Download & work with multiple URLs at once</li>
     </ul>
   </description>
   
@@ -84,7 +94,7 @@
   
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/markop404/media-downloader/v4.0.0/screenshots/kde-light-downloading.png</image>
+      <image>https://raw.githubusercontent.com/markop404/media-downloader/v4.0.0/screenshots/kde-plasma-light.png</image>
     </screenshot>
   </screenshots>
 </component>
