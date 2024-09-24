@@ -95,7 +95,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/markop404/media-downloader/",
-                    "tag": "v3.6.3",
+                    "tag": "v4.0.0",
                     "dest": "src"
                 },
                 {
