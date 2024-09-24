@@ -24,9 +24,9 @@
       <description>
         <ul>
           <li>Added the ability to work with multiple entirely independent groups of URLs</li>
-          <li>Redesigned about window</li>
           <li>The app is now entirely keyboard driven</li>
           <li>Improved user interface</li>
+          <li>Redesigned about window</li>
         </ul>
       </description>
     </release>
