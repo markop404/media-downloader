@@ -138,8 +138,8 @@ class Tab(QWidget):
         self.ui.cropThumbnailsCheckBox.setEnabled(True)
         self.ui.dataPullButton.setEnabled(True)
         self.ui.downloadButton.setEnabled(True)
-        self.ui.dataPullButton.setText(ui.BUTTON_TEXT["refresh"]["default"])
-        self.ui.downloadButton.setText(ui.BUTTON_TEXT["download"]["default"])
+        self.ui.dataPullButton.setText(ui.Config.BUTTON_TEXT["refresh"]["default"])
+        self.ui.downloadButton.setText(ui.Config.BUTTON_TEXT["download"]["default"])
         self.update_status_indicators(situation, percentage=percentage)
     
     
