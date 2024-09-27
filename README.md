@@ -13,17 +13,18 @@ A simple qt6 frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in 
 <br><a href="https://github.com/markop404/media-downloader/releases"><img width="140" alt="Download for Windows" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Windows_logo_and_wordmark_-_2021.svg"></a><br>
 ## Dependencies
 Apart from a few Python packages, listed in [requirements.txt](./requirements.txt), only [ffmpeg](https://ffmpeg.org) is required.
-## Goals Of This Project
-This project aims to create a program that:
+## Goals of This Project
+This project aims to create an application that:
 - automates things that would have to be done manually on other similar frontends
 - only has the most used features
 - has a powerful yet simple and streamlined user interface
 - is lightweight and has a small amount of dependencies
 ## Contributing
-Contributions are very appreciated, but before contributing, please read the 
-'Goals Of This Project' section to understand what contributions might get rejected.
+Any contributions are appreciated, but they have to follow the app's goals.
+## Donation
+You can support this project by [donating](https://downloader.markopejic.com/donate) to the main developer.
 ## License
-All versions above 3.1.0 are licensed under [GPL version 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). All versions below 3.1.0 are closed source and are not available in this repository.
+All versions above (including) 3.1.0 are licensed under [GPL version 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). All versions below 3.1.0 are closed source and are not available in this repository.
 ## Additional Information
 ### Theming
 The program uses the QT's Fusion theme. This setting is hard-coded, so the program does not respond to themes set globally in a system (apart from responding to light/dark theme).
