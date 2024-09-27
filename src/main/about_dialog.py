@@ -18,6 +18,7 @@
 
 
 from PySide6.QtWidgets import QDialog
+from PySide6.QtGui import QDesktopServices
 from src.ui import Ui_AboutDialog
 
 class AboutDialog(QDialog):
