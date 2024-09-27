@@ -149,7 +149,7 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            self.ui.dataPullButton.setText(ui.BUTTON_TEXT["refresh"]["secondary"])
+            self.ui.dataPullButton.setText(ui.Config.BUTTON_TEXT["refresh"]["secondary"])
             self.ui.downloadButton.setEnabled(False)
             Thread(target=lambda: self.update_info(urls), daemon=True).start()
         elif self.thread_running:
@@ -164,7 +164,7 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            self.ui.downloadButton.setText(ui.BUTTON_TEXT["download"]["secondary"])
+            self.ui.downloadButton.setText(ui.Config.BUTTON_TEXT["download"]["secondary"])
             self.ui.dataPullButton.setEnabled(False)
             self.ui.formatComboBox.setEnabled(False)
             self.ui.setDownloadFolderButton.setEnabled(False)
