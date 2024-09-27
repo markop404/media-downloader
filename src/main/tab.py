@@ -125,10 +125,10 @@ class Tab(QWidget):
     def prep_thread_exit(self, situation=None, percentage=0):
         self.thread_running = False
         self.cancel_progress = False
-        self.run_in_gui_thread(lambda: self.enable_disabled_widgets(situation, percentage))
+        self.run_in_gui_thread(lambda: self.restore_widgets_to_normal(situation, percentage))
     
 
-    def enable_disabled_widgets(self, situation, percentage):
+    def restore_widgets_to_normal(self, situation, percentage):
         self.ui.plainTextEdit.setReadOnly(False)
         self.ui.formatComboBox.setEnabled(True)
         self.ui.qualityComboBox.setEnabled(True)
