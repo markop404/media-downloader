@@ -5,7 +5,7 @@ A simple qt6 frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in 
 - Supports [hundreds of websites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
 - Supports downloading mp3 and mp4
 - Supports downloading & embedding subtitles
-- Allows you to work with multiple URLs at once
+- Allows you to download and work with multiple URLs at once
 - Automatically embeds video chapters, thumbnails & metadata
 - Supports cropping thumbnails / album arts to square shape (useful when downloading music)
 ## Installation
