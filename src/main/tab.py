@@ -385,7 +385,7 @@ class Tab(QWidget):
     def display_invalid_url_warning(self, text):
         answer = QMessageBox.warning(
             self,
-            Config.ui.WINDOW_TITLES["error"].replace("<pretty_tab_number>", str(self.pretty_tab_number)),
+            ui.Config.WINDOW_TITLES["error"].replace("<pretty_tab_number>", str(self.pretty_tab_number)),
             text,
             buttons=QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
             defaultButton=QMessageBox.StandardButton.Yes,
