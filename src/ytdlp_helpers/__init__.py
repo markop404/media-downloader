@@ -17,14 +17,8 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import sys
-from PySide6.QtWidgets import QApplication
-from src.main import MainWindow
-
-app = QApplication([])
-app.setStyle("Fusion")
-
-window = MainWindow()
-window.show()
-
-sys.exit(app.exec())
+from .download import download
+from .extract_data import extract_data
+from .extract_basic_info import extract_basic_info
+from .check_internet_connection import check_internet_connection
+from .extract_urls import extract_urls

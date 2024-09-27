@@ -17,14 +17,9 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import sys
-from PySide6.QtWidgets import QApplication
-from src.main import MainWindow
-
-app = QApplication([])
-app.setStyle("Fusion")
-
-window = MainWindow()
-window.show()
-
-sys.exit(app.exec())
+from .ui_main_window import Ui_MainWindow
+from .ui_about_dialog import Ui_AboutDialog
+from .ui_tab import Ui_Tab
+from .ui_tab_buttons import Ui_TabButtons
+from .config import Config
+from .ui_keyboard_shortcuts_dialog import Ui_KeyboardShortcutsDialog

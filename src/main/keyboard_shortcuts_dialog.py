@@ -17,14 +17,11 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import sys
-from PySide6.QtWidgets import QApplication
-from src.main import MainWindow
+from PySide6.QtWidgets import QDialog
+from src.ui import Ui_KeyboardShortcutsDialog
 
-app = QApplication([])
-app.setStyle("Fusion")
-
-window = MainWindow()
-window.show()
-
-sys.exit(app.exec())
+class KeyboardShortcutsDialog(QDialog):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.ui = Ui_KeyboardShortcutsDialog()
+        self.ui.setupUi(self)
