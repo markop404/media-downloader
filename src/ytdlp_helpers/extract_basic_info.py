@@ -18,7 +18,6 @@
 
 
 from .extract_data import extract_data
-
 from re import search
 from yt_dlp import YoutubeDL
 

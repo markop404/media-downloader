@@ -20,7 +20,6 @@
 import yt_dlp
 from .check_internet_connection import check_internet_connection
 
-
 def extract_urls(urls, on_progress=None):
     processed_url_count = 0
     total_url_count = len(urls)

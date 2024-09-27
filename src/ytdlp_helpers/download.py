@@ -21,7 +21,6 @@ import yt_dlp
 import os
 from .check_internet_connection import check_internet_connection
 
-
 def download(urls, download_location="", on_progress=None, on_url_progress=None, file_type="video", subtitles=None, quality=None, postprocessor_progress=None, embed_subtitles=True, crop_thumbnails=False):
     options = {
         "outtmpl": f"{download_location}/%(title)s.%(ext)s",
