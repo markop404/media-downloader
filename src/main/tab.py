@@ -335,7 +335,7 @@ class Tab(QWidget):
 
         self.run_in_gui_thread(lambda: self.update_status_indicators("downloading", (1, len(urls)), 0))
 
-        file_type = ui.FORMATS[self.ui.formatComboBox.currentText()]
+        file_type = ui.Config.FORMATS[self.ui.formatComboBox.currentText()]
         selected_quality = self.ui.qualityComboBox.currentText()
         if file_type == "video" and selected_quality in self.qualities["video"]:
             quality = self.qualities["video"][selected_quality]
