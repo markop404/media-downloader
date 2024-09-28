@@ -459,9 +459,9 @@ class Tab(QWidget):
 
     def show_new_qualities(self):
         _format = self.ui.formatComboBox.currentText()
-        if ui.FORMATS[_format] == "audio":
+        if ui.Config.FORMATS[_format] == "audio":
             utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["audio"])
-        elif ui.FORMATS[_format] == "video":
+        elif ui.Config.FORMATS[_format] == "video":
             utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["video"].keys())
     
 
