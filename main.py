@@ -23,6 +23,9 @@ from src.main import MainWindow
 
 app = QApplication([])
 app.setStyle("Fusion")
+app.setApplicationName("Media Downloader")
+app.setOrganizationDomain("markopejic.com")
+app.setOrganizationName("Marko Pejić")
 
 window = MainWindow()
 window.show()
