@@ -17,7 +17,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from PySide6.QtCore import QEvent, QObject, QCoreApplication
+from PySide6.QtCore import QEvent, QObject
 
 class InvokeEvent(QEvent):
     def __init__(self, fn):
