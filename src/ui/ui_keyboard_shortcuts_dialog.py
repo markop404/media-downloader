@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogncXrJr.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogqKtBrM.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.7.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -49,7 +49,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton11.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton11.setAutoDefault(False)
 
-        self.shortcutLayout13.addWidget(self.keyButton11, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout13.addWidget(self.keyButton11)
 
         self.keySeparator6 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator6.setObjectName(u"keySeparator6")
@@ -57,9 +57,8 @@ class Ui_KeyboardShortcutsDialog(object):
         font1.setPointSize(15)
         font1.setWeight(QFont.Light)
         self.keySeparator6.setFont(font1)
-        self.keySeparator6.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout13.addWidget(self.keySeparator6, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout13.addWidget(self.keySeparator6)
 
         self.keyButton10 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton10.setObjectName(u"keyButton10")
@@ -90,14 +89,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton12.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton12.setAutoDefault(False)
 
-        self.shortcutLayout14.addWidget(self.keyButton12, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout14.addWidget(self.keyButton12)
 
         self.keySeparator7 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator7.setObjectName(u"keySeparator7")
         self.keySeparator7.setFont(font1)
-        self.keySeparator7.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout14.addWidget(self.keySeparator7, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout14.addWidget(self.keySeparator7)
 
         self.keyButton13 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton13.setObjectName(u"keyButton13")
@@ -136,14 +134,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton32.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton32.setAutoDefault(False)
 
-        self.shortcutLayout9.addWidget(self.keyButton32, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout9.addWidget(self.keyButton32)
 
         self.keySeparator17 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator17.setObjectName(u"keySeparator17")
         self.keySeparator17.setFont(font1)
-        self.keySeparator17.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout9.addWidget(self.keySeparator17, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout9.addWidget(self.keySeparator17)
 
         self.keyButton33 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton33.setObjectName(u"keyButton33")
@@ -174,14 +171,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton3.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton3.setAutoDefault(False)
 
-        self.shortcutLayout10.addWidget(self.keyButton3, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout10.addWidget(self.keyButton3)
 
         self.keySeparator2 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator2.setObjectName(u"keySeparator2")
         self.keySeparator2.setFont(font1)
-        self.keySeparator2.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout10.addWidget(self.keySeparator2, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout10.addWidget(self.keySeparator2)
 
         self.keyButton4 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton4.setObjectName(u"keyButton4")
@@ -212,14 +208,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton18.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton18.setAutoDefault(False)
 
-        self.shortcutLayout2.addWidget(self.keyButton18, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout2.addWidget(self.keyButton18)
 
         self.keySeparator10 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator10.setObjectName(u"keySeparator10")
         self.keySeparator10.setFont(font1)
-        self.keySeparator10.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout2.addWidget(self.keySeparator10, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout2.addWidget(self.keySeparator10)
 
         self.keyButton19 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton19.setObjectName(u"keyButton19")
@@ -250,14 +245,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton5.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton5.setAutoDefault(False)
 
-        self.shortcutLayout11.addWidget(self.keyButton5, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout11.addWidget(self.keyButton5)
 
         self.keySeparator3 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator3.setObjectName(u"keySeparator3")
         self.keySeparator3.setFont(font1)
-        self.keySeparator3.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout11.addWidget(self.keySeparator3, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout11.addWidget(self.keySeparator3)
 
         self.keyButton6 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton6.setObjectName(u"keyButton6")
@@ -288,14 +282,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton22.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton22.setAutoDefault(False)
 
-        self.shortcutLayout4.addWidget(self.keyButton22, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout4.addWidget(self.keyButton22)
 
         self.keySeparator12 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator12.setObjectName(u"keySeparator12")
         self.keySeparator12.setFont(font1)
-        self.keySeparator12.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout4.addWidget(self.keySeparator12, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout4.addWidget(self.keySeparator12)
 
         self.keyButton23 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton23.setObjectName(u"keyButton23")
@@ -326,14 +319,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton24.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton24.setAutoDefault(False)
 
-        self.shortcutLayout5.addWidget(self.keyButton24, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout5.addWidget(self.keyButton24)
 
         self.keySeparator13 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator13.setObjectName(u"keySeparator13")
         self.keySeparator13.setFont(font1)
-        self.keySeparator13.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout5.addWidget(self.keySeparator13, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout5.addWidget(self.keySeparator13)
 
         self.keyButton25 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton25.setObjectName(u"keyButton25")
@@ -364,14 +356,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton20.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton20.setAutoDefault(False)
 
-        self.shortcutLayout3.addWidget(self.keyButton20, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout3.addWidget(self.keyButton20)
 
         self.keySeparator11 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator11.setObjectName(u"keySeparator11")
         self.keySeparator11.setFont(font1)
-        self.keySeparator11.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout3.addWidget(self.keySeparator11, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout3.addWidget(self.keySeparator11)
 
         self.keyButton21 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton21.setObjectName(u"keyButton21")
@@ -410,14 +401,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton16.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton16.setAutoDefault(False)
 
-        self.shortcutLayout16.addWidget(self.keyButton16, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout16.addWidget(self.keyButton16)
 
         self.keySeparator9 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator9.setObjectName(u"keySeparator9")
         self.keySeparator9.setFont(font1)
-        self.keySeparator9.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout16.addWidget(self.keySeparator9, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout16.addWidget(self.keySeparator9)
 
         self.keyButton17 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton17.setObjectName(u"keyButton17")
@@ -448,14 +438,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton30.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton30.setAutoDefault(False)
 
-        self.shortcutLayout8.addWidget(self.keyButton30, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout8.addWidget(self.keyButton30)
 
         self.keySeparator16 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator16.setObjectName(u"keySeparator16")
         self.keySeparator16.setFont(font1)
-        self.keySeparator16.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout8.addWidget(self.keySeparator16, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout8.addWidget(self.keySeparator16)
 
         self.keyButton31 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton31.setObjectName(u"keyButton31")
@@ -486,14 +475,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton26.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton26.setAutoDefault(False)
 
-        self.shortcutLayout6.addWidget(self.keyButton26, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout6.addWidget(self.keyButton26)
 
         self.keySeparator14 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator14.setObjectName(u"keySeparator14")
         self.keySeparator14.setFont(font1)
-        self.keySeparator14.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout6.addWidget(self.keySeparator14, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout6.addWidget(self.keySeparator14)
 
         self.keyButton27 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton27.setObjectName(u"keyButton27")
@@ -523,14 +511,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton28.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton28.setAutoDefault(False)
 
-        self.shortcutLayout7.addWidget(self.keyButton28, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout7.addWidget(self.keyButton28)
 
         self.keySeparator15 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator15.setObjectName(u"keySeparator15")
         self.keySeparator15.setFont(font1)
-        self.keySeparator15.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout7.addWidget(self.keySeparator15, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout7.addWidget(self.keySeparator15)
 
         self.keyButton29 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton29.setObjectName(u"keyButton29")
@@ -560,14 +547,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton8.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton8.setAutoDefault(False)
 
-        self.shortcutLayout12.addWidget(self.keyButton8, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout12.addWidget(self.keyButton8)
 
         self.keySeparator5 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator5.setObjectName(u"keySeparator5")
         self.keySeparator5.setFont(font1)
-        self.keySeparator5.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout12.addWidget(self.keySeparator5, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout12.addWidget(self.keySeparator5)
 
         self.keyButton9 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton9.setObjectName(u"keyButton9")
@@ -579,7 +565,6 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator4 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator4.setObjectName(u"keySeparator4")
-        self.keySeparator4.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.shortcutLayout12.addWidget(self.keySeparator4)
 
@@ -620,14 +605,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton1.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton1.setAutoDefault(False)
 
-        self.shortcutLayout1.addWidget(self.keyButton1, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout1.addWidget(self.keyButton1)
 
         self.keySeparator1 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator1.setObjectName(u"keySeparator1")
         self.keySeparator1.setFont(font1)
-        self.keySeparator1.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout1.addWidget(self.keySeparator1, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout1.addWidget(self.keySeparator1)
 
         self.keyButton2 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton2.setObjectName(u"keyButton2")
@@ -658,14 +642,13 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton14.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.keyButton14.setAutoDefault(False)
 
-        self.shortcutLayout15.addWidget(self.keyButton14, 0, Qt.AlignmentFlag.AlignLeft)
+        self.shortcutLayout15.addWidget(self.keyButton14)
 
         self.keySeparator8 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator8.setObjectName(u"keySeparator8")
         self.keySeparator8.setFont(font1)
-        self.keySeparator8.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.shortcutLayout15.addWidget(self.keySeparator8, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.shortcutLayout15.addWidget(self.keySeparator8)
 
         self.keyButton15 = QPushButton(KeyboardShortcutsDialog)
         self.keyButton15.setObjectName(u"keyButton15")
@@ -751,7 +734,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keySeparator15.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton29.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Page Down", None))
         self.shortcutDescriptionLabel14.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Switch to Tab on the Right", None))
-        self.keyButton8.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
+        self.keyButton8.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator5.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton9.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"0", None))
         self.keySeparator4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"....", None))
@@ -767,3 +750,4 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton15.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"?", None))
         self.shortcutDescriptionLabel7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"View Shortcuts", None))
     # retranslateUi
+

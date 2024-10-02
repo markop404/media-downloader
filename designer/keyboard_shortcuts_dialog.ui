@@ -50,7 +50,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout13">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton11">
        <property name="maximumSize">
         <size>
@@ -69,7 +69,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator6">
        <property name="font">
         <font>
@@ -128,7 +128,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout14">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton12">
        <property name="maximumSize">
         <size>
@@ -147,7 +147,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator7">
        <property name="font">
         <font>
@@ -224,7 +224,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout9">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton32">
        <property name="maximumSize">
         <size>
@@ -243,7 +243,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator17">
        <property name="font">
         <font>
@@ -302,7 +302,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout10">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton3">
        <property name="maximumSize">
         <size>
@@ -321,7 +321,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator2">
        <property name="font">
         <font>
@@ -380,7 +380,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout2">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton18">
        <property name="maximumSize">
         <size>
@@ -399,7 +399,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator10">
        <property name="font">
         <font>
@@ -458,7 +458,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout11">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton5">
        <property name="maximumSize">
         <size>
@@ -477,7 +477,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator3">
        <property name="font">
         <font>
@@ -536,7 +536,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout4">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton22">
        <property name="maximumSize">
         <size>
@@ -555,7 +555,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator12">
        <property name="font">
         <font>
@@ -614,7 +614,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout5">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton24">
        <property name="maximumSize">
         <size>
@@ -633,7 +633,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator13">
        <property name="font">
         <font>
@@ -692,7 +692,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout3">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton20">
        <property name="maximumSize">
         <size>
@@ -711,7 +711,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator11">
        <property name="font">
         <font>
@@ -788,7 +788,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout16">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton16">
        <property name="maximumSize">
         <size>
@@ -807,7 +807,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator9">
        <property name="font">
         <font>
@@ -866,7 +866,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout8">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton30">
        <property name="maximumSize">
         <size>
@@ -885,7 +885,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator16">
        <property name="font">
         <font>
@@ -944,7 +944,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout6">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton26">
        <property name="maximumSize">
         <size>
@@ -963,7 +963,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator14">
        <property name="font">
         <font>
@@ -1016,7 +1016,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout7">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton28">
        <property name="maximumSize">
         <size>
@@ -1035,7 +1035,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator15">
        <property name="font">
         <font>
@@ -1088,7 +1088,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout12">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton8">
        <property name="maximumSize">
         <size>
@@ -1100,14 +1100,14 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="text">
-        <string>Ctrl</string>
+        <string>Alt</string>
        </property>
        <property name="autoDefault">
         <bool>false</bool>
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator5">
        <property name="font">
         <font>
@@ -1210,7 +1210,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout1">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton1">
        <property name="maximumSize">
         <size>
@@ -1229,7 +1229,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator1">
        <property name="font">
         <font>
@@ -1288,7 +1288,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout15">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
+     <item alignment="">
       <widget class="QPushButton" name="keyButton14">
        <property name="maximumSize">
         <size>
@@ -1307,7 +1307,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <item alignment="">
       <widget class="QLabel" name="keySeparator8">
        <property name="font">
         <font>
