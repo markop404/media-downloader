@@ -29,7 +29,7 @@ All versions above (including) 3.1.0 are licensed under [GPL version 3 or later]
 ### Theming
 The program uses the QT's Fusion theme. This setting is hard-coded, so the program does not respond to themes set globally in a system (apart from responding to light/dark theme).
 ### Translations
-There is currently no interest in translating this program to other languages. Also, the current code is not written in a way that supports translating.
+There is currently no interest in translating this program to other languages. Also, the current code is not written in a way that fully supports translating.
 ### Installation & Updates on Windows
 This program currently has no update mechanism or installer for Windows. However, there are plans to add them in a future version.
 ## Disclaimer
