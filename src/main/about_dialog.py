@@ -30,7 +30,8 @@ class AboutDialog(QDialog):
     
 
     def connect_signals_and_slots(self):
-        self.ui.closeDialogButton.clicked.connect(self.close)
+        self.ui.closeButton.clicked.connect(self.close)
+
         self.ui.donateButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/donate"))
         self.ui.websiteButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/"))
         self.ui.supportedWebsitesButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/supported-websites"))

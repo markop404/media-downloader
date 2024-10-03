@@ -23,3 +23,4 @@ from .ui_tab import Ui_Tab
 from .ui_tab_buttons import Ui_TabButtons
 from .config import Config
 from .ui_keyboard_shortcuts_dialog import Ui_KeyboardShortcutsDialog
+from .ui_preferences_dialog import Ui_PreferencesDialog

@@ -21,3 +21,4 @@ from .about_dialog import AboutDialog
 from .keyboard_shortcuts_dialog import KeyboardShortcutsDialog
 from .tab import Tab
 from .main_window import MainWindow
+from .preferences_dialog import PreferencesDialog

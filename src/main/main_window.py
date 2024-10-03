@@ -23,6 +23,7 @@ from threading import Thread
 
 from PySide6.QtWidgets import QMainWindow, QWidget, QMenu
 from PySide6.QtGui import QIcon, QKeySequence, QShortcut
+from PySide6.QtCore import QSettings, QPoint, QSize
 
 from src import ui
 from src import main
@@ -43,6 +44,30 @@ class MainWindow(QMainWindow):
             self.create_new_instance_command = None
         
         self.create_new_tab()
+        self.restore_settings()
+
+
+    def closeEvent(self, event):
+        self.save_settings()
+        super().closeEvent(event)
+        event.accept()
+    
+
+    def restore_settings(self):
+        self.settings = QSettings()
+
+        position = self.settings.value("pos")
+        if position:
+            self.move(position)
+        
+        dimensions = self.settings.value("size")
+        if dimensions:
+            self.resize(dimensions)
+    
+
+    def save_settings(self):
+        self.settings.setValue("pos", self.pos())
+        self.settings.setValue("size", self.size())
 
 
     def setup_ui(self):
@@ -51,6 +76,7 @@ class MainWindow(QMainWindow):
         
         self.about_dialog = main.AboutDialog(self)
         self.keyboard_shortcuts_dialog = main.KeyboardShortcutsDialog(self)
+        self.preferences_dialog = main.PreferencesDialog(self)
 
         self.tab_button_layout = QWidget()
         self.tab_buttons = ui.Ui_TabButtons()
@@ -58,6 +84,7 @@ class MainWindow(QMainWindow):
         
         self.main_menu = QMenu()
         self.main_menu.addAction(self.ui.actionNewWindow)
+        self.main_menu.addAction(self.ui.actionPreferences)
         self.main_menu.addAction(self.ui.actionKeyboardShortcuts)
         self.main_menu.addAction(self.ui.actionAbout)
         self.tab_buttons.menuButton.setMenu(self.main_menu)
@@ -77,6 +104,7 @@ class MainWindow(QMainWindow):
         self.ui.actionAbout.triggered.connect(self.about_dialog.exec)
         self.ui.actionNewWindow.triggered.connect(self.create_new_instance)
         self.ui.actionKeyboardShortcuts.triggered.connect(self.keyboard_shortcuts_dialog.exec)
+        self.ui.actionPreferences.triggered.connect(self.preferences_dialog.exec)
         self.tab_buttons.newTabButton.clicked.connect(self.create_new_tab)
 
 

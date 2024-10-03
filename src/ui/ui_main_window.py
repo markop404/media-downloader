@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowfhCqbn.ui'
+## Form generated from reading UI file 'main_windowlvoYKI.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.7.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -23,8 +23,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(840, 710)
-        MainWindow.setMinimumSize(QSize(500, 650))
+        MainWindow.resize(840, 700)
+        MainWindow.setMinimumSize(QSize(500, 630))
         icon = QIcon()
         icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
@@ -41,6 +41,11 @@ class Ui_MainWindow(object):
         icon3 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.InputKeyboard))
         self.actionKeyboardShortcuts.setIcon(icon3)
         self.actionKeyboardShortcuts.setMenuRole(QAction.MenuRole.NoRole)
+        self.actionPreferences = QAction(MainWindow)
+        self.actionPreferences.setObjectName(u"actionPreferences")
+        icon4 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentProperties))
+        self.actionPreferences.setIcon(icon4)
+        self.actionPreferences.setMenuRole(QAction.MenuRole.NoRole)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -70,5 +75,9 @@ class Ui_MainWindow(object):
         self.actionKeyboardShortcuts.setText(QCoreApplication.translate("MainWindow", u"Keyboard Shortcuts", None))
 #if QT_CONFIG(shortcut)
         self.actionKeyboardShortcuts.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+?", None))
+#endif // QT_CONFIG(shortcut)
+        self.actionPreferences.setText(QCoreApplication.translate("MainWindow", u"Preferences", None))
+#if QT_CONFIG(shortcut)
+        self.actionPreferences.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+,", None))
 #endif // QT_CONFIG(shortcut)
     # retranslateUi

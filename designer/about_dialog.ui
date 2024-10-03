@@ -89,7 +89,7 @@
        <item>
         <widget class="QLabel" name="aboutLabel">
          <property name="text">
-          <string>&lt;b&gt;Web video / audio downloader&lt;/b&gt;&lt;br&gt;v4.0.0&lt;br&gt;&lt;br&gt;Made by &lt;a href=&quot;https://markopejic.com&quot;&gt;Marko Pejić&lt;/a&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Web video / audio downloader&lt;/span&gt;&lt;br/&gt;v4.1.0&lt;br/&gt;&lt;br/&gt;Made by &lt;a href=&quot;https://markopejic.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#308cc6;&quot;&gt;Marko Pejić&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
@@ -378,18 +378,38 @@ li.checked::marker { content: &quot;\2612&quot;; }
      </property>
     </widget>
    </item>
-   <item alignment="Qt::AlignmentFlag::AlignRight">
-    <widget class="QPushButton" name="closeDialogButton">
-     <property name="focusPolicy">
-      <enum>Qt::FocusPolicy::NoFocus</enum>
-     </property>
-     <property name="text">
-      <string>Close</string>
-     </property>
-     <property name="icon">
-      <iconset theme="QIcon::ThemeIcon::WindowClose"/>
-     </property>
-    </widget>
+   <item>
+    <layout class="QHBoxLayout" name="closeButtonLayout">
+     <item>
+      <spacer name="closeButtonLayoutSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="closeButton">
+       <property name="focusPolicy">
+        <enum>Qt::FocusPolicy::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>Close</string>
+       </property>
+       <property name="icon">
+        <iconset theme="QIcon::ThemeIcon::WindowClose"/>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

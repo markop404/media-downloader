@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>840</width>
-    <height>710</height>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>500</width>
-    <height>650</height>
+    <height>630</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -68,6 +68,20 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+?</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
+   </property>
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+,</string>
    </property>
    <property name="menuRole">
     <enum>QAction::MenuRole::NoRole</enum>

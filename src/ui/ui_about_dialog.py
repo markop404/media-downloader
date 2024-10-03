@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialogqUwPaT.ui'
+## Form generated from reading UI file 'about_dialogGGxMpe.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.7.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -156,13 +156,23 @@ class Ui_AboutDialog(object):
 
         self.verticalLayout.addWidget(self.copyrightLabel)
 
-        self.closeDialogButton = QPushButton(AboutDialog)
-        self.closeDialogButton.setObjectName(u"closeDialogButton")
-        self.closeDialogButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.WindowClose))
-        self.closeDialogButton.setIcon(icon1)
+        self.closeButtonLayout = QHBoxLayout()
+        self.closeButtonLayout.setObjectName(u"closeButtonLayout")
+        self.closeButtonLayoutSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.verticalLayout.addWidget(self.closeDialogButton, 0, Qt.AlignmentFlag.AlignRight)
+        self.closeButtonLayout.addItem(self.closeButtonLayoutSpacer)
+
+        self.closeButton = QPushButton(AboutDialog)
+        self.closeButton.setObjectName(u"closeButton")
+        self.closeButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.WindowClose))
+        self.closeButton.setIcon(icon1)
+        self.closeButton.setAutoDefault(False)
+
+        self.closeButtonLayout.addWidget(self.closeButton)
+
+
+        self.verticalLayout.addLayout(self.closeButtonLayout)
 
 
         self.retranslateUi(AboutDialog)
@@ -177,7 +187,7 @@ class Ui_AboutDialog(object):
         AboutDialog.setWindowTitle(QCoreApplication.translate("AboutDialog", u"About", None))
         self.appIconLabel.setText("")
         self.appNameLabel.setText(QCoreApplication.translate("AboutDialog", u"Media Downloader", None))
-        self.aboutLabel.setText(QCoreApplication.translate("AboutDialog", u"<b>Web video / audio downloader</b><br>v4.0.0<br><br>Made by <a href=\"https://markopejic.com\">Marko Peji\u0107</a>", None))
+        self.aboutLabel.setText(QCoreApplication.translate("AboutDialog", u"<html><head/><body><p><span style=\" font-weight:700;\">Web video / audio downloader</span><br/>v4.1.0<br/><br/>Made by <a href=\"https://markopejic.com\"><span style=\" text-decoration: underline; color:#308cc6;\">Marko Peji\u0107</span></a></p></body></html>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.aboutTab), QCoreApplication.translate("AboutDialog", u"About", None))
         self.websiteButton.setText(QCoreApplication.translate("AboutDialog", u"Website", None))
         self.whatsNewButton.setText(QCoreApplication.translate("AboutDialog", u"What's New", None))
@@ -402,5 +412,5 @@ class Ui_AboutDialog(object):
                         "tary programs. If your program is a subroutine library, you may consider it more useful to permit linking proprietary applications with the library. If this is what you want to do, use the GNU Lesser General Public License instead of this License. But first, please read &lt;</span><a href=\"https://www.gnu.org/licenses/why-not-lgpl.html\"><span style=\" font-family:'Noto Sans'; font-size:10pt; text-decoration: underline; color:#00d3b8;\">https://www.gnu.org/licenses/why-not-lgpl.html</span></a><span style=\" font-family:'Noto Sans'; font-size:10pt;\">&gt;. </span></p></body></html>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.licenseTab), QCoreApplication.translate("AboutDialog", u"License", None))
         self.copyrightLabel.setText(QCoreApplication.translate("AboutDialog", u"Copyright \u00a9 2024 Marko Peji\u0107", None))
-        self.closeDialogButton.setText(QCoreApplication.translate("AboutDialog", u"Close", None))
+        self.closeButton.setText(QCoreApplication.translate("AboutDialog", u"Close", None))
     # retranslateUi

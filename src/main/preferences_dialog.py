@@ -17,17 +17,11 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import sys
-from PySide6.QtWidgets import QApplication
-from src.main import MainWindow
+from PySide6.QtWidgets import QDialog
+from src.ui import Ui_PreferencesDialog
 
-app = QApplication([])
-app.setStyle("Fusion")
-app.setApplicationName("MediaDownloader")
-app.setOrganizationDomain("markopejic.com")
-app.setOrganizationName("MarkoPejić")
-
-window = MainWindow()
-window.show()
-
-sys.exit(app.exec())
+class PreferencesDialog(QDialog):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.ui = Ui_PreferencesDialog()
+        self.ui.setupUi(self)
