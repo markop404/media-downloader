@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogJvGwbb.ui'
+## Form generated from reading UI file 'preferences_dialogJCCSsp.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -15,22 +15,26 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDialog,
-    QHBoxLayout, QLabel, QSizePolicy, QSpacerItem,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractButton, QApplication, QCheckBox, QComboBox,
+    QDialog, QDialogButtonBox, QHBoxLayout, QLabel,
+    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_PreferencesDialog(object):
     def setupUi(self, PreferencesDialog):
         if not PreferencesDialog.objectName():
             PreferencesDialog.setObjectName(u"PreferencesDialog")
-        PreferencesDialog.resize(685, 310)
-        PreferencesDialog.setMinimumSize(QSize(685, 310))
-        PreferencesDialog.setMaximumSize(QSize(685, 310))
+        PreferencesDialog.resize(685, 360)
+        PreferencesDialog.setMinimumSize(QSize(685, 360))
+        PreferencesDialog.setMaximumSize(QSize(800, 450))
         icon = QIcon()
         icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         PreferencesDialog.setWindowIcon(icon)
-        self.verticalLayout_3 = QVBoxLayout(PreferencesDialog)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.PreferencesDialogLayout = QVBoxLayout(PreferencesDialog)
+        self.PreferencesDialogLayout.setObjectName(u"PreferencesDialogLayout")
+        self.topSpacer = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.PreferencesDialogLayout.addItem(self.topSpacer)
+
         self.restoreSettingsLayout = QHBoxLayout()
         self.restoreSettingsLayout.setObjectName(u"restoreSettingsLayout")
         self.restoreSettingsLabelLayout = QVBoxLayout()
@@ -67,7 +71,11 @@ class Ui_PreferencesDialog(object):
         self.restoreSettingsLayout.addWidget(self.restoreSettingsCheckBox)
 
 
-        self.verticalLayout_3.addLayout(self.restoreSettingsLayout)
+        self.PreferencesDialogLayout.addLayout(self.restoreSettingsLayout)
+
+        self.verticalSpacer1 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.PreferencesDialogLayout.addItem(self.verticalSpacer1)
 
         self.removeURLsLayout = QHBoxLayout()
         self.removeURLsLayout.setObjectName(u"removeURLsLayout")
@@ -102,7 +110,11 @@ class Ui_PreferencesDialog(object):
         self.removeURLsLayout.addWidget(self.removeURLsCheckBox)
 
 
-        self.verticalLayout_3.addLayout(self.removeURLsLayout)
+        self.PreferencesDialogLayout.addLayout(self.removeURLsLayout)
+
+        self.verticalSpacer2 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.PreferencesDialogLayout.addItem(self.verticalSpacer2)
 
         self.preferredResolutionLayout = QHBoxLayout()
         self.preferredResolutionLayout.setObjectName(u"preferredResolutionLayout")
@@ -144,7 +156,11 @@ class Ui_PreferencesDialog(object):
         self.preferredResolutionLayout.addWidget(self.preferredResolutionComboBox)
 
 
-        self.verticalLayout_3.addLayout(self.preferredResolutionLayout)
+        self.PreferencesDialogLayout.addLayout(self.preferredResolutionLayout)
+
+        self.verticalSpacer3 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.PreferencesDialogLayout.addItem(self.verticalSpacer3)
 
         self.preferredBitrateLayout = QHBoxLayout()
         self.preferredBitrateLayout.setObjectName(u"preferredBitrateLayout")
@@ -187,10 +203,24 @@ class Ui_PreferencesDialog(object):
         self.preferredBitrateLayout.addWidget(self.preferredBitrateComboBox)
 
 
-        self.verticalLayout_3.addLayout(self.preferredBitrateLayout)
+        self.PreferencesDialogLayout.addLayout(self.preferredBitrateLayout)
+
+        self.buttonBoxSpacer = QSpacerItem(0, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.PreferencesDialogLayout.addItem(self.buttonBoxSpacer)
+
+        self.buttonBox = QDialogButtonBox(PreferencesDialog)
+        self.buttonBox.setObjectName(u"buttonBox")
+        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Apply|QDialogButtonBox.StandardButton.Cancel)
+
+        self.PreferencesDialogLayout.addWidget(self.buttonBox)
 
 
         self.retranslateUi(PreferencesDialog)
+
+        self.preferredResolutionComboBox.setCurrentIndex(2)
+        self.preferredBitrateComboBox.setCurrentIndex(3)
+
 
         QMetaObject.connectSlotsByName(PreferencesDialog)
     # setupUi

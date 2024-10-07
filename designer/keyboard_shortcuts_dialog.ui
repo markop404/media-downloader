@@ -67,7 +67,7 @@
      <item>
       <layout class="QVBoxLayout" name="leftColumnLayout">
        <item>
-        <widget class="QLabel" name="sectionLabel3">
+        <widget class="QLabel" name="generalSectionLabel">
          <property name="font">
           <font>
            <bold>true</bold>
@@ -241,7 +241,7 @@
         </layout>
        </item>
        <item>
-        <widget class="QLabel" name="sectionLabel2">
+        <widget class="QLabel" name="controlsSectionLabel">
          <property name="font">
           <font>
            <bold>true</bold>
@@ -337,9 +337,9 @@
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="shortcutLayout10">
+        <layout class="QHBoxLayout" name="showQualityOptsShortcutLayout">
          <item>
-          <widget class="QPushButton" name="keyButton3">
+          <widget class="QPushButton" name="showQualityOptsShortcutButton">
            <property name="maximumSize">
             <size>
              <width>55</width>
@@ -358,7 +358,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="keySeparator2">
+          <widget class="QLabel" name="showQualityOptsShortcutButtonSeparator">
            <property name="font">
             <font>
              <pointsize>15</pointsize>
@@ -371,7 +371,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="keyButton4">
+          <widget class="QPushButton" name="showQualityOptsShortcutButton2">
            <property name="maximumSize">
             <size>
              <width>35</width>
@@ -390,7 +390,7 @@
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer2">
+          <spacer name="showQualityOptsShortcutSpacer">
            <property name="orientation">
             <enum>Qt::Orientation::Horizontal</enum>
            </property>
@@ -403,7 +403,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QLabel" name="shortcutDescriptionLabel2">
+          <widget class="QLabel" name="showQualityOptsShortcutDescriptionLabel">
            <property name="text">
             <string>Show Quality Options</string>
            </property>
@@ -493,9 +493,9 @@
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="shortcutLayout11">
+        <layout class="QHBoxLayout" name="chgDownloadDirShortcutLayout">
          <item>
-          <widget class="QPushButton" name="keyButton5">
+          <widget class="QPushButton" name="chgDownloadDirShortcutButton">
            <property name="maximumSize">
             <size>
              <width>55</width>
@@ -527,7 +527,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="keyButton6">
+          <widget class="QPushButton" name="chgDownloadDirShortcutButton2">
            <property name="maximumSize">
             <size>
              <width>35</width>
@@ -546,7 +546,7 @@
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer3">
+          <spacer name="chgDownloadDirShortcutSpacer">
            <property name="orientation">
             <enum>Qt::Orientation::Horizontal</enum>
            </property>
@@ -747,7 +747,7 @@
      <item>
       <layout class="QVBoxLayout" name="rightColumnLayout">
        <item>
-        <widget class="QLabel" name="sectionLabel1">
+        <widget class="QLabel" name="tabsSectionLabel">
          <property name="font">
           <font>
            <bold>true</bold>
@@ -1169,7 +1169,7 @@
         </layout>
        </item>
        <item>
-        <widget class="QLabel" name="sectionLabel4">
+        <widget class="QLabel" name="otherSectionLabel">
          <property name="font">
           <font>
            <bold>true</bold>
@@ -1441,7 +1441,7 @@
     </layout>
    </item>
    <item>
-    <spacer name="closeButtonToSpacer">
+    <spacer name="buttonBoxSpacer">
      <property name="orientation">
       <enum>Qt::Orientation::Vertical</enum>
      </property>
@@ -1457,34 +1457,11 @@
     </spacer>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="closeButtonLayout">
-     <item>
-      <spacer name="closeButtonLayoutSpacer">
-       <property name="orientation">
-        <enum>Qt::Orientation::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="closeButton">
-       <property name="text">
-        <string>Close</string>
-       </property>
-       <property name="icon">
-        <iconset theme="QIcon::ThemeIcon::WindowClose"/>
-       </property>
-       <property name="autoDefault">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::StandardButton::Close</set>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

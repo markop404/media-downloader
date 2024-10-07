@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialoguRULDi.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogUhrutD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QHBoxLayout, QLabel,
-    QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
+    QHBoxLayout, QLabel, QPushButton, QSizePolicy,
+    QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_KeyboardShortcutsDialog(object):
     def setupUi(self, KeyboardShortcutsDialog):
@@ -37,7 +37,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutsColumnLayout = QHBoxLayout()
         self.shortcutsColumnLayout.setObjectName(u"shortcutsColumnLayout")
-        self.leftSpacer = QSpacerItem(30, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+        self.leftSpacer = QSpacerItem(25, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
 
         self.shortcutsColumnLayout.addItem(self.leftSpacer)
 
@@ -695,7 +695,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutsColumnLayout.addLayout(self.rightColumnLayout)
 
-        self.rightSpacer = QSpacerItem(30, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+        self.rightSpacer = QSpacerItem(25, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
 
         self.shortcutsColumnLayout.addItem(self.rightSpacer)
 
@@ -706,22 +706,11 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.verticalLayout.addItem(self.closeButtonToSpacer)
 
-        self.closeButtonLayout = QHBoxLayout()
-        self.closeButtonLayout.setObjectName(u"closeButtonLayout")
-        self.closeButtonLayoutSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.closeButtonBox = QDialogButtonBox(KeyboardShortcutsDialog)
+        self.closeButtonBox.setObjectName(u"closeButtonBox")
+        self.closeButtonBox.setStandardButtons(QDialogButtonBox.StandardButton.Close)
 
-        self.closeButtonLayout.addItem(self.closeButtonLayoutSpacer)
-
-        self.closeButton = QPushButton(KeyboardShortcutsDialog)
-        self.closeButton.setObjectName(u"closeButton")
-        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.WindowClose))
-        self.closeButton.setIcon(icon1)
-        self.closeButton.setAutoDefault(False)
-
-        self.closeButtonLayout.addWidget(self.closeButton)
-
-
-        self.verticalLayout.addLayout(self.closeButtonLayout)
+        self.verticalLayout.addWidget(self.closeButtonBox)
 
 
         self.retranslateUi(KeyboardShortcutsDialog)
@@ -801,5 +790,4 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keySeparator8.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton15.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"?", None))
         self.shortcutDescriptionLabel7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"View Shortcuts", None))
-        self.closeButton.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Close", None))
     # retranslateUi
