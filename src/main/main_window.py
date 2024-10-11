@@ -71,6 +71,7 @@ class MainWindow(QMainWindow):
         settings = [
             {"setting": "pos", "func": self.pos},
             {"setting": "size", "func": self.size},
+            {"setting": "size", "func": lambda: self.ui.tabWidget.},
         ]
 
         for setting in settings:
