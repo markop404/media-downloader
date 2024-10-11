@@ -1,7 +1,7 @@
 {
     "id": "com.markopejic.downloader",
     "runtime": "org.kde.Platform",
-    "runtime-version": "6.7",
+    "runtime-version": "6.8",
     "sdk": "org.kde.Sdk",
     "command": "com.markopejic.downloader",
     "finish-args": [
@@ -58,23 +58,23 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/5c/4d/00a5716e56c35c5621368c89abb360f6e953e2be639cd5f11e8075894e41/PySide6_Essentials-6.7.3-cp39-abi3-manylinux_2_31_aarch64.whl",
-                    "sha256": "acdde06b74f26e7d26b4ae1461081b32a6cb17fcaa2a580050b5e0f0f12236c9"
+                    "url": "https://files.pythonhosted.org/packages/db/3f/8347353a0980187820f065432870c68e614945b6782f11df41247866b7db/PySide6_Essentials-6.8.0-cp39-abi3-manylinux_2_31_aarch64.whl",
+                    "sha256": "ae0732228e93eb882c9a93fd510819fb64b7d09d8e500912b485a604537215d6"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/8d/d8/a08ca6eca6839be5d604e4035ce899f9d6df0f612191f4ed4d03e51f1e0e/PySide6_Essentials-6.7.3-cp39-abi3-manylinux_2_28_x86_64.whl",
-                    "sha256": "cda6fd26aead48f32e57f044d18aa75dc39265b49d7957f515ce7ac3989e7029"
+                    "url": "https://files.pythonhosted.org/packages/9d/fd/17510a0abd503a904ce3b9f1af87385435cf9340fb79c020a53d3a8385a5/PySide6_Essentials-6.8.0-cp39-abi3-manylinux_2_28_x86_64.whl",
+                    "sha256": "da99a94806416ec1e386426a474e7d1e514c1cdf8ad171c005376f4f633e7216"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/ef/3c/bb524437df11ae79845b230d682b162935c7226b1fb7be2544dceca01e0f/shiboken6-6.7.3-cp39-abi3-manylinux_2_31_aarch64.whl",
-                    "sha256": "f0dd635178e64a45be2f84c9f33dd79ac30328da87f834f21a0baf69ae210e6e"
+                    "url": "https://files.pythonhosted.org/packages/a4/b1/2d14977e0d4d415ac0bfbb7e83b303cb48a2dd6e9ba7fcb95f81fdc85b49/shiboken6-6.8.0-cp39-abi3-manylinux_2_31_aarch64.whl",
+                    "sha256": "0f62ee7c34337e2c39fff0985694224f7503328c450245c399846b72cd71c410"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/b2/e9/5c0c67de510da7818703d01123f7998cc495e99c0e6979a6ed6eb2ee09d0/shiboken6-6.7.3-cp39-abi3-manylinux_2_28_x86_64.whl",
-                    "sha256": "f0852e5781de78be5b13c140ec4c7fb9734e2aaf2986eb2d6a224363e03efccc"
+                    "url": "https://files.pythonhosted.org/packages/3b/92/9fa08c01ba811e2405059239e16d21b2e5c40b39de204c88fc35ac01c4ff/shiboken6-6.8.0-cp39-abi3-manylinux_2_28_x86_64.whl",
+                    "sha256": "ad88c0e73c9e4de3723c6e6b846e651729433ff9d9086bb2b4e6d49965477d97"
                 }
             ]
         },
