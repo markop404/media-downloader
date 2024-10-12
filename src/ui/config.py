@@ -18,6 +18,7 @@
 
 
 from PySide6.QtGui import QIcon
+from PySide6.QtCore import QSettings
 
 class Config:
     APP_NAME = "Media Downloader"
@@ -99,3 +100,13 @@ class Config:
         "Audio": "audio",
         "Video": "video",
     }
+
+
+    settings_manager = QSettings()
+                
+    settings = [
+        "remember-tab-settings",
+        "remove-downloaded-urls",
+        "preferred-resolution",
+        "preferred-bitrate",
+    ]

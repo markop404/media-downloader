@@ -20,9 +20,10 @@
 from threading import Thread
 from time import sleep
 import sys
+import os
 
 from PySide6.QtWidgets import QMessageBox, QWidget, QFileDialog
-from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize
+from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize, QSettings
 from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 
 from src import ui
@@ -39,6 +40,41 @@ class Tab(QWidget):
         self.update_download_directory_indicators()
         self.event_invoker = utils.Invoker()
         self.connect_signals_and_slots()
+        self.load_settings()
+    
+
+    def load_settings(self):
+        self.settings_manager = QSettings()
+
+        settings = [
+            {"setting": "format", "func": self.ui.formatComboBox.setCurrentText, "type": str},
+            {"setting": "crop-thumbnails", "func": self.ui.cropThumbnailsCheckBox.setChecked, "type": bool},
+            {"setting": "embed-subtitles", "func": self.ui.embedSubtitlesCheckBox.setChecked, "type": bool},
+        ]
+
+        for setting in settings:
+            value = self.settings_manager.value(setting["setting"], type=setting["type"])
+            if value or value == False:
+                setting["func"](value)
+        
+        value = self.settings_manager.value("download-dir")
+        if value:
+            if os.path.exists(value):
+                self.download_location = value
+                self.update_download_directory_indicators()
+    
+
+    def save_settings(self):
+        settings = [
+            {"setting": "format", "func": self.ui.formatComboBox.currentText},
+            {"setting": "crop-thumbnails", "func": self.ui.cropThumbnailsCheckBox.isChecked},
+            {"setting": "embed-subtitles", "func": self.ui.embedSubtitlesCheckBox.isChecked},
+        ]
+
+        for setting in settings:
+            self.settings_manager.setValue(setting["setting"], setting["func"]())
+        
+        self.settings_manager.setValue("download-dir", self.download_location)
 
 
     def setup_ui(self):

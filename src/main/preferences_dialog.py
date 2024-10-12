@@ -29,11 +29,12 @@ class PreferencesDialog(QDialog):
         self.ui = Ui_PreferencesDialog()
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
-        self.settings_manager = QSettings()
         self.load_settings()
 
 
     def load_settings(self):
+        self.settings_manager = QSettings()
+
         settings = [
             {"setting": "remember-tab-settings", "func": self.ui.restoreSettingsCheckBox.setChecked, "type": bool},
             {"setting": "remove-downloaded-urls", "func": self.ui.removeURLsCheckBox.setChecked, "type": bool},
@@ -42,7 +43,7 @@ class PreferencesDialog(QDialog):
         ]
 
         for setting in settings:
-            value = self.settings_manager.value(setting["setting"], type=setting["type"], defaultValue=None)
+            value = self.settings_manager.value(setting["setting"], type=setting["type"])
             if value or value == False:
                 func = setting["func"](value)
 

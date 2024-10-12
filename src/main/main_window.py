@@ -62,7 +62,7 @@ class MainWindow(QMainWindow):
         ]
 
         for setting in settings:
-            value = self.settings_manager.value(setting["setting"], type=setting["type"], defaultValue=None)
+            value = self.settings_manager.value(setting["setting"], type=setting["type"])
             if value or value == False:
                 func = setting["func"](value)
 
@@ -75,6 +75,8 @@ class MainWindow(QMainWindow):
 
         for setting in settings:
             self.settings_manager.setValue(setting["setting"], setting["func"]())
+        
+        last_tab_object = self.ui.tabWidget.currentWidget().save_settings()
 
 
     def setup_ui(self):
@@ -117,7 +119,7 @@ class MainWindow(QMainWindow):
     def create_new_instance(self):
         if self.create_new_instance_command:
             subprocess.Popen(self.create_new_instance_command)
-    
+
 
     def create_new_tab(self):
         self.highest_tab_number += 1
@@ -134,17 +136,17 @@ class MainWindow(QMainWindow):
 
         tab_object = self.ui.tabWidget.widget(index)
         self.ui.tabWidget.removeTab(index)
-        Thread(target=lambda: self.delete_tab_ui(tab_object), daemon=True).start()
+        Thread(target=lambda: self.delete_tab(tab_object), daemon=True).start()
 
 
-    def delete_tab_ui(self, tab_object):
+    def delete_tab(self, tab_object):
         tab_object.cancel_progress = True
         while tab_object.thread_running:
-            sleep(0.001)
+            sleep(0.01)
         tab_object.deleteLater()
     
 
-    def update_tab(self, index, pretty_tab_number, situation=None, progress=None):
+    def update_tab_status_indicators(self, index, pretty_tab_number, situation=None, progress=None):
         if situation:
             if progress and len(progress) == 2:
                 progress_text = f" {progress[0]}/{progress[1]}"
