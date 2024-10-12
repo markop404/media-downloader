@@ -36,26 +36,25 @@ class Tab(QWidget):
         super().__init__()
         self.setup_ui()
         self.setup_vars(parent, pretty_tab_number)
-        self.setup_filedialog()
         self.update_download_directory_indicators()
+        self.setup_filedialog()
         self.event_invoker = utils.Invoker()
         self.connect_signals_and_slots()
+        
+        self.settings_manager = QSettings()
+        self.SETTINGS = [
+            {"name": "format", "set-value-func": self.ui.formatComboBox.setCurrentText, "get-value-func": self.ui.formatComboBox.currentText, "type": str},
+            {"name": "crop-thumbnails", "set-value-func": self.ui.cropThumbnailsCheckBox.setChecked, "get-value-func": self.ui.cropThumbnailsCheckBox.isChecked, "type": bool},
+            {"name": "embed-subtitles", "set-value-func": self.ui.embedSubtitlesCheckBox.setChecked, "get-value-func": self.ui.embedSubtitlesCheckBox.isChecked, "type": bool},
+        ]
         self.load_settings()
     
 
     def load_settings(self):
-        self.settings_manager = QSettings()
-
-        settings = [
-            {"setting": "format", "func": self.ui.formatComboBox.setCurrentText, "type": str},
-            {"setting": "crop-thumbnails", "func": self.ui.cropThumbnailsCheckBox.setChecked, "type": bool},
-            {"setting": "embed-subtitles", "func": self.ui.embedSubtitlesCheckBox.setChecked, "type": bool},
-        ]
-
-        for setting in settings:
-            value = self.settings_manager.value(setting["setting"], type=setting["type"])
+        for setting in self.SETTINGS:
+            value = self.settings_manager.value(setting["name"], type=setting["type"])
             if value or value == False:
-                setting["func"](value)
+                setting["set-value-func"](value)
         
         value = self.settings_manager.value("download-dir")
         if value:
@@ -65,14 +64,8 @@ class Tab(QWidget):
     
 
     def save_settings(self):
-        settings = [
-            {"setting": "format", "func": self.ui.formatComboBox.currentText},
-            {"setting": "crop-thumbnails", "func": self.ui.cropThumbnailsCheckBox.isChecked},
-            {"setting": "embed-subtitles", "func": self.ui.embedSubtitlesCheckBox.isChecked},
-        ]
-
-        for setting in settings:
-            self.settings_manager.setValue(setting["setting"], setting["func"]())
+        for setting in self.SETTINGS:
+            self.settings_manager.setValue(setting["name"], setting["get-value-func"]())
         
         self.settings_manager.setValue("download-dir", self.download_location)
 

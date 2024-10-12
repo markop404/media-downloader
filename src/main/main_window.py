@@ -37,13 +37,19 @@ class MainWindow(QMainWindow):
         
         self.highest_tab_number = 0
         self.popup_window_running = False
+        
+        self.settings_manager = QSettings()
+        self.SETTINGS = [
+            {"name": "pos", "set-value-func": self.move, "get-value-func": self.pos, "type": QSize},
+            {"name": "size", "set-value-func": self.resize, "get-value-func": self.size, "type": QPoint},
+        ]
+        self.load_settings()
 
         if "__main__" in sys.modules:
             self.create_new_instance_command = [sys.executable, sys.modules["__main__"].__file__]
         else:
             self.create_new_instance_command = None
         
-        self.load_settings()
         self.create_new_tab()
 
 
@@ -54,17 +60,10 @@ class MainWindow(QMainWindow):
     
 
     def load_settings(self):
-        self.settings_manager = QSettings()
-
-        settings = [
-            {"setting": "pos", "func": self.move, "type": QSize},
-            {"setting": "size", "func": self.resize, "type": QPoint},
-        ]
-
-        for setting in settings:
-            value = self.settings_manager.value(setting["setting"], type=setting["type"])
+        for setting in self.SETTINGS:
+            value = self.settings_manager.value(setting["name"], type=setting["type"])
             if value or value == False:
-                func = setting["func"](value)
+                setting["set-value-func"](value)
 
         for setting, value in ui.Config.DEFAULT_SETTINGS.items():
             if not self.settings_manager.value(setting):
@@ -72,13 +71,8 @@ class MainWindow(QMainWindow):
 
 
     def save_settings(self):
-        settings = [
-            {"setting": "pos", "func": self.pos},
-            {"setting": "size", "func": self.size},
-        ]
-
-        for setting in settings:
-            self.settings_manager.setValue(setting["setting"], setting["func"]())
+        for setting in self.SETTINGS:
+            self.settings_manager.setValue(setting["name"], setting["get-value-func"]())
         
         last_tab_object = self.ui.tabWidget.currentWidget().save_settings()
 

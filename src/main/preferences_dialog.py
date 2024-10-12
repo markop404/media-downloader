@@ -53,7 +53,7 @@ class PreferencesDialog(QDialog):
     def save_and_close(self):
         for setting in self.SETTINGS:
             self.settings_manager.setValue(setting["name"], setting["get-value-func"]())
-        
+      
         self.close()
 
     
