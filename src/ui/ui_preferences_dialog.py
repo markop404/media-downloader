@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogeHYrLs.ui'
+## Form generated from reading UI file 'preferences_dialogWqKBjq.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -211,16 +211,12 @@ class Ui_PreferencesDialog(object):
 
         self.buttonBox = QDialogButtonBox(PreferencesDialog)
         self.buttonBox.setObjectName(u"buttonBox")
-        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Apply|QDialogButtonBox.StandardButton.Cancel)
+        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Apply|QDialogButtonBox.StandardButton.Cancel|QDialogButtonBox.StandardButton.RestoreDefaults)
 
         self.PreferencesDialogLayout.addWidget(self.buttonBox)
 
 
         self.retranslateUi(PreferencesDialog)
-
-        self.preferredResolutionComboBox.setCurrentIndex(2)
-        self.preferredBitrateComboBox.setCurrentIndex(3)
-
 
         QMetaObject.connectSlotsByName(PreferencesDialog)
     # setupUi

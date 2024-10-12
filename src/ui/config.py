@@ -101,12 +101,9 @@ class Config:
         "Video": "video",
     }
 
-
-    settings_manager = QSettings()
-                
-    settings = [
-        "remember-tab-settings",
-        "remove-downloaded-urls",
-        "preferred-resolution",
-        "preferred-bitrate",
-    ]
+    DEFAULT_SETTINGS = {
+        "remember-tab-settings": True,
+        "remove-downloaded-urls": True,
+        "preferred-resolution": "1440p",
+        "preferred-bitrate": "192 kbps",
+    }

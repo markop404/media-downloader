@@ -20,7 +20,7 @@
 from PySide6.QtWidgets import QDialog, QDialogButtonBox
 from PySide6.QtCore import QSettings
 
-from src.ui import Ui_PreferencesDialog
+from src.ui import Ui_PreferencesDialog, Config
 
 
 class PreferencesDialog(QDialog):
@@ -29,34 +29,30 @@ class PreferencesDialog(QDialog):
         self.ui = Ui_PreferencesDialog()
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
-        self.load_settings()
-
-
-    def load_settings(self):
+        
         self.settings_manager = QSettings()
-
-        settings = [
-            {"setting": "remember-tab-settings", "func": self.ui.restoreSettingsCheckBox.setChecked, "type": bool},
-            {"setting": "remove-downloaded-urls", "func": self.ui.removeURLsCheckBox.setChecked, "type": bool},
-            {"setting": "preferred-resolution", "func": lambda res: self.ui.preferredResolutionComboBox.setCurrentIndex(self.ui.preferredResolutionComboBox.findText(res)), "type": str},
-            {"setting": "preferred-bitrate", "func": lambda res: self.ui.preferredBitrateComboBox.setCurrentIndex(self.ui.preferredBitrateComboBox.findText(res)), "type": str},
+        self.SETTINGS = [
+            {"name": "remember-tab-settings", "set-value-func": self.ui.restoreSettingsCheckBox.setChecked, "get-value-func": self.ui.restoreSettingsCheckBox.isChecked, "type": bool},
+            {"name": "remove-downloaded-urls", "set-value-func": self.ui.removeURLsCheckBox.setChecked, "get-value-func": self.ui.removeURLsCheckBox.isChecked, "type": bool},
+            {"name": "preferred-resolution", "set-value-func": lambda res: self.ui.preferredResolutionComboBox.setCurrentIndex(self.ui.preferredResolutionComboBox.findText(res)), "get-value-func": self.ui.preferredResolutionComboBox.currentText, "type": str},
+            {"name": "preferred-bitrate", "set-value-func": lambda res: self.ui.preferredBitrateComboBox.setCurrentIndex(self.ui.preferredBitrateComboBox.findText(res)), "get-value-func": self.ui.preferredBitrateComboBox.currentText, "type": str},
         ]
 
-        for setting in settings:
-            value = self.settings_manager.value(setting["setting"], type=setting["type"])
-            if value or value == False:
-                func = setting["func"](value)
+
+    def load_settings(self, defaults=False):
+        if not defaults:
+            for setting in self.SETTINGS:
+                value = self.settings_manager.value(setting["name"], type=setting["type"])
+                if value or value == False:
+                    setting["set-value-func"](value)
+        else:
+            for setting in self.SETTINGS:
+                setting["set-value-func"](Config.DEFAULT_SETTINGS[setting["name"]])
 
 
-    def save_settings(self):
-        settings = [
-            {"setting": "remember-tab-settings", "func": self.ui.restoreSettingsCheckBox.isChecked},
-            {"setting": "remove-downloaded-urls", "func": self.ui.removeURLsCheckBox.isChecked},
-            {"setting": "preferred-resolution", "func": self.ui.preferredResolutionComboBox.currentText},
-            {"setting": "preferred-bitrate", "func": self.ui.preferredBitrateComboBox.currentText},
-        ]
-        for setting in settings:
-            self.settings_manager.setValue(setting["setting"], setting["func"]())
+    def save_and_close(self):
+        for setting in self.SETTINGS:
+            self.settings_manager.setValue(setting["name"], setting["get-value-func"]())
         
         self.close()
 
@@ -66,6 +62,13 @@ class PreferencesDialog(QDialog):
             button_role = self.ui.buttonBox.buttonRole(button)
             
             if button_role == QDialogButtonBox.ButtonRole.ApplyRole:
-                button.clicked.connect(self.save_settings)
+                button.clicked.connect(self.save_and_close)
             elif button_role == QDialogButtonBox.ButtonRole.RejectRole:
                 button.clicked.connect(self.close)
+            elif button_role == QDialogButtonBox.ButtonRole.ResetRole:
+                button.clicked.connect(lambda: self.load_settings(defaults=True))
+
+
+    def _exec(self):
+        self.load_settings()
+        self.exec()
