@@ -51,16 +51,17 @@ class Tab(QWidget):
     
 
     def load_settings(self):
-        for setting in self.SETTINGS:
-            value = self.settings_manager.value(setting["name"], type=setting["type"])
-            if value or value == False:
-                setting["set-value-func"](value)
-        
-        value = self.settings_manager.value("download-dir")
-        if value:
-            if os.path.exists(value):
-                self.download_location = value
-                self.update_download_directory_indicators()
+        if self.settings_manager.value("remember-tab-settings"):
+            for setting in self.SETTINGS:
+                value = self.settings_manager.value(setting["name"], type=setting["type"])
+                if value or value == False:
+                    setting["set-value-func"](value)
+            
+            value = self.settings_manager.value("download-dir")
+            if value:
+                if os.path.exists(value):
+                    self.download_location = value
+                    self.update_download_directory_indicators()
     
 
     def save_settings(self):
@@ -116,12 +117,12 @@ class Tab(QWidget):
             self.ui.statusLabel.setText(f"{ui.Config.STATUS_LABEL_TEXT[situation]}{progress_text}")
             if percentage:
                 self.ui.progressBar.setValue(percentage)
-            self.parent.update_tab(tab_index, self.pretty_tab_number, situation, progress)
+            self.parent.update_tab_status_indicators(tab_index, self.pretty_tab_number, situation, progress)
             self.ui.statusIconLabel.setPixmap(ui.Config.STATUS_LABEL_ICONS[situation].pixmap(QSize(28, 28)))
         else:
             self.ui.statusLabel.setText(str())
             self.ui.progressBar.setValue(0)
-            self.parent.update_tab(tab_index, self.pretty_tab_number)
+            self.parent.update_tab_status_indicators(tab_index, self.pretty_tab_number)
             self.ui.statusIconLabel.setPixmap(QPixmap())
 
 
@@ -254,7 +255,7 @@ class Tab(QWidget):
             percentage = None
         if processed_url_count + 1 <= total_url_count:
             self.run_in_gui_thread(lambda: self.update_status_indicators("downloading", (processed_url_count + 1, total_url_count), percentage))
-        if self.ui.urlremovalCheckBox.isChecked():
+        if self.settings_manager.value("remove-downloaded-urls"):
             self.remove_urls_from_entry([url])
     
 

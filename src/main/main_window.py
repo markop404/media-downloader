@@ -74,7 +74,7 @@ class MainWindow(QMainWindow):
         for setting in self.SETTINGS:
             self.settings_manager.setValue(setting["name"], setting["get-value-func"]())
         
-        last_tab_object = self.ui.tabWidget.currentWidget().save_settings()
+        self.ui.tabWidget.currentWidget().save_settings()
 
 
     def setup_ui(self):
@@ -122,6 +122,9 @@ class MainWindow(QMainWindow):
 
     def create_new_tab(self):
         self.highest_tab_number += 1
+        if current_tab := self.ui.tabWidget.currentWidget():
+            current_tab.save_settings()
+        
         new_tab = main.Tab(self, self.highest_tab_number)
         new_tab_index = self.ui.tabWidget.addTab(new_tab, f"{self.highest_tab_number}")
         self.ui.tabWidget.setCurrentIndex(new_tab_index)

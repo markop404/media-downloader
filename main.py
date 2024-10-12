@@ -22,6 +22,7 @@ from PySide6.QtWidgets import QApplication
 from src.main import MainWindow
 
 app = QApplication([])
+
 app.setStyle("Fusion")
 app.setApplicationName("MediaDownloader")
 app.setOrganizationDomain("markopejic.com")
