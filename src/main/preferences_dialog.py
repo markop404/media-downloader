@@ -71,7 +71,7 @@ class PreferencesDialog(QDialog):
         if not defaults:
             for setting in self.SETTINGS:
                 value = self.settings_manager.value(setting["name"], type=setting["type"])
-                if value or value == False:
+                if value != None:
                     setting["set-value-func"](value)
         else:
             for setting in self.SETTINGS:
