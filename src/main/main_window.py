@@ -40,8 +40,18 @@ class MainWindow(QMainWindow):
         
         self.settings_manager = QSettings()
         self.SETTINGS = [
-            {"name": "pos", "set-value-func": self.move, "get-value-func": self.pos, "type": QSize},
-            {"name": "size", "set-value-func": self.resize, "get-value-func": self.size, "type": QPoint},
+            {
+                "name": "pos",
+                "set-value-func": self.move,
+                "get-value-func": self.pos,
+                "type": QSize
+            },
+            {
+                "name": "size",
+                "set-value-func": self.resize,
+                "get-value-func": self.size,
+                "type": QPoint
+            },
         ]
         self.load_settings()
 
@@ -62,11 +72,11 @@ class MainWindow(QMainWindow):
     def load_settings(self):
         for setting in self.SETTINGS:
             value = self.settings_manager.value(setting["name"], type=setting["type"])
-            if value or value == False:
+            if value != None:
                 setting["set-value-func"](value)
 
         for setting, value in ui.Config.DEFAULT_SETTINGS.items():
-            if not self.settings_manager.value(setting):
+            if self.settings_manager.value(setting) == None:
                 self.settings_manager.setValue(setting, value)
 
 

@@ -32,10 +32,38 @@ class PreferencesDialog(QDialog):
         
         self.settings_manager = QSettings()
         self.SETTINGS = [
-            {"name": "remember-tab-settings", "set-value-func": self.ui.restoreSettingsCheckBox.setChecked, "get-value-func": self.ui.restoreSettingsCheckBox.isChecked, "type": bool},
-            {"name": "remove-downloaded-urls", "set-value-func": self.ui.removeURLsCheckBox.setChecked, "get-value-func": self.ui.removeURLsCheckBox.isChecked, "type": bool},
-            {"name": "preferred-resolution", "set-value-func": lambda res: self.ui.preferredResolutionComboBox.setCurrentIndex(self.ui.preferredResolutionComboBox.findText(res)), "get-value-func": self.ui.preferredResolutionComboBox.currentText, "type": str},
-            {"name": "preferred-bitrate", "set-value-func": lambda res: self.ui.preferredBitrateComboBox.setCurrentIndex(self.ui.preferredBitrateComboBox.findText(res)), "get-value-func": self.ui.preferredBitrateComboBox.currentText, "type": str},
+            {
+                "name": "remember-tab-settings",
+                "set-value-func": self.ui.restoreSettingsCheckBox.setChecked,
+                "get-value-func": self.ui.restoreSettingsCheckBox.isChecked,
+                "type": bool
+            },
+            {
+                "name": "remove-downloaded-urls",
+                "set-value-func": self.ui.removeURLsCheckBox.setChecked,
+                "get-value-func": self.ui.removeURLsCheckBox.isChecked,
+                "type": bool
+            },
+            {
+                "name": "preferred-resolution",
+                "set-value-func":
+                    lambda res:
+                        self.ui.preferredResolutionComboBox.setCurrentIndex(
+                            self.ui.preferredResolutionComboBox.findText(res)
+                        ),
+                "get-value-func": self.ui.preferredResolutionComboBox.currentText,
+                "type": str
+            },
+            {
+                "name": "preferred-bitrate",
+                "set-value-func":
+                    lambda res:
+                        self.ui.preferredBitrateComboBox.setCurrentIndex(
+                            self.ui.preferredBitrateComboBox.findText(res)
+                        ),
+                "get-value-func": self.ui.preferredBitrateComboBox.currentText,
+                "type": str
+            },
         ]
 
 
