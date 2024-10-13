@@ -71,3 +71,11 @@ def update_combobox_items(combobox, items=[]):
     for item in items:
         combobox.addItem(item)
     combobox.setCurrentIndex(0)
+
+
+def str_to_int(string):
+    integer = ""
+    for char in string:
+        if char.isdigit():
+            integer += char
+    return int(integer)

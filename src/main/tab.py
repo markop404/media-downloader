@@ -35,11 +35,6 @@ class Tab(QWidget):
     def __init__(self, parent, pretty_tab_number):
         super().__init__()
         self.setup_ui()
-        self.setup_vars(parent, pretty_tab_number)
-        self.update_download_directory_indicators()
-        self.setup_filedialog()
-        self.event_invoker = utils.Invoker()
-        self.connect_signals_and_slots()
         
         self.settings_manager = QSettings()
         self.SETTINGS = [
@@ -64,6 +59,12 @@ class Tab(QWidget):
         ]
         self.load_settings()
     
+        self.setup_vars(parent, pretty_tab_number)
+        self.update_download_directory_indicators()
+        self.setup_filedialog()
+        self.event_invoker = utils.Invoker()
+        self.connect_signals_and_slots()
+
 
     def load_settings(self):
         if self.settings_manager.value("remember-tab-settings"):
@@ -119,6 +120,10 @@ class Tab(QWidget):
         self.qualities = {"video": {}, "audio": []}
         self.user_answer = None
         self.changing_plain_text_edit = False
+        self.preferred_qualities = {
+            "resolution": utils.str_to_int(self.settings_manager.value("preferred-resolution")),
+            "bitrate": utils.str_to_int(self.settings_manager.value("preferred-bitrate")),
+        }
     
 
     def setup_filedialog(self):
@@ -392,14 +397,18 @@ class Tab(QWidget):
         if failed_urls and data:
             self.handle_invalid_url_warning(failed_urls, error_type="data_pull")
 
+        self.preferred_qualities = {
+            "resolution": utils.str_to_int(self.settings_manager.value("preferred-resolution")),
+            "bitrate": utils.str_to_int(self.settings_manager.value("preferred-bitrate")),
+        }
         try:
-            data = ytdlp_helpers.extract_basic_info(data)
+            data = ytdlp_helpers.extract_basic_info(data, self.preferred_qualities)
         except BaseException as e:
             print(e)
             self.prep_thread_exit("data_pull_failed")
             return
 
-        self.qualities = data[0]
+        self.qualities, self.preferred_qualities = data[0], data[2]
         self.run_in_gui_thread(self.show_new_qualities)
         
         subtitles = data[1]
@@ -580,8 +589,10 @@ class Tab(QWidget):
         _format = self.ui.formatComboBox.currentText()
         if ui.Config.FORMATS[_format] == "audio":
             utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["audio"])
+            self.ui.qualityComboBox.setCurrentText(self.preferred_qualities["bitrate"])
         elif ui.Config.FORMATS[_format] == "video":
             utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["video"].keys())
+            self.ui.qualityComboBox.setCurrentText(self.preferred_qualities["resolution"])
     
 
     def change_plain_text_edit(self, text=""):

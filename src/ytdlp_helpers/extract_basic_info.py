@@ -21,7 +21,7 @@ from .extract_data import extract_data
 from re import search
 from yt_dlp import YoutubeDL
 
-def extract_basic_info(data_list):
+def extract_basic_info(data_list, preferred_qualities=None):
     final_qualities = {"audio": [], "video": {}}
     all_audio_qualities = []
     all_video_qualities = []
@@ -62,7 +62,8 @@ def extract_basic_info(data_list):
             if subtitles:
                 subtitle_data.update(subtitles)
 
-    for quality in sorted(list(all_audio_qualities), reverse=True):
+    all_audio_qualities = sorted(list(all_audio_qualities), reverse=True)
+    for quality in all_audio_qualities:
         final_qualities["audio"].append(f"{quality} kbps")
     final_qualities["audio"][0] += " (Best)"
 
@@ -86,4 +87,4 @@ def extract_basic_info(data_list):
 
             subtitles = sorted(subtitles.items())
 
-    return final_qualities, subtitles
+    return final_qualities, subtitles, preferred_qualities
