@@ -447,10 +447,16 @@ class Tab(QWidget):
 
         file_type = ui.Config.FORMATS[self.ui.formatComboBox.currentText()]
         selected_quality = self.ui.qualityComboBox.currentText()
-        if file_type == "video" and selected_quality in self.qualities["video"]:
-            quality = self.qualities["video"][selected_quality]
-        else:
-            quality = selected_quality
+        if file_type == "video":
+            if selected_quality in self.qualities["video"]:
+                quality = self.qualities["video"][selected_quality]
+            else:
+                quality = self.settings_manager.value("preferred-resolution")
+        elif file_type == "audio":
+            if selected_quality in self.qualities["audio"]:
+                quality = self.qualities["audio"][selected_quality]
+            else:
+                quality = self.settings_manager.value("preferred-bitrate")
 
         subtitles = self.ui.subtitlesComboBox.currentText()
         if subtitles == "":
