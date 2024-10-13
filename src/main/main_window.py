@@ -108,7 +108,7 @@ class MainWindow(QMainWindow):
 
 
     def connect_signals_and_slots(self):
-        self.ui.actionAbout.triggered.connect(self.about_dialog.exec)
+        self.ui.actionAbout.triggered.connect(self.about_dialog._exec)
         self.ui.actionNewWindow.triggered.connect(self.create_new_instance)
         self.ui.actionKeyboardShortcuts.triggered.connect(self.keyboard_shortcuts_dialog.exec)
         self.ui.actionPreferences.triggered.connect(self.preferences_dialog._exec)

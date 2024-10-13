@@ -43,9 +43,24 @@ class Tab(QWidget):
         
         self.settings_manager = QSettings()
         self.SETTINGS = [
-            {"name": "format", "set-value-func": self.ui.formatComboBox.setCurrentText, "get-value-func": self.ui.formatComboBox.currentText, "type": str},
-            {"name": "crop-thumbnails", "set-value-func": self.ui.cropThumbnailsCheckBox.setChecked, "get-value-func": self.ui.cropThumbnailsCheckBox.isChecked, "type": bool},
-            {"name": "embed-subtitles", "set-value-func": self.ui.embedSubtitlesCheckBox.setChecked, "get-value-func": self.ui.embedSubtitlesCheckBox.isChecked, "type": bool},
+            {
+                "name": "format",
+                "set-value-func": self.ui.formatComboBox.setCurrentText,
+                "get-value-func": self.ui.formatComboBox.currentText,
+                "type": str,
+            },
+            {
+                "name": "crop-thumbnails",
+                "set-value-func": self.ui.cropThumbnailsCheckBox.setChecked,
+                "get-value-func": self.ui.cropThumbnailsCheckBox.isChecked,
+                "type": bool,
+            },
+            {
+                "name": "embed-subtitles",
+                "set-value-func": self.ui.embedSubtitlesCheckBox.setChecked,
+                "get-value-func": self.ui.embedSubtitlesCheckBox.isChecked,
+                "type": bool,
+            },
         ]
         self.load_settings()
     
@@ -75,9 +90,24 @@ class Tab(QWidget):
         self.ui = ui.Ui_Tab()
         self.ui.setupUi(self)
 
-        QShortcut(QKeySequence("Alt+f"), self).activated.connect(lambda: self.show_combobox_popup(self.ui.formatComboBox))
-        QShortcut(QKeySequence("Alt+q"), self).activated.connect(lambda: self.show_combobox_popup(self.ui.qualityComboBox))
-        QShortcut(QKeySequence("Alt+s"), self).activated.connect(lambda: self.show_combobox_popup(self.ui.subtitlesComboBox))
+        QShortcut(QKeySequence("Alt+f"), self).activated.connect(
+            lambda:
+                self.show_combobox_popup(
+                    self.ui.formatComboBox,
+                )
+            )
+        QShortcut(QKeySequence("Alt+q"), self).activated.connect(
+            lambda:
+                self.show_combobox_popup(
+                    self.ui.qualityComboBox,
+                )
+            )
+        QShortcut(QKeySequence("Alt+s"), self).activated.connect(
+            lambda:
+                self.show_combobox_popup(
+                    self.ui.subtitlesComboBox,
+                )
+            )
 
 
     def setup_vars(self, parent, pretty_tab_number):
@@ -115,7 +145,7 @@ class Tab(QWidget):
                 progress_text = ""
 
             self.ui.statusLabel.setText(f"{ui.Config.STATUS_LABEL_TEXT[situation]}{progress_text}")
-            if percentage:
+            if isinstance(percentage, int):
                 self.ui.progressBar.setValue(percentage)
             self.parent.update_tab_status_indicators(tab_index, self.pretty_tab_number, situation, progress)
             self.ui.statusIconLabel.setPixmap(ui.Config.STATUS_LABEL_ICONS[situation].pixmap(QSize(28, 28)))
@@ -144,7 +174,7 @@ class Tab(QWidget):
 
         urls = utils.plain_text_to_set(self.ui.plainTextEdit.toPlainText())
         self.change_plain_text_edit(utils.list_to_plain_text(urls))
-        self.update_status_indicators(situation="extracting_urls", progress=(1, len(urls)))
+        self.update_status_indicators(situation="extracting_urls", progress=(1, len(urls)), percentage=0)
 
         self.ui.plainTextEdit.setReadOnly(True)
         self.ui.qualityComboBox.setEnabled(False)
@@ -156,10 +186,11 @@ class Tab(QWidget):
     def prep_thread_exit(self, situation=None, percentage=0):
         self.thread_running = False
         self.cancel_progress = False
-        self.run_in_gui_thread(lambda: self.restore_widgets_to_normal(situation, percentage))
+        self.run_in_gui_thread(self.restore_widgets_to_normal)
+        self.run_in_gui_thread(lambda: self.update_status_indicators(situation, percentage=percentage))
     
 
-    def restore_widgets_to_normal(self, situation, percentage):
+    def restore_widgets_to_normal(self):
         self.ui.plainTextEdit.setReadOnly(False)
         self.ui.formatComboBox.setEnabled(True)
         self.ui.qualityComboBox.setEnabled(True)
@@ -171,7 +202,6 @@ class Tab(QWidget):
         self.ui.downloadButton.setEnabled(True)
         self.ui.dataPullButton.setText(ui.Config.BUTTON_TEXT["refresh"]["default"])
         self.ui.downloadButton.setText(ui.Config.BUTTON_TEXT["download"]["default"])
-        self.update_status_indicators(situation, percentage=percentage)
     
     
     def start_update_info(self):
@@ -219,7 +249,14 @@ class Tab(QWidget):
         except:
             return
 
-        self.run_in_gui_thread(lambda: self.update_status_indicators(situation, (processed_url_count, total_url_count), percentage))
+        self.run_in_gui_thread(
+            lambda:
+                self.update_status_indicators(
+                    situation=situation,
+                    progress=(processed_url_count, total_url_count),
+                    percentage=percentage,
+                )
+            )
 
 
     def download_progress(self, data, processed_url_count, total_url_count):
@@ -242,7 +279,14 @@ class Tab(QWidget):
                         percentage = None
         
         if processed_url_count + 1 <= total_url_count:
-            self.run_in_gui_thread(lambda: self.update_status_indicators("downloading", (processed_url_count + 1, total_url_count), percentage))
+            self.run_in_gui_thread(
+                lambda:
+                    self.update_status_indicators(
+                        situation="downloading",
+                        progress=(processed_url_count + 1, total_url_count),
+                        percentage=percentage,
+                    )
+                )
 
 
     def url_download_progress(self, url, processed_url_count, total_url_count):
@@ -254,7 +298,14 @@ class Tab(QWidget):
         else:
             percentage = None
         if processed_url_count + 1 <= total_url_count:
-            self.run_in_gui_thread(lambda: self.update_status_indicators("downloading", (processed_url_count + 1, total_url_count), percentage))
+            self.run_in_gui_thread(
+                lambda:
+                    self.update_status_indicators(
+                        situation="downloading",
+                        progress=(processed_url_count + 1, total_url_count),
+                        percentage=percentage,
+                    )
+                )
         if self.settings_manager.value("remove-downloaded-urls"):
             self.remove_urls_from_entry([url])
     
@@ -262,7 +313,14 @@ class Tab(QWidget):
     def postprocess_progress(self, data, processed_url_count, total_url_count):
         if self.cancel_progress:
             raise SystemExit
-        self.run_in_gui_thread(lambda: self.update_status_indicators("converting", (processed_url_count + 1, total_url_count), 100))
+        self.run_in_gui_thread(
+            lambda:
+                self.update_status_indicators(
+                    situation="converting",
+                    progress=(processed_url_count + 1, total_url_count),
+                    percentage=100,
+                )
+            )
 
 
     def update_info(self, urls):
@@ -290,7 +348,14 @@ class Tab(QWidget):
             self.prep_thread_exit("data_pull_failed")
             return
 
-        self.run_in_gui_thread(lambda: self.update_status_indicators("pulling_data", (1, len(urls)), 0))
+        self.run_in_gui_thread(
+            lambda:
+                self.update_status_indicators(
+                    situation="pulling_data",
+                    progress=(1, len(urls)),
+                    percentage=0,
+                )
+            )
         
         try:
             data, failed_urls2, exit_status, errors = ytdlp_helpers.extract_data(
@@ -355,6 +420,7 @@ class Tab(QWidget):
             print(e)
             self.prep_thread_exit("download_failed")
             return
+
         if not exit_status:
             self.prep_thread_exit("no_internet")
             return
@@ -363,7 +429,14 @@ class Tab(QWidget):
             self.prep_thread_exit("download_failed")
             return
 
-        self.run_in_gui_thread(lambda: self.update_status_indicators("downloading", (1, len(urls)), 0))
+        self.run_in_gui_thread(
+            lambda:
+                self.update_status_indicators(
+                    situation="downloading",
+                    progress=(1, len(urls)),
+                    percentage=0,
+                )
+        )
 
         file_type = ui.Config.FORMATS[self.ui.formatComboBox.currentText()]
         selected_quality = self.ui.qualityComboBox.currentText()
@@ -415,7 +488,10 @@ class Tab(QWidget):
     def display_invalid_url_warning(self, text):
         answer = QMessageBox.warning(
             self,
-            ui.Config.WINDOW_TITLES["error"].replace("<pretty_tab_number>", str(self.pretty_tab_number)),
+            ui.Config.WINDOW_TITLES["error"].replace(
+                "<pretty_tab_number>",
+                str(self.pretty_tab_number)
+            ),
             text,
             buttons=QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
             defaultButton=QMessageBox.StandardButton.Yes,
