@@ -69,13 +69,12 @@ class Tab(QWidget):
         if self.settings_manager.value("remember-tab-settings"):
             for setting in self.SETTINGS:
                 value = self.settings_manager.value(setting["name"], type=setting["type"])
-                if value or value == False:
+                if value != None:
                     setting["set-value-func"](value)
             
-            value = self.settings_manager.value("download-dir")
-            if value:
+            if value := self.settings_manager.value("download-dir"):
                 if os.path.exists(value):
-                    self.download_location = value
+                    self.download_directory = value
                     self.update_download_directory_indicators()
     
 
@@ -83,7 +82,7 @@ class Tab(QWidget):
         for setting in self.SETTINGS:
             self.settings_manager.setValue(setting["name"], setting["get-value-func"]())
         
-        self.settings_manager.setValue("download-dir", self.download_location)
+        self.settings_manager.setValue("download-dir", self.download_directory)
 
 
     def setup_ui(self):
@@ -113,7 +112,7 @@ class Tab(QWidget):
     def setup_vars(self, parent, pretty_tab_number):
         self.parent = parent
         self.pretty_tab_number = pretty_tab_number
-        self.download_location = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
+        self.download_directory = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
         self.thread_running = False
         self.cancel_progress = False
         self.subtitles = {}
@@ -125,7 +124,7 @@ class Tab(QWidget):
     def setup_filedialog(self):
         self.file_dialog = QFileDialog(self)
         self.file_dialog.setFileMode(QFileDialog.Directory)
-        self.file_dialog.setDirectory(self.download_location)
+        self.file_dialog.setDirectory(self.download_directory)
     
 
     def connect_signals_and_slots(self):
@@ -157,16 +156,16 @@ class Tab(QWidget):
 
 
     def update_download_directory_indicators(self):
-        base_name = QDir(self.download_location).dirName()
-        href = QUrl.fromLocalFile(self.download_location).toString()
+        base_name = QDir(self.download_directory).dirName()
+        href = QUrl.fromLocalFile(self.download_directory).toString()
 
         if base_name:
             new_text = f"<a href=\"{href}\">{base_name}</a>"
         else:
-            new_text = f"<a href=\"{href}\">{self.download_location}</a>"
+            new_text = f"<a href=\"{href}\">{self.download_directory}</a>"
 
         self.ui.downloadFolderIndicatorLabel.setText(new_text)
-        self.ui.downloadFolderIndicatorLabel.setToolTip(self.download_location)
+        self.ui.downloadFolderIndicatorLabel.setToolTip(self.download_directory)
 
 
     def prep_thread_start(self):
@@ -256,7 +255,7 @@ class Tab(QWidget):
                     progress=(processed_url_count, total_url_count),
                     percentage=percentage,
                 )
-            )
+        )
 
 
     def download_progress(self, data, processed_url_count, total_url_count):
@@ -286,7 +285,7 @@ class Tab(QWidget):
                         progress=(processed_url_count + 1, total_url_count),
                         percentage=percentage,
                     )
-                )
+            )
 
 
     def url_download_progress(self, url, processed_url_count, total_url_count):
@@ -305,7 +304,7 @@ class Tab(QWidget):
                         progress=(processed_url_count + 1, total_url_count),
                         percentage=percentage,
                     )
-                )
+            )
         if self.settings_manager.value("remove-downloaded-urls"):
             self.remove_urls_from_entry([url])
     
@@ -320,18 +319,22 @@ class Tab(QWidget):
                     progress=(processed_url_count + 1, total_url_count),
                     percentage=100,
                 )
-            )
+        )
 
 
     def update_info(self, urls):
         try:
             urls, failed_urls1, exit_status, errors = ytdlp_helpers.extract_urls(
                 urls,
-                on_progress=lambda
+                on_progress=lambda 
                     processed_url_count,
                     total_url_count,
                     situation="extracting_urls":
-                        self.url_extraction_progress(situation, processed_url_count, total_url_count),
+                        self.url_extraction_progress(
+                            situation,
+                            processed_url_count,
+                            total_url_count
+                        ),
             )
         except SystemExit:
             self.prep_thread_exit("data_pull_cancelled")
@@ -355,7 +358,7 @@ class Tab(QWidget):
                     progress=(1, len(urls)),
                     percentage=0,
                 )
-            )
+        )
         
         try:
             data, failed_urls2, exit_status, errors = ytdlp_helpers.extract_data(
@@ -364,7 +367,11 @@ class Tab(QWidget):
                     processed_url_count,
                     total_url_count,
                     situation="pulling_data":
-                        self.url_extraction_progress(situation, processed_url_count, total_url_count),
+                        self.url_extraction_progress(
+                            situation,
+                            processed_url_count,
+                            total_url_count
+                        ),
             )
         except SystemExit:
             self.prep_thread_exit("data_pull_cancelled")
@@ -456,7 +463,7 @@ class Tab(QWidget):
                 urls=urls,
                 subtitles=subtitles,
                 on_progress=self.download_progress,
-                download_location=self.download_location,
+                download_location=self.download_directory,
                 file_type=file_type,
                 quality=quality,
                 postprocessor_progress=self.postprocess_progress,
@@ -559,7 +566,7 @@ class Tab(QWidget):
 
     def set_download_location(self):
         if self.file_dialog.exec():
-            self.download_location = self.file_dialog.selectedFiles()[0]
+            self.download_directory = self.file_dialog.selectedFiles()[0]
             self.update_download_directory_indicators()
 
 
