@@ -62,12 +62,15 @@ def extract_basic_info(data_list):
             if subtitles:
                 subtitle_data.update(subtitles)
 
-    final_qualities["audio"].append("Best")
     for quality in sorted(list(all_audio_qualities), reverse=True):
         final_qualities["audio"].append(f"{quality} kbps")
+    final_qualities["audio"][0] += " (Best)"
 
-    final_qualities["video"]["Best"] = "best"
-    for quality in sorted(list(all_video_qualities), reverse=True):
+    all_video_qualities = sorted(list(all_video_qualities), reverse=True)
+    final_qualities["video"][f"{all_video_qualities[0]}p (Best)"] = str(
+        raw_mp4_qualities[all_video_qualities[0]]
+    )
+    for quality in all_video_qualities[1:]:
         final_qualities["video"][f"{quality}p"] = str(raw_mp4_qualities[quality])
 
     subtitles = {}

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabIrdbmo.ui'
+## Form generated from reading UI file 'tabYyrlrb.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -248,7 +248,7 @@ class Ui_Tab(object):
 #if QT_CONFIG(tooltip)
         self.qualityComboBox.setToolTip(QCoreApplication.translate("Tab", u"Show Options (Alt+Q)", None))
 #endif // QT_CONFIG(tooltip)
-        self.qualityComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"Best", None))
+        self.qualityComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"None", None))
         self.subtitlesLabel.setText(QCoreApplication.translate("Tab", u"<u>S</u>ubtitles:", None))
 #if QT_CONFIG(tooltip)
         self.subtitlesComboBox.setToolTip(QCoreApplication.translate("Tab", u"Show Options (Alt+S)", None))

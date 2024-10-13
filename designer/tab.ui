@@ -91,7 +91,7 @@
         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
        </property>
        <property name="placeholderText">
-        <string>Best</string>
+        <string>None</string>
        </property>
       </widget>
      </item>
