@@ -106,4 +106,6 @@ class Config:
         "remove-downloaded-urls": True,
         "preferred-resolution": "1440p",
         "preferred-bitrate": "192 kbps",
+        "embed-subtitles": True,
+        "crop-thumbnails": False,
     }
