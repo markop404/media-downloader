@@ -589,10 +589,12 @@ class Tab(QWidget):
         _format = self.ui.formatComboBox.currentText()
         if ui.Config.FORMATS[_format] == "audio":
             utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["audio"])
-            self.ui.qualityComboBox.setCurrentText(self.preferred_qualities["bitrate"])
+            if self.preferred_qualities["bitrate"] in self.qualities["audio"]:
+                self.ui.qualityComboBox.setCurrentText(self.preferred_qualities["bitrate"])
         elif ui.Config.FORMATS[_format] == "video":
             utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["video"].keys())
-            self.ui.qualityComboBox.setCurrentText(self.preferred_qualities["resolution"])
+            if self.preferred_qualities["resolution"] in self.qualities["video"]:
+                self.ui.qualityComboBox.setCurrentText(self.preferred_qualities["resolution"])
     
 
     def change_plain_text_edit(self, text=""):

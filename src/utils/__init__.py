@@ -78,4 +78,10 @@ def str_to_int(string):
     for char in string:
         if char.isdigit():
             integer += char
-    return int(integer)
+    
+    if integer:
+        integer = int(integer)
+    else:
+        integer = None
+    
+    return integer

@@ -23,9 +23,9 @@ from yt_dlp import YoutubeDL
 
 def extract_basic_info(data_list, preferred_qualities=None):
     final_qualities = {"audio": [], "video": {}}
-    all_audio_qualities = []
-    all_video_qualities = []
-    raw_mp4_qualities = {}
+    all_bitrates = []
+    all_resolutions = []
+    raw_resolutions = {}
     all_subtitles = set()
     subtitle_data = {}
 
@@ -40,7 +40,7 @@ def extract_basic_info(data_list, preferred_qualities=None):
                     if resolution_search := search(r"([0-9]+)p", _format["format_note"]):
                         resolution = int(resolution_search.group(1))
                         video_qualities.add(resolution)
-                        raw_mp4_qualities[resolution] = _format["height"]
+                        raw_resolutions[resolution] = _format["height"]
 
                 elif _format["vcodec"] == "none" and "abr" in _format:
                     bitrate = _format["abr"]
@@ -48,31 +48,49 @@ def extract_basic_info(data_list, preferred_qualities=None):
                         bitrate = int(bitrate)
                         audio_qualities.add(bitrate)
 
-            if not all_audio_qualities:
-                all_audio_qualities = audio_qualities
+            if not all_bitrates:
+                all_bitrates = audio_qualities
             else:
-                all_audio_qualities.intersection_update(audio_qualities)
-            if not all_video_qualities:
-                all_video_qualities = video_qualities
+                all_bitrates.intersection_update(audio_qualities)
+            if not all_resolutions:
+                all_resolutions = video_qualities
             else:
-                all_video_qualities.intersection_update(video_qualities)
+                all_resolutions.intersection_update(video_qualities)
 
         if "subtitles" in data:
             subtitles = data["subtitles"]
             if subtitles:
                 subtitle_data.update(subtitles)
 
-    all_audio_qualities = sorted(list(all_audio_qualities), reverse=True)
-    for quality in all_audio_qualities:
-        final_qualities["audio"].append(f"{quality} kbps")
-    final_qualities["audio"][0] += " (Best)"
+    preferred_bitrate = preferred_qualities["bitrate"]
+    if not preferred_bitrate:
+        preferred_bitrate = 0
+    preferred_qualities["bitrate"] = None
+    all_bitrates = sorted(list(all_bitrates), reverse=True)
+    iteration = 0
+    for bitrate in all_bitrates:
+        pretty_bitrate = f"{bitrate} kbps"
+        if iteration == 0:
+            pretty_bitrate += " (Best)"
+        final_qualities["audio"].append(pretty_bitrate)
+        if not preferred_qualities["bitrate"] and bitrate <= preferred_bitrate:
+            preferred_qualities["bitrate"] = pretty_bitrate
+        iteration += 1
 
-    all_video_qualities = sorted(list(all_video_qualities), reverse=True)
-    final_qualities["video"][f"{all_video_qualities[0]}p (Best)"] = str(
-        raw_mp4_qualities[all_video_qualities[0]]
-    )
-    for quality in all_video_qualities[1:]:
-        final_qualities["video"][f"{quality}p"] = str(raw_mp4_qualities[quality])
+    all_resolutions = sorted(list(all_resolutions), reverse=True)
+    preferred_resolution = preferred_qualities["resolution"]
+    if not preferred_resolution:
+        preferred_resolution = 0
+    preferred_qualities["resolution"] = None
+    iteration = 0
+    for resolution in all_resolutions:
+        pretty_resolution = f"{resolution}p"
+        if iteration == 0:
+            pretty_resolution += " (Best)"
+        final_qualities["video"][pretty_resolution] = str(raw_resolutions[resolution])
+        if not preferred_qualities["resolution"] and resolution <= preferred_resolution:
+            preferred_qualities["resolution"] = pretty_resolution
+        iteration += 1
 
     subtitles = {}
     if subtitle_data and isinstance(subtitle_data, dict):
