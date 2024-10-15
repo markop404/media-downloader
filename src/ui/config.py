@@ -108,4 +108,5 @@ class Config:
         "preferred-bitrate": "192 kbps",
         "embed-subtitles": True,
         "crop-thumbnails": False,
+        "version": [4, 1, 0],
     }
