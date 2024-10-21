@@ -57,7 +57,7 @@ class Tab(QWidget):
         self.thread_running = False
         self.cancel_progress = False
         self.subtitles = {}
-        self.qualities = {"video": {}, "audio": []}
+        self.qualities = {"mp4": {}, "mp3": []}
         self.user_answer = None
         self.changing_plain_text_edit = False
     
@@ -337,8 +337,8 @@ class Tab(QWidget):
 
         file_type = ui.Config.FORMATS[self.ui.formatComboBox.currentText()]
         selected_quality = self.ui.qualityComboBox.currentText()
-        if file_type == "video" and selected_quality in self.qualities["video"]:
-            quality = self.qualities["video"][selected_quality]
+        if file_type == "mp4" and selected_quality in self.qualities["mp4"]:
+            quality = self.qualities["mp4"][selected_quality]
         else:
             quality = selected_quality
 
@@ -436,7 +436,7 @@ class Tab(QWidget):
             utils.update_combobox_items(self.ui.subtitlesComboBox)
             self.update_status_indicators()
             self.subtitles = {}
-            self.qualities = {"video": {}, "audio": []}
+            self.qualities = {"mp4": {}, "mp3": []}
 
 
     def show_combobox_popup(self, combobox):
@@ -459,10 +459,10 @@ class Tab(QWidget):
 
     def show_new_qualities(self):
         _format = self.ui.formatComboBox.currentText()
-        if ui.Config.FORMATS[_format] == "audio":
-            utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["audio"])
-        elif ui.Config.FORMATS[_format] == "video":
-            utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["video"].keys())
+        if ui.Config.FORMATS[_format] == "mp3":
+            utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["mp3"])
+        elif ui.Config.FORMATS[_format] == "mp4":
+            utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["mp4"].keys())
     
 
     def change_plain_text_edit(self, text=""):
