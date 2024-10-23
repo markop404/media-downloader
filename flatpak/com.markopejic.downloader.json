@@ -37,6 +37,7 @@
                 "--enable-libmp3lame",
                 "--enable-libopus",
                 "--enable-libvorbis"
+
             ],
             "cleanup": [
                 "/share/ffmpeg"
@@ -44,8 +45,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.xz",
-                    "sha256": "8646515b638a3ad303e23af6a3587734447cb8fc0a0c064ecdb8e95c4fd8b389"
+                    "url": "https://ffmpeg.org/releases/ffmpeg-7.1.tar.xz",
+                    "sha256": "40973d44970dbc83ef302b0609f2e74982be2d85916dd2ee7472d30678a7abe6"
                 }
             ]
         },
@@ -58,23 +59,23 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/db/3f/8347353a0980187820f065432870c68e614945b6782f11df41247866b7db/PySide6_Essentials-6.8.0-cp39-abi3-manylinux_2_31_aarch64.whl",
-                    "sha256": "ae0732228e93eb882c9a93fd510819fb64b7d09d8e500912b485a604537215d6"
+                    "url": "https://files.pythonhosted.org/packages/7a/9d/ae433a47c1c8d63e1702c4055698e2f439c3e8961dcb0b60db595f424451/PySide6_Essentials-6.8.0.1-cp39-abi3-manylinux_2_31_aarch64.whl",
+                    "sha256": "6f573331261889992d450145c0f3a9a317e798b63c1318cc271422c0a74b2298"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/9d/fd/17510a0abd503a904ce3b9f1af87385435cf9340fb79c020a53d3a8385a5/PySide6_Essentials-6.8.0-cp39-abi3-manylinux_2_28_x86_64.whl",
-                    "sha256": "da99a94806416ec1e386426a474e7d1e514c1cdf8ad171c005376f4f633e7216"
+                    "url": "https://files.pythonhosted.org/packages/31/db/da4db014ed4b3b6d0ff148749d743d6e25692b9a66b9d5fbd10f4ecee6d6/PySide6_Essentials-6.8.0.1-cp39-abi3-manylinux_2_28_x86_64.whl",
+                    "sha256": "327a0f08cb1ee5af7f7ed81527bbdb3058e2a39a300efcc806e0289b50192f98"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/a4/b1/2d14977e0d4d415ac0bfbb7e83b303cb48a2dd6e9ba7fcb95f81fdc85b49/shiboken6-6.8.0-cp39-abi3-manylinux_2_31_aarch64.whl",
-                    "sha256": "0f62ee7c34337e2c39fff0985694224f7503328c450245c399846b72cd71c410"
+                    "url": "https://files.pythonhosted.org/packages/5c/a1/1176683114bb7a1053ba2d3319c9f9f933ab4a132ef100c382fdb5f8ef42/shiboken6-6.8.0.1-cp39-abi3-manylinux_2_31_aarch64.whl",
+                    "sha256": "eb2db6f0cac42f10dc5b4bcf4ab5a8e079acb870877d0cb3d95cac80c20e4554"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/3b/92/9fa08c01ba811e2405059239e16d21b2e5c40b39de204c88fc35ac01c4ff/shiboken6-6.8.0-cp39-abi3-manylinux_2_28_x86_64.whl",
-                    "sha256": "ad88c0e73c9e4de3723c6e6b846e651729433ff9d9086bb2b4e6d49965477d97"
+                    "url": "https://files.pythonhosted.org/packages/0f/7f/b81937dc3e414477e64f425a16a417a5d00cf8e2d954eee9264c5f4f14c0/shiboken6-6.8.0.1-cp39-abi3-manylinux_2_28_x86_64.whl",
+                    "sha256": "77b6e2eae8d48fe32a058e234778c42642eca1755de8b793e2d57857d7d037cf"
                 }
             ]
         },
@@ -99,8 +100,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/ff/ae/f19306b5a221f6a436d8f2238d5b80925004093fa3edea59835b514d9057/setuptools-75.1.0-py3-none-any.whl",
-                    "sha256": "35ab7fd3bcd95e6b7fd704e4a1539513edad446c097797f2985e0e4b960772f2"
+                    "url": "https://files.pythonhosted.org/packages/31/2d/90165d51ecd38f9a02c6832198c13a4e48652485e2ccf863ebb942c531b6/setuptools-75.2.0-py3-none-any.whl",
+                    "sha256": "a7fcb66f68b4d9e8e66b42f9876150a3371558f98fa32222ffaa5bced76406f8"
                 }
             ]
         },

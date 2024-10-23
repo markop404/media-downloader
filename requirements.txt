@@ -1,2 +1,2 @@
-PySide6-Essentials==6.8.0
-yt-dlp==2024.10.07
+PySide6-Essentials==6.8.0.1
+yt-dlp==2024.10.22
