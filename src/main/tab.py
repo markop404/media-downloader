@@ -29,6 +29,7 @@ from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 from src import ui
 from src import utils
 from src import ytdlp_helpers
+from src.main import Config
 
 
 class Tab(QWidget):
