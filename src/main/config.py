@@ -20,15 +20,9 @@
 from PySide6.QtGui import QIcon
 
 class Config:
-    def __init__(self):
-        ...
     
-
-    def save_settings(self, settings):
-        ...
-    
-
-    def force_save_settings(self, settings):
+    @classmethod
+    def save_setting(self, setting, value):
         ...
     
 

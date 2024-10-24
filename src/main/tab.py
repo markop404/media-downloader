@@ -29,7 +29,7 @@ from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 from src import ui
 from src import utils
 from src import ytdlp_helpers
-from src.main import Config
+from .config import Config
 
 
 class Tab(QWidget):
@@ -122,8 +122,8 @@ class Tab(QWidget):
         self.user_answer = None
         self.changing_plain_text_edit = False
         self.preferred_qualities = {
-            "resolution": utils.str_to_int(self.settings_manager.value("preferred-resolution")),
-            "bitrate": utils.str_to_int(self.settings_manager.value("preferred-bitrate")),
+            #"resolution": utils.str_to_int(self.settings_manager.value("preferred-resolution")),
+            #"bitrate": utils.str_to_int(self.settings_manager.value("preferred-bitrate")),
         }
     
 

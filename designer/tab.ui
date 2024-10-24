@@ -234,7 +234,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Embeds subtitles instead of downloading them to a separate file. Only works if downloading in video format. (Alt+S)</string>
+        <string>Embeds subtitles instead of downloading them to a separate file. (Alt+S)</string>
        </property>
        <property name="text">
         <string>&amp;Embed subtitles to videos</string>

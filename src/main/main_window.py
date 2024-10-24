@@ -75,9 +75,9 @@ class MainWindow(QMainWindow):
             if value != None:
                 setting["set-value-func"](value)
 
-        for setting, value in ui.Config.DEFAULT_SETTINGS.items():
-            if self.settings_manager.value(setting) == None:
-                self.settings_manager.setValue(setting, value)
+        # for setting, value in main.Config.DEFAULT_SETTINGS.items():
+        #     if self.settings_manager.value(setting) == None:
+        #         self.settings_manager.setValue(setting, value)
 
 
     def save_settings(self):
@@ -165,9 +165,9 @@ class MainWindow(QMainWindow):
             else:
                 progress_text = ""
 
-            text = f"{pretty_tab_number} - {ui.Config.TAB_TEXT[situation]}{progress_text}"
+            text = f"{pretty_tab_number} - {main.Config.TAB_TEXT[situation]}{progress_text}"
             self.ui.tabWidget.setTabText(index, text)
-            self.ui.tabWidget.setTabIcon(index, ui.Config.TAB_ICONS[situation])
+            self.ui.tabWidget.setTabIcon(index, main.Config.TAB_ICONS[situation])
         else:
             self.ui.tabWidget.setTabText(index, f"{pretty_tab_number}")
             self.ui.tabWidget.setTabIcon(index, QIcon())
