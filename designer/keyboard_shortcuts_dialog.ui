@@ -25,10 +25,6 @@
   <property name="windowTitle">
    <string>Keyboard Shortcuts</string>
   </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>icons/icon.png</normaloff>icons/icon.png</iconset>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <spacer name="topSpacer">

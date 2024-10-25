@@ -25,10 +25,6 @@
   <property name="windowTitle">
    <string>Preferences</string>
   </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>icons/icon.png</normaloff>icons/icon.png</iconset>
-  </property>
   <layout class="QVBoxLayout" name="PreferencesDialogLayout">
    <item>
     <spacer name="topSpacer">
@@ -99,11 +95,11 @@
      </item>
      <item>
       <widget class="QCheckBox" name="restoreSettingsCheckBox">
+       <property name="focusPolicy">
+        <enum>Qt::FocusPolicy::NoFocus</enum>
+       </property>
        <property name="text">
         <string/>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -178,11 +174,11 @@
      </item>
      <item>
       <widget class="QCheckBox" name="removeURLsCheckBox">
+       <property name="focusPolicy">
+        <enum>Qt::FocusPolicy::NoFocus</enum>
+       </property>
        <property name="text">
         <string/>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
        </property>
       </widget>
      </item>

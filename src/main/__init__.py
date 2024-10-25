@@ -23,3 +23,4 @@ from .tab import Tab
 from .main_window import MainWindow
 from .preferences_dialog import PreferencesDialog
 from .config import Config
+from .application import Application

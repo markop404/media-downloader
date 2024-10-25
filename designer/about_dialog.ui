@@ -19,10 +19,6 @@
   <property name="windowTitle">
    <string>About</string>
   </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>icons/icon.png</normaloff>icons/icon.png</iconset>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QHBoxLayout" name="headerLayout">
@@ -89,7 +85,7 @@
        <item>
         <widget class="QLabel" name="aboutLabel">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Web video / audio downloader&lt;/span&gt;&lt;br/&gt;v4.1.0&lt;br/&gt;&lt;br/&gt;Made by &lt;a href=&quot;https://markopejic.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#308cc6;&quot;&gt;Marko Pejić&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Web video / audio downloader&lt;/span&gt;&lt;br/&gt;v5.0.0&lt;br/&gt;&lt;br/&gt;Made by &lt;a href=&quot;https://markopejic.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#308cc6;&quot;&gt;Marko Pejić&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>

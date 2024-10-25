@@ -42,19 +42,16 @@ class Tab(QWidget):
                 "name": "format",
                 "set-value-func": self.ui.formatComboBox.setCurrentText,
                 "get-value-func": self.ui.formatComboBox.currentText,
-                "type": str,
             },
             {
                 "name": "crop-thumbnails",
                 "set-value-func": self.ui.cropThumbnailsCheckBox.setChecked,
                 "get-value-func": self.ui.cropThumbnailsCheckBox.isChecked,
-                "type": bool,
             },
             {
                 "name": "embed-subtitles",
                 "set-value-func": self.ui.embedSubtitlesCheckBox.setChecked,
                 "get-value-func": self.ui.embedSubtitlesCheckBox.isChecked,
-                "type": bool,
             },
         ]
         self.load_settings()

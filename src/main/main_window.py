@@ -44,13 +44,11 @@ class MainWindow(QMainWindow):
                 "name": "pos",
                 "set-value-func": self.move,
                 "get-value-func": self.pos,
-                "type": QSize,
             },
             {
                 "name": "size",
                 "set-value-func": self.resize,
                 "get-value-func": self.size,
-                "type": QPoint,
             },
         ]
         self.load_settings()
