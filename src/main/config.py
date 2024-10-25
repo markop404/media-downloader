@@ -18,12 +18,27 @@
 
 
 from PySide6.QtGui import QIcon
+from PySide6.QtCore import QSettings
 
 class Config:
+    def __init__(self):
+        self.settings_manager = QSettings()
     
+
     @classmethod
     def save_setting(self, setting, value):
-        ...
+        old_value = self.settings_manager.value(setting)
+        if old_value != value:
+            self.settings_manager.setValue(setting, value)
+
+
+    @classmethod
+    def load_setting(self, setting):
+        saved_value = self.settings_manager.value(setting)
+        if saved_value != None:
+            return saved_value
+        else:
+            return self.DEFAULT_SETTINGS[setting]
     
 
     APP_NAME = "Media Downloader"

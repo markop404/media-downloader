@@ -75,10 +75,6 @@ class MainWindow(QMainWindow):
             if value != None:
                 setting["set-value-func"](value)
 
-        # for setting, value in main.Config.DEFAULT_SETTINGS.items():
-        #     if self.settings_manager.value(setting) == None:
-        #         self.settings_manager.setValue(setting, value)
-
 
     def save_settings(self):
         for setting in self.SETTINGS:
