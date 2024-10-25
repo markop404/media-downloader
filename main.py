@@ -25,7 +25,7 @@ app = QApplication([])
 
 app.setStyle("Fusion")
 app.setApplicationName("MediaDownloader")
-app.setOrganizationName("MarkoPejić")
+app.setOrganizationName("MarkoPejic")
 app.setDesktopFileName("com.markopejic.downloader")
 
 window = MainWindow()

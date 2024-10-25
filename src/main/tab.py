@@ -38,6 +38,7 @@ class Tab(QWidget):
         self.setup_ui()
         
         self.settings_manager = QSettings()
+        self.config_manager = Config()
         self.SETTINGS = [
             {
                 "name": "format",
@@ -68,9 +69,9 @@ class Tab(QWidget):
 
 
     def load_settings(self):
-        if self.settings_manager.value("remember-tab-settings"):
+        if self.config_manager.load_setting("remember-tab-settings"):
             for setting in self.SETTINGS:
-                value = self.settings_manager.value(setting["name"], type=setting["type"])
+                value = self.config_manager.load_setting(setting["name"], type=setting["type"])
                 if value != None:
                     setting["set-value-func"](value)
             

@@ -20,7 +20,8 @@
 from PySide6.QtWidgets import QDialog, QDialogButtonBox
 from PySide6.QtCore import QSettings
 
-from src.ui import Ui_PreferencesDialog #Config
+from src.ui import Ui_PreferencesDialog
+from .config import Config
 
 
 class PreferencesDialog(QDialog):

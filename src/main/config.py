@@ -104,6 +104,13 @@ class Config:
                 "Video": "mp4",
             },
         }
+        self.DEFAULT_SETTINGS = {
+            "remember-tab-settings": {"value": True, "type": bool},
+            "remove-downloaded-urls": {"value": True, "type": bool},
+            "preferred-resolution": {"value": 1440, "type": int},
+            "preferred-bitrate": {"value": 192, "type": int},
+            
+        }
     
 
     def save_setting(self, setting, value):
@@ -113,8 +120,8 @@ class Config:
 
 
     def load_setting(self, setting):
-        saved_value = self.settings_manager.value(setting)
+        saved_value = self.settings_manager.value(setting, type=self.DEFAULT_SETTINGS[setting]["type"])
         if saved_value != None:
             return saved_value
-        else:
+        elif setting in self.DEFAULT_SETTINGS:
             return self.DEFAULT_SETTINGS[setting]
