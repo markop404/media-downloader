@@ -26,9 +26,7 @@ from PySide6.QtWidgets import QMessageBox, QWidget, QFileDialog
 from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize, QSettings
 from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 
-from src import ui
-from src import utils
-from src import ytdlp_helpers
+from src import ui, utils, ytdlp_helpers
 from .config import Config
 
 

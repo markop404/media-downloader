@@ -21,7 +21,7 @@ import sys
 from PySide6.QtWidgets import QApplication
 from src.main import MainWindow
 
-app = QApplication([])
+app = QApplication()
 
 app.setStyle("Fusion")
 app.setApplicationName("MediaDownloader")

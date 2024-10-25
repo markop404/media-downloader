@@ -25,8 +25,8 @@ from PySide6.QtWidgets import QMainWindow, QWidget, QMenu
 from PySide6.QtGui import QIcon, QKeySequence, QShortcut
 from PySide6.QtCore import QSettings, QPoint, QSize
 
-from src import ui
-from src import main
+from src import ui, main
+from .config import Config
 
 
 class MainWindow(QMainWindow):

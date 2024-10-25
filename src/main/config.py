@@ -109,6 +109,7 @@ class Config:
             "remove-downloaded-urls": {"value": True, "type": bool},
             "preferred-resolution": {"value": 1440, "type": int},
             "preferred-bitrate": {"value": 192, "type": int},
+
             
         }
     
