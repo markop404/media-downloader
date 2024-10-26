@@ -33,7 +33,7 @@ class Settings(QSettings):
 
     def load_setting(self, setting):
         saved_value = self.value(setting, type=self.DEFAULT_SETTINGS[setting]["type"])
-        if saved_value != None:
+        if saved_value != None and saved_value != 0 and saved_value != "":
             return saved_value
         else:
             return self.DEFAULT_SETTINGS[setting]["value"]
@@ -118,12 +118,15 @@ class Settings(QSettings):
             "Audio": "mp3",
             "Video": "mp4",
         },
+
+        "preferred-resolutions": ["Best", "2160p", "1440p", "1920p", "1080p", "720p", "480p", "360p"],
+        "preferred-bitrates": ["Best", "320 kbps", "256 kbps", "192 kbps", "160 kbps", "128 kbps", "96 kbps", "64 kbps"],
     }
     DEFAULT_SETTINGS = {
         "remember-tab-settings": {"value": True, "type": bool},
         "remove-downloaded-urls": {"value": True, "type": bool},
-        "preferred-resolution": {"value": 1440, "type": int},
-        "preferred-bitrate": {"value": 192, "type": int},
+        "preferred-resolution": {"value": "1440p", "type": str},
+        "preferred-bitrate": {"value": "192 kbps", "type": str},
         "download-format": {"value": "mp4", "type": str},
         "crop-thumbnails": {"value": False, "type": bool},
         "embed-subtitles": {"value": True, "type": bool},

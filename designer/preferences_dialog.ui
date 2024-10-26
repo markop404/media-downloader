@@ -256,41 +256,6 @@
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
-       <item>
-        <property name="text">
-         <string>Best</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>2160p</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1440p</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1080p</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>720p</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>480p</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>360p</string>
-        </property>
-       </item>
       </widget>
      </item>
     </layout>
@@ -367,46 +332,6 @@
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
-       <item>
-        <property name="text">
-         <string>Best</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>320 kbps</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>256 kbps</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>192 kbps</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>160 kbps</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>128 kbps</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>96 kbps</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>64 kbps</string>
-        </property>
-       </item>
       </widget>
      </item>
     </layout>

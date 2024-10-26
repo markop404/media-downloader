@@ -44,23 +44,20 @@ class PreferencesDialog(QDialog):
             },
             {
                 "name": "preferred-resolution",
-                "set-value-func":
-                    lambda resolution:
-                        self.ui.preferredResolutionComboBox.setCurrentIndex(
-                            self.ui.preferredResolutionComboBox.findText(str(resolution))
-                        ),
+                "set-value-func": self.ui.preferredResolutionComboBox.setCurrentText,
                 "get-value-func": self.ui.preferredResolutionComboBox.currentText,
             },
             {
                 "name": "preferred-bitrate",
-                "set-value-func":
-                    lambda bitrate:
-                        self.ui.preferredBitrateComboBox.setCurrentIndex(
-                            self.ui.preferredBitrateComboBox.findText(str(bitrate))
-                        ),
+                "set-value-func": self.ui.preferredBitrateComboBox.setCurrentText,
                 "get-value-func": self.ui.preferredBitrateComboBox.currentText,
             },
         ]
+
+        for resolution in self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"]:
+            self.ui.preferredResolutionComboBox.addItem(resolution)
+        for bitrate in self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"]:
+            self.ui.preferredBitrateComboBox.addItem(bitrate)
 
 
     def load_settings(self, defaults=False):

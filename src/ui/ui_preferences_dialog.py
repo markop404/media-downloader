@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogWqKBjq.ui'
+## Form generated from reading UI file 'preferences_dialogJQqdSE.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -26,9 +26,6 @@ class Ui_PreferencesDialog(object):
         PreferencesDialog.resize(685, 360)
         PreferencesDialog.setMinimumSize(QSize(685, 360))
         PreferencesDialog.setMaximumSize(QSize(800, 450))
-        icon = QIcon()
-        icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        PreferencesDialog.setWindowIcon(icon)
         self.PreferencesDialogLayout = QVBoxLayout(PreferencesDialog)
         self.PreferencesDialogLayout.setObjectName(u"PreferencesDialogLayout")
         self.topSpacer = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
@@ -66,7 +63,7 @@ class Ui_PreferencesDialog(object):
 
         self.restoreSettingsCheckBox = QCheckBox(PreferencesDialog)
         self.restoreSettingsCheckBox.setObjectName(u"restoreSettingsCheckBox")
-        self.restoreSettingsCheckBox.setChecked(True)
+        self.restoreSettingsCheckBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
         self.restoreSettingsLayout.addWidget(self.restoreSettingsCheckBox)
 
@@ -105,7 +102,7 @@ class Ui_PreferencesDialog(object):
 
         self.removeURLsCheckBox = QCheckBox(PreferencesDialog)
         self.removeURLsCheckBox.setObjectName(u"removeURLsCheckBox")
-        self.removeURLsCheckBox.setChecked(True)
+        self.removeURLsCheckBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
         self.removeURLsLayout.addWidget(self.removeURLsCheckBox)
 
@@ -143,13 +140,6 @@ class Ui_PreferencesDialog(object):
         self.preferredResolutionLayout.addItem(self.preferredResolutionLayoutSpacer)
 
         self.preferredResolutionComboBox = QComboBox(PreferencesDialog)
-        self.preferredResolutionComboBox.addItem("")
-        self.preferredResolutionComboBox.addItem("")
-        self.preferredResolutionComboBox.addItem("")
-        self.preferredResolutionComboBox.addItem("")
-        self.preferredResolutionComboBox.addItem("")
-        self.preferredResolutionComboBox.addItem("")
-        self.preferredResolutionComboBox.addItem("")
         self.preferredResolutionComboBox.setObjectName(u"preferredResolutionComboBox")
         self.preferredResolutionComboBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
@@ -189,14 +179,6 @@ class Ui_PreferencesDialog(object):
         self.preferredBitrateLayout.addItem(self.preferredBitrateLayoutSpacer)
 
         self.preferredBitrateComboBox = QComboBox(PreferencesDialog)
-        self.preferredBitrateComboBox.addItem("")
-        self.preferredBitrateComboBox.addItem("")
-        self.preferredBitrateComboBox.addItem("")
-        self.preferredBitrateComboBox.addItem("")
-        self.preferredBitrateComboBox.addItem("")
-        self.preferredBitrateComboBox.addItem("")
-        self.preferredBitrateComboBox.addItem("")
-        self.preferredBitrateComboBox.addItem("")
         self.preferredBitrateComboBox.setObjectName(u"preferredBitrateComboBox")
         self.preferredBitrateComboBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
@@ -231,23 +213,6 @@ class Ui_PreferencesDialog(object):
         self.removeURLsCheckBox.setText("")
         self.preferredResolutionMainLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Preferred video quality", None))
         self.preferredResolutionDescriptionLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Highest resolution that gets selected by default", None))
-        self.preferredResolutionComboBox.setItemText(0, QCoreApplication.translate("PreferencesDialog", u"Best", None))
-        self.preferredResolutionComboBox.setItemText(1, QCoreApplication.translate("PreferencesDialog", u"2160p", None))
-        self.preferredResolutionComboBox.setItemText(2, QCoreApplication.translate("PreferencesDialog", u"1440p", None))
-        self.preferredResolutionComboBox.setItemText(3, QCoreApplication.translate("PreferencesDialog", u"1080p", None))
-        self.preferredResolutionComboBox.setItemText(4, QCoreApplication.translate("PreferencesDialog", u"720p", None))
-        self.preferredResolutionComboBox.setItemText(5, QCoreApplication.translate("PreferencesDialog", u"480p", None))
-        self.preferredResolutionComboBox.setItemText(6, QCoreApplication.translate("PreferencesDialog", u"360p", None))
-
         self.preferredBitrateMainLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Preferred audio quality", None))
         self.preferredBitrateDescriptionLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Highest bitrate that gets selected by default", None))
-        self.preferredBitrateComboBox.setItemText(0, QCoreApplication.translate("PreferencesDialog", u"Best", None))
-        self.preferredBitrateComboBox.setItemText(1, QCoreApplication.translate("PreferencesDialog", u"320 kbps", None))
-        self.preferredBitrateComboBox.setItemText(2, QCoreApplication.translate("PreferencesDialog", u"256 kbps", None))
-        self.preferredBitrateComboBox.setItemText(3, QCoreApplication.translate("PreferencesDialog", u"192 kbps", None))
-        self.preferredBitrateComboBox.setItemText(4, QCoreApplication.translate("PreferencesDialog", u"160 kbps", None))
-        self.preferredBitrateComboBox.setItemText(5, QCoreApplication.translate("PreferencesDialog", u"128 kbps", None))
-        self.preferredBitrateComboBox.setItemText(6, QCoreApplication.translate("PreferencesDialog", u"96 kbps", None))
-        self.preferredBitrateComboBox.setItemText(7, QCoreApplication.translate("PreferencesDialog", u"64 kbps", None))
-
     # retranslateUi
