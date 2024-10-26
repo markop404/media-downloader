@@ -21,7 +21,7 @@ from PySide6.QtWidgets import QDialog, QDialogButtonBox
 from PySide6.QtCore import QSettings
 
 from src.ui import Ui_PreferencesDialog
-from .config import Config
+from .settings import Settings
 
 
 class PreferencesDialog(QDialog):
@@ -37,13 +37,11 @@ class PreferencesDialog(QDialog):
                 "name": "remember-tab-settings",
                 "set-value-func": self.ui.restoreSettingsCheckBox.setChecked,
                 "get-value-func": self.ui.restoreSettingsCheckBox.isChecked,
-                "type": bool
             },
             {
                 "name": "remove-downloaded-urls",
                 "set-value-func": self.ui.removeURLsCheckBox.setChecked,
                 "get-value-func": self.ui.removeURLsCheckBox.isChecked,
-                "type": bool
             },
             {
                 "name": "preferred-resolution",
@@ -53,7 +51,6 @@ class PreferencesDialog(QDialog):
                             self.ui.preferredResolutionComboBox.findText(res)
                         ),
                 "get-value-func": self.ui.preferredResolutionComboBox.currentText,
-                "type": str
             },
             {
                 "name": "preferred-bitrate",
@@ -63,7 +60,6 @@ class PreferencesDialog(QDialog):
                             self.ui.preferredBitrateComboBox.findText(res)
                         ),
                 "get-value-func": self.ui.preferredBitrateComboBox.currentText,
-                "type": str
             },
         ]
 

@@ -27,7 +27,7 @@ from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize, 
 from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 
 from src import ui, utils, ytdlp_helpers
-from .config import Config
+from .settings import Settings
 
 
 class Tab(QWidget):
@@ -36,10 +36,10 @@ class Tab(QWidget):
         self.setup_ui()
         
         self.settings_manager = QSettings()
-        self.config_manager = Config()
+        self.config_manager =  Settings()
         self.SETTINGS = [
             {
-                "name": "format",
+                "name": "download-format",
                 "set-value-func": self.ui.formatComboBox.setCurrentText,
                 "get-value-func": self.ui.formatComboBox.currentText,
             },

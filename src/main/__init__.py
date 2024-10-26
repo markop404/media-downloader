@@ -22,5 +22,5 @@ from .keyboard_shortcuts_dialog import KeyboardShortcutsDialog
 from .tab import Tab
 from .main_window import MainWindow
 from .preferences_dialog import PreferencesDialog
-from .config import Config
+from .settings import Settings
 from .application import Application

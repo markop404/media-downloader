@@ -18,10 +18,10 @@
 
 
 from PySide6.QtGui import QIcon
-from PySide6.QtCore import QSettings
+from PySide6.QtCore import QSettings, QPoint, QSize
 
 
-class Config(QSettings):
+class Settings(QSettings):
     def __init__(self):
         super().__init__()
     
@@ -126,5 +126,10 @@ class Config(QSettings):
         "preferred-resolution": {"value": 1440, "type": int},
         "preferred-bitrate": {"value": 192, "type": int},
 
-        
+        "download-format": {"value": "mp4", "type": str},
+        "crop-thumbnails": {"value": False, "type": bool},
+        "embed-subtitles": {"value": True, "type": bool},
+
+        "window-position": {"value": None, "type": QPoint},
+        "window-size": {"value": None, "type": QSize},
     }
