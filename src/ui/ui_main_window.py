@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowlvoYKI.ui'
+## Form generated from reading UI file 'main_windowxBfGAq.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -25,26 +25,19 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(840, 700)
         MainWindow.setMinimumSize(QSize(500, 630))
-        icon = QIcon()
-        icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        MainWindow.setWindowIcon(icon)
-        self.actionNewWindow = QAction(MainWindow)
-        self.actionNewWindow.setObjectName(u"actionNewWindow")
-        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.WindowNew))
-        self.actionNewWindow.setIcon(icon1)
         self.actionAbout = QAction(MainWindow)
         self.actionAbout.setObjectName(u"actionAbout")
-        icon2 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.HelpAbout))
-        self.actionAbout.setIcon(icon2)
+        icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.HelpAbout))
+        self.actionAbout.setIcon(icon)
         self.actionKeyboardShortcuts = QAction(MainWindow)
         self.actionKeyboardShortcuts.setObjectName(u"actionKeyboardShortcuts")
-        icon3 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.InputKeyboard))
-        self.actionKeyboardShortcuts.setIcon(icon3)
+        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.InputKeyboard))
+        self.actionKeyboardShortcuts.setIcon(icon1)
         self.actionKeyboardShortcuts.setMenuRole(QAction.MenuRole.NoRole)
         self.actionPreferences = QAction(MainWindow)
         self.actionPreferences.setObjectName(u"actionPreferences")
-        icon4 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentProperties))
-        self.actionPreferences.setIcon(icon4)
+        icon2 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentProperties))
+        self.actionPreferences.setIcon(icon2)
         self.actionPreferences.setMenuRole(QAction.MenuRole.NoRole)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -67,10 +60,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Media Downloader", None))
-        self.actionNewWindow.setText(QCoreApplication.translate("MainWindow", u"New Window", None))
-#if QT_CONFIG(shortcut)
-        self.actionNewWindow.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+N", None))
-#endif // QT_CONFIG(shortcut)
         self.actionAbout.setText(QCoreApplication.translate("MainWindow", u"About", None))
         self.actionKeyboardShortcuts.setText(QCoreApplication.translate("MainWindow", u"Keyboard Shortcuts", None))
 #if QT_CONFIG(shortcut)

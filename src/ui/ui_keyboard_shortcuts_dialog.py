@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogjyfjiD.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogujNuhZ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -26,9 +26,6 @@ class Ui_KeyboardShortcutsDialog(object):
         KeyboardShortcutsDialog.resize(1045, 505)
         KeyboardShortcutsDialog.setMinimumSize(QSize(1045, 505))
         KeyboardShortcutsDialog.setMaximumSize(QSize(1250, 650))
-        icon = QIcon()
-        icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        KeyboardShortcutsDialog.setWindowIcon(icon)
         self.verticalLayout = QVBoxLayout(KeyboardShortcutsDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.topSpacer = QSpacerItem(20, 5, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
@@ -581,43 +578,6 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addWidget(self.otherSectionLabel)
 
-        self.shortcutLayout1 = QHBoxLayout()
-        self.shortcutLayout1.setObjectName(u"shortcutLayout1")
-        self.keyButton1 = QPushButton(KeyboardShortcutsDialog)
-        self.keyButton1.setObjectName(u"keyButton1")
-        self.keyButton1.setMaximumSize(QSize(55, 16777215))
-        self.keyButton1.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton1.setAutoDefault(False)
-
-        self.shortcutLayout1.addWidget(self.keyButton1)
-
-        self.keySeparator1 = QLabel(KeyboardShortcutsDialog)
-        self.keySeparator1.setObjectName(u"keySeparator1")
-        self.keySeparator1.setFont(font1)
-
-        self.shortcutLayout1.addWidget(self.keySeparator1)
-
-        self.keyButton2 = QPushButton(KeyboardShortcutsDialog)
-        self.keyButton2.setObjectName(u"keyButton2")
-        self.keyButton2.setMaximumSize(QSize(35, 16777215))
-        self.keyButton2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton2.setAutoDefault(False)
-
-        self.shortcutLayout1.addWidget(self.keyButton2)
-
-        self.horizontalSpacer1 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.shortcutLayout1.addItem(self.horizontalSpacer1)
-
-        self.shortcutDescriptionLabel1 = QLabel(KeyboardShortcutsDialog)
-        self.shortcutDescriptionLabel1.setObjectName(u"shortcutDescriptionLabel1")
-        self.shortcutDescriptionLabel1.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
-
-        self.shortcutLayout1.addWidget(self.shortcutDescriptionLabel1)
-
-
-        self.rightColumnLayout.addLayout(self.shortcutLayout1)
-
         self.shortcutLayout17 = QHBoxLayout()
         self.shortcutLayout17.setObjectName(u"shortcutLayout17")
         self.keyButton1_2 = QPushButton(KeyboardShortcutsDialog)
@@ -778,10 +738,6 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"9", None))
         self.shortcutDescriptionLabel4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Switch to Tab Directly", None))
         self.otherSectionLabel.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Other", None))
-        self.keyButton1.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
-        self.keySeparator1.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
-        self.keyButton2.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"N", None))
-        self.shortcutDescriptionLabel1.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"New Window", None))
         self.keyButton1_2.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
         self.keySeparator1_2.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton2_2.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u",", None))
