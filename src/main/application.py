@@ -29,7 +29,7 @@ class Application(QApplication):
         super().__init__()
 
         icon = QIcon()
-        icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile("icons/icon.png")
 
         self.setStyle("Fusion")
         self.setApplicationName("MediaDownloader")
