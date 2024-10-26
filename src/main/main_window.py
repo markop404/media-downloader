@@ -88,7 +88,6 @@ class MainWindow(QMainWindow):
         self.keyboard_shortcuts_dialog = main.KeyboardShortcutsDialog(self)
         self.preferences_dialog = main.PreferencesDialog(self)
 
-        self.tab_button_layout = QWidget()
         self.tab_buttons = ui.Ui_TabButtons()
         self.tab_buttons.setupUi(self.tab_button_layout)
         
@@ -98,8 +97,7 @@ class MainWindow(QMainWindow):
         self.main_menu.addAction(self.ui.actionAbout)
         self.tab_buttons.menuButton.setMenu(self.main_menu)
 
-        self.ui.tabWidget.setCornerWidget(self.tab_button_layout)
-        self.ui.tabWidget.tabCloseRequested.connect(self.close_tab)
+        self.ui.tabWidget.setCornerWidget(self.tab_buttons)
 
         for i in range(1, 10):
             QShortcut(QKeySequence(f"Alt+{i}"), self).activated.connect(lambda i=i: self.switch_tab(i - 1))
@@ -115,6 +113,7 @@ class MainWindow(QMainWindow):
         self.ui.actionKeyboardShortcuts.triggered.connect(self.keyboard_shortcuts_dialog.exec)
         self.ui.actionPreferences.triggered.connect(self.preferences_dialog._exec)
         self.tab_buttons.newTabButton.clicked.connect(self.create_new_tab)
+        self.ui.tabWidget.tabCloseRequested.connect(self.close_tab)
 
 
     def create_new_instance(self):
@@ -157,9 +156,11 @@ class MainWindow(QMainWindow):
             else:
                 progress_text = ""
 
-            text = f"{pretty_tab_number} - {self.settings_manager.CONSTANT_SETTTINGS["tab_text"][situation]}{progress_text}"
+            situation_text = self.settings_manager.CONSTANT_SETTTINGS["tab_text"][situation]
+            text = f"{pretty_tab_number} - {situation_text}{progress_text}"
+            icon = self.settings_manager.CONSTANT_SETTTINGS["tab_icons"][situation]
             self.ui.tabWidget.setTabText(index, text)
-            self.ui.tabWidget.setTabIcon(index, self.settings_manager.CONSTANT_SETTTINGS["tab_icons"][situation])
+            self.ui.tabWidget.setTabIcon(index, icon)
         else:
             self.ui.tabWidget.setTabText(index, f"{pretty_tab_number}")
             self.ui.tabWidget.setTabIcon(index, QIcon())

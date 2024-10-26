@@ -20,5 +20,4 @@
 import sys
 from src.main import Application
 
-app = Application()
-sys.exit(app.exec())
+sys.exit(Application().exec())
