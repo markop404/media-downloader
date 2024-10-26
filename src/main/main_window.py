@@ -93,7 +93,6 @@ class MainWindow(QMainWindow):
         self.tab_buttons.setupUi(self.tab_button_layout)
         
         self.main_menu = QMenu()
-        self.main_menu.addAction(self.ui.actionNewWindow)
         self.main_menu.addAction(self.ui.actionPreferences)
         self.main_menu.addAction(self.ui.actionKeyboardShortcuts)
         self.main_menu.addAction(self.ui.actionAbout)

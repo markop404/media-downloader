@@ -45,18 +45,18 @@ class PreferencesDialog(QDialog):
             {
                 "name": "preferred-resolution",
                 "set-value-func":
-                    lambda res:
+                    lambda resolution:
                         self.ui.preferredResolutionComboBox.setCurrentIndex(
-                            self.ui.preferredResolutionComboBox.findText(res)
+                            self.ui.preferredResolutionComboBox.findText(str(resolution))
                         ),
                 "get-value-func": self.ui.preferredResolutionComboBox.currentText,
             },
             {
                 "name": "preferred-bitrate",
                 "set-value-func":
-                    lambda res:
+                    lambda bitrate:
                         self.ui.preferredBitrateComboBox.setCurrentIndex(
-                            self.ui.preferredBitrateComboBox.findText(res)
+                            self.ui.preferredBitrateComboBox.findText(str(bitrate))
                         ),
                 "get-value-func": self.ui.preferredBitrateComboBox.currentText,
             },

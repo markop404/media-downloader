@@ -36,17 +36,6 @@
     </item>
    </layout>
   </widget>
-  <action name="actionNewWindow">
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::WindowNew"/>
-   </property>
-   <property name="text">
-    <string>New Window</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+N</string>
-   </property>
-  </action>
   <action name="actionAbout">
    <property name="icon">
     <iconset theme="QIcon::ThemeIcon::HelpAbout"/>
