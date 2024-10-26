@@ -88,6 +88,7 @@ class MainWindow(QMainWindow):
         self.keyboard_shortcuts_dialog = main.KeyboardShortcutsDialog(self)
         self.preferences_dialog = main.PreferencesDialog(self)
 
+        self.tab_button_layout = QWidget()
         self.tab_buttons = ui.Ui_TabButtons()
         self.tab_buttons.setupUi(self.tab_button_layout)
         
@@ -97,7 +98,7 @@ class MainWindow(QMainWindow):
         self.main_menu.addAction(self.ui.actionAbout)
         self.tab_buttons.menuButton.setMenu(self.main_menu)
 
-        self.ui.tabWidget.setCornerWidget(self.tab_buttons)
+        self.ui.tabWidget.setCornerWidget(self.tab_button_layout)
 
         for i in range(1, 10):
             QShortcut(QKeySequence(f"Alt+{i}"), self).activated.connect(lambda i=i: self.switch_tab(i - 1))
