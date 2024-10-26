@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowxBfGAq.ui'
+## Form generated from reading UI file 'main_windowbYNyPK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(840, 700)
+        MainWindow.resize(850, 680)
         MainWindow.setMinimumSize(QSize(500, 630))
         self.actionAbout = QAction(MainWindow)
         self.actionAbout.setObjectName(u"actionAbout")
