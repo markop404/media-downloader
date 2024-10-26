@@ -306,7 +306,7 @@ class Tab(QWidget):
                         percentage=percentage,
                     )
             )
-        if self.settings_manager.value("remove-downloaded-urls"):
+        if self.settings_manager.load_setting("remove-downloaded-urls"):
             self.remove_urls_from_entry([url])
     
 
@@ -394,8 +394,8 @@ class Tab(QWidget):
             self.handle_invalid_url_warning(failed_urls, error_type="data_pull")
 
         self.preferred_qualities = {
-            "resolution": self.settings_manager.value("preferred-resolution"),
-            "bitrate": self.settings_manager.value("preferred-bitrate"),
+            "resolution": self.settings_manager.load_setting("preferred-resolution"),
+            "bitrate": self.settings_manager.load_setting("preferred-bitrate"),
         }
         try:
             data = ytdlp_helpers.extract_basic_info(data, self.preferred_qualities)
@@ -456,12 +456,12 @@ class Tab(QWidget):
             if selected_quality in self.qualities["mp4"]:
                 quality = self.qualities["mp4"][selected_quality]
             else:
-                quality = self.settings_manager.value("preferred-resolution")
+                quality = self.settings_manager.load_setting("preferred-resolution")
         elif file_type == "mp3":
             if selected_quality in self.qualities["mp3"]:
                 quality = self.qualities["mp3"][selected_quality]
             else:
-                quality = self.settings_manager.value("preferred-bitrate")
+                quality = self.settings_manager.load_setting("preferred-bitrate")
 
         subtitles = self.ui.subtitlesComboBox.currentText()
         if subtitles == "":
