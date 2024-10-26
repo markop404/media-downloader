@@ -18,7 +18,6 @@
 
 
 from PySide6.QtWidgets import QDialog, QDialogButtonBox
-from PySide6.QtCore import QSettings
 
 from src.ui import Ui_PreferencesDialog
 from .settings import Settings
@@ -31,7 +30,7 @@ class PreferencesDialog(QDialog):
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
         
-        self.settings_manager = QSettings()
+        self.settings_manager = Settings()
         self.SETTINGS = [
             {
                 "name": "remember-tab-settings",
@@ -67,17 +66,17 @@ class PreferencesDialog(QDialog):
     def load_settings(self, defaults=False):
         if not defaults:
             for setting in self.SETTINGS:
-                value = self.settings_manager.value(setting["name"], type=setting["type"])
+                value = self.settings_manager.load_setting(setting["name"])
                 if value != None:
                     setting["set-value-func"](value)
         else:
             for setting in self.SETTINGS:
-                setting["set-value-func"](Config.DEFAULT_SETTINGS[setting["name"]])
+                setting["set-value-func"](self.settings_manager.DEFAULT_SETTINGS[setting["name"]]["value"])
 
 
     def save_and_close(self):
         for setting in self.SETTINGS:
-            self.settings_manager.setValue(setting["name"], setting["get-value-func"]())
+            self.settings_manager.save_setting(setting["name"], setting["get-value-func"]())
       
         self.close()
 

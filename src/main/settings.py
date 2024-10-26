@@ -20,7 +20,6 @@
 from PySide6.QtGui import QIcon
 from PySide6.QtCore import QSettings, QPoint, QSize
 
-
 class Settings(QSettings):
     def __init__(self):
         super().__init__()
@@ -36,8 +35,8 @@ class Settings(QSettings):
         saved_value = self.value(setting, type=self.DEFAULT_SETTINGS[setting]["type"])
         if saved_value != None:
             return saved_value
-        elif setting in self.DEFAULT_SETTINGS:
-            return self.DEFAULT_SETTINGS[setting]
+        else:
+            return self.DEFAULT_SETTINGS[setting]["value"]
 
 
     APP_NAME = "Media Downloader"

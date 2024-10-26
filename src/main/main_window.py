@@ -23,7 +23,6 @@ from threading import Thread
 
 from PySide6.QtWidgets import QMainWindow, QWidget, QMenu
 from PySide6.QtGui import QIcon, QKeySequence, QShortcut
-from PySide6.QtCore import QSettings, QPoint, QSize
 
 from src import ui, main
 from .settings import Settings
@@ -38,15 +37,15 @@ class MainWindow(QMainWindow):
         self.highest_tab_number = 0
         self.popup_window_running = False
         
-        self.settings_manager = QSettings()
+        self.settings_manager = Settings()
         self.SETTINGS = [
             {
-                "name": "pos",
+                "name": "window-position",
                 "set-value-func": self.move,
                 "get-value-func": self.pos,
             },
             {
-                "name": "size",
+                "name": "window-size",
                 "set-value-func": self.resize,
                 "get-value-func": self.size,
             },
@@ -69,14 +68,14 @@ class MainWindow(QMainWindow):
 
     def load_settings(self):
         for setting in self.SETTINGS:
-            value = self.settings_manager.value(setting["name"], type=setting["type"])
+            value = self.settings_manager.load_setting(setting["name"])
             if value != None:
                 setting["set-value-func"](value)
 
 
     def save_settings(self):
         for setting in self.SETTINGS:
-            self.settings_manager.setValue(setting["name"], setting["get-value-func"]())
+            self.settings_manager.save_setting(setting["name"], setting["get-value-func"]())
         
         self.ui.tabWidget.currentWidget().save_settings()
 

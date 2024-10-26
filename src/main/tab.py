@@ -66,11 +66,11 @@ class Tab(QWidget):
     def load_settings(self):
         if self.config_manager.load_setting("remember-tab-settings"):
             for setting in self.SETTINGS:
-                value = self.config_manager.load_setting(setting["name"], type=setting["type"])
+                value = self.config_manager.load_setting(setting["name"])
                 if value != None:
                     setting["set-value-func"](value)
             
-            if value := self.settings_manager.value("download-dir"):
+            if value := self.settings_manager.load_setting("download-dir"):
                 if os.path.exists(value):
                     self.download_directory = value
                     self.update_download_directory_indicators()
