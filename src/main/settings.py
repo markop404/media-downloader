@@ -32,11 +32,11 @@ class Settings(QSettings):
 
 
     def load_setting(self, setting):
-        saved_value = self.value(setting, type=self.DEFAULT_SETTINGS[setting]["type"])
-        if saved_value != None and saved_value != 0 and saved_value != "":
-            return saved_value
-        else:
-            return self.DEFAULT_SETTINGS[setting]["value"]
+        default_value = self.DEFAULT_SETTINGS[setting]["value"]
+        value_type = self.DEFAULT_SETTINGS[setting]["type"]
+        
+        return self.value(setting, type=value_type, defaultValue=default_value)
+        
 
 
     APP_NAME = "Media Downloader"
