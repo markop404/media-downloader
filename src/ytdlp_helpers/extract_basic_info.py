@@ -17,9 +17,13 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from .extract_data import extract_data
 from re import search
+
 from yt_dlp import YoutubeDL
+
+from .extract_data import extract_data
+from src.utils import str_to_int
+
 
 def extract_basic_info(data_list, preferred_qualities=None):
     final_qualities = {"mp3": [], "mp4": {}}
@@ -28,6 +32,8 @@ def extract_basic_info(data_list, preferred_qualities=None):
     raw_resolutions = {}
     all_subtitles = set()
     subtitle_data = {}
+    preferred_resolution = str_to_int(preferred_qualities["resolution"])
+    preferred_bitrate = str_to_int(preferred_qualities["bitrate"])
 
     for data in data_list:
         if "formats" in data:
@@ -62,7 +68,6 @@ def extract_basic_info(data_list, preferred_qualities=None):
             if subtitles:
                 subtitle_data.update(subtitles)
 
-    preferred_bitrate = preferred_qualities["bitrate"]
     if not preferred_bitrate:
         preferred_bitrate = 0
     preferred_qualities["bitrate"] = None
@@ -78,7 +83,6 @@ def extract_basic_info(data_list, preferred_qualities=None):
         iteration += 1
 
     all_resolutions = sorted(list(all_resolutions), reverse=True)
-    preferred_resolution = preferred_qualities["resolution"]
     if not preferred_resolution:
         preferred_resolution = 0
     preferred_qualities["resolution"] = None

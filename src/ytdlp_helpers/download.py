@@ -17,9 +17,13 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import yt_dlp
 import os
+
+import yt_dlp
+
 from .check_internet_connection import check_internet_connection
+from src.utils import str_to_int
+
 
 def download(urls, download_location="", on_progress=None, on_url_progress=None, file_type="mp4", subtitles=None, quality=None, postprocessor_progress=None, embed_subtitles=True, crop_thumbnails=False):
     options = {
@@ -42,11 +46,7 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
     if postprocessor_progress:
         options["postprocessor_hooks"] = [lambda data: postprocessor_progress(data, processed_url_count, TOTAL_URL_COUNT)]
 
-    if quality:
-        quality_int = ""
-        for char in quality:
-            if char.isdigit():
-                quality_int += char
+    quality = str_to_int(quality)
 
     if crop_thumbnails:
         options["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-c:v", "png", "-vf", "crop=ih"]

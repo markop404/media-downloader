@@ -25,9 +25,9 @@ class Settings(QSettings):
         super().__init__()
     
 
-    def save_setting(self, setting, value):
+    def save_setting(self, setting, value, force=False):
         old_value = self.value(setting)
-        if old_value != value:
+        if force or old_value != value:
             self.setValue(setting, value)
 
 
