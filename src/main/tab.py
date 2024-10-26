@@ -35,8 +35,7 @@ class Tab(QWidget):
         super().__init__()
         self.setup_ui()
         
-        self.settings_manager = QSettings()
-        self.config_manager =  Settings()
+        self.settings_manager = Settings()
         self.SETTINGS = [
             {
                 "name": "download-format",
@@ -64,9 +63,9 @@ class Tab(QWidget):
 
 
     def load_settings(self):
-        if self.config_manager.load_setting("remember-tab-settings"):
+        if self.settings_manager.load_setting("remember-tab-settings"):
             for setting in self.SETTINGS:
-                value = self.config_manager.load_setting(setting["name"])
+                value = self.settings_manager.load_setting(setting["name"])
                 if value != None:
                     setting["set-value-func"](value)
             
