@@ -158,9 +158,9 @@ class MainWindow(QMainWindow):
             else:
                 progress_text = ""
 
-            text = f"{pretty_tab_number} - {main.Config.TAB_TEXT[situation]}{progress_text}"
+            text = f"{pretty_tab_number} - {self.settings_manager.CONSTANT_SETTTINGS["tab_text"][situation]}{progress_text}"
             self.ui.tabWidget.setTabText(index, text)
-            self.ui.tabWidget.setTabIcon(index, main.Config.TAB_ICONS[situation])
+            self.ui.tabWidget.setTabIcon(index, self.settings_manager.CONSTANT_SETTTINGS["tab_icons"][situation])
         else:
             self.ui.tabWidget.setTabText(index, f"{pretty_tab_number}")
             self.ui.tabWidget.setTabIcon(index, QIcon())

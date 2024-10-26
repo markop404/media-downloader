@@ -21,7 +21,7 @@ import yt_dlp
 import os
 from .check_internet_connection import check_internet_connection
 
-def download(urls, download_location="", on_progress=None, on_url_progress=None, file_type="video", subtitles=None, quality=None, postprocessor_progress=None, embed_subtitles=True, crop_thumbnails=False):
+def download(urls, download_location="", on_progress=None, on_url_progress=None, file_type="mp4", subtitles=None, quality=None, postprocessor_progress=None, embed_subtitles=True, crop_thumbnails=False):
     options = {
         "outtmpl": f"{download_location}/%(title)s.%(ext)s",
         "noplaylist": True,
@@ -55,7 +55,7 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
         options["writesubtitles"] = True
         options["subtitleslangs"] = subtitles
 
-    if file_type == "video":
+    if file_type == "mp4":
         options["format"] = "bestvideo+bestaudio"
         options["merge_output_format"] = "mp4"
         if quality:
@@ -63,7 +63,7 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
         if subtitles and embed_subtitles:
             options["postprocessors"].append({"key": "FFmpegEmbedSubtitle"})
     
-    elif file_type == "audio":
+    elif file_type == "mp3":
         options["postprocessors"] = [
             {
                 "key": "FFmpegExtractAudio",

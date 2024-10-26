@@ -113,12 +113,12 @@ class Tab(QWidget):
         self.thread_running = False
         self.cancel_progress = False
         self.subtitles = {}
-        self.qualities = {"video": {}, "audio": []}
+        self.qualities = {"mp4": {}, "mp3": []}
         self.user_answer = None
         self.changing_plain_text_edit = False
         self.preferred_qualities = {
-            #"resolution": utils.str_to_int(self.settings_manager.value("preferred-resolution")),
-            #"bitrate": utils.str_to_int(self.settings_manager.value("preferred-bitrate")),
+            "resolution": self.settings_manager.load_setting("preferred-resolution"),
+            "bitrate": self.settings_manager.load_setting("preferred-bitrate"),
         }
     
 
@@ -144,11 +144,11 @@ class Tab(QWidget):
             else:
                 progress_text = ""
 
-            self.ui.statusLabel.setText(f"{ui.Config.STATUS_LABEL_TEXT[situation]}{progress_text}")
+            self.ui.statusLabel.setText(f"{self.settings_manager.CONSTANT_SETTTINGS["status_label_text"][situation]}{progress_text}")
             if isinstance(percentage, int):
                 self.ui.progressBar.setValue(percentage)
             self.parent.update_tab_status_indicators(tab_index, self.pretty_tab_number, situation, progress)
-            self.ui.statusIconLabel.setPixmap(ui.Config.STATUS_LABEL_ICONS[situation].pixmap(QSize(28, 28)))
+            self.ui.statusIconLabel.setPixmap(self.settings_manager.CONSTANT_SETTTINGS["status_label_icons"][situation].pixmap(QSize(28, 28)))
         else:
             self.ui.statusLabel.setText(str())
             self.ui.progressBar.setValue(0)
@@ -200,8 +200,8 @@ class Tab(QWidget):
         self.ui.cropThumbnailsCheckBox.setEnabled(True)
         self.ui.dataPullButton.setEnabled(True)
         self.ui.downloadButton.setEnabled(True)
-        self.ui.dataPullButton.setText(ui.Config.BUTTON_TEXT["refresh"]["default"])
-        self.ui.downloadButton.setText(ui.Config.BUTTON_TEXT["download"]["default"])
+        self.ui.dataPullButton.setText(self.settings_manager.CONSTANT_SETTTINGS["button_text"]["refresh"]["default"])
+        self.ui.downloadButton.setText(self.settings_manager.CONSTANT_SETTTINGS["button_text"]["download"]["default"])
     
     
     def start_update_info(self):
@@ -210,7 +210,7 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            self.ui.dataPullButton.setText(ui.Config.BUTTON_TEXT["refresh"]["secondary"])
+            self.ui.dataPullButton.setText(self.settings_manager.CONSTANT_SETTTINGS["button_text"]["refresh"]["secondary"])
             self.ui.downloadButton.setEnabled(False)
             Thread(target=lambda: self.update_info(urls), daemon=True).start()
         elif self.thread_running:
@@ -225,7 +225,7 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            self.ui.downloadButton.setText(ui.Config.BUTTON_TEXT["download"]["secondary"])
+            self.ui.downloadButton.setText(self.settings_manager.CONSTANT_SETTTINGS["button_text"]["download"]["secondary"])
             self.ui.dataPullButton.setEnabled(False)
             self.ui.formatComboBox.setEnabled(False)
             self.ui.setDownloadFolderButton.setEnabled(False)
@@ -394,8 +394,8 @@ class Tab(QWidget):
             self.handle_invalid_url_warning(failed_urls, error_type="data_pull")
 
         self.preferred_qualities = {
-            "resolution": utils.str_to_int(self.settings_manager.value("preferred-resolution")),
-            "bitrate": utils.str_to_int(self.settings_manager.value("preferred-bitrate")),
+            "resolution": self.settings_manager.value("preferred-resolution"),
+            "bitrate": self.settings_manager.value("preferred-bitrate"),
         }
         try:
             data = ytdlp_helpers.extract_basic_info(data, self.preferred_qualities)
@@ -450,16 +450,16 @@ class Tab(QWidget):
                 )
         )
 
-        file_type = ui.Config.FORMATS[self.ui.formatComboBox.currentText()]
+        file_type = self.settings_manager.CONSTANT_SETTTINGS["formats"][self.ui.formatComboBox.currentText()]
         selected_quality = self.ui.qualityComboBox.currentText()
-        if file_type == "video":
-            if selected_quality in self.qualities["video"]:
-                quality = self.qualities["video"][selected_quality]
+        if file_type == "mp4":
+            if selected_quality in self.qualities["mp4"]:
+                quality = self.qualities["mp4"][selected_quality]
             else:
                 quality = self.settings_manager.value("preferred-resolution")
-        elif file_type == "audio":
-            if selected_quality in self.qualities["audio"]:
-                quality = self.qualities["audio"][selected_quality]
+        elif file_type == "mp3":
+            if selected_quality in self.qualities["mp3"]:
+                quality = self.qualities["mp3"][selected_quality]
             else:
                 quality = self.settings_manager.value("preferred-bitrate")
 
@@ -506,7 +506,7 @@ class Tab(QWidget):
     def display_invalid_url_warning(self, text):
         answer = QMessageBox.warning(
             self,
-            ui.Config.WINDOW_TITLES["error"].replace(
+            self.settings_manager.CONSTANT_SETTTINGS["window_titles"]["error"].replace(
                 "<pretty_tab_number>",
                 str(self.pretty_tab_number)
             ),
@@ -560,7 +560,7 @@ class Tab(QWidget):
             utils.update_combobox_items(self.ui.subtitlesComboBox)
             self.update_status_indicators()
             self.subtitles = {}
-            self.qualities = {"video": {}, "audio": []}
+            self.qualities = {"mp4": {}, "mp3": []}
 
 
     def show_combobox_popup(self, combobox):
@@ -583,13 +583,13 @@ class Tab(QWidget):
 
     def show_new_qualities(self):
         _format = self.ui.formatComboBox.currentText()
-        if ui.Config.FORMATS[_format] == "audio":
-            utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["audio"])
-            if self.preferred_qualities["bitrate"] in self.qualities["audio"]:
+        if self.settings_manager.CONSTANT_SETTTINGS["formats"][_format] == "mp3":
+            utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["mp3"])
+            if self.preferred_qualities["bitrate"] in self.qualities["mp3"]:
                 self.ui.qualityComboBox.setCurrentText(self.preferred_qualities["bitrate"])
-        elif ui.Config.FORMATS[_format] == "video":
-            utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["video"].keys())
-            if self.preferred_qualities["resolution"] in self.qualities["video"]:
+        elif self.settings_manager.CONSTANT_SETTTINGS["formats"][_format] == "mp4":
+            utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["mp4"].keys())
+            if self.preferred_qualities["resolution"] in self.qualities["mp4"]:
                 self.ui.qualityComboBox.setCurrentText(self.preferred_qualities["resolution"])
     
 

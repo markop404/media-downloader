@@ -22,7 +22,7 @@ from re import search
 from yt_dlp import YoutubeDL
 
 def extract_basic_info(data_list, preferred_qualities=None):
-    final_qualities = {"audio": [], "video": {}}
+    final_qualities = {"mp3": [], "mp4": {}}
     all_bitrates = []
     all_resolutions = []
     raw_resolutions = {}
@@ -72,7 +72,7 @@ def extract_basic_info(data_list, preferred_qualities=None):
         pretty_bitrate = f"{bitrate} kbps"
         if iteration == 0:
             pretty_bitrate += " (Best)"
-        final_qualities["audio"].append(pretty_bitrate)
+        final_qualities["mp3"].append(pretty_bitrate)
         if not preferred_qualities["bitrate"] and bitrate <= preferred_bitrate:
             preferred_qualities["bitrate"] = pretty_bitrate
         iteration += 1
@@ -87,7 +87,7 @@ def extract_basic_info(data_list, preferred_qualities=None):
         pretty_resolution = f"{resolution}p"
         if iteration == 0:
             pretty_resolution += " (Best)"
-        final_qualities["video"][pretty_resolution] = str(raw_resolutions[resolution])
+        final_qualities["mp4"][pretty_resolution] = str(raw_resolutions[resolution])
         if not preferred_qualities["resolution"] and resolution <= preferred_resolution:
             preferred_qualities["resolution"] = pretty_resolution
         iteration += 1
