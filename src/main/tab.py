@@ -69,9 +69,9 @@ class Tab(QWidget):
                 if value != None:
                     setting["set-value-func"](value)
             
-            if value := self.settings_manager.load_setting("download-dir"):
-                if os.path.exists(value):
-                    self.download_directory = value
+            if download_dir := self.settings_manager.load_setting("download-dir"):
+                if os.path.exists(download_dir):
+                    self.download_directory = download_dir
                     self.update_download_directory_indicators()
     
 
@@ -144,27 +144,28 @@ class Tab(QWidget):
             else:
                 progress_text = ""
 
-            self.ui.statusLabel.setText(f"{self.settings_manager.CONSTANT_SETTTINGS["status_label_text"][situation]}{progress_text}")
+            text = f"{self.settings_manager.CONSTANT_SETTTINGS["status_label_text"][situation]}{progress_text}"
+            icon = self.settings_manager.CONSTANT_SETTTINGS["status_label_icons"][situation]
+            self.ui.statusLabel.setText(text)
+            self.ui.statusIconLabel.setPixmap(icon.pixmap(QSize(28, 28)))
             if isinstance(percentage, int):
                 self.ui.progressBar.setValue(percentage)
             self.parent.update_tab_status_indicators(tab_index, self.pretty_tab_number, situation, progress)
-            icon = self.settings_manager.CONSTANT_SETTTINGS["status_label_icons"][situation]
-            self.ui.statusIconLabel.setPixmap(icon.pixmap(QSize(28, 28)))
         else:
-            self.ui.statusLabel.setText(str())
+            self.ui.statusLabel.setText("")
             self.ui.progressBar.setValue(0)
             self.parent.update_tab_status_indicators(tab_index, self.pretty_tab_number)
             self.ui.statusIconLabel.setPixmap(QPixmap())
 
 
     def update_download_directory_indicators(self):
-        base_name = QDir(self.download_directory).dirName()
-        href = QUrl.fromLocalFile(self.download_directory).toString()
+        dir_name = QDir(self.download_directory).dirName()
+        full_path = QUrl.fromLocalFile(self.download_directory).toString()
 
-        if base_name:
-            new_text = f"<a href=\"{href}\">{base_name}</a>"
+        if dir_name:
+            new_text = f"<a href=\"{full_path}\">{dir_name}</a>"
         else:
-            new_text = f"<a href=\"{href}\">{self.download_directory}</a>"
+            new_text = f"<a href=\"{full_path}\">{self.download_directory}</a>"
 
         self.ui.downloadFolderIndicatorLabel.setText(new_text)
         self.ui.downloadFolderIndicatorLabel.setToolTip(self.download_directory)
@@ -211,7 +212,8 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            self.ui.dataPullButton.setText(self.settings_manager.CONSTANT_SETTTINGS["button_text"]["refresh"]["secondary"])
+            data_pull_button_text = self.settings_manager.CONSTANT_SETTTINGS["button_text"]["refresh"]["secondary"]
+            self.ui.dataPullButton.setText(data_pull_button_text)
             self.ui.downloadButton.setEnabled(False)
             Thread(target=lambda: self.update_info(urls), daemon=True).start()
         elif self.thread_running:
@@ -226,7 +228,8 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            self.ui.downloadButton.setText(self.settings_manager.CONSTANT_SETTTINGS["button_text"]["download"]["secondary"])
+            download_button_text = self.settings_manager.CONSTANT_SETTTINGS["button_text"]["download"]["secondary"]
+            self.ui.downloadButton.setText(download_button_text)
             self.ui.dataPullButton.setEnabled(False)
             self.ui.formatComboBox.setEnabled(False)
             self.ui.setDownloadFolderButton.setEnabled(False)

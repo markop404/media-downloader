@@ -25,7 +25,6 @@ from PySide6.QtWidgets import QMainWindow, QWidget, QMenu
 from PySide6.QtGui import QIcon, QKeySequence, QShortcut
 
 from src import ui, main
-from .settings import Settings
 
 
 class MainWindow(QMainWindow):
@@ -37,7 +36,7 @@ class MainWindow(QMainWindow):
         self.highest_tab_number = 0
         self.popup_window_running = False
         
-        self.settings_manager = Settings()
+        self.settings_manager = main.Settings()
         self.SETTINGS = [
             {
                 "name": "window-position",

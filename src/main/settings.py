@@ -20,6 +20,7 @@
 from PySide6.QtGui import QIcon
 from PySide6.QtCore import QSettings, QPoint, QSize
 
+
 class Settings(QSettings):
     def __init__(self):
         super().__init__()
