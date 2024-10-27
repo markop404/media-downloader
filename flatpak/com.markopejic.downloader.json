@@ -1,8 +1,10 @@
 {
     "id": "com.markopejic.downloader",
     "runtime": "org.kde.Platform",
-    "runtime-version": "6.8",
+    "runtime-version": "6.7",
     "sdk": "org.kde.Sdk",
+    "base": "io.qt.PySide.BaseApp",
+    "base-version": "6.7",
     "command": "com.markopejic.downloader",
     "finish-args": [
         "--share=network",
@@ -23,6 +25,7 @@
         "*.a"
     ],
     "modules": [
+        "python3-yt-dlp.json",
         {
             "name": "ffmpeg",
             "config-opts": [
@@ -51,35 +54,6 @@
             ]
         },
         {
-            "name": "python3-PySide6",
-            "buildsystem": "simple",
-            "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"PySide6-Essentials\" --no-build-isolation"
-            ],
-            "sources": [
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/7a/9d/ae433a47c1c8d63e1702c4055698e2f439c3e8961dcb0b60db595f424451/PySide6_Essentials-6.8.0.1-cp39-abi3-manylinux_2_31_aarch64.whl",
-                    "sha256": "6f573331261889992d450145c0f3a9a317e798b63c1318cc271422c0a74b2298"
-                },
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/31/db/da4db014ed4b3b6d0ff148749d743d6e25692b9a66b9d5fbd10f4ecee6d6/PySide6_Essentials-6.8.0.1-cp39-abi3-manylinux_2_28_x86_64.whl",
-                    "sha256": "327a0f08cb1ee5af7f7ed81527bbdb3058e2a39a300efcc806e0289b50192f98"
-                },
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/5c/a1/1176683114bb7a1053ba2d3319c9f9f933ab4a132ef100c382fdb5f8ef42/shiboken6-6.8.0.1-cp39-abi3-manylinux_2_31_aarch64.whl",
-                    "sha256": "eb2db6f0cac42f10dc5b4bcf4ab5a8e079acb870877d0cb3d95cac80c20e4554"
-                },
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/0f/7f/b81937dc3e414477e64f425a16a417a5d00cf8e2d954eee9264c5f4f14c0/shiboken6-6.8.0.1-cp39-abi3-manylinux_2_28_x86_64.whl",
-                    "sha256": "77b6e2eae8d48fe32a058e234778c42642eca1755de8b793e2d57857d7d037cf"
-                }
-            ]
-        },
-        {
             "name": "com.markopejic.downloader",
             "buildsystem": "simple",
             "build-commands": [
@@ -89,7 +63,7 @@
                 "install -D src/icons/icon.png /app/icons/icon.png",
                 "install -D src/main.py /app/main.py",
                 "install -D src/flatpak/runner /app/bin/com.markopejic.downloader",
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} --compile setuptools ./src --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links='file://${PWD}' --prefix=${FLATPAK_DEST} --compile setuptools ./src --no-build-isolation"
             ],
             "sources": [
                 {
@@ -104,7 +78,6 @@
                     "sha256": "a7fcb66f68b4d9e8e66b42f9876150a3371558f98fa32222ffaa5bced76406f8"
                 }
             ]
-        },
-        "python3-yt-dlp.json"
+        }
     ]
 }
