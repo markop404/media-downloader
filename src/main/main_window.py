@@ -24,7 +24,7 @@ from threading import Thread
 from PySide6.QtWidgets import QMainWindow, QWidget, QMenu
 from PySide6.QtGui import QIcon, QKeySequence, QShortcut
 
-from src import ui, main
+import ui, main
 
 
 class MainWindow(QMainWindow):

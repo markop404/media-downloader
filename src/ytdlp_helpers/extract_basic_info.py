@@ -22,7 +22,7 @@ from re import search
 from yt_dlp import YoutubeDL
 
 from .extract_data import extract_data
-from src.utils import str_to_int
+from utils import str_to_int
 
 
 def extract_basic_info(data_list, preferred_qualities=None):

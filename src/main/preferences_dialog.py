@@ -19,9 +19,9 @@
 
 from PySide6.QtWidgets import QDialog, QDialogButtonBox
 
-from src.ui import Ui_PreferencesDialog
+from ui import Ui_PreferencesDialog
 from .settings import Settings
-from src.utils import update_combobox_items
+from utils import update_combobox_items
 
 
 class PreferencesDialog(QDialog):

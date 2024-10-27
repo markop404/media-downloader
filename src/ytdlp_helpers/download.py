@@ -22,7 +22,7 @@ import os
 import yt_dlp
 
 from .check_internet_connection import check_internet_connection
-from src.utils import str_to_int
+from utils import str_to_int
 
 
 def download(urls, download_location="", on_progress=None, on_url_progress=None, file_type="mp4", subtitles=None, quality=None, postprocessor_progress=None, embed_subtitles=True, crop_thumbnails=False):
