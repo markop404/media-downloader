@@ -64,7 +64,7 @@
                 "install -D src/flatpak/com.markopejic.downloader.metainfo.xml /app/share/metainfo/com.markopejic.downloader.metainfo.xml",
                 "install -D src/icons/icon.png /app/share/icons/hicolor/512x512/apps/com.markopejic.downloader.png",
                 "install -D src/icons/icon.png /app/icons/icon.png",
-                "install -D src/main.py /app/main.py",
+                "install -D src/src/__main__.py /app/main.py",
                 "install -D src/flatpak/runner /app/bin/com.markopejic.downloader",
                 "pip3 install --verbose --exists-action=i --no-index --find-links='file://${PWD}' --prefix=${FLATPAK_DEST} --compile setuptools ./src --no-build-isolation"
             ],
