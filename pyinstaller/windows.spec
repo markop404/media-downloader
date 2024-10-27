@@ -7,7 +7,7 @@ NAME = f"Media Downloader {VERSION}"
 
 
 a = Analysis(
-    ['main.py'],
+    ['src/__main__.py'],
     pathex=[],
     binaries=BINARIES,
     datas=[(ICON, 'icons')],
