@@ -30,19 +30,20 @@ class PreferencesDialog(QDialog):
         self.ui = Ui_PreferencesDialog()
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
+        self.setup_vars()
         
         self.settings_manager = Settings()
         self.SETTINGS = [
-            {
-                "name": "remember-tab-settings",
-                "set-value-func": self.ui.restoreSettingsCheckBox.setChecked,
-                "get-value-func": self.ui.restoreSettingsCheckBox.isChecked,
-            },
-            {
-                "name": "remove-downloaded-urls",
-                "set-value-func": self.ui.removeURLsCheckBox.setChecked,
-                "get-value-func": self.ui.removeURLsCheckBox.isChecked,
-            },
+            # {
+            #     "name": "remember-tab-settings",
+            #     "set-value-func": self.ui.restoreSettingsCheckBox.setChecked,
+            #     "get-value-func": self.ui.restoreSettingsCheckBox.isChecked,
+            # },
+            # {
+            #     "name": "remove-downloaded-urls",
+            #     "set-value-func": self.ui.removeURLsCheckBox.setChecked,
+            #     "get-value-func": self.ui.removeURLsCheckBox.isChecked,
+            # },
             {
                 "name": "preferred-resolution",
                 "set-value-func": self.ui.preferredResolutionComboBox.setCurrentText,
@@ -63,6 +64,11 @@ class PreferencesDialog(QDialog):
             self.ui.preferredBitrateComboBox,
             self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"]
         )
+
+
+    def setup_vars(self):
+        self.slider_moved = False
+        self.current_value = None
 
 
     def load_settings(self, defaults=False):
@@ -94,7 +100,34 @@ class PreferencesDialog(QDialog):
             elif button_role == QDialogButtonBox.ButtonRole.ResetRole:
                 button.clicked.connect(lambda: self.load_settings(defaults=True))
 
+        self.sliders = [
+            self.ui.horizontalSlider,
+            self.ui.horizontalSlider2,
+        ]
+        for slider in self.sliders:
+            slider.sliderPressed.connect(lambda: self.record_slider_value(slider))
+            slider.sliderReleased.connect(lambda: self.change_slider_value(slider))
+            slider.sliderMoved.connect(self.record_slider_moved)
+
 
     def _exec(self):
         self.load_settings()
         self.exec()
+
+
+    def record_slider_value(self, slider):
+        self.current_value = slider.value()
+
+
+    def record_slider_moved(self):
+        self.slider_moved = True
+
+
+    def change_slider_value(self, slider):
+        if self.current_value == slider.value() and not self.slider_moved:
+            if self.current_value == 0:
+                new_value = 1
+            else:
+                new_value = 0
+            slider.setValue(new_value)
+        self.slider_moved = False

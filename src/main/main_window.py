@@ -23,7 +23,7 @@ from PySide6.QtWidgets import QMainWindow, QWidget, QMenu
 from PySide6.QtGui import QIcon, QKeySequence, QShortcut
 
 import main
-from ui import Ui_TabButtons
+from ui import Ui_TabButtons, Ui_MainWindow
 
 
 class MainWindow(QMainWindow):
@@ -74,7 +74,7 @@ class MainWindow(QMainWindow):
 
 
     def setup_ui(self):
-        self.ui = ui.Ui_MainWindow()
+        self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         
         self.about_dialog = main.AboutDialog(self)

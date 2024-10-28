@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogJlwkIN.ui'
+## Form generated from reading UI file 'preferences_dialogisrPDR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractButton, QApplication, QCheckBox, QComboBox,
-    QDialog, QDialogButtonBox, QHBoxLayout, QLabel,
-    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractButton, QApplication, QComboBox, QDialog,
+    QDialogButtonBox, QHBoxLayout, QLabel, QSizePolicy,
+    QSlider, QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_PreferencesDialog(object):
     def setupUi(self, PreferencesDialog):
@@ -61,11 +61,15 @@ class Ui_PreferencesDialog(object):
 
         self.restoreSettingsLayout.addItem(self.restoreSettingsLayoutSpacer)
 
-        self.restoreSettingsCheckBox = QCheckBox(PreferencesDialog)
-        self.restoreSettingsCheckBox.setObjectName(u"restoreSettingsCheckBox")
-        self.restoreSettingsCheckBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.horizontalSlider = QSlider(PreferencesDialog)
+        self.horizontalSlider.setObjectName(u"horizontalSlider")
+        self.horizontalSlider.setMaximumSize(QSize(40, 16777215))
+        self.horizontalSlider.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.horizontalSlider.setMaximum(1)
+        self.horizontalSlider.setPageStep(1)
+        self.horizontalSlider.setOrientation(Qt.Orientation.Horizontal)
 
-        self.restoreSettingsLayout.addWidget(self.restoreSettingsCheckBox)
+        self.restoreSettingsLayout.addWidget(self.horizontalSlider)
 
 
         self.PreferencesDialogLayout.addLayout(self.restoreSettingsLayout)
@@ -100,11 +104,15 @@ class Ui_PreferencesDialog(object):
 
         self.removeURLsLayout.addItem(self.removeURLsLayoutSpacer)
 
-        self.removeURLsCheckBox = QCheckBox(PreferencesDialog)
-        self.removeURLsCheckBox.setObjectName(u"removeURLsCheckBox")
-        self.removeURLsCheckBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.horizontalSlider2 = QSlider(PreferencesDialog)
+        self.horizontalSlider2.setObjectName(u"horizontalSlider2")
+        self.horizontalSlider2.setMaximumSize(QSize(40, 16777215))
+        self.horizontalSlider2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.horizontalSlider2.setMaximum(1)
+        self.horizontalSlider2.setPageStep(1)
+        self.horizontalSlider2.setOrientation(Qt.Orientation.Horizontal)
 
-        self.removeURLsLayout.addWidget(self.removeURLsCheckBox)
+        self.removeURLsLayout.addWidget(self.horizontalSlider2)
 
 
         self.PreferencesDialogLayout.addLayout(self.removeURLsLayout)
@@ -207,10 +215,8 @@ class Ui_PreferencesDialog(object):
         PreferencesDialog.setWindowTitle(QCoreApplication.translate("PreferencesDialog", u"Preferences", None))
         self.restoreSettingsMainLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Restore previously used settings in new tabs", None))
         self.restoreSettingsDescriptionLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Restore settings from previously used tab in new tabs", None))
-        self.restoreSettingsCheckBox.setText("")
         self.removeURLsMainLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Remove URLs as they are downloaded", None))
         self.removeURLsDescriptionLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Remove each URL from the text entry when it finishes downloading", None))
-        self.removeURLsCheckBox.setText("")
         self.preferredResolutionMainLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Preferred video quality", None))
         self.preferredResolutionDescriptionLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Highest resolution that gets selected by default", None))
         self.preferredBitrateMainLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Preferred audio quality", None))

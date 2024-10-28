@@ -94,12 +94,24 @@
       </spacer>
      </item>
      <item>
-      <widget class="QCheckBox" name="restoreSettingsCheckBox">
+      <widget class="QSlider" name="horizontalSlider">
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
-       <property name="text">
-        <string/>
+       <property name="maximum">
+        <number>1</number>
+       </property>
+       <property name="pageStep">
+        <number>1</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -173,12 +185,24 @@
       </spacer>
      </item>
      <item>
-      <widget class="QCheckBox" name="removeURLsCheckBox">
+      <widget class="QSlider" name="horizontalSlider2">
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
-       <property name="text">
-        <string/>
+       <property name="maximum">
+        <number>1</number>
+       </property>
+       <property name="pageStep">
+        <number>1</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
       </widget>
      </item>
