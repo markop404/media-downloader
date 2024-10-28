@@ -19,15 +19,15 @@
 
 from threading import Thread
 from time import sleep
-import sys
 import os
 
 from PySide6.QtWidgets import QMessageBox, QWidget, QFileDialog
-from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize, QSettings
+from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize
 from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 
-import ui, utils, ytdlp_helpers
+import utils, ytdlp_helpers
 from .settings import Settings
+from ui import Ui_Tab
 
 
 class Tab(QWidget):
@@ -83,7 +83,7 @@ class Tab(QWidget):
 
 
     def setup_ui(self):
-        self.ui = ui.Ui_Tab()
+        self.ui = Ui_Tab()
         self.ui.setupUi(self)
 
         QShortcut(QKeySequence("Alt+f"), self).activated.connect(

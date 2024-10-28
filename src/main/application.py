@@ -18,8 +18,6 @@
 
 
 from PySide6.QtWidgets import QApplication
-from PySide6.QtGui import QIcon
-from PySide6.QtCore import QSize
 
 from .main_window import MainWindow
 
@@ -28,14 +26,14 @@ class Application(QApplication):
     def __init__(self):
         super().__init__()
 
-        icon = QIcon()
-        icon.addFile("icons/icon.png")
-
         self.setStyle("Fusion")
         self.setApplicationName("MediaDownloader")
         self.setOrganizationName("MarkoPejic")
         self.setDesktopFileName("com.markopejic.downloader")
         self.setApplicationDisplayName("Media Downloader")
+        
+        icon = QIcon()
+        icon.addFile("icons/icon.png")
         self.setWindowIcon(icon)
 
         self.window = MainWindow()

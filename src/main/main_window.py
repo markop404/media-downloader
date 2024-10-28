@@ -17,14 +17,13 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import sys
-import subprocess
 from threading import Thread
 
 from PySide6.QtWidgets import QMainWindow, QWidget, QMenu
 from PySide6.QtGui import QIcon, QKeySequence, QShortcut
 
-import ui, main
+import main
+from ui import Ui_TabButtons
 
 
 class MainWindow(QMainWindow):
@@ -83,7 +82,7 @@ class MainWindow(QMainWindow):
         self.preferences_dialog = main.PreferencesDialog(self)
 
         self.tab_button_layout = QWidget()
-        self.tab_buttons = ui.Ui_TabButtons()
+        self.tab_buttons = Ui_TabButtons()
         self.tab_buttons.setupUi(self.tab_button_layout)
         
         self.main_menu = QMenu()

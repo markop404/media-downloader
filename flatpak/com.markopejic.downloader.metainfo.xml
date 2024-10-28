@@ -19,6 +19,8 @@
   <url type="homepage">https://downloader.markopejic.com</url>
   <url type="vcs-browser">https://downloader.markopejic.com/source-code</url>
 
+  <launchable type="desktop-id">com.markopejic.downloader.desktop</launchable>
+
   <releases>
     <release version="4.0.0" date="2024-09-24">
       <description>
@@ -89,12 +91,11 @@
         <li>Download and work with multiple URLs at once</li>
     </ul>
   </description>
-  
-  <launchable type="desktop-id">com.markopejic.downloader.desktop</launchable>
-  
+
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/markop404/media-downloader/v4.0.0/screenshots/kde-plasma-light.png</image>
     </screenshot>
   </screenshots>
+  
 </component>
