@@ -34,16 +34,16 @@ class PreferencesDialog(QDialog):
         
         self.settings_manager = Settings()
         self.SETTINGS = [
-            # {
-            #     "name": "remember-tab-settings",
-            #     "set-value-func": self.ui.restoreSettingsCheckBox.setChecked,
-            #     "get-value-func": self.ui.restoreSettingsCheckBox.isChecked,
-            # },
-            # {
-            #     "name": "remove-downloaded-urls",
-            #     "set-value-func": self.ui.removeURLsCheckBox.setChecked,
-            #     "get-value-func": self.ui.removeURLsCheckBox.isChecked,
-            # },
+            {
+                "name": "remember-tab-settings",
+                "set-value-func": lambda value: self.ui.horizontalSlider.setValue(int(value)),
+                "get-value-func": self.ui.horizontalSlider.value,
+            },
+            {
+                "name": "remove-downloaded-urls",
+                "set-value-func": lambda value: self.ui.horizontalSlider2.setValue(int(value)),
+                "get-value-func": self.ui.horizontalSlider2.value,
+            },
             {
                 "name": "preferred-resolution",
                 "set-value-func": self.ui.preferredResolutionComboBox.setCurrentText,
@@ -125,9 +125,6 @@ class PreferencesDialog(QDialog):
 
     def change_slider_value(self, slider):
         if self.current_value == slider.value() and not self.slider_moved:
-            if self.current_value == 0:
-                new_value = 1
-            else:
-                new_value = 0
-            slider.setValue(new_value)
+            slider.setValue(not self.current_value)
+
         self.slider_moved = False
