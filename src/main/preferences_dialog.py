@@ -105,8 +105,8 @@ class PreferencesDialog(QDialog):
             self.ui.horizontalSlider2,
         ]
         for slider in self.sliders:
-            slider.sliderPressed.connect(lambda: self.record_slider_value(slider))
-            slider.sliderReleased.connect(lambda: self.change_slider_value(slider))
+            slider.sliderPressed.connect(lambda slider=slider: self.record_slider_value(slider))
+            slider.sliderReleased.connect(lambda slider=slider: self.change_slider_value(slider))
             slider.sliderMoved.connect(self.record_slider_moved)
 
 
