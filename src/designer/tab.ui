@@ -2,14 +2,6 @@
 <ui version="4.0">
  <class>Tab</class>
  <widget class="QWidget" name="Tab">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>636</width>
-    <height>653</height>
-   </rect>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QPlainTextEdit" name="plainTextEdit">
@@ -19,17 +11,37 @@
     </widget>
    </item>
    <item>
-    <spacer name="horizontalSpacer1">
-     <property name="orientation">
-      <enum>Qt::Orientation::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>1166</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
+    <layout class="QHBoxLayout" name="donationLayout">
+     <item>
+      <spacer name="horizontalSpacer1">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>1166</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="donationLinkLabel">
+       <property name="toolTip">
+        <string>This app is the result of countless hours of development by Marko Pejić. If it's useful to you, please consider supporting its development with a donation.&lt;br&gt;Thank you!</string>
+       </property>
+       <property name="text">
+        <string>&lt;a href=&quot;https://downloader.markopejic.com/donate&quot;&gt;Donate&lt;/a&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+       </property>
+       <property name="openExternalLinks">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <layout class="QFormLayout" name="downloadOptionsLayout">
@@ -191,7 +203,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Useful when downloading music. (Alt+T)</string>
+        <string>Useful when downloading music.&lt;br&gt;(Alt+T)</string>
        </property>
        <property name="text">
         <string>Crop &amp;thumbnails / album arts to square shape</string>
@@ -234,7 +246,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Embeds subtitles instead of downloading them to a separate file. (Alt+S)</string>
+        <string>Embeds subtitles instead of downloading them to a separate file.&lt;br&gt;(Alt+S)</string>
        </property>
        <property name="text">
         <string>&amp;Embed subtitles to videos</string>
@@ -296,7 +308,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download. (Alt+P)</string>
+        <string>Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.&lt;br&gt;(Alt+P)</string>
        </property>
        <property name="text">
         <string>&amp;Pull Data</string>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabppOYvs.ui'
+## Form generated from reading UI file 'tabAdBWoj.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -24,7 +24,6 @@ class Ui_Tab(object):
     def setupUi(self, Tab):
         if not Tab.objectName():
             Tab.setObjectName(u"Tab")
-        Tab.resize(636, 653)
         self.verticalLayout = QVBoxLayout(Tab)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.plainTextEdit = QPlainTextEdit(Tab)
@@ -32,9 +31,21 @@ class Ui_Tab(object):
 
         self.verticalLayout.addWidget(self.plainTextEdit)
 
+        self.donationLayout = QHBoxLayout()
+        self.donationLayout.setObjectName(u"donationLayout")
         self.horizontalSpacer1 = QSpacerItem(1166, 40, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.verticalLayout.addItem(self.horizontalSpacer1)
+        self.donationLayout.addItem(self.horizontalSpacer1)
+
+        self.donationLinkLabel = QLabel(Tab)
+        self.donationLinkLabel.setObjectName(u"donationLinkLabel")
+        self.donationLinkLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
+        self.donationLinkLabel.setOpenExternalLinks(True)
+
+        self.donationLayout.addWidget(self.donationLinkLabel)
+
+
+        self.verticalLayout.addLayout(self.donationLayout)
 
         self.downloadOptionsLayout = QFormLayout()
         self.downloadOptionsLayout.setObjectName(u"downloadOptionsLayout")
@@ -138,7 +149,6 @@ class Ui_Tab(object):
         self.embedSubtitlesCheckBox = QCheckBox(Tab)
         self.embedSubtitlesCheckBox.setObjectName(u"embedSubtitlesCheckBox")
         self.embedSubtitlesCheckBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.embedSubtitlesCheckBox.setChecked(True)
 
         self.embedSubtitlesCheckBoxLayout.addWidget(self.embedSubtitlesCheckBox)
 
@@ -237,6 +247,10 @@ class Ui_Tab(object):
 
     def retranslateUi(self, Tab):
         self.plainTextEdit.setPlaceholderText(QCoreApplication.translate("Tab", u"Paste URLs here...", None))
+#if QT_CONFIG(tooltip)
+        self.donationLinkLabel.setToolTip(QCoreApplication.translate("Tab", u"This app is the result of countless hours of development by Marko Peji\u0107. If it's useful to you, please consider supporting its development with a donation.<br>Thank you!", None))
+#endif // QT_CONFIG(tooltip)
+        self.donationLinkLabel.setText(QCoreApplication.translate("Tab", u"<a href=\"https://downloader.markopejic.com/donate\">Donate</a>", None))
         self.formatLabel.setText(QCoreApplication.translate("Tab", u"<u>F</u>ormat:", None))
         self.formatComboBox.setItemText(0, QCoreApplication.translate("Tab", u"Video", None))
         self.formatComboBox.setItemText(1, QCoreApplication.translate("Tab", u"Audio", None))
@@ -261,15 +275,15 @@ class Ui_Tab(object):
 #endif // QT_CONFIG(tooltip)
         self.setDownloadFolderButton.setText(QCoreApplication.translate("Tab", u"&Change", None))
 #if QT_CONFIG(tooltip)
-        self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music. (Alt+T)", None))
+        self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music.<br>(Alt+T)", None))
 #endif // QT_CONFIG(tooltip)
         self.cropThumbnailsCheckBox.setText(QCoreApplication.translate("Tab", u"Crop &thumbnails / album arts to square shape", None))
 #if QT_CONFIG(tooltip)
-        self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Embeds subtitles instead of downloading them to a separate file. Only works if downloading in video format. (Alt+S)", None))
+        self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Embeds subtitles instead of downloading them to a separate file.<br>(Alt+S)", None))
 #endif // QT_CONFIG(tooltip)
         self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"&Embed subtitles to videos", None))
 #if QT_CONFIG(tooltip)
-        self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download. (Alt+P)", None))
+        self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.<br>(Alt+P)", None))
 #endif // QT_CONFIG(tooltip)
         self.dataPullButton.setText(QCoreApplication.translate("Tab", u"&Pull Data", None))
 #if QT_CONFIG(tooltip)
@@ -280,3 +294,4 @@ class Ui_Tab(object):
         self.statusLabel.setText("")
         pass
     # retranslateUi
+

@@ -88,6 +88,7 @@ class MainWindow(QMainWindow):
         self.main_menu = QMenu()
         self.main_menu.addAction(self.ui.actionPreferences)
         self.main_menu.addAction(self.ui.actionKeyboardShortcuts)
+        self.main_menu.addSeparator()
         self.main_menu.addAction(self.ui.actionAbout)
         self.tab_buttons.menuButton.setMenu(self.main_menu)
 
