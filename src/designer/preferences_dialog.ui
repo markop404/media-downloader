@@ -225,9 +225,9 @@
     </spacer>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="preferredResolutionLayout">
+    <layout class="QHBoxLayout" name="preferredResolutionSettingLayout">
      <item>
-      <layout class="QVBoxLayout" name="preferredResolutionLabelLayout">
+      <layout class="QVBoxLayout" name="preferredResolutionSettingLabelLayout">
        <item>
         <widget class="QLabel" name="preferredResolutionMainLabel">
          <property name="text">
@@ -263,7 +263,7 @@
       </layout>
      </item>
      <item>
-      <spacer name="preferredResolutionLayoutSpacer">
+      <spacer name="preferredResolutionSettingLayoutSpacer">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -276,7 +276,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QComboBox" name="preferredResolutionComboBox">
+      <widget class="QComboBox" name="preferredResolutionSettingComboBox">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
@@ -301,11 +301,11 @@
     </spacer>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="preferredBitrateLayout">
+    <layout class="QHBoxLayout" name="preferredBitrateSettingLayout">
      <item>
-      <layout class="QVBoxLayout" name="preferredBitrateLabelLayout">
+      <layout class="QVBoxLayout" name="preferredBitrateSettingLabelLayout">
        <item>
-        <widget class="QLabel" name="preferredBitrateMainLabel">
+        <widget class="QLabel" name="preferredBitrateSettingMainLabel">
          <property name="text">
           <string>Preferred audio quality</string>
          </property>
@@ -318,7 +318,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="preferredBitrateDescriptionLabel">
+        <widget class="QLabel" name="preferredBitrateSettingDescriptionLabel">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -339,7 +339,7 @@
       </layout>
      </item>
      <item>
-      <spacer name="preferredBitrateLayoutSpacer">
+      <spacer name="preferredBitrateSettingLayoutSpacer">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -352,7 +352,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QComboBox" name="preferredBitrateComboBox">
+      <widget class="QComboBox" name="preferredBitrateSettingComboBox">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
