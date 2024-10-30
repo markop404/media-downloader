@@ -51,8 +51,7 @@ def extract_basic_info(data_list, preferred_qualities=None):
                 elif _format["vcodec"] == "none" and "abr" in _format:
                     bitrate = _format["abr"]
                     if bitrate and bitrate != "0":
-                        bitrate = int(bitrate)
-                        audio_qualities.add(bitrate)
+                        audio_qualities.add(int(bitrate))
 
             if not all_bitrates:
                 all_bitrates = audio_qualities

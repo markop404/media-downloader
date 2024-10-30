@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonsPbDKXO.ui'
+## Form generated from reading UI file 'tab_buttonswtxkaL.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.7.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -54,6 +54,7 @@ class Ui_TabButtons(object):
 #if QT_CONFIG(shortcut)
         self.newTabButton.setShortcut(QCoreApplication.translate("TabButtons", u"Ctrl+T", None))
 #endif // QT_CONFIG(shortcut)
-        self.menuButton.setText(QCoreApplication.translate("TabButtons", u"Menu", None))
+        self.menuButton.setText(QCoreApplication.translate("TabButtons", u"&Menu", None))
         pass
     # retranslateUi
+

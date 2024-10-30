@@ -45,7 +45,7 @@
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="text">
-      <string>Menu</string>
+      <string>&amp;Menu</string>
      </property>
     </widget>
    </item>
