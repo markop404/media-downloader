@@ -22,7 +22,7 @@ This project aims to create an application that:
 ## Contributing
 Any contributions are appreciated, but they have to follow the app's goals.
 ## Donation
-You can support this project by [donating](https://downloader.markopejic.com/donate) to the main developer.
+This app is the result of countless hours of development by Marko Pejić. If it's useful to you, please consider supporting its development with a [donation](https://downloader.markopejic.com/donate). Thank you!
 ## License
 All versions above (including) 3.1.0 are licensed under [GPL version 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). All versions below 3.1.0 are closed source and are not available in this repository.
 ## Additional Information
