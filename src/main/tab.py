@@ -73,6 +73,10 @@ class Tab(QWidget):
                 if os.path.exists(download_dir):
                     self.download_directory = download_dir
                     self.update_download_directory_indicators()
+        else:
+            for setting in self.SETTINGS:
+                value = self.settings_manager.DEFAULT_SETTINGS[setting["name"]]["value"]
+                setting["set-value-func"](value)
     
 
     def save_settings(self):

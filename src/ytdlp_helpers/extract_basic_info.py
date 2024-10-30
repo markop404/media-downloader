@@ -64,8 +64,7 @@ def extract_basic_info(data_list, preferred_qualities=None):
                 all_resolutions.intersection_update(video_qualities)
 
         if "subtitles" in data:
-            subtitles = data["subtitles"]
-            if subtitles:
+            if subtitles := data["subtitles"]:
                 subtitle_data.update(subtitles)
 
     if not preferred_bitrate:
