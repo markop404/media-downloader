@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>367</width>
-    <height>322</height>
+    <height>344</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -85,7 +85,7 @@
        <item>
         <widget class="QLabel" name="aboutLabel">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Web video / audio downloader&lt;/span&gt;&lt;br/&gt;v5.0.0&lt;br/&gt;&lt;br/&gt;Made by &lt;a href=&quot;https://markopejic.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#308cc6;&quot;&gt;Marko Pejić&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;span style=&quot; font-weight:700;&quot;&gt;Web video / audio downloader&lt;/span&gt;&lt;br&gt;v5.0.0&lt;br&gt;&lt;br&gt;This app is the result of countless hours of development by &lt;a href=&quot;https://markopejic.com&quot;&gt;Marko Pejić&lt;/a&gt;. If it's useful to you, please consider supporting its development with a &lt;a href=&quot;https://downloader.markopejic.com/donate&quot;&gt;donation&lt;/a&gt;. Thank you!</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
@@ -202,7 +202,14 @@
       <attribute name="title">
        <string>License</string>
       </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Licensed under GPL version 3 or later:</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QTextBrowser" name="licenseBrowser">
          <property name="html">
