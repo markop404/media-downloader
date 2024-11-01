@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialoghmihrH.ui'
+## Form generated from reading UI file 'about_dialogPwTuIq.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.3
 ##
@@ -24,8 +24,8 @@ class Ui_AboutDialog(object):
     def setupUi(self, AboutDialog):
         if not AboutDialog.objectName():
             AboutDialog.setObjectName(u"AboutDialog")
-        AboutDialog.resize(367, 344)
-        AboutDialog.setMinimumSize(QSize(367, 322))
+        AboutDialog.resize(367, 345)
+        AboutDialog.setMinimumSize(QSize(367, 345))
         self.verticalLayout = QVBoxLayout(AboutDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.headerLayout = QHBoxLayout()
