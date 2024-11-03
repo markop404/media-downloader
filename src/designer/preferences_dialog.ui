@@ -48,6 +48,12 @@
       <layout class="QVBoxLayout" name="restoreSettingsLabelLayout">
        <item>
         <widget class="QLabel" name="restoreSettingsMainLabel">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Restore previously used settings in new tabs</string>
          </property>
@@ -139,6 +145,12 @@
       <layout class="QVBoxLayout" name="removeURLsLabelLayout">
        <item>
         <widget class="QLabel" name="removeURLsMainLabel">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Remove URLs as they are downloaded</string>
          </property>
@@ -230,6 +242,12 @@
       <layout class="QVBoxLayout" name="preferredResolutionSettingLabelLayout">
        <item>
         <widget class="QLabel" name="preferredResolutionMainLabel">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Preferred video quality</string>
          </property>
@@ -306,6 +324,12 @@
       <layout class="QVBoxLayout" name="preferredBitrateSettingLabelLayout">
        <item>
         <widget class="QLabel" name="preferredBitrateSettingMainLabel">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Preferred audio quality</string>
          </property>
