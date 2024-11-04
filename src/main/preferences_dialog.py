@@ -93,7 +93,7 @@ class PreferencesDialog(QDialog):
 
 
         self.ui.horizontalSlider.valueChanged.connect(lambda: self.save_setting("remember-tab-settings"))
-        self.ui.horizontalSlider.valueChanged.connect(lambda: self.save_setting("remove-downloaded-urls"))
+        self.ui.horizontalSlider2.valueChanged.connect(lambda: self.save_setting("remove-downloaded-urls"))
         self.ui.preferredBitrateSettingComboBox.currentIndexChanged.connect(lambda: self.save_setting("preferred-bitrate"))
         self.ui.preferredResolutionSettingComboBox.currentIndexChanged.connect(lambda: self.save_setting("preferred-resolution"))
 
