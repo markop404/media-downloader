@@ -82,7 +82,7 @@ class PreferencesDialog(QDialog):
             self.settings_manager.save_setting(
                 setting_name,
                 self.SETTINGS[setting_name]["get-value-func"](),
-                force=True
+                force=True,
         )
 
     
