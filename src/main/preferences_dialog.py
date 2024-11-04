@@ -27,10 +27,10 @@ from utils import update_combobox_items
 class PreferencesDialog(QDialog):
     def __init__(self, parent):
         super().__init__(parent)
+        self.loading_settings = True
         self.ui = Ui_PreferencesDialog()
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
-        self.setup_vars()
         
         self.settings_manager = Settings()
         self.SETTINGS = {
@@ -62,10 +62,6 @@ class PreferencesDialog(QDialog):
         )
 
 
-    def setup_vars(self):
-        self.loading_settings = True
-
-
     def load_settings(self, defaults=False):
         if not defaults:
             for setting_name, setting_func in self.SETTINGS.items():
@@ -75,6 +71,8 @@ class PreferencesDialog(QDialog):
         else:
             for setting_name, setting_func in self.SETTINGS.items():
                 setting_func["set-value-func"](self.settings_manager.DEFAULT_SETTINGS[setting_name]["value"])
+            
+            # TO DO: delete old values
 
 
     def save_setting(self, setting_name):
