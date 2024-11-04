@@ -20,7 +20,7 @@
 from PySide6.QtWidgets import QSlider
 
 class Toggle(QSlider):
-    def __init(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.sliderPressed.connect(self.record_value)
