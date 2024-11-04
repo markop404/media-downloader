@@ -17,8 +17,8 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from threading import Thread
-from time import sleep
+import threading
+import time
 import os
 
 from PySide6.QtWidgets import QMessageBox, QWidget, QFileDialog
@@ -219,7 +219,7 @@ class Tab(QWidget):
             data_pull_button_text = self.settings_manager.CONSTANT_SETTTINGS["button_text"]["refresh"]["secondary"]
             self.ui.dataPullButton.setText(data_pull_button_text)
             self.ui.downloadButton.setEnabled(False)
-            Thread(target=lambda: self.update_info(urls), daemon=True).start()
+            threading.Thread(target=lambda: self.update_info(urls), daemon=True).start()
         elif self.thread_running:
             self.cancel_progress = True
             self.ui.dataPullButton.setEnabled(False)
@@ -239,7 +239,7 @@ class Tab(QWidget):
             self.ui.setDownloadFolderButton.setEnabled(False)
             self.ui.embedSubtitlesCheckBox.setEnabled(False)
             self.ui.cropThumbnailsCheckBox.setEnabled(False)
-            Thread(target=lambda: self.download(urls), daemon=True).start()
+            threading.Thread(target=lambda: self.download(urls), daemon=True).start()
         else:
             self.cancel_progress = True
             self.ui.downloadButton.setEnabled(False)
@@ -545,13 +545,13 @@ class Tab(QWidget):
         text = beggining_text + url_list_text + ending_text
 
         while self.parent.popup_window_running:
-            sleep(0.01)
+            time.sleep(0.01)
 
         self.parent.popup_window_running = True
         self.run_in_gui_thread(lambda: self.display_invalid_url_warning(text))
 
         while self.parent.popup_window_running:
-            sleep(0.01)
+            time.sleep(0.01)
 
         if self.user_answer:
             self.remove_urls_from_entry(urls)

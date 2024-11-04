@@ -17,7 +17,8 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from threading import Thread
+import threading
+import time
 
 from PySide6.QtWidgets import QMainWindow, QWidget, QMenu
 from PySide6.QtGui import QIcon, QKeySequence, QShortcut
@@ -127,13 +128,13 @@ class MainWindow(QMainWindow):
 
         tab_object = self.ui.tabWidget.widget(index)
         self.ui.tabWidget.removeTab(index)
-        Thread(target=lambda: self.delete_tab(tab_object), daemon=True).start()
+        threading.Thread(target=lambda: self.delete_tab(tab_object), daemon=True).start()
 
 
     def delete_tab(self, tab_object):
         tab_object.cancel_progress = True
         while tab_object.thread_running:
-            sleep(0.01)
+            time.sleep(0.01)
         tab_object.deleteLater()
     
 
