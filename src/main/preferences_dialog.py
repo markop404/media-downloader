@@ -63,6 +63,8 @@ class PreferencesDialog(QDialog):
 
 
     def load_settings(self, defaults=False):
+        self.loading_settings = True
+        
         if not defaults:
             for setting_name, setting_func in self.SETTINGS.items():
                 value = self.settings_manager.load_setting(setting_name)
@@ -73,6 +75,8 @@ class PreferencesDialog(QDialog):
                 setting_func["set-value-func"](self.settings_manager.DEFAULT_SETTINGS[setting_name]["value"])
             
             self.settings_manager.remove(setting_name)
+
+        self.loading_settings = False
 
 
     def save_setting(self, setting_name):
@@ -101,8 +105,5 @@ class PreferencesDialog(QDialog):
 
 
     def _exec(self):
-        self.loading_settings = True
-        self.load_settings()
-        self.loading_settings = False
-        
+        self.load_settings()        
         self.exec()
