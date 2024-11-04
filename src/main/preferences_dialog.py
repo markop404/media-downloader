@@ -61,6 +61,8 @@ class PreferencesDialog(QDialog):
             self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"]
         )
 
+        self.load_settings()
+
 
     def load_settings(self, defaults=False):
         self.loading_settings = True
@@ -84,7 +86,7 @@ class PreferencesDialog(QDialog):
                 setting_name,
                 self.SETTINGS[setting_name]["get-value-func"](),
                 force=True,
-        )
+            )
 
     
     def connect_signals_and_slots(self):
@@ -101,8 +103,3 @@ class PreferencesDialog(QDialog):
         self.ui.horizontalSlider2.valueChanged.connect(lambda: self.save_setting("remove-downloaded-urls"))
         self.ui.preferredBitrateSettingComboBox.currentIndexChanged.connect(lambda: self.save_setting("preferred-bitrate"))
         self.ui.preferredResolutionSettingComboBox.currentIndexChanged.connect(lambda: self.save_setting("preferred-resolution"))
-
-
-    def _exec(self):
-        self.load_settings()        
-        self.exec()
