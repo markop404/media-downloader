@@ -79,7 +79,11 @@ class PreferencesDialog(QDialog):
 
     def save_setting(self, setting_name):
         if not self.loading_settings:
-            self.settings_manager.save_setting(setting_name, self.SETTINGS[setting_name]["get-value-func"](), force=True)
+            self.settings_manager.save_setting(
+                setting_name,
+                self.SETTINGS[setting_name]["get-value-func"](),
+                force=True
+        )
 
     
     def connect_signals_and_slots(self):
