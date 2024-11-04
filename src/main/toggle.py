@@ -17,11 +17,30 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from .about_dialog import AboutDialog
-from .keyboard_shortcuts_dialog import KeyboardShortcutsDialog
-from .tab import Tab
-from .main_window import MainWindow
-from .preferences_dialog import PreferencesDialog
-from .settings import Settings
-from .application import Application
-from .toggle import Toggle
+from PySide6.QtWidgets import QSlider
+
+class Toggle(QSlider):
+    def __init(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.sliderPressed.connect(self.record_value)
+        self.sliderReleased.connect(self.change_value)
+        self.sliderMoved.connect(self.record_movement)
+
+        self.slider_moved = False
+        self.current_value = None
+
+ 
+    def record_value(self):
+        self.current_value = self.value()
+
+
+    def record_movement(self):
+        self.slider_moved = True
+
+
+    def change_value(self):
+        if self.current_value == self.value() and not self.slider_moved:
+            self.setValue(not self.current_value)
+
+        self.slider_moved = False

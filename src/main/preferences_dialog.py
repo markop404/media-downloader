@@ -63,8 +63,6 @@ class PreferencesDialog(QDialog):
 
 
     def setup_vars(self):
-        self.slider_moved = False
-        self.current_value = None
         self.loading_settings = True
 
 
@@ -88,19 +86,11 @@ class PreferencesDialog(QDialog):
         for button in self.ui.buttonBox.buttons():
             button_role = self.ui.buttonBox.buttonRole(button)
             
-            if button_role == QDialogButtonBox.ButtonRole.DestructiveRole:
+            if button_role == QDialogButtonBox.ButtonRole.RejectRole:
                 button.clicked.connect(self.close)
             elif button_role == QDialogButtonBox.ButtonRole.ResetRole:
                 button.clicked.connect(lambda: self.load_settings(defaults=True))
 
-        self.sliders = [
-            self.ui.horizontalSlider,
-            self.ui.horizontalSlider2,
-        ]
-        for slider in self.sliders:
-            slider.sliderPressed.connect(lambda slider=slider: self.record_slider_value(slider))
-            slider.sliderReleased.connect(lambda slider=slider: self.change_slider_value(slider))
-            slider.sliderMoved.connect(self.record_slider_moved)
 
         self.ui.horizontalSlider.valueChanged.connect(lambda: self.save_setting("remember-tab-settings"))
         self.ui.horizontalSlider.valueChanged.connect(lambda: self.save_setting("remove-downloaded-urls"))
@@ -114,18 +104,3 @@ class PreferencesDialog(QDialog):
         self.loading_settings = False
         
         self.exec()
-
-
-    def record_slider_value(self, slider):
-        self.current_value = slider.value()
-
-
-    def record_slider_moved(self):
-        self.slider_moved = True
-
-
-    def change_slider_value(self, slider):
-        if self.current_value == slider.value() and not self.slider_moved:
-            slider.setValue(not self.current_value)
-
-        self.slider_moved = False
