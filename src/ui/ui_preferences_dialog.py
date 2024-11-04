@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogGfXwqq.ui'
+## Form generated from reading UI file 'preferences_dialogInkrxu.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -208,7 +208,7 @@ class Ui_PreferencesDialog(object):
 
         self.buttonBox = QDialogButtonBox(PreferencesDialog)
         self.buttonBox.setObjectName(u"buttonBox")
-        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Apply|QDialogButtonBox.StandardButton.Cancel|QDialogButtonBox.StandardButton.RestoreDefaults)
+        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Close|QDialogButtonBox.StandardButton.RestoreDefaults)
 
         self.PreferencesDialogLayout.addWidget(self.buttonBox)
 

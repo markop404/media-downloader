@@ -33,35 +33,31 @@ class PreferencesDialog(QDialog):
         self.setup_vars()
         
         self.settings_manager = Settings()
-        self.SETTINGS = [
-            {
-                "name": "remember-tab-settings",
+        self.SETTINGS = {
+            "remember-tab-settings": {
                 "set-value-func": lambda value: self.ui.horizontalSlider.setValue(int(value)),
-                "get-value-func": self.ui.horizontalSlider.value,
+                "get-value-func": lambda: bool(self.ui.horizontalSlider.value()),
             },
-            {
-                "name": "remove-downloaded-urls",
+            "remove-downloaded-urls": {
                 "set-value-func": lambda value: self.ui.horizontalSlider2.setValue(int(value)),
-                "get-value-func": self.ui.horizontalSlider2.value,
+                "get-value-func": lambda: bool(self.ui.horizontalSlider2.value()),
             },
-            {
-                "name": "preferred-resolution",
-                "set-value-func": self.ui.preferredResolutionComboBox.setCurrentText,
-                "get-value-func": self.ui.preferredResolutionComboBox.currentText,
+            "preferred-resolution": {
+                "set-value-func": self.ui.preferredResolutionSettingComboBox.setCurrentText,
+                "get-value-func": self.ui.preferredResolutionSettingComboBox.currentText,
             },
-            {
-                "name": "preferred-bitrate",
-                "set-value-func": self.ui.preferredBitrateComboBox.setCurrentText,
-                "get-value-func": self.ui.preferredBitrateComboBox.currentText,
+            "preferred-bitrate": {
+                "set-value-func": self.ui.preferredBitrateSettingComboBox.setCurrentText,
+                "get-value-func": self.ui.preferredBitrateSettingComboBox.currentText,
             },
-        ]
+        }
 
         update_combobox_items(
-            self.ui.preferredResolutionComboBox,
+            self.ui.preferredResolutionSettingComboBox,
             self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"]
         )
         update_combobox_items(
-            self.ui.preferredBitrateComboBox,
+            self.ui.preferredBitrateSettingComboBox,
             self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"]
         )
 
@@ -69,33 +65,30 @@ class PreferencesDialog(QDialog):
     def setup_vars(self):
         self.slider_moved = False
         self.current_value = None
+        self.loading_settings = True
 
 
     def load_settings(self, defaults=False):
         if not defaults:
-            for setting in self.SETTINGS:
-                value = self.settings_manager.load_setting(setting["name"])
+            for setting_name, setting_func in self.SETTINGS.items():
+                value = self.settings_manager.load_setting(setting_name)
                 if value != None:
-                    setting["set-value-func"](value)
+                    setting_func["set-value-func"](value)
         else:
-            for setting in self.SETTINGS:
-                setting["set-value-func"](self.settings_manager.DEFAULT_SETTINGS[setting["name"]]["value"])
+            for setting_name, setting_func in self.SETTINGS.items():
+                setting_func["set-value-func"](self.settings_manager.DEFAULT_SETTINGS[setting_name]["value"])
 
 
-    def save_and_close(self):
-        for setting in self.SETTINGS:
-            self.settings_manager.save_setting(setting["name"], setting["get-value-func"](), force=True)
-      
-        self.close()
+    def save_setting(self, setting_name):
+        if not self.loading_settings:
+            self.settings_manager.save_setting(setting_name, self.SETTINGS[setting_name]["get-value-func"])
 
     
     def connect_signals_and_slots(self):
         for button in self.ui.buttonBox.buttons():
             button_role = self.ui.buttonBox.buttonRole(button)
             
-            if button_role == QDialogButtonBox.ButtonRole.ApplyRole:
-                button.clicked.connect(self.save_and_close)
-            elif button_role == QDialogButtonBox.ButtonRole.RejectRole:
+            if button_role == QDialogButtonBox.ButtonRole.DestructiveRole:
                 button.clicked.connect(self.close)
             elif button_role == QDialogButtonBox.ButtonRole.ResetRole:
                 button.clicked.connect(lambda: self.load_settings(defaults=True))
@@ -109,9 +102,17 @@ class PreferencesDialog(QDialog):
             slider.sliderReleased.connect(lambda slider=slider: self.change_slider_value(slider))
             slider.sliderMoved.connect(self.record_slider_moved)
 
+        self.ui.horizontalSlider.valueChanged.connect(lambda: self.save_setting("remember-tab-settings"))
+        self.ui.horizontalSlider.valueChanged.connect(lambda: self.save_setting("remove-downloaded-urls"))
+        self.ui.preferredBitrateSettingComboBox.currentIndexChanged.connect(lambda: self.save_setting("preferred-bitrate"))
+        self.ui.preferredResolutionSettingComboBox.currentIndexChanged.connect(lambda: self.save_setting("preferred-resolution"))
+
 
     def _exec(self):
+        self.loading_settings = True
         self.load_settings()
+        self.loading_settings = False
+        
         self.exec()
 
 

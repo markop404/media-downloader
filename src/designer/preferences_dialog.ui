@@ -403,7 +403,7 @@
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
-      <set>QDialogButtonBox::StandardButton::Apply|QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::RestoreDefaults</set>
+      <set>QDialogButtonBox::StandardButton::Close|QDialogButtonBox::StandardButton::RestoreDefaults</set>
      </property>
     </widget>
    </item>
