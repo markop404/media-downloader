@@ -72,7 +72,7 @@ class PreferencesDialog(QDialog):
             for setting_name, setting_func in self.SETTINGS.items():
                 setting_func["set-value-func"](self.settings_manager.DEFAULT_SETTINGS[setting_name]["value"])
             
-            # TO DO: delete old values
+            self.settings_manager.remove(setting_name)
 
 
     def save_setting(self, setting_name):
