@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogInkrxu.ui'
+## Form generated from reading UI file 'preferences_dialogaZqoUK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -17,7 +17,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractButton, QApplication, QComboBox, QDialog,
     QDialogButtonBox, QHBoxLayout, QLabel, QSizePolicy,
-    QSlider, QSpacerItem, QVBoxLayout, QWidget)
+    QSpacerItem, QVBoxLayout, QWidget)
+
+from main.toggle import Toggle
 
 class Ui_PreferencesDialog(object):
     def setupUi(self, PreferencesDialog):
@@ -65,7 +67,7 @@ class Ui_PreferencesDialog(object):
 
         self.restoreSettingsLayout.addItem(self.restoreSettingsLayoutSpacer)
 
-        self.horizontalSlider = QSlider(PreferencesDialog)
+        self.horizontalSlider = Toggle(PreferencesDialog)
         self.horizontalSlider.setObjectName(u"horizontalSlider")
         self.horizontalSlider.setMaximumSize(QSize(40, 16777215))
         self.horizontalSlider.setFocusPolicy(Qt.FocusPolicy.NoFocus)
@@ -109,7 +111,7 @@ class Ui_PreferencesDialog(object):
 
         self.removeURLsLayout.addItem(self.removeURLsLayoutSpacer)
 
-        self.horizontalSlider2 = QSlider(PreferencesDialog)
+        self.horizontalSlider2 = Toggle(PreferencesDialog)
         self.horizontalSlider2.setObjectName(u"horizontalSlider2")
         self.horizontalSlider2.setMaximumSize(QSize(40, 16777215))
         self.horizontalSlider2.setFocusPolicy(Qt.FocusPolicy.NoFocus)

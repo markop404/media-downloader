@@ -100,7 +100,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QSlider" name="horizontalSlider">
+      <widget class="Toggle" name="horizontalSlider">
        <property name="maximumSize">
         <size>
          <width>40</width>
@@ -197,7 +197,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QSlider" name="horizontalSlider2">
+      <widget class="Toggle" name="horizontalSlider2">
        <property name="maximumSize">
         <size>
          <width>40</width>
@@ -409,6 +409,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Toggle</class>
+   <extends>QSlider</extends>
+   <header>main.toggle</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
