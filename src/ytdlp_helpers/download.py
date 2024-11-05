@@ -25,56 +25,67 @@ from .check_internet_connection import check_internet_connection
 from utils import str_to_int
 
 
-def download(urls, download_location="", on_progress=None, on_url_progress=None, file_type="mp4", subtitles=None, quality=None, postprocessor_progress=None, embed_subtitles=True, crop_thumbnails=False):
-    options = {
+def download(
+    urls,
+    download_location="",
+    on_progress=None,
+    on_url_progress=None,
+    file_type="mp4",
+    subtitles=None,
+    quality=None,
+    postprocessor_progress=None,
+    embed_subtitles=True,
+    crop_thumbnails=False,
+):
+    youtubedl_options = {
         "outtmpl": f"{download_location}/%(title)s.%(ext)s",
         "noplaylist": True,
         "postprocessors": [{"key": "FFmpegMetadata"}, {"key": "EmbedThumbnail", "already_have_thumbnail": False}],
         "writethumbnail": True,
         "postprocessor_args": {},
-        "sockettimeout": 10,
         "quiet": True,
     }
     errors = set()
-    failed_urls = []
+    failed_urls = set()
     TOTAL_URL_COUNT = len(urls)
     processed_url_count = 0
 
     if on_progress:
-        options["progress_hooks"] = [lambda data: on_progress(data, processed_url_count, TOTAL_URL_COUNT)]
+        youtubedl_options["progress_hooks"] = [lambda data: on_progress(data, processed_url_count, TOTAL_URL_COUNT)]
     
     if postprocessor_progress:
-        options["postprocessor_hooks"] = [lambda data: postprocessor_progress(data, processed_url_count, TOTAL_URL_COUNT)]
+        youtubedl_options["postprocessor_hooks"] = [lambda data: postprocessor_progress(data, processed_url_count, TOTAL_URL_COUNT)]
 
     quality_int = str_to_int(quality)
 
     if crop_thumbnails:
-        options["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-c:v", "png", "-vf", "crop=ih"]
+        youtubedl_options["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-c:v", "png", "-vf", "crop=ih"]
     
     if subtitles:
-        options["writesubtitles"] = True
-        options["subtitleslangs"] = subtitles
+        youtubedl_options["writesubtitles"] = True
+        youtubedl_options["subtitleslangs"] = subtitles
 
     if file_type == "mp4":
-        options["format"] = "bestvideo+bestaudio"
-        options["merge_output_format"] = "mp4"
+        youtubedl_options["format"] = "bestvideo+bestaudio"
+        youtubedl_options["merge_output_format"] = "mp4"
         if quality:
-            options["format_sort"] = ["fps", "abr", f"res:{quality_int}"]
+            youtubedl_options["format_sort"] = ["fps", "abr", f"res:{quality_int}"]
         if subtitles and embed_subtitles:
-            options["postprocessors"].append({"key": "FFmpegEmbedSubtitle"})
+            youtubedl_options["postprocessors"].append({"key": "FFmpegEmbedSubtitle"})
     
     elif file_type == "mp3":
-        options["postprocessors"] = [
+        youtubedl_options["postprocessors"] = [
             {
                 "key": "FFmpegExtractAudio",
                 "preferredcodec": "mp3"
             }
-        ] + options["postprocessors"]
-        options["format"] = "bestaudio"
+        ] + youtubedl_options["postprocessors"]
+        youtubedl_options["format"] = "bestaudio"
         if quality:
-            options["format_sort"] = [f"abr:{quality_int}"]
+            youtubedl_options["format_sort"] = [f"abr:{quality_int}"]
 
-    with yt_dlp.YoutubeDL(options) as ydl:
+
+    with yt_dlp.YoutubeDL(youtubedl_options) as ydl:
         for url in urls:
             try:
                 ydl.download(url)
@@ -86,31 +97,16 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
                 errors.add(e)
                 if not check_internet_connection():
                     return failed_urls, False
-                failed_urls.append(url)
+                failed_urls.add(url)
 
     if failed_urls:
-        with yt_dlp.YoutubeDL(options) as ydl:
-            for url in failed_urls:
-                try:
-                    ydl.download(failed_urls)
-                    failed_urls.remove(url)
-                    processed_url_count += 1
-                    if on_url_progress:
-                        on_url_progress(url, processed_url_count, TOTAL_URL_COUNT)
-                except yt_dlp.utils.DownloadError as e:
-                    print(e)
-                    errors.add(e)
-                    if not check_internet_connection():
-                        return failed_urls, False
+        new_youtubedl_options = {}
+        if "progress_hooks" in youtubedl_options:
+            new_youtubedl_options["progress_hooks"] = youtubedl_options["progress_hooks"]
+        if "postprocessor_hooks" in youtubedl_options:
+            new_youtubedl_options["postprocessor_hooks"] = youtubedl_options["postprocessor_hooks"]
 
-    if failed_urls:
-        new_options = {}
-        if "progress_hooks" in options:
-            new_options["progress_hooks"] = options["progress_hooks"]
-        if "postprocessor_hooks" in options:
-            new_options["postprocessor_hooks"] = options["postprocessor_hooks"]
-
-        with yt_dlp.YoutubeDL(new_options) as ydl:
+        with yt_dlp.YoutubeDL(new_youtubedl_options) as ydl:
             for url in failed_urls:
                 try:
                     ydl.download(url)

@@ -74,6 +74,9 @@ def update_combobox_items(combobox, items=[]):
 
 
 def str_to_int(string):
+    if not isinstance(string, str):
+        return str()
+
     integer = ""
     for char in string:
         if char.isdigit():
@@ -82,6 +85,6 @@ def str_to_int(string):
     if integer:
         integer = int(integer)
     else:
-        integer = None
+        integer = str()
     
     return integer
