@@ -21,7 +21,7 @@ from requests import get
 
 def check_internet_connection():
     try:
-        get("https://one.one.one.one", timeout=10)
+        get("https://mozilla.org", timeout=10)
         return True
     except BaseException as e:
         print(e)
