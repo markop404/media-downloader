@@ -257,7 +257,7 @@
         <string>Embeds subtitles instead of downloading them to a separate file.&lt;br&gt;(Alt+S)</string>
        </property>
        <property name="text">
-        <string>&amp;Embed subtitles to videos</string>
+        <string>&amp;Embed subtitles</string>
        </property>
       </widget>
      </item>

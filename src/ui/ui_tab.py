@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabAdBWoj.ui'
+## Form generated from reading UI file 'tabqCPSGv.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.3
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,6 +24,7 @@ class Ui_Tab(object):
     def setupUi(self, Tab):
         if not Tab.objectName():
             Tab.setObjectName(u"Tab")
+        Tab.resize(1241, 690)
         self.verticalLayout = QVBoxLayout(Tab)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.plainTextEdit = QPlainTextEdit(Tab)
@@ -281,7 +282,7 @@ class Ui_Tab(object):
 #if QT_CONFIG(tooltip)
         self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Embeds subtitles instead of downloading them to a separate file.<br>(Alt+S)", None))
 #endif // QT_CONFIG(tooltip)
-        self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"&Embed subtitles to videos", None))
+        self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"&Embed subtitles", None))
 #if QT_CONFIG(tooltip)
         self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.<br>(Alt+P)", None))
 #endif // QT_CONFIG(tooltip)
