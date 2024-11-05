@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogaZqoUK.ui'
+## Form generated from reading UI file 'preferences_dialogTbguGI.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -42,7 +42,7 @@ class Ui_PreferencesDialog(object):
         self.restoreSettingsMainLabel.setObjectName(u"restoreSettingsMainLabel")
         font = QFont()
         font.setPointSize(10)
-        font.setBold(True)
+        font.setWeight(QFont.DemiBold)
         self.restoreSettingsMainLabel.setFont(font)
         self.restoreSettingsMainLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.restoreSettingsMainLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
@@ -52,7 +52,6 @@ class Ui_PreferencesDialog(object):
         self.restoreSettingsDescriptionLabel = QLabel(PreferencesDialog)
         self.restoreSettingsDescriptionLabel.setObjectName(u"restoreSettingsDescriptionLabel")
         font1 = QFont()
-        font1.setPointSize(10)
         font1.setWeight(QFont.ExtraLight)
         self.restoreSettingsDescriptionLabel.setFont(font1)
         self.restoreSettingsDescriptionLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
