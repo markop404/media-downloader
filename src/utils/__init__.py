@@ -33,7 +33,7 @@ class Invoker(QObject):
 
 def plain_text_to_set(text):
     lines = set()
-    line = ""
+    line = str()
     for char in text:
         if char == " " or char == "\t" or char == "\n" and line == "":
             continue
@@ -85,6 +85,6 @@ def str_to_int(string):
     if integer:
         integer = int(integer)
     else:
-        integer = str()
+        integer = ""
     
     return integer

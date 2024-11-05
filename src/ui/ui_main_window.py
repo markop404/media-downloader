@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowbYNyPK.ui'
+## Form generated from reading UI file 'main_windowplqWfj.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.3
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(850, 680)
-        MainWindow.setMinimumSize(QSize(500, 630))
+        MainWindow.setMinimumSize(QSize(500, 600))
         self.actionAbout = QAction(MainWindow)
         self.actionAbout.setObjectName(u"actionAbout")
         icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.HelpAbout))
@@ -70,3 +70,4 @@ class Ui_MainWindow(object):
         self.actionPreferences.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+,", None))
 #endif // QT_CONFIG(shortcut)
     # retranslateUi
+
