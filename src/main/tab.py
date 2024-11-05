@@ -467,7 +467,7 @@ class Tab(QWidget):
                 quality = self.settings_manager.load_setting("preferred-resolution")
         elif file_type == "mp3":
             if selected_quality in self.qualities["mp3"]:
-                quality = self.qualities["mp3"][selected_quality]
+                quality = selected_quality
             else:
                 quality = self.settings_manager.load_setting("preferred-bitrate")
 

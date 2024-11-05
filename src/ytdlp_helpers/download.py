@@ -46,7 +46,7 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
     if postprocessor_progress:
         options["postprocessor_hooks"] = [lambda data: postprocessor_progress(data, processed_url_count, TOTAL_URL_COUNT)]
 
-    quality = str_to_int(quality)
+    quality_int = str_to_int(quality)
 
     if crop_thumbnails:
         options["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-c:v", "png", "-vf", "crop=ih"]
