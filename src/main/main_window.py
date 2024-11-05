@@ -144,15 +144,16 @@ class MainWindow(QMainWindow):
                 progress_text = f" {progress[0]}/{progress[1]}"
             else:
                 progress_text = ""
-
+                
             situation_text = self.settings_manager.CONSTANT_SETTTINGS["tab_text"][situation]
             text = f"{pretty_tab_number} - {situation_text}{progress_text}"
             icon = self.settings_manager.CONSTANT_SETTTINGS["tab_icons"][situation]
-            self.ui.tabWidget.setTabText(index, text)
-            self.ui.tabWidget.setTabIcon(index, icon)
         else:
-            self.ui.tabWidget.setTabText(index, f"{pretty_tab_number}")
-            self.ui.tabWidget.setTabIcon(index, QIcon())
+            text = f"{pretty_tab_number}"
+            icon = QIcon()
+        
+        self.ui.tabWidget.setTabText(index, text)
+        self.ui.tabWidget.setTabIcon(index, icon)
     
 
     def switch_tab(self, index=None, move=None):
