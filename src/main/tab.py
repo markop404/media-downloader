@@ -95,19 +95,19 @@ class Tab(QWidget):
                 self.show_combobox_popup(
                     self.ui.formatComboBox,
                 )
-            )
+        )
         QShortcut(QKeySequence("Alt+q"), self).activated.connect(
             lambda:
                 self.show_combobox_popup(
                     self.ui.qualityComboBox,
                 )
-            )
+        )
         QShortcut(QKeySequence("Alt+s"), self).activated.connect(
             lambda:
                 self.show_combobox_popup(
                     self.ui.subtitlesComboBox,
                 )
-            )
+        )
 
 
     def setup_vars(self, parent, pretty_tab_number):
