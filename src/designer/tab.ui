@@ -169,7 +169,7 @@
           <string>&amp;Change</string>
          </property>
          <property name="icon">
-          <iconset theme="QIcon::ThemeIcon::DocumentSave"/>
+          <iconset theme="QIcon::ThemeIcon::DocumentSaveAs"/>
          </property>
         </widget>
        </item>

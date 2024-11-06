@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabqCPSGv.ui'
+## Form generated from reading UI file 'tabzamfRe.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -107,7 +107,7 @@ class Ui_Tab(object):
         self.setDownloadFolderButton = QPushButton(Tab)
         self.setDownloadFolderButton.setObjectName(u"setDownloadFolderButton")
         self.setDownloadFolderButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentSave))
+        icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentSaveAs))
         self.setDownloadFolderButton.setIcon(icon)
 
         self.downloadFolderLayout.addWidget(self.setDownloadFolderButton)
