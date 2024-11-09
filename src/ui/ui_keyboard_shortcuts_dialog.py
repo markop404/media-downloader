@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogwoDwFv.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogKeurCM.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -23,7 +23,6 @@ class Ui_KeyboardShortcutsDialog(object):
     def setupUi(self, KeyboardShortcutsDialog):
         if not KeyboardShortcutsDialog.objectName():
             KeyboardShortcutsDialog.setObjectName(u"KeyboardShortcutsDialog")
-        KeyboardShortcutsDialog.resize(1035, 500)
         KeyboardShortcutsDialog.setMinimumSize(QSize(1035, 500))
         KeyboardShortcutsDialog.setMaximumSize(QSize(1250, 650))
         self.verticalLayout = QVBoxLayout(KeyboardShortcutsDialog)
