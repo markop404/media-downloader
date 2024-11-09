@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonswtxkaL.ui'
+## Form generated from reading UI file 'tab_buttonsiKfbgX.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.3
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -22,7 +22,6 @@ class Ui_TabButtons(object):
     def setupUi(self, TabButtons):
         if not TabButtons.objectName():
             TabButtons.setObjectName(u"TabButtons")
-        TabButtons.resize(184, 35)
         self.horizontalLayout = QHBoxLayout(TabButtons)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(-1, 0, 0, 0)

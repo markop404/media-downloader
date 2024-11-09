@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogTbguGI.ui'
+## Form generated from reading UI file 'preferences_dialogafymEb.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -25,7 +25,6 @@ class Ui_PreferencesDialog(object):
     def setupUi(self, PreferencesDialog):
         if not PreferencesDialog.objectName():
             PreferencesDialog.setObjectName(u"PreferencesDialog")
-        PreferencesDialog.resize(685, 360)
         PreferencesDialog.setMinimumSize(QSize(685, 360))
         PreferencesDialog.setMaximumSize(QSize(800, 450))
         self.PreferencesDialogLayout = QVBoxLayout(PreferencesDialog)
@@ -41,8 +40,7 @@ class Ui_PreferencesDialog(object):
         self.restoreSettingsMainLabel = QLabel(PreferencesDialog)
         self.restoreSettingsMainLabel.setObjectName(u"restoreSettingsMainLabel")
         font = QFont()
-        font.setPointSize(10)
-        font.setWeight(QFont.DemiBold)
+        font.setBold(True)
         self.restoreSettingsMainLabel.setFont(font)
         self.restoreSettingsMainLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.restoreSettingsMainLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
