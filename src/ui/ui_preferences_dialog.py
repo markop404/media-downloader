@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogkgAUvl.ui'
+## Form generated from reading UI file 'preferences_dialogTiSyRS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -58,7 +58,7 @@ class Ui_PreferencesDialog(object):
 
         self.restoreSettingsLayout.addLayout(self.restoreSettingsLabelLayout)
 
-        self.restoreSettingsLayoutSpacer = QSpacerItem(180, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.restoreSettingsLayoutSpacer = QSpacerItem(185, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.restoreSettingsLayout.addItem(self.restoreSettingsLayoutSpacer)
 
@@ -101,7 +101,7 @@ class Ui_PreferencesDialog(object):
 
         self.removeURLsLayout.addLayout(self.removeURLsLabelLayout)
 
-        self.removeURLsLayoutSpacer = QSpacerItem(180, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.removeURLsLayoutSpacer = QSpacerItem(185, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.removeURLsLayout.addItem(self.removeURLsLayoutSpacer)
 
@@ -144,7 +144,7 @@ class Ui_PreferencesDialog(object):
 
         self.preferredResolutionSettingLayout.addLayout(self.preferredResolutionSettingLabelLayout)
 
-        self.preferredResolutionSettingLayoutSpacer = QSpacerItem(180, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.preferredResolutionSettingLayoutSpacer = QSpacerItem(185, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.preferredResolutionSettingLayout.addItem(self.preferredResolutionSettingLayoutSpacer)
 
@@ -184,7 +184,7 @@ class Ui_PreferencesDialog(object):
 
         self.preferredBitrateSettingLayout.addLayout(self.preferredBitrateSettingLabelLayout)
 
-        self.preferredBitrateSettingLayoutSpacer = QSpacerItem(180, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.preferredBitrateSettingLayoutSpacer = QSpacerItem(185, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.preferredBitrateSettingLayout.addItem(self.preferredBitrateSettingLayoutSpacer)
 
