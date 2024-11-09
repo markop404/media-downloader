@@ -41,7 +41,7 @@
     <iconset theme="QIcon::ThemeIcon::HelpAbout"/>
    </property>
    <property name="text">
-    <string>About</string>
+    <string>About Media Downloader</string>
    </property>
   </action>
   <action name="actionKeyboardShortcuts">
