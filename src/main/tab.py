@@ -54,12 +54,13 @@ class Tab(QWidget):
             },
         ]
         self.load_settings()
-    
+
         self.setup_vars(parent, pretty_tab_number)
         self.update_download_directory_indicators()
         self.setup_filedialog()
         self.event_invoker = utils.Invoker()
         self.connect_signals_and_slots()
+        self.update_quality_combobox_placeholder_text()
 
 
     def load_settings(self):
@@ -569,6 +570,7 @@ class Tab(QWidget):
             self.update_status_indicators()
             self.subtitles = {}
             self.qualities = {"mp4": {}, "mp3": []}
+            self.update_quality_combobox_placeholder_text()
 
 
     def show_combobox_popup(self, combobox):
@@ -600,6 +602,16 @@ class Tab(QWidget):
             if self.preferred_qualities["resolution"] in self.qualities["mp4"]:
                 self.ui.qualityComboBox.setCurrentText(self.preferred_qualities["resolution"])
     
+
+    def update_quality_combobox_placeholder_text(self):
+        formats = self.settings_manager.CONSTANT_SETTTINGS["formats"]
+        if formats[self.ui.formatComboBox.currentText()] == "mp4":
+            quality = self.settings_manager.load_setting("preferred-resolution")
+            self.ui.qualityComboBox.setPlaceholderText(quality)
+        elif formats[self.ui.formatComboBox.currentText()] == "mp3":
+            quality = self.settings_manager.load_setting("preferred-bitrate")
+            self.ui.qualityComboBox.setPlaceholderText(quality)
+
 
     def change_plain_text_edit(self, text=""):
         self.changing_plain_text_edit = True
