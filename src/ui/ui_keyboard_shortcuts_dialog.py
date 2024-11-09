@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogKeurCM.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogiEltPP.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -16,15 +16,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
-    QHBoxLayout, QLabel, QPushButton, QSizePolicy,
-    QSpacerItem, QVBoxLayout, QWidget)
+    QHBoxLayout, QLabel, QSizePolicy, QSpacerItem,
+    QToolButton, QVBoxLayout, QWidget)
 
 class Ui_KeyboardShortcutsDialog(object):
     def setupUi(self, KeyboardShortcutsDialog):
         if not KeyboardShortcutsDialog.objectName():
             KeyboardShortcutsDialog.setObjectName(u"KeyboardShortcutsDialog")
-        KeyboardShortcutsDialog.setMinimumSize(QSize(1035, 500))
-        KeyboardShortcutsDialog.setMaximumSize(QSize(1250, 650))
         self.verticalLayout = QVBoxLayout(KeyboardShortcutsDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.shortcutsColumnLayout = QHBoxLayout()
@@ -35,6 +33,10 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout = QVBoxLayout()
         self.leftColumnLayout.setObjectName(u"leftColumnLayout")
+        self.verticalSpacer_15 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.leftColumnLayout.addItem(self.verticalSpacer_15)
+
         self.generalSectionLabel = QLabel(KeyboardShortcutsDialog)
         self.generalSectionLabel.setObjectName(u"generalSectionLabel")
         font = QFont()
@@ -45,13 +47,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addWidget(self.generalSectionLabel)
 
+        self.verticalSpacer_19 = QSpacerItem(20, 5, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.leftColumnLayout.addItem(self.verticalSpacer_19)
+
         self.shortcutLayout13 = QHBoxLayout()
         self.shortcutLayout13.setObjectName(u"shortcutLayout13")
-        self.keyButton11 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton11 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton11.setObjectName(u"keyButton11")
-        self.keyButton11.setMaximumSize(QSize(55, 16777215))
         self.keyButton11.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton11.setAutoDefault(False)
 
         self.shortcutLayout13.addWidget(self.keyButton11)
 
@@ -64,11 +68,9 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout13.addWidget(self.keySeparator6)
 
-        self.keyButton10 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton10 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton10.setObjectName(u"keyButton10")
-        self.keyButton10.setMaximumSize(QSize(35, 16777215))
         self.keyButton10.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton10.setAutoDefault(False)
 
         self.shortcutLayout13.addWidget(self.keyButton10)
 
@@ -85,13 +87,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout13)
 
+        self.verticalSpacer = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.leftColumnLayout.addItem(self.verticalSpacer)
+
         self.shortcutLayout14 = QHBoxLayout()
         self.shortcutLayout14.setObjectName(u"shortcutLayout14")
-        self.keyButton12 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton12 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton12.setObjectName(u"keyButton12")
-        self.keyButton12.setMaximumSize(QSize(55, 16777215))
         self.keyButton12.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton12.setAutoDefault(False)
 
         self.shortcutLayout14.addWidget(self.keyButton12)
 
@@ -101,15 +105,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout14.addWidget(self.keySeparator7)
 
-        self.keyButton13 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton13 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton13.setObjectName(u"keyButton13")
-        self.keyButton13.setMaximumSize(QSize(35, 16777215))
         self.keyButton13.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton13.setAutoDefault(False)
 
         self.shortcutLayout14.addWidget(self.keyButton13)
 
-        self.horizontalSpacer6 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer6 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout14.addItem(self.horizontalSpacer6)
 
@@ -122,6 +124,10 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout14)
 
+        self.verticalSpacer_13 = QSpacerItem(20, 14, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.leftColumnLayout.addItem(self.verticalSpacer_13)
+
         self.controlsSectionLabel = QLabel(KeyboardShortcutsDialog)
         self.controlsSectionLabel.setObjectName(u"controlsSectionLabel")
         self.controlsSectionLabel.setFont(font)
@@ -130,13 +136,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addWidget(self.controlsSectionLabel)
 
+        self.verticalSpacer_17 = QSpacerItem(20, 5, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.leftColumnLayout.addItem(self.verticalSpacer_17)
+
         self.shortcutLayout9 = QHBoxLayout()
         self.shortcutLayout9.setObjectName(u"shortcutLayout9")
-        self.keyButton32 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton32 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton32.setObjectName(u"keyButton32")
-        self.keyButton32.setMaximumSize(QSize(55, 16777215))
         self.keyButton32.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton32.setAutoDefault(False)
 
         self.shortcutLayout9.addWidget(self.keyButton32)
 
@@ -146,15 +154,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout9.addWidget(self.keySeparator17)
 
-        self.keyButton33 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton33 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton33.setObjectName(u"keyButton33")
-        self.keyButton33.setMaximumSize(QSize(35, 16777215))
         self.keyButton33.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton33.setAutoDefault(False)
 
         self.shortcutLayout9.addWidget(self.keyButton33)
 
-        self.horizontalSpacer16 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer16 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout9.addItem(self.horizontalSpacer16)
 
@@ -167,13 +173,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout9)
 
+        self.verticalSpacer_2 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.leftColumnLayout.addItem(self.verticalSpacer_2)
+
         self.showQualityOptsShortcutLayout = QHBoxLayout()
         self.showQualityOptsShortcutLayout.setObjectName(u"showQualityOptsShortcutLayout")
-        self.showQualityOptsShortcutButton = QPushButton(KeyboardShortcutsDialog)
+        self.showQualityOptsShortcutButton = QToolButton(KeyboardShortcutsDialog)
         self.showQualityOptsShortcutButton.setObjectName(u"showQualityOptsShortcutButton")
-        self.showQualityOptsShortcutButton.setMaximumSize(QSize(55, 16777215))
         self.showQualityOptsShortcutButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.showQualityOptsShortcutButton.setAutoDefault(False)
 
         self.showQualityOptsShortcutLayout.addWidget(self.showQualityOptsShortcutButton)
 
@@ -183,15 +191,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.showQualityOptsShortcutLayout.addWidget(self.showQualityOptsShortcutButtonSeparator)
 
-        self.showQualityOptsShortcutButton2 = QPushButton(KeyboardShortcutsDialog)
+        self.showQualityOptsShortcutButton2 = QToolButton(KeyboardShortcutsDialog)
         self.showQualityOptsShortcutButton2.setObjectName(u"showQualityOptsShortcutButton2")
-        self.showQualityOptsShortcutButton2.setMaximumSize(QSize(35, 16777215))
         self.showQualityOptsShortcutButton2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.showQualityOptsShortcutButton2.setAutoDefault(False)
 
         self.showQualityOptsShortcutLayout.addWidget(self.showQualityOptsShortcutButton2)
 
-        self.showQualityOptsShortcutSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.showQualityOptsShortcutSpacer = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.showQualityOptsShortcutLayout.addItem(self.showQualityOptsShortcutSpacer)
 
@@ -204,13 +210,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.showQualityOptsShortcutLayout)
 
+        self.verticalSpacer_3 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.leftColumnLayout.addItem(self.verticalSpacer_3)
+
         self.shortcutLayout2 = QHBoxLayout()
         self.shortcutLayout2.setObjectName(u"shortcutLayout2")
-        self.keyButton18 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton18 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton18.setObjectName(u"keyButton18")
-        self.keyButton18.setMaximumSize(QSize(55, 16777215))
         self.keyButton18.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton18.setAutoDefault(False)
 
         self.shortcutLayout2.addWidget(self.keyButton18)
 
@@ -220,15 +228,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout2.addWidget(self.keySeparator10)
 
-        self.keyButton19 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton19 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton19.setObjectName(u"keyButton19")
-        self.keyButton19.setMaximumSize(QSize(35, 16777215))
         self.keyButton19.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton19.setAutoDefault(False)
 
         self.shortcutLayout2.addWidget(self.keyButton19)
 
-        self.horizontalSpacer9 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer9 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout2.addItem(self.horizontalSpacer9)
 
@@ -241,13 +247,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout2)
 
+        self.verticalSpacer_4 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.leftColumnLayout.addItem(self.verticalSpacer_4)
+
         self.chgDownloadDirShortcutLayout = QHBoxLayout()
         self.chgDownloadDirShortcutLayout.setObjectName(u"chgDownloadDirShortcutLayout")
-        self.chgDownloadDirShortcutButton = QPushButton(KeyboardShortcutsDialog)
+        self.chgDownloadDirShortcutButton = QToolButton(KeyboardShortcutsDialog)
         self.chgDownloadDirShortcutButton.setObjectName(u"chgDownloadDirShortcutButton")
-        self.chgDownloadDirShortcutButton.setMaximumSize(QSize(55, 16777215))
         self.chgDownloadDirShortcutButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.chgDownloadDirShortcutButton.setAutoDefault(False)
 
         self.chgDownloadDirShortcutLayout.addWidget(self.chgDownloadDirShortcutButton)
 
@@ -257,15 +265,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.chgDownloadDirShortcutLayout.addWidget(self.keySeparator3)
 
-        self.chgDownloadDirShortcutButton2 = QPushButton(KeyboardShortcutsDialog)
+        self.chgDownloadDirShortcutButton2 = QToolButton(KeyboardShortcutsDialog)
         self.chgDownloadDirShortcutButton2.setObjectName(u"chgDownloadDirShortcutButton2")
-        self.chgDownloadDirShortcutButton2.setMaximumSize(QSize(35, 16777215))
         self.chgDownloadDirShortcutButton2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.chgDownloadDirShortcutButton2.setAutoDefault(False)
 
         self.chgDownloadDirShortcutLayout.addWidget(self.chgDownloadDirShortcutButton2)
 
-        self.chgDownloadDirShortcutSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.chgDownloadDirShortcutSpacer = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.chgDownloadDirShortcutLayout.addItem(self.chgDownloadDirShortcutSpacer)
 
@@ -278,13 +284,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.chgDownloadDirShortcutLayout)
 
+        self.verticalSpacer_5 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.leftColumnLayout.addItem(self.verticalSpacer_5)
+
         self.shortcutLayout3 = QHBoxLayout()
         self.shortcutLayout3.setObjectName(u"shortcutLayout3")
-        self.keyButton20 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton20 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton20.setObjectName(u"keyButton20")
-        self.keyButton20.setMaximumSize(QSize(55, 16777215))
         self.keyButton20.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton20.setAutoDefault(False)
 
         self.shortcutLayout3.addWidget(self.keyButton20)
 
@@ -294,15 +302,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout3.addWidget(self.keySeparator11)
 
-        self.keyButton21 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton21 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton21.setObjectName(u"keyButton21")
-        self.keyButton21.setMaximumSize(QSize(35, 16777215))
         self.keyButton21.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton21.setAutoDefault(False)
 
         self.shortcutLayout3.addWidget(self.keyButton21)
 
-        self.horizontalSpacer10 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer10 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout3.addItem(self.horizontalSpacer10)
 
@@ -315,13 +321,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout3)
 
+        self.verticalSpacer_6 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.leftColumnLayout.addItem(self.verticalSpacer_6)
+
         self.shortcutLayout4 = QHBoxLayout()
         self.shortcutLayout4.setObjectName(u"shortcutLayout4")
-        self.keyButton22 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton22 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton22.setObjectName(u"keyButton22")
-        self.keyButton22.setMaximumSize(QSize(55, 16777215))
         self.keyButton22.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton22.setAutoDefault(False)
 
         self.shortcutLayout4.addWidget(self.keyButton22)
 
@@ -331,15 +339,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout4.addWidget(self.keySeparator12)
 
-        self.keyButton23 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton23 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton23.setObjectName(u"keyButton23")
-        self.keyButton23.setMaximumSize(QSize(35, 16777215))
         self.keyButton23.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton23.setAutoDefault(False)
 
         self.shortcutLayout4.addWidget(self.keyButton23)
 
-        self.horizontalSpacer11 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer11 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout4.addItem(self.horizontalSpacer11)
 
@@ -361,6 +367,10 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout = QVBoxLayout()
         self.rightColumnLayout.setObjectName(u"rightColumnLayout")
+        self.verticalSpacer_16 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.rightColumnLayout.addItem(self.verticalSpacer_16)
+
         self.tabsSectionLabel = QLabel(KeyboardShortcutsDialog)
         self.tabsSectionLabel.setObjectName(u"tabsSectionLabel")
         self.tabsSectionLabel.setFont(font)
@@ -369,13 +379,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addWidget(self.tabsSectionLabel)
 
+        self.verticalSpacer_18 = QSpacerItem(20, 5, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.rightColumnLayout.addItem(self.verticalSpacer_18)
+
         self.shortcutLayout16 = QHBoxLayout()
         self.shortcutLayout16.setObjectName(u"shortcutLayout16")
-        self.keyButton16 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton16 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton16.setObjectName(u"keyButton16")
-        self.keyButton16.setMaximumSize(QSize(55, 16777215))
         self.keyButton16.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton16.setAutoDefault(False)
 
         self.shortcutLayout16.addWidget(self.keyButton16)
 
@@ -385,15 +397,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout16.addWidget(self.keySeparator9)
 
-        self.keyButton17 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton17 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton17.setObjectName(u"keyButton17")
-        self.keyButton17.setMaximumSize(QSize(35, 16777215))
         self.keyButton17.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton17.setAutoDefault(False)
 
         self.shortcutLayout16.addWidget(self.keyButton17)
 
-        self.horizontalSpacer8 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer8 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout16.addItem(self.horizontalSpacer8)
 
@@ -406,13 +416,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout16)
 
+        self.verticalSpacer_7 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.rightColumnLayout.addItem(self.verticalSpacer_7)
+
         self.shortcutLayout8 = QHBoxLayout()
         self.shortcutLayout8.setObjectName(u"shortcutLayout8")
-        self.keyButton30 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton30 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton30.setObjectName(u"keyButton30")
-        self.keyButton30.setMaximumSize(QSize(55, 16777215))
         self.keyButton30.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton30.setAutoDefault(False)
 
         self.shortcutLayout8.addWidget(self.keyButton30)
 
@@ -422,15 +434,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout8.addWidget(self.keySeparator16)
 
-        self.keyButton31 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton31 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton31.setObjectName(u"keyButton31")
-        self.keyButton31.setMaximumSize(QSize(35, 16777215))
         self.keyButton31.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton31.setAutoDefault(False)
 
         self.shortcutLayout8.addWidget(self.keyButton31)
 
-        self.horizontalSpacer15 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer15 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout8.addItem(self.horizontalSpacer15)
 
@@ -443,13 +453,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout8)
 
+        self.verticalSpacer_8 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.rightColumnLayout.addItem(self.verticalSpacer_8)
+
         self.shortcutLayout6 = QHBoxLayout()
         self.shortcutLayout6.setObjectName(u"shortcutLayout6")
-        self.keyButton26 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton26 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton26.setObjectName(u"keyButton26")
-        self.keyButton26.setMaximumSize(QSize(55, 16777215))
         self.keyButton26.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton26.setAutoDefault(False)
 
         self.shortcutLayout6.addWidget(self.keyButton26)
 
@@ -459,14 +471,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout6.addWidget(self.keySeparator14)
 
-        self.keyButton27 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton27 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton27.setObjectName(u"keyButton27")
         self.keyButton27.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton27.setAutoDefault(False)
 
         self.shortcutLayout6.addWidget(self.keyButton27)
 
-        self.horizontalSpacer13 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer13 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout6.addItem(self.horizontalSpacer13)
 
@@ -479,13 +490,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout6)
 
+        self.verticalSpacer_9 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.rightColumnLayout.addItem(self.verticalSpacer_9)
+
         self.shortcutLayout7 = QHBoxLayout()
         self.shortcutLayout7.setObjectName(u"shortcutLayout7")
-        self.keyButton28 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton28 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton28.setObjectName(u"keyButton28")
-        self.keyButton28.setMaximumSize(QSize(55, 16777215))
         self.keyButton28.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton28.setAutoDefault(False)
 
         self.shortcutLayout7.addWidget(self.keyButton28)
 
@@ -495,14 +508,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout7.addWidget(self.keySeparator15)
 
-        self.keyButton29 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton29 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton29.setObjectName(u"keyButton29")
         self.keyButton29.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton29.setAutoDefault(False)
 
         self.shortcutLayout7.addWidget(self.keyButton29)
 
-        self.horizontalSpacer14 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer14 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout7.addItem(self.horizontalSpacer14)
 
@@ -515,13 +527,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout7)
 
+        self.verticalSpacer_10 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.rightColumnLayout.addItem(self.verticalSpacer_10)
+
         self.shortcutLayout12 = QHBoxLayout()
         self.shortcutLayout12.setObjectName(u"shortcutLayout12")
-        self.keyButton8 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton8 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton8.setObjectName(u"keyButton8")
-        self.keyButton8.setMaximumSize(QSize(55, 16777215))
         self.keyButton8.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton8.setAutoDefault(False)
 
         self.shortcutLayout12.addWidget(self.keyButton8)
 
@@ -531,11 +545,9 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout12.addWidget(self.keySeparator5)
 
-        self.keyButton9 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton9 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton9.setObjectName(u"keyButton9")
-        self.keyButton9.setMaximumSize(QSize(35, 16777215))
         self.keyButton9.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton9.setAutoDefault(False)
 
         self.shortcutLayout12.addWidget(self.keyButton9)
 
@@ -544,15 +556,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout12.addWidget(self.keySeparator4)
 
-        self.keyButton7 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton7 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton7.setObjectName(u"keyButton7")
-        self.keyButton7.setMaximumSize(QSize(35, 16777215))
         self.keyButton7.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton7.setAutoDefault(False)
 
         self.shortcutLayout12.addWidget(self.keyButton7)
 
-        self.horizontalSpacer4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer4 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout12.addItem(self.horizontalSpacer4)
 
@@ -565,6 +575,10 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout12)
 
+        self.verticalSpacer_14 = QSpacerItem(20, 14, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.rightColumnLayout.addItem(self.verticalSpacer_14)
+
         self.otherSectionLabel = QLabel(KeyboardShortcutsDialog)
         self.otherSectionLabel.setObjectName(u"otherSectionLabel")
         self.otherSectionLabel.setFont(font)
@@ -573,13 +587,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addWidget(self.otherSectionLabel)
 
+        self.verticalSpacer_20 = QSpacerItem(20, 5, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.rightColumnLayout.addItem(self.verticalSpacer_20)
+
         self.shortcutLayout12_2 = QHBoxLayout()
         self.shortcutLayout12_2.setObjectName(u"shortcutLayout12_2")
-        self.keyButton8_2 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton8_2 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton8_2.setObjectName(u"keyButton8_2")
-        self.keyButton8_2.setMaximumSize(QSize(55, 16777215))
         self.keyButton8_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton8_2.setAutoDefault(False)
 
         self.shortcutLayout12_2.addWidget(self.keyButton8_2)
 
@@ -589,15 +605,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout12_2.addWidget(self.keySeparator5_2)
 
-        self.keyButton9_2 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton9_2 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton9_2.setObjectName(u"keyButton9_2")
-        self.keyButton9_2.setMaximumSize(QSize(35, 16777215))
         self.keyButton9_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton9_2.setAutoDefault(False)
 
         self.shortcutLayout12_2.addWidget(self.keyButton9_2)
 
-        self.horizontalSpacer4_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer4_2 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout12_2.addItem(self.horizontalSpacer4_2)
 
@@ -610,13 +624,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout12_2)
 
+        self.verticalSpacer_11 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.rightColumnLayout.addItem(self.verticalSpacer_11)
+
         self.shortcutLayout17 = QHBoxLayout()
         self.shortcutLayout17.setObjectName(u"shortcutLayout17")
-        self.keyButton1_2 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton1_2 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton1_2.setObjectName(u"keyButton1_2")
-        self.keyButton1_2.setMaximumSize(QSize(55, 16777215))
         self.keyButton1_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton1_2.setAutoDefault(False)
 
         self.shortcutLayout17.addWidget(self.keyButton1_2)
 
@@ -626,15 +642,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout17.addWidget(self.keySeparator1_2)
 
-        self.keyButton2_2 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton2_2 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton2_2.setObjectName(u"keyButton2_2")
-        self.keyButton2_2.setMaximumSize(QSize(35, 16777215))
         self.keyButton2_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton2_2.setAutoDefault(False)
 
         self.shortcutLayout17.addWidget(self.keyButton2_2)
 
-        self.horizontalSpacer1_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer1_2 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout17.addItem(self.horizontalSpacer1_2)
 
@@ -647,13 +661,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout17)
 
+        self.verticalSpacer_12 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.rightColumnLayout.addItem(self.verticalSpacer_12)
+
         self.shortcutLayout15 = QHBoxLayout()
         self.shortcutLayout15.setObjectName(u"shortcutLayout15")
-        self.keyButton14 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton14 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton14.setObjectName(u"keyButton14")
-        self.keyButton14.setMaximumSize(QSize(55, 16777215))
         self.keyButton14.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton14.setAutoDefault(False)
 
         self.shortcutLayout15.addWidget(self.keyButton14)
 
@@ -663,15 +679,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout15.addWidget(self.keySeparator8)
 
-        self.keyButton15 = QPushButton(KeyboardShortcutsDialog)
+        self.keyButton15 = QToolButton(KeyboardShortcutsDialog)
         self.keyButton15.setObjectName(u"keyButton15")
-        self.keyButton15.setMaximumSize(QSize(35, 16777215))
         self.keyButton15.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton15.setAutoDefault(False)
 
         self.shortcutLayout15.addWidget(self.keyButton15)
 
-        self.horizontalSpacer7 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer7 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout15.addItem(self.horizontalSpacer7)
 

@@ -31,7 +31,7 @@ class PreferencesDialog(QDialog):
         self.ui = Ui_PreferencesDialog()
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
-        utils.set_min_and_max_window_sizes(self)
+        self.setFixedSize(self.size())
         
         self.settings_manager = Settings()
         self.SETTINGS = {
@@ -55,11 +55,11 @@ class PreferencesDialog(QDialog):
 
         utils.update_combobox_items(
             self.ui.preferredResolutionSettingComboBox,
-            self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"]
+            self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"],
         )
         utils.update_combobox_items(
             self.ui.preferredBitrateSettingComboBox,
-            self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"]
+            self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"],
         )
 
         self.load_settings()
