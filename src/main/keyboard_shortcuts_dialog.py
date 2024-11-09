@@ -19,7 +19,7 @@
 
 from PySide6.QtWidgets import QDialog
 from ui import Ui_KeyboardShortcutsDialog
-from utils import set_min_and_max_window_size
+from utils import set_min_and_max_window_sizes
 
 class KeyboardShortcutsDialog(QDialog):
     def __init__(self, parent):
@@ -27,7 +27,7 @@ class KeyboardShortcutsDialog(QDialog):
         self.ui = Ui_KeyboardShortcutsDialog()
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
-        set_min_and_max_window_size(self)
+        set_min_and_max_window_sizes(self)
     
 
     def connect_signals_and_slots(self):

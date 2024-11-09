@@ -21,7 +21,7 @@ from PySide6.QtWidgets import QDialog, QDialogButtonBox
 
 from ui import Ui_PreferencesDialog
 from .settings import Settings
-from utils import update_combobox_items
+import utils
 
 
 class PreferencesDialog(QDialog):
@@ -31,6 +31,7 @@ class PreferencesDialog(QDialog):
         self.ui = Ui_PreferencesDialog()
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
+        utils.set_min_and_max_window_sizes(self)
         
         self.settings_manager = Settings()
         self.SETTINGS = {
@@ -52,11 +53,11 @@ class PreferencesDialog(QDialog):
             },
         }
 
-        update_combobox_items(
+        utils.update_combobox_items(
             self.ui.preferredResolutionSettingComboBox,
             self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"]
         )
-        update_combobox_items(
+        utils.update_combobox_items(
             self.ui.preferredBitrateSettingComboBox,
             self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"]
         )

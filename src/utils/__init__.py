@@ -31,7 +31,7 @@ class Invoker(QObject):
         return True
 
 
-def set_min_and_max_window_size(object):
+def set_min_and_max_window_sizes(object):
     size = object.size()
     object.setMinimumSize(size)
     object.setMaximumSize(size)
