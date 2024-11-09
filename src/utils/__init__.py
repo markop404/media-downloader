@@ -31,10 +31,10 @@ class Invoker(QObject):
         return True
 
 
-def set_min_and_max_window_sizes(object):
-    size = object.size()
-    object.setMinimumSize(size)
-    object.setMaximumSize(size)
+def set_min_and_max_window_sizes(_object):
+    size = _object.size()
+    _object.setMinimumSize(size)
+    _object.setMaximumSize(size)
 
 
 def plain_text_to_set(text):
