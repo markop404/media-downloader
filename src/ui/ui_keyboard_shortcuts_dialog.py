@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogiEltPP.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogyhMxOT.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##

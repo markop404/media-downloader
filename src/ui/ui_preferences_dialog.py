@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogafymEb.ui'
+## Form generated from reading UI file 'preferences_dialogGGbUYB.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -25,8 +25,6 @@ class Ui_PreferencesDialog(object):
     def setupUi(self, PreferencesDialog):
         if not PreferencesDialog.objectName():
             PreferencesDialog.setObjectName(u"PreferencesDialog")
-        PreferencesDialog.setMinimumSize(QSize(685, 360))
-        PreferencesDialog.setMaximumSize(QSize(800, 450))
         self.PreferencesDialogLayout = QVBoxLayout(PreferencesDialog)
         self.PreferencesDialogLayout.setObjectName(u"PreferencesDialogLayout")
         self.topSpacer = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)

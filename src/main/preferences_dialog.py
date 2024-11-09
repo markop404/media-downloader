@@ -31,7 +31,6 @@ class PreferencesDialog(QDialog):
         self.ui = Ui_PreferencesDialog()
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
-        self.setFixedSize(self.size())
         
         self.settings_manager = Settings()
         self.SETTINGS = {
@@ -63,6 +62,7 @@ class PreferencesDialog(QDialog):
         )
 
         self.load_settings()
+        self.setFixedSize(self.size())
 
 
     def load_settings(self, defaults=False):
