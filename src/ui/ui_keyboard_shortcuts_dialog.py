@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogyhMxOT.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogbkrucl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -33,7 +33,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout = QVBoxLayout()
         self.leftColumnLayout.setObjectName(u"leftColumnLayout")
-        self.verticalSpacer_15 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_15 = QSpacerItem(20, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_15)
 
@@ -124,7 +124,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout14)
 
-        self.verticalSpacer_13 = QSpacerItem(20, 14, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_13 = QSpacerItem(20, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_13)
 
@@ -367,7 +367,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout = QVBoxLayout()
         self.rightColumnLayout.setObjectName(u"rightColumnLayout")
-        self.verticalSpacer_16 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_16 = QSpacerItem(20, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_16)
 
@@ -575,7 +575,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout12)
 
-        self.verticalSpacer_14 = QSpacerItem(20, 14, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_14 = QSpacerItem(20, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_14)
 
