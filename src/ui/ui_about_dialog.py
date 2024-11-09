@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialogBDAVVP.ui'
+## Form generated from reading UI file 'about_dialogNbZvkT.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -165,9 +165,6 @@ class Ui_AboutDialog(object):
 
 
         self.retranslateUi(AboutDialog)
-
-        self.tabWidget.setCurrentIndex(0)
-
 
         QMetaObject.connectSlotsByName(AboutDialog)
     # setupUi

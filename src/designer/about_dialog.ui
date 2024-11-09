@@ -60,9 +60,6 @@
    </item>
    <item>
     <widget class="QTabWidget" name="tabWidget">
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
      <widget class="QWidget" name="aboutTab">
       <attribute name="title">
        <string>About</string>
