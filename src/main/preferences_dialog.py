@@ -62,7 +62,7 @@ class PreferencesDialog(QDialog):
         )
 
         self.load_settings()
-        self.setFixedSize(self.size())
+        #self.setFixedSize(self.size())
 
 
     def load_settings(self, defaults=False):

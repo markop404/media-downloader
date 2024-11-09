@@ -18,10 +18,16 @@
 
 
 from PySide6.QtWidgets import QSlider
+from PySide6.QtCore import QSize
+
 
 class Toggle(QSlider):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        toggle_width = 40
+        self.setMinimumSize(QSize(toggle_width, 0))
+        self.setMaximumSize(QSize(toggle_width, toggle_width))
 
         self.sliderPressed.connect(self.record_value)
         self.sliderReleased.connect(self.change_value)

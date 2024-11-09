@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogGGbUYB.ui'
+## Form generated from reading UI file 'preferences_dialogkgAUvl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -27,7 +27,7 @@ class Ui_PreferencesDialog(object):
             PreferencesDialog.setObjectName(u"PreferencesDialog")
         self.PreferencesDialogLayout = QVBoxLayout(PreferencesDialog)
         self.PreferencesDialogLayout.setObjectName(u"PreferencesDialogLayout")
-        self.topSpacer = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.topSpacer = QSpacerItem(0, 21, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
 
         self.PreferencesDialogLayout.addItem(self.topSpacer)
 
@@ -58,13 +58,12 @@ class Ui_PreferencesDialog(object):
 
         self.restoreSettingsLayout.addLayout(self.restoreSettingsLabelLayout)
 
-        self.restoreSettingsLayoutSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.restoreSettingsLayoutSpacer = QSpacerItem(180, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.restoreSettingsLayout.addItem(self.restoreSettingsLayoutSpacer)
 
         self.horizontalSlider = Toggle(PreferencesDialog)
         self.horizontalSlider.setObjectName(u"horizontalSlider")
-        self.horizontalSlider.setMaximumSize(QSize(40, 16777215))
         self.horizontalSlider.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.horizontalSlider.setMaximum(1)
         self.horizontalSlider.setPageStep(1)
@@ -75,7 +74,7 @@ class Ui_PreferencesDialog(object):
 
         self.PreferencesDialogLayout.addLayout(self.restoreSettingsLayout)
 
-        self.verticalSpacer1 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer1 = QSpacerItem(0, 21, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
 
         self.PreferencesDialogLayout.addItem(self.verticalSpacer1)
 
@@ -102,13 +101,12 @@ class Ui_PreferencesDialog(object):
 
         self.removeURLsLayout.addLayout(self.removeURLsLabelLayout)
 
-        self.removeURLsLayoutSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.removeURLsLayoutSpacer = QSpacerItem(180, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.removeURLsLayout.addItem(self.removeURLsLayoutSpacer)
 
         self.horizontalSlider2 = Toggle(PreferencesDialog)
         self.horizontalSlider2.setObjectName(u"horizontalSlider2")
-        self.horizontalSlider2.setMaximumSize(QSize(40, 16777215))
         self.horizontalSlider2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.horizontalSlider2.setMaximum(1)
         self.horizontalSlider2.setPageStep(1)
@@ -119,7 +117,7 @@ class Ui_PreferencesDialog(object):
 
         self.PreferencesDialogLayout.addLayout(self.removeURLsLayout)
 
-        self.verticalSpacer2 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer2 = QSpacerItem(0, 21, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
 
         self.PreferencesDialogLayout.addItem(self.verticalSpacer2)
 
@@ -146,7 +144,7 @@ class Ui_PreferencesDialog(object):
 
         self.preferredResolutionSettingLayout.addLayout(self.preferredResolutionSettingLabelLayout)
 
-        self.preferredResolutionSettingLayoutSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.preferredResolutionSettingLayoutSpacer = QSpacerItem(180, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.preferredResolutionSettingLayout.addItem(self.preferredResolutionSettingLayoutSpacer)
 
@@ -159,7 +157,7 @@ class Ui_PreferencesDialog(object):
 
         self.PreferencesDialogLayout.addLayout(self.preferredResolutionSettingLayout)
 
-        self.verticalSpacer3 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer3 = QSpacerItem(0, 21, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
 
         self.PreferencesDialogLayout.addItem(self.verticalSpacer3)
 
@@ -186,7 +184,7 @@ class Ui_PreferencesDialog(object):
 
         self.preferredBitrateSettingLayout.addLayout(self.preferredBitrateSettingLabelLayout)
 
-        self.preferredBitrateSettingLayoutSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.preferredBitrateSettingLayoutSpacer = QSpacerItem(180, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.preferredBitrateSettingLayout.addItem(self.preferredBitrateSettingLayoutSpacer)
 

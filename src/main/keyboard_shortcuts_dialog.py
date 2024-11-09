@@ -26,7 +26,7 @@ class KeyboardShortcutsDialog(QDialog):
         self.ui = Ui_KeyboardShortcutsDialog()
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
-        self.setFixedSize(self.size())
+        #self.setFixedSize(self.size())
     
 
     def connect_signals_and_slots(self):
