@@ -2,14 +2,6 @@
 <ui version="4.0">
  <class>Tab</class>
  <widget class="QWidget" name="Tab">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>1241</width>
-    <height>690</height>
-   </rect>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QPlainTextEdit" name="plainTextEdit">

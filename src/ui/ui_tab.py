@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabzamfRe.ui'
+## Form generated from reading UI file 'tabMztbBj.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -24,7 +24,6 @@ class Ui_Tab(object):
     def setupUi(self, Tab):
         if not Tab.objectName():
             Tab.setObjectName(u"Tab")
-        Tab.resize(1241, 690)
         self.verticalLayout = QVBoxLayout(Tab)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.plainTextEdit = QPlainTextEdit(Tab)
