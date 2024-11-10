@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowglDebP.ui'
+## Form generated from reading UI file 'main_windowDZfZcF.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -24,7 +24,6 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(700, 675)
-        MainWindow.setMinimumSize(QSize(490, 570))
         self.actionAbout = QAction(MainWindow)
         self.actionAbout.setObjectName(u"actionAbout")
         icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.HelpAbout))
