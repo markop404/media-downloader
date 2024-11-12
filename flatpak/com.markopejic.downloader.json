@@ -61,28 +61,28 @@
             "name": "python3-PySide6",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"PySide6-Essentials\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links='file://${PWD}' --prefix=${FLATPAK_DEST} PySide6-Essentials --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
                     "url": "https://files.pythonhosted.org/packages/6f/ee/9023d3851054db24c28312744de8bdb80dcf8de20bd583b6520da416484f/PySide6_Essentials-6.8.0.2-cp39-abi3-manylinux_2_31_aarch64.whl",
-                    "sha256": "acdde06b74f26e7d26b4ae1461081b32a6cb17fcaa2a580050b5e0f0f12236c9"
+                    "sha256": "fa7d411c3c67b4296847b3f5f572268e219d947d029ff9d8bce72fe6982d92bc"
                 },
                 {
                     "type": "file",
                     "url": "https://files.pythonhosted.org/packages/34/72/6ef2f32e5ae5681cdd10cc7e627c453fcd389889fbc6a76d4e400a27af87/PySide6_Essentials-6.8.0.2-cp39-abi3-manylinux_2_28_x86_64.whl",
-                    "sha256": "cda6fd26aead48f32e57f044d18aa75dc39265b49d7957f515ce7ac3989e7029"
+                    "sha256": "cf490145d18812a6cff48b0b0afb0bfaf7066744bfbd09eb071c3323f1d6d00d"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/ef/3c/bb524437df11ae79845b230d682b162935c7226b1fb7be2544dceca01e0f/shiboken6-6.7.3-cp39-abi3-manylinux_2_31_aarch64.whl",
-                    "sha256": "f0dd635178e64a45be2f84c9f33dd79ac30328da87f834f21a0baf69ae210e6e"
+                    "url": "https://files.pythonhosted.org/packages/13/cd/e9a6d0aa8794f777627a9fb3cffed0ac8449881b33e2325b5bcff10c36bc/shiboken6-6.8.0.2-cp39-abi3-manylinux_2_31_aarch64.whl",
+                    "sha256": "1aaa8b7f9138818322ef029b2c487d1c6e00dc3f53084e62e1d11bdea47e47c2"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/b2/e9/5c0c67de510da7818703d01123f7998cc495e99c0e6979a6ed6eb2ee09d0/shiboken6-6.7.3-cp39-abi3-manylinux_2_28_x86_64.whl",
-                    "sha256": "f0852e5781de78be5b13c140ec4c7fb9734e2aaf2986eb2d6a224363e03efccc"
+                    "url": "https://files.pythonhosted.org/packages/42/73/6344e02a6734e17a86c5781df41293fa15245e4d7454992c1d82e77d49a9/shiboken6-6.8.0.2-cp39-abi3-manylinux_2_28_x86_64.whl",
+                    "sha256": "fa7d411c3c67b4296847b3f5f572268e219d947d029ff9d8bce72fe6982d92bc"
                 }
             ]
         },
@@ -107,8 +107,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/90/12/282ee9bce8b58130cb762fbc9beabd531549952cac11fc56add11dcb7ea0/setuptools-75.3.0-py3-none-any.whl",
-                    "sha256": "f2504966861356aa38616760c0f66568e535562374995367b4e69c7143cf6bcd"
+                    "url": "https://files.pythonhosted.org/packages/21/df/7c6bb83dcb45b35dc35b310d752f254211cde0bcd2a35290ea6e2862b2a9/setuptools-75.4.0-py3-none-any.whl",
+                    "sha256": "b3c5d862f98500b06ffdf7cc4499b48c46c317d8d56cb30b5c8bce4d88f5c216"
                 }
             ]
         }
