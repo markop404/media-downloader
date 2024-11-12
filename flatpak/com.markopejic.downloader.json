@@ -1,8 +1,8 @@
 {
     "id": "com.markopejic.downloader",
-    "runtime": "org.freedesktop.Platform",
-    "runtime-version": "24.08",
-    "sdk": "org.freedesktop.Sdk",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "6.8",
+    "sdk": "org.kde.Sdk",
     "command": "com.markopejic.downloader",
     "finish-args": [
         "--share=network",
