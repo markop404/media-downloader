@@ -25,15 +25,13 @@ from .extract_data import extract_data
 from utils import str_to_int
 
 
-def extract_basic_info(data_list, preferred_qualities=None):
-    final_qualities = {"mp3": [], "mp4": {}}
+def extract_basic_info(data_list):
+    final_qualities = {"bitrate": [], "resolution": {}}
     all_bitrates = []
     all_resolutions = []
     raw_resolutions = {}
     all_subtitles = set()
     subtitle_data = {}
-    preferred_resolution = str_to_int(preferred_qualities["resolution"])
-    preferred_bitrate = str_to_int(preferred_qualities["bitrate"])
 
     for data in data_list:
         if "formats" in data:
@@ -66,33 +64,8 @@ def extract_basic_info(data_list, preferred_qualities=None):
             if subtitles := data["subtitles"]:
                 subtitle_data.update(subtitles)
 
-    if not preferred_bitrate:
-        preferred_bitrate = 0
-    preferred_qualities["bitrate"] = None
-    all_bitrates = sorted(list(all_bitrates), reverse=True)
-    iteration = 0
-    for bitrate in all_bitrates:
-        pretty_bitrate = f"{bitrate} kbps"
-        if iteration == 0:
-            pretty_bitrate += " (Best)"
-        final_qualities["mp3"].append(pretty_bitrate)
-        if not preferred_qualities["bitrate"] and bitrate <= preferred_bitrate:
-            preferred_qualities["bitrate"] = pretty_bitrate
-        iteration += 1
-
-    all_resolutions = sorted(list(all_resolutions), reverse=True)
-    if not preferred_resolution:
-        preferred_resolution = 0
-    preferred_qualities["resolution"] = None
-    iteration = 0
-    for resolution in all_resolutions:
-        pretty_resolution = f"{resolution}p"
-        if iteration == 0:
-            pretty_resolution += " (Best)"
-        final_qualities["mp4"][pretty_resolution] = str(raw_resolutions[resolution])
-        if not preferred_qualities["resolution"] and resolution <= preferred_resolution:
-            preferred_qualities["resolution"] = pretty_resolution
-        iteration += 1
+    all_bitrates = sorted(all_bitrates, reverse=True)
+    all_resolutions = sorted(all_resolutions, reverse=True)
 
     subtitles = {}
     if subtitle_data and isinstance(subtitle_data, dict):
@@ -107,4 +80,4 @@ def extract_basic_info(data_list, preferred_qualities=None):
 
             subtitles = sorted(subtitles.items())
 
-    return final_qualities, subtitles, preferred_qualities
+    return final_qualities, subtitles
