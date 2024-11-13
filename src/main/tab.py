@@ -60,7 +60,7 @@ class Tab(QWidget):
         self.setup_filedialog()
         self.event_invoker = utils.Invoker()
         self.connect_signals_and_slots()
-        self.update_quality_combobox_placeholder_text()
+        self.show_new_qualities()
 
 
     def load_settings(self):
@@ -565,12 +565,11 @@ class Tab(QWidget):
 
     def on_text_change(self):
         if not self.changing_plain_text_edit and not self.thread_running:
-            utils.update_combobox_items(self.ui.qualityComboBox)
             utils.update_combobox_items(self.ui.subtitlesComboBox)
             self.update_status_indicators()
             self.subtitles = {}
             self.qualities = {"mp4": {}, "mp3": []}
-            self.update_quality_combobox_placeholder_text()
+            self.show_new_qualities()
 
 
     def show_combobox_popup(self, combobox):
@@ -593,24 +592,21 @@ class Tab(QWidget):
 
     def show_new_qualities(self):
         _format = self.ui.formatComboBox.currentText()
-        if self.settings_manager.CONSTANT_SETTTINGS["formats"][_format] == "mp3":
-            utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["mp3"])
-            if self.preferred_qualities["bitrate"] in self.qualities["mp3"]:
-                self.ui.qualityComboBox.setCurrentText(self.preferred_qualities["bitrate"])
-        elif self.settings_manager.CONSTANT_SETTTINGS["formats"][_format] == "mp4":
-            utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["mp4"].keys())
-            if self.preferred_qualities["resolution"] in self.qualities["mp4"]:
-                self.ui.qualityComboBox.setCurrentText(self.preferred_qualities["resolution"])
-    
 
-    def update_quality_combobox_placeholder_text(self):
-        formats = self.settings_manager.CONSTANT_SETTTINGS["formats"]
-        if formats[self.ui.formatComboBox.currentText()] == "mp4":
-            quality = self.settings_manager.load_setting("preferred-resolution")
-            self.ui.qualityComboBox.setPlaceholderText(quality)
-        elif formats[self.ui.formatComboBox.currentText()] == "mp3":
-            quality = self.settings_manager.load_setting("preferred-bitrate")
-            self.ui.qualityComboBox.setPlaceholderText(quality)
+        if self.settings_manager.CONSTANT_SETTTINGS["formats"][_format] == "mp4":
+            qualities = self.qualities["mp4"]
+            placeholder_text = self.settings_manager.load_setting("preferred-resolution")
+            preferred_quality = self.preferred_qualities["resolution"]
+        
+        elif self.settings_manager.CONSTANT_SETTTINGS["formats"][_format] == "mp3":
+            qualities = self.qualities["mp3"]
+            placeholder_text = self.settings_manager.load_setting("preferred-bitrate")
+            preferred_quality = self.preferred_qualities["bitrate"]
+
+        utils.update_combobox_items(self.ui.qualityComboBox, qualities)
+        self.ui.qualityComboBox.setPlaceholderText(placeholder_text)
+        if preferred_quality in qualities:
+            self.ui.qualityComboBox.setCurrentText(preferred_quality)
 
 
     def change_plain_text_edit(self, text=""):
