@@ -126,8 +126,8 @@ class Settings(QSettings):
     DEFAULT_SETTINGS = {
         "remember-tab-settings": {"value": True, "type": bool},
         "remove-downloaded-urls": {"value": True, "type": bool},
-        "preferred-resolution": {"value": "1440p", "type": str},
-        "preferred-bitrate": {"value": "192 kbps", "type": str},
+        "preferred-resolution": {"value": 1440, "type": int},
+        "preferred-bitrate": {"value": 192, "type": int},
         "download-format": {"value": "mp4", "type": str},
         "crop-thumbnails": {"value": False, "type": bool},
         "embed-subtitles": {"value": True, "type": bool},

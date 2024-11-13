@@ -88,3 +88,7 @@ def str_to_int(string):
         integer = ""
     
     return integer
+
+
+def generate_qualities(qualities, preferred_qualities):
+    ...
