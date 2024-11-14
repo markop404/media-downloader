@@ -57,7 +57,6 @@ class Settings(QSettings):
             "converting": "Processing...",
             "no_internet": "No internet connection.",
         },
-
         "status_label_icons": {
             "download_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
             "download_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
@@ -73,7 +72,6 @@ class Settings(QSettings):
             "converting": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
             "no_internet": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.NetworkOffline)),
         },
-
         "tab_text": {
             "download_failed": "Failed",
             "download_cancelled": "Cancelled",
@@ -89,7 +87,6 @@ class Settings(QSettings):
             "converting": "Downloading",
             "no_internet": "Failed",
         },
-
         "tab_icons": {
             "download_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
             "download_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
@@ -105,21 +102,17 @@ class Settings(QSettings):
             "converting": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
             "no_internet": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
         },
-
         "window_titles": {
             "error": "Error - Tab <pretty_tab_number>",
         },
-
         "button_text": {
             "download": {"default": "&Download", "secondary": "Cancel &Download"},
             "refresh": {"default": "&Pull Data", "secondary": "Cancel Data &Pull"},
         },
-
         "formats": {
             "Audio": "mp3",
             "Video": "mp4",
         },
-
         "preferred-resolutions": {
             0: "Best",
             2160: "2160p",
