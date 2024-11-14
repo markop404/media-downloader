@@ -120,8 +120,26 @@ class Settings(QSettings):
             "Video": "mp4",
         },
 
-        "preferred-resolutions": {0: "Best", 2160: "2160p", 1440: "1440p", 1920: "1920p", 1080: "1080p", 720: "720p", 480: "480p", 360: "360p"},
-        "preferred-bitrates": {0: "Best", 320: "320 kbps", 256: "256 kbps", 192: "192 kbps", 160: "160 kbps", 128: "128 kbps", 96: "96 kbps", 64: "64 kbps"},
+        "preferred-resolutions": {
+            0: "Best",
+            2160: "2160p",
+            1440: "1440p",
+            1920: "1920p",
+            1080: "1080p",
+            720: "720p",
+            480: "480p",
+            360: "360p",
+        },
+        "preferred-bitrates": {
+            0: "Best",
+            320: "320 kbps",
+            256: "256 kbps",
+            192: "192 kbps",
+            160: "160 kbps",
+            128: "128 kbps",
+            96: "96 kbps",
+            64: "64 kbps",
+        },
     }
     DEFAULT_SETTINGS = {
         "remember-tab-settings": {"value": True, "type": bool},
