@@ -22,8 +22,8 @@ from PySide6.QtCore import QSettings, QPoint, QSize
 
 
 class Settings(QSettings):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
     
 
     def save_setting(self, setting, value, force=False):
@@ -38,7 +38,6 @@ class Settings(QSettings):
         
         return self.value(setting, type=value_type, defaultValue=default_value)
         
-
 
     APP_NAME = "Media Downloader"
     CONSTANT_SETTTINGS = {
@@ -114,24 +113,24 @@ class Settings(QSettings):
             "Video": "mp4",
         },
         "preferred-resolutions": {
-            0: "Best",
-            2160: "2160p",
-            1440: "1440p",
-            1920: "1920p",
-            1080: "1080p",
-            720: "720p",
-            480: "480p",
-            360: "360p",
+            "Best": 0,
+            "2160p": 2160,
+            "1440p": 1440,
+            "1920p": 1920,
+            "1080p": 1080,
+            "720p": 720,
+            "480p": 480,
+            "360p": 360,
         },
         "preferred-bitrates": {
-            0: "Best",
-            320: "320 kbps",
-            256: "256 kbps",
-            192: "192 kbps",
-            160: "160 kbps",
-            128: "128 kbps",
-            96: "96 kbps",
-            64: "64 kbps",
+            "Best": 0,
+            "320 kbps": 320,
+            "256 kbps": 256,
+            "192 kbps": 192,
+            "160 kbps": 160,
+            "128 kbps": 128,
+            "96 kbps": 96,
+            "64 kbps": 64,
         },
     }
     DEFAULT_SETTINGS = {
