@@ -19,6 +19,7 @@
 
 from PySide6.QtCore import QEvent, QObject
 
+
 class InvokeEvent(QEvent):
     def __init__(self, fn):
         QEvent.__init__(self, QEvent.Type(QEvent.registerEventType()))

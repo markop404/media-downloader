@@ -43,23 +43,28 @@ class PreferencesDialog(QDialog):
                 "get-value-func": lambda: bool(self.ui.horizontalSlider2.value()),
             },
             "preferred-resolution": {
-                "set-value-func": self.ui.preferredResolutionSettingComboBox.setCurrentText,
-                "get-value-func": self.ui.preferredResolutionSettingComboBox.currentText,
+                "set-value-func":
+                    lambda value: 
+                        self.ui.preferredResolutionSettingComboBox.setCurrentText(
+                            self.settings_manager.CONSTANT_SETTTINGS["resolutions"][value]
+                        ),
+                "get-value-func": 
+                    lambda: 
+                        self.settings_manager.CONSTANT_SETTTINGS["resolutions"]
+                        [self.ui.preferredResolutionSettingComboBox.currentText()],
             },
             "preferred-bitrate": {
-                "set-value-func": self.ui.preferredBitrateSettingComboBox.setCurrentText,
-                "get-value-func": self.ui.preferredBitrateSettingComboBox.currentText,
+                "set-value-func":
+                    lambda value: 
+                        self.ui.preferredBitrateSettingComboBox.setCurrentText(
+                            self.settings_manager.CONSTANT_SETTTINGS["bitrates"][value]
+                        ),
+                "get-value-func":
+                    lambda: 
+                        self.settings_manager.CONSTANT_SETTTINGS["bitrates"]
+                        [self.ui.preferredBitrateSettingComboBox.currentText()],
             },
         }
-
-        utils.update_combobox_items(
-            self.ui.preferredResolutionSettingComboBox,
-            self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"],
-        )
-        utils.update_combobox_items(
-            self.ui.preferredBitrateSettingComboBox,
-            self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"],
-        )
 
         self.load_settings()
         self.setFixedSize(self.sizeHint())
@@ -77,6 +82,15 @@ class PreferencesDialog(QDialog):
             for setting_name, setting_func in self.SETTINGS.items():
                 setting_func["set-value-func"](self.settings_manager.DEFAULT_SETTINGS[setting_name]["value"])
                 self.settings_manager.remove(setting_name)
+
+        utils.update_combobox_items(
+            self.ui.preferredResolutionSettingComboBox,
+            self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"].keys(),
+        )
+        utils.update_combobox_items(
+            self.ui.preferredBitrateSettingComboBox,
+            self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"].keys(),
+        )
 
         self.loading_settings = False
 

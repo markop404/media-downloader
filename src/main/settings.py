@@ -112,7 +112,7 @@ class Settings(QSettings):
             "Audio": "mp3",
             "Video": "mp4",
         },
-        "preferred-resolutions": {
+        "resolutions": {
             "Best": 0,
             "2160p": 2160,
             "1440p": 1440,
@@ -122,7 +122,7 @@ class Settings(QSettings):
             "480p": 480,
             "360p": 360,
         },
-        "preferred-bitrates": {
+        "bitrates": {
             "Best": 0,
             "320 kbps": 320,
             "256 kbps": 256,
