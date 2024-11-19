@@ -1,2 +1,2 @@
 PySide6-Essentials==6.8.0.2
-yt-dlp[default]==2024.11.4
+yt-dlp[default]==2024.11.18
