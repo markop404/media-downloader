@@ -92,7 +92,7 @@ def str_to_int(string):
 def int_list_to_str_list(list, prefix="", suffix=""):
     str_list = []
     for item in list:
-        new_item = prefix + item + suffix
+        new_item = prefix + str(item) + suffix
         str_list.append(new_item)
     
     return str_list
