@@ -31,7 +31,7 @@ def download(
     on_progress=None,
     on_url_progress=None,
     file_type="mp4",
-    subtitles=None,
+    subtitle_lang=None,
     quality=None,
     postprocessor_progress=None,
     embed_subtitles=True,
@@ -56,21 +56,19 @@ def download(
     if postprocessor_progress:
         youtubedl_options["postprocessor_hooks"] = [lambda data: postprocessor_progress(data, processed_url_count, TOTAL_URL_COUNT)]
 
-    quality_int = str_to_int(quality)
-
     if crop_thumbnails:
         youtubedl_options["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-c:v", "png", "-vf", "crop=ih"]
     
-    if subtitles:
+    if subtitle_lang:
         youtubedl_options["writesubtitles"] = True
-        youtubedl_options["subtitleslangs"] = subtitles
+        youtubedl_options["subtitleslangs"] = subtitle_lang
 
     if file_type == "mp4":
         youtubedl_options["format"] = "bestvideo+bestaudio"
         youtubedl_options["merge_output_format"] = "mp4"
         if quality:
             youtubedl_options["format_sort"] = ["fps", "abr", f"res:{quality_int}"]
-        if subtitles and embed_subtitles:
+        if subtitle_lang and embed_subtitles:
             youtubedl_options["postprocessors"].append({"key": "FFmpegEmbedSubtitle"})
     
     elif file_type == "mp3":

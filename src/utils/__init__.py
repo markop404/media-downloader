@@ -84,12 +84,15 @@ def str_to_int(string):
             integer += char
     
     if integer:
-        integer = int(integer)
+        return int(integer)
     else:
-        integer = ""
+        return int()
+
+
+def int_list_to_str_list(list, prefix="", suffix=""):
+    str_list = []
+    for item in list:
+        new_item = prefix + item + suffix
+        str_list.append(new_item)
     
-    return integer
-
-
-def generate_qualities(qualities, preferred_qualities):
-    ...
+    return str_list

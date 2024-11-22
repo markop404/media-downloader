@@ -459,29 +459,12 @@ class Tab(QWidget):
                 )
         )
 
-        file_type = self.settings_manager.CONSTANT_SETTTINGS["formats"][self.ui.formatComboBox.currentText()]
-        selected_quality = self.ui.qualityComboBox.currentText()
-        if file_type == "mp4":
-            if selected_quality in self.qualities["mp4"]:
-                quality = self.qualities["mp4"][selected_quality]
-            else:
-                quality = self.settings_manager.load_setting("preferred-resolution")
-        elif file_type == "mp3":
-            if selected_quality in self.qualities["mp3"]:
-                quality = selected_quality
-            else:
-                quality = self.settings_manager.load_setting("preferred-bitrate")
-
-        subtitles = self.ui.subtitlesComboBox.currentText()
-        if subtitles == "":
-            subtitles = None
-        else:
-            subtitles = [self.subtitles[subtitles]]
+        file_type, quality, subtitle_lang = self.get_download_opts()
 
         try:
             failed_urls2, exit_status, errors = ytdlp_helpers.download(
                 urls=urls,
-                subtitles=subtitles,
+                subtitle_lang=subtitle_lang,
                 on_progress=self.download_progress,
                 download_location=self.download_directory,
                 file_type=file_type,
@@ -607,6 +590,30 @@ class Tab(QWidget):
         self.ui.qualityComboBox.setPlaceholderText(placeholder_text)
         if preferred_quality in qualities:
             self.ui.qualityComboBox.setCurrentText(preferred_quality)
+    
+
+    def get_download_opts(self):
+        file_type = self.settings_manager.CONSTANT_SETTTINGS["formats"][self.ui.formatComboBox.currentText()]
+        selected_quality = utils.str_to_int(self.ui.qualityComboBox.currentText())
+        
+        if file_type == "mp4":
+            if selected_quality in self.qualities["mp4"]:
+                quality = self.qualities["mp4"][selected_quality]
+            else:
+                quality = self.settings_manager.load_setting("preferred-resolution")
+        elif file_type == "mp3":
+            if selected_quality in self.qualities["mp3"]:
+                quality = selected_quality
+            else:
+                quality = self.settings_manager.load_setting("preferred-bitrate")
+
+        subtitles = self.ui.subtitlesComboBox.currentText()
+        if subtitles == "":
+            subtitles = None
+        else:
+            subtitles = [self.subtitles[subtitles]]
+        
+        return file_type, selected_quality, subtitles
 
 
     def change_plain_text_edit(self, text=""):
