@@ -60,7 +60,7 @@ class Tab(QWidget):
         self.setup_filedialog()
         self.event_invoker = utils.Invoker()
         self.connect_signals_and_slots()
-        self.show_new_qualities()
+        self.update_shown_qualities()
 
 
     def load_settings(self):
@@ -137,7 +137,7 @@ class Tab(QWidget):
         self.ui.dataPullButton.clicked.connect(self.start_update_info)
         self.ui.downloadButton.clicked.connect(self.start_download)
         self.ui.setDownloadFolderButton.clicked.connect(self.set_download_location)
-        self.ui.formatComboBox.currentTextChanged.connect(self.show_new_qualities)
+        self.ui.formatComboBox.currentTextChanged.connect(self.update_shown_qualities)
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
 
 
@@ -414,7 +414,7 @@ class Tab(QWidget):
             return
 
         self.qualities, self.preferred_qualities = data[0], data[2]
-        self.run_in_gui_thread(self.show_new_qualities)
+        self.run_in_gui_thread(self.update_shown_qualities)
         
         subtitles = data[1]
         if subtitles:
@@ -552,7 +552,7 @@ class Tab(QWidget):
             self.update_status_indicators()
             self.subtitles = {}
             self.qualities = {"mp4": {}, "mp3": []}
-            self.show_new_qualities()
+            self.update_shown_qualities()
 
 
     def show_combobox_popup(self, combobox):
@@ -573,7 +573,7 @@ class Tab(QWidget):
             self.update_download_directory_indicators()
 
 
-    def show_new_qualities(self):
+    def update_shown_qualities(self):
         _format = self.ui.formatComboBox.currentText()
 
         if self.settings_manager.CONSTANT_SETTTINGS["formats"][_format] == "mp4":
