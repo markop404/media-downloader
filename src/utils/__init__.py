@@ -89,13 +89,15 @@ def str_to_int(string):
         return 0
 
 
-def pretty_int_set(int_list, zero_item=None, prefix="", suffix=""):
-    int_list = sorted(int_list, reverse=True)
-    str_list = set()
+def integer_list_to_string_set(integer_list, zero_item=None, prefix="", suffix=""):
+    integer_list = sorted(integer_list, reverse=True)
+    string_list = set()
     
     if isinstance(zero_item, str) or isinstance(zero_item, int):
-        str_list.add(str(zero_item))
+        string_list.add(str(zero_item))
 
-    for integer in int_list:
+    for integer in integer_list:
         string = prefix + str(integer) + suffix
-        str_list.add(string)
+        string_list.add(string)
+    
+    return string_list
