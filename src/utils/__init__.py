@@ -67,7 +67,7 @@ def remove_lines(text, urls):
     return text
 
 
-def update_combobox_items(combobox, items=[]):
+def replace_combobox_items(combobox, items=[]):
     combobox.clear()
     for item in items:
         combobox.addItem(item)
@@ -89,10 +89,13 @@ def str_to_int(string):
         return 0
 
 
-def int_list_to_str_list(int_list, prefix="", suffix=""):
-    str_list = []
-    for item in int_list:
-        new_item = prefix + str(item) + suffix
-        str_list.append(new_item)
+def pretty_int_set(int_list, zero_item=None, prefix="", suffix=""):
+    int_list = sorted(int_list, reverse=True)
+    str_list = set()
     
-    return str_list
+    if isinstance(zero_item, str) or isinstance(zero_item, int):
+        str_list.add(str(zero_item))
+
+    for integer in int_list:
+        string = prefix + str(integer) + suffix
+        str_list.add(string)

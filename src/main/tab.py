@@ -420,7 +420,7 @@ class Tab(QWidget):
         if subtitles:
             self.subtitles["None"] = "none"
             self.subtitles.update(subtitles)
-            utils.update_combobox_items(self.ui.subtitlesComboBox, self.subtitles.keys())
+            utils.replace_combobox_items(self.ui.subtitlesComboBox, self.subtitles.keys())
         
         self.prep_thread_exit("data_pull_finished", percentage=100)
 
@@ -548,7 +548,7 @@ class Tab(QWidget):
 
     def on_text_change(self):
         if not self.changing_plain_text_edit and not self.thread_running:
-            utils.update_combobox_items(self.ui.subtitlesComboBox)
+            utils.replace_combobox_items(self.ui.subtitlesComboBox)
             self.update_status_indicators()
             self.subtitles = {}
             self.qualities = {"mp4": {}, "mp3": []}
@@ -586,7 +586,7 @@ class Tab(QWidget):
             placeholder_text = self.settings_manager.load_setting("preferred-bitrate")
             preferred_quality = self.preferred_qualities["bitrate"]
 
-        utils.update_combobox_items(self.ui.qualityComboBox, qualities)
+        utils.replace_combobox_items(self.ui.qualityComboBox, qualities)
         self.ui.qualityComboBox.setPlaceholderText(placeholder_text)
         if preferred_quality in qualities:
             self.ui.qualityComboBox.setCurrentText(preferred_quality)

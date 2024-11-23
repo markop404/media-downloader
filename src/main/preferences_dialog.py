@@ -81,11 +81,11 @@ class PreferencesDialog(QDialog):
                 setting_func["set-value-func"](self.settings_manager.DEFAULT_SETTINGS[setting_name]["value"])
                 self.settings_manager.remove(setting_name)
 
-        utils.update_combobox_items(
+        utils.replace_combobox_items(
             self.ui.preferredResolutionSettingComboBox,
             self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"].keys(),
         )
-        utils.update_combobox_items(
+        utils.replace_combobox_items(
             self.ui.preferredBitrateSettingComboBox,
             self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"].keys(),
         )

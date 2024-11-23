@@ -19,65 +19,49 @@
 
 from re import search
 
-from yt_dlp import YoutubeDL
-
-from .extract_data import extract_data
 from utils import str_to_int
 
 
 def extract_basic_info(data_list):
-    final_qualities = {"bitrate": [], "resolution": {}}
-    all_bitrates = []
-    all_resolutions = []
-    raw_resolutions = {}
-    all_subtitles = set()
-    subtitle_data = {}
+    all_bitrates = set()
+    all_resolutions = set()
+    subtitles = {}
 
     for data in data_list:
         if "formats" in data:
-            audio_qualities = set()
-            video_qualities = set()
             formats = data["formats"]
+            bitrates = set()
+            resolutions = set()
             
             for _format in formats:
                 if _format["vcodec"] != "none" and "format_note" in _format and "height" in _format:
                     if resolution_search := search(r"([0-9]+)p", _format["format_note"]):
                         resolution = int(resolution_search.group(1))
-                        video_qualities.add(resolution)
-                        raw_resolutions[resolution] = _format["height"]
+                        resolutions.add(resolution)
 
                 elif _format["vcodec"] == "none" and "abr" in _format:
                     bitrate = _format["abr"]
                     if bitrate and bitrate != "0":
-                        audio_qualities.add(int(bitrate))
+                        bitrates.add(int(bitrate))
 
             if not all_bitrates:
-                all_bitrates = audio_qualities
+                all_bitrates = bitrates
             else:
-                all_bitrates.intersection_update(audio_qualities)
+                all_bitrates.intersection_update(bitrates)
             if not all_resolutions:
-                all_resolutions = video_qualities
+                all_resolutions = resolutions
             else:
-                all_resolutions.intersection_update(video_qualities)
+                all_resolutions.intersection_update(resolutions)
 
         if "subtitles" in data:
-            if subtitles := data["subtitles"]:
-                subtitle_data.update(subtitles)
+            if subtitle_data := data["subtitles"]:
+                for subtitle_lang, subtitle_details in subtitle_data.items():
+                    if isinstance(subtitle_details, dict) and "name" in subtitle_details:
+                        subtitles[subtitle_lang] = subtitle_details["name"]
 
     all_bitrates = sorted(all_bitrates, reverse=True)
     all_resolutions = sorted(all_resolutions, reverse=True)
+    qualities = {"bitrates": all_bitrates, "resolutions": all_resolutions}
+    subtitles = dict(sorted(subtitles.items(), key=lambda item: item[1]))
 
-    subtitles = {}
-    if subtitle_data and isinstance(subtitle_data, dict):
-        for item in subtitle_data.keys():
-            if item:
-                all_subtitles.add(item)
-    
-        if all_subtitles:
-            for subtitle in all_subtitles:
-                if len(subtitle_data[subtitle]) > 0 and "name" in subtitle_data[subtitle][0]:
-                    subtitles[subtitle_data[subtitle][0]["name"]] = subtitle
-
-            subtitles = sorted(subtitles.items())
-
-    return final_qualities, subtitles
+    return qualities, subtitles
