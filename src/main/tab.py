@@ -608,7 +608,7 @@ class Tab(QWidget):
                 quality = self.settings_manager.load_setting("preferred-bitrate")
 
         subtitles = self.ui.subtitlesComboBox.currentText()
-        if subtitles == "":
+        if not subtitles:
             subtitles = None
         else:
             subtitles = [self.subtitles[subtitles]]
