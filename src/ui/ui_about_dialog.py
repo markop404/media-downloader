@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialogoZjEiv.ui'
+## Form generated from reading UI file 'about_dialogEMfFnt.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -86,22 +86,22 @@ class Ui_AboutDialog(object):
 
         self.leftColumnButtonLayout.addWidget(self.supportedWebsitesButton)
 
-        self.websiteButton_2 = QPushButton(self.linksTab)
-        self.websiteButton_2.setObjectName(u"websiteButton_2")
-        self.websiteButton_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.websiteButton = QPushButton(self.linksTab)
+        self.websiteButton.setObjectName(u"websiteButton")
+        self.websiteButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.leftColumnButtonLayout.addWidget(self.websiteButton_2)
+        self.leftColumnButtonLayout.addWidget(self.websiteButton)
 
 
         self.horizontalLayout.addLayout(self.leftColumnButtonLayout)
 
         self.rightColumnButtonLayout = QVBoxLayout()
         self.rightColumnButtonLayout.setObjectName(u"rightColumnButtonLayout")
-        self.whatsNewButton_2 = QPushButton(self.linksTab)
-        self.whatsNewButton_2.setObjectName(u"whatsNewButton_2")
-        self.whatsNewButton_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.whatsNewButton = QPushButton(self.linksTab)
+        self.whatsNewButton.setObjectName(u"whatsNewButton")
+        self.whatsNewButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.rightColumnButtonLayout.addWidget(self.whatsNewButton_2)
+        self.rightColumnButtonLayout.addWidget(self.whatsNewButton)
 
         self.issueReportButton = QPushButton(self.linksTab)
         self.issueReportButton.setObjectName(u"issueReportButton")
@@ -159,8 +159,8 @@ class Ui_AboutDialog(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.aboutTab), QCoreApplication.translate("AboutDialog", u"About", None))
         self.donateButton.setText(QCoreApplication.translate("AboutDialog", u"Donate", None))
         self.supportedWebsitesButton.setText(QCoreApplication.translate("AboutDialog", u"Supported Websites", None))
-        self.websiteButton_2.setText(QCoreApplication.translate("AboutDialog", u"Website", None))
-        self.whatsNewButton_2.setText(QCoreApplication.translate("AboutDialog", u"What's New", None))
+        self.websiteButton.setText(QCoreApplication.translate("AboutDialog", u"Website", None))
+        self.whatsNewButton.setText(QCoreApplication.translate("AboutDialog", u"What's New", None))
         self.issueReportButton.setText(QCoreApplication.translate("AboutDialog", u"Report an Issue", None))
         self.sourceCodeButton.setText(QCoreApplication.translate("AboutDialog", u"Source Code", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.linksTab), QCoreApplication.translate("AboutDialog", u"Details", None))

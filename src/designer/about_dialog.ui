@@ -117,7 +117,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="websiteButton_2">
+          <widget class="QPushButton" name="websiteButton">
            <property name="focusPolicy">
             <enum>Qt::FocusPolicy::NoFocus</enum>
            </property>
@@ -131,7 +131,7 @@
        <item>
         <layout class="QVBoxLayout" name="rightColumnButtonLayout">
          <item>
-          <widget class="QPushButton" name="whatsNewButton_2">
+          <widget class="QPushButton" name="whatsNewButton">
            <property name="focusPolicy">
             <enum>Qt::FocusPolicy::NoFocus</enum>
            </property>
