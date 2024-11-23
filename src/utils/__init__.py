@@ -89,9 +89,9 @@ def str_to_int(string):
         return int()
 
 
-def int_list_to_str_list(list, prefix="", suffix=""):
+def int_list_to_str_list(int_list, prefix="", suffix=""):
     str_list = []
-    for item in list:
+    for item in int_list:
         new_item = prefix + str(item) + suffix
         str_list.append(new_item)
     
