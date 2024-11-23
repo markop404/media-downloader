@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowDZfZcF.ui'
+## Form generated from reading UI file 'main_windowKuCEgV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -26,16 +26,16 @@ class Ui_MainWindow(object):
         MainWindow.resize(700, 675)
         self.actionAbout = QAction(MainWindow)
         self.actionAbout.setObjectName(u"actionAbout")
-        icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.HelpAbout))
+        icon = QIcon(QIcon.fromTheme(u"help-about"))
         self.actionAbout.setIcon(icon)
         self.actionKeyboardShortcuts = QAction(MainWindow)
         self.actionKeyboardShortcuts.setObjectName(u"actionKeyboardShortcuts")
-        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.InputKeyboard))
+        icon1 = QIcon(QIcon.fromTheme(u"input-keyboard"))
         self.actionKeyboardShortcuts.setIcon(icon1)
         self.actionKeyboardShortcuts.setMenuRole(QAction.MenuRole.NoRole)
         self.actionPreferences = QAction(MainWindow)
         self.actionPreferences.setObjectName(u"actionPreferences")
-        icon2 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentProperties))
+        icon2 = QIcon(QIcon.fromTheme(u"preferences-system"))
         self.actionPreferences.setIcon(icon2)
         self.actionPreferences.setMenuRole(QAction.MenuRole.NoRole)
         self.centralwidget = QWidget(MainWindow)

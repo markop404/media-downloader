@@ -32,7 +32,7 @@
   </widget>
   <action name="actionAbout">
    <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::HelpAbout"/>
+    <iconset theme="help-about"/>
    </property>
    <property name="text">
     <string>About Media Downloader</string>
@@ -40,7 +40,7 @@
   </action>
   <action name="actionKeyboardShortcuts">
    <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::InputKeyboard"/>
+    <iconset theme="input-keyboard"/>
    </property>
    <property name="text">
     <string>Keyboard Shortcuts</string>
@@ -54,7 +54,7 @@
   </action>
   <action name="actionPreferences">
    <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
+    <iconset theme="preferences-system"/>
    </property>
    <property name="text">
     <string>Preferences</string>
