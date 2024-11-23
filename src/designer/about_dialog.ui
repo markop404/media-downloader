@@ -2,14 +2,6 @@
 <ui version="4.0">
  <class>AboutDialog</class>
  <widget class="QDialog" name="AboutDialog">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>398</width>
-    <height>278</height>
-   </rect>
-  </property>
   <property name="windowTitle">
    <string>About</string>
   </property>
@@ -69,7 +61,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="aboutTab">
       <attribute name="title">
