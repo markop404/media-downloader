@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>AboutDialog</class>
  <widget class="QDialog" name="AboutDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>398</width>
+    <height>278</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>About</string>
   </property>
@@ -60,6 +68,9 @@
    </item>
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>3</number>
+     </property>
      <widget class="QWidget" name="aboutTab">
       <attribute name="title">
        <string>About</string>
@@ -158,26 +169,6 @@
           </widget>
          </item>
         </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="disclaimerTab">
-      <attribute name="title">
-       <string>Disclaimer</string>
-      </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <widget class="QLabel" name="disclaimerLabel">
-         <property name="text">
-          <string>The authors of Media Downloader are not responsible/liable for any misuse of this program that may violate local copyright/DMCA laws. Users use this application at their own risk.</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
        </item>
       </layout>
      </widget>
@@ -352,16 +343,39 @@ li.checked::marker { content: &quot;\2612&quot;; }
        </item>
       </layout>
      </widget>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLabel" name="copyrightLabel">
-     <property name="text">
-      <string>Copyright © 2024 Marko Pejić</string>
-     </property>
-     <property name="indent">
-      <number>1</number>
-     </property>
+     <widget class="QWidget" name="legalTab">
+      <attribute name="title">
+       <string>Legal</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QLabel" name="disclaimerLabel">
+         <property name="text">
+          <string>The authors of Media Downloader are not responsible/liable for any misuse of this program that may violate local copyright/DMCA laws. Users use this application at their own risk.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="copyrightLabel">
+         <property name="text">
+          <string>Copyright © 2024 Marko Pejić</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
+         </property>
+         <property name="indent">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
    <item>

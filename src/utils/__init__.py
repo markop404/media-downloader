@@ -86,7 +86,7 @@ def str_to_int(string):
     if integer:
         return int(integer)
     else:
-        return int()
+        return 0
 
 
 def int_list_to_str_list(int_list, prefix="", suffix=""):

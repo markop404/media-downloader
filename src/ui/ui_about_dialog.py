@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialogNbZvkT.ui'
+## Form generated from reading UI file 'about_dialogBNsaLe.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -24,6 +24,7 @@ class Ui_AboutDialog(object):
     def setupUi(self, AboutDialog):
         if not AboutDialog.objectName():
             AboutDialog.setObjectName(u"AboutDialog")
+        AboutDialog.resize(398, 278)
         self.verticalLayout = QVBoxLayout(AboutDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.headerLayout = QHBoxLayout()
@@ -120,18 +121,6 @@ class Ui_AboutDialog(object):
         self.horizontalLayout_4.addLayout(self.rightColumnButtonLayout)
 
         self.tabWidget.addTab(self.linksTab, "")
-        self.disclaimerTab = QWidget()
-        self.disclaimerTab.setObjectName(u"disclaimerTab")
-        self.horizontalLayout_3 = QHBoxLayout(self.disclaimerTab)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.disclaimerLabel = QLabel(self.disclaimerTab)
-        self.disclaimerLabel.setObjectName(u"disclaimerLabel")
-        self.disclaimerLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
-        self.disclaimerLabel.setWordWrap(True)
-
-        self.horizontalLayout_3.addWidget(self.disclaimerLabel)
-
-        self.tabWidget.addTab(self.disclaimerTab, "")
         self.licenseTab = QWidget()
         self.licenseTab.setObjectName(u"licenseTab")
         self.verticalLayout_2 = QVBoxLayout(self.licenseTab)
@@ -148,14 +137,27 @@ class Ui_AboutDialog(object):
         self.verticalLayout_2.addWidget(self.licenseBrowser)
 
         self.tabWidget.addTab(self.licenseTab, "")
+        self.legalTab = QWidget()
+        self.legalTab.setObjectName(u"legalTab")
+        self.verticalLayout_4 = QVBoxLayout(self.legalTab)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.disclaimerLabel = QLabel(self.legalTab)
+        self.disclaimerLabel.setObjectName(u"disclaimerLabel")
+        self.disclaimerLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
+        self.disclaimerLabel.setWordWrap(True)
 
-        self.verticalLayout.addWidget(self.tabWidget)
+        self.verticalLayout_4.addWidget(self.disclaimerLabel)
 
-        self.copyrightLabel = QLabel(AboutDialog)
+        self.copyrightLabel = QLabel(self.legalTab)
         self.copyrightLabel.setObjectName(u"copyrightLabel")
+        self.copyrightLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.copyrightLabel.setIndent(1)
 
-        self.verticalLayout.addWidget(self.copyrightLabel)
+        self.verticalLayout_4.addWidget(self.copyrightLabel)
+
+        self.tabWidget.addTab(self.legalTab, "")
+
+        self.verticalLayout.addWidget(self.tabWidget)
 
         self.buttonBox = QDialogButtonBox(AboutDialog)
         self.buttonBox.setObjectName(u"buttonBox")
@@ -165,6 +167,9 @@ class Ui_AboutDialog(object):
 
 
         self.retranslateUi(AboutDialog)
+
+        self.tabWidget.setCurrentIndex(3)
+
 
         QMetaObject.connectSlotsByName(AboutDialog)
     # setupUi
@@ -182,8 +187,6 @@ class Ui_AboutDialog(object):
         self.supportedWebsitesButton.setText(QCoreApplication.translate("AboutDialog", u"Supported Websites", None))
         self.issueReportButton.setText(QCoreApplication.translate("AboutDialog", u"Report an Issue", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.linksTab), QCoreApplication.translate("AboutDialog", u"Links", None))
-        self.disclaimerLabel.setText(QCoreApplication.translate("AboutDialog", u"The authors of Media Downloader are not responsible/liable for any misuse of this program that may violate local copyright/DMCA laws. Users use this application at their own risk.", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.disclaimerTab), QCoreApplication.translate("AboutDialog", u"Disclaimer", None))
         self.label.setText(QCoreApplication.translate("AboutDialog", u"Licensed under GPL version 3 or later:", None))
         self.licenseBrowser.setHtml(QCoreApplication.translate("AboutDialog", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><title>GNU General Public License v3.0 - GNU Project - Free Software Foundation (FSF)</title><style type=\"text/css\">\n"
@@ -398,6 +401,8 @@ class Ui_AboutDialog(object):
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Noto Sans'; font-size:10pt;\">The GNU General Public License does not permit incorporating your program into proprie"
                         "tary programs. If your program is a subroutine library, you may consider it more useful to permit linking proprietary applications with the library. If this is what you want to do, use the GNU Lesser General Public License instead of this License. But first, please read &lt;</span><a href=\"https://www.gnu.org/licenses/why-not-lgpl.html\"><span style=\" font-family:'Noto Sans'; font-size:10pt; text-decoration: underline; color:#00d3b8;\">https://www.gnu.org/licenses/why-not-lgpl.html</span></a><span style=\" font-family:'Noto Sans'; font-size:10pt;\">&gt;. </span></p></body></html>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.licenseTab), QCoreApplication.translate("AboutDialog", u"License", None))
+        self.disclaimerLabel.setText(QCoreApplication.translate("AboutDialog", u"The authors of Media Downloader are not responsible/liable for any misuse of this program that may violate local copyright/DMCA laws. Users use this application at their own risk.", None))
         self.copyrightLabel.setText(QCoreApplication.translate("AboutDialog", u"Copyright \u00a9 2024 Marko Peji\u0107", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.legalTab), QCoreApplication.translate("AboutDialog", u"Legal", None))
     # retranslateUi
 

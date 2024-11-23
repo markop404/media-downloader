@@ -50,8 +50,7 @@ class PreferencesDialog(QDialog):
                         ),
                 "get-value-func": 
                     lambda: 
-                        self.settings_manager.CONSTANT_SETTTINGS["resolutions"]
-                        [self.ui.preferredResolutionSettingComboBox.currentText()],
+                        utils.str_to_int(self.ui.preferredResolutionSettingComboBox.currentText()),
             },
             "preferred-bitrate": {
                 "set-value-func":
@@ -61,8 +60,7 @@ class PreferencesDialog(QDialog):
                         ),
                 "get-value-func":
                     lambda: 
-                        self.settings_manager.CONSTANT_SETTTINGS["bitrates"]
-                        [self.ui.preferredBitrateSettingComboBox.currentText()],
+                        utils.str_to_int(self.ui.preferredBitrateSettingComboBox.currentText()),
             },
         }
 
