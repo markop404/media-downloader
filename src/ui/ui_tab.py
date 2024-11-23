@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabMztbBj.ui'
+## Form generated from reading UI file 'tabwcIkDB.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -106,7 +106,7 @@ class Ui_Tab(object):
         self.setDownloadFolderButton = QPushButton(Tab)
         self.setDownloadFolderButton.setObjectName(u"setDownloadFolderButton")
         self.setDownloadFolderButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentSaveAs))
+        icon = QIcon(QIcon.fromTheme(u"document-save-as"))
         self.setDownloadFolderButton.setIcon(icon)
 
         self.downloadFolderLayout.addWidget(self.setDownloadFolderButton)
@@ -171,18 +171,16 @@ class Ui_Tab(object):
 
         self.dataPullButton = QPushButton(Tab)
         self.dataPullButton.setObjectName(u"dataPullButton")
-        self.dataPullButton.setMinimumSize(QSize(110, 32))
         self.dataPullButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh))
+        icon1 = QIcon(QIcon.fromTheme(u"view-refresh"))
         self.dataPullButton.setIcon(icon1)
 
         self.actionButtonsLayout.addWidget(self.dataPullButton)
 
         self.downloadButton = QPushButton(Tab)
         self.downloadButton.setObjectName(u"downloadButton")
-        self.downloadButton.setMinimumSize(QSize(110, 32))
         self.downloadButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon2 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown))
+        icon2 = QIcon(QIcon.fromTheme(u"emblem-downloads"))
         self.downloadButton.setIcon(icon2)
 
         self.actionButtonsLayout.addWidget(self.downloadButton)
