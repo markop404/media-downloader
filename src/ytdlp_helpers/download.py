@@ -62,14 +62,14 @@ def download(
     if subtitle_lang:
         youtubedl_options["writesubtitles"] = True
         youtubedl_options["subtitleslangs"] = subtitle_lang
+        if embed_subtitles:
+            youtubedl_options["postprocessors"].append({"key": "FFmpegEmbedSubtitle"})
 
     if file_type == "mp4":
         youtubedl_options["format"] = "bestvideo+bestaudio"
         youtubedl_options["merge_output_format"] = "mp4"
         if quality:
-            youtubedl_options["format_sort"] = ["fps", "abr", f"res:{quality_int}"]
-        if subtitle_lang and embed_subtitles:
-            youtubedl_options["postprocessors"].append({"key": "FFmpegEmbedSubtitle"})
+            youtubedl_options["format_sort"] = ["fps", "abr", f"res:{quality}"]
     
     elif file_type == "mp3":
         youtubedl_options["postprocessors"] = [
@@ -80,7 +80,7 @@ def download(
         ] + youtubedl_options["postprocessors"]
         youtubedl_options["format"] = "bestaudio"
         if quality:
-            youtubedl_options["format_sort"] = [f"abr:{quality_int}"]
+            youtubedl_options["format_sort"] = [f"abr:{quality}"]
 
 
     with yt_dlp.YoutubeDL(youtubedl_options) as ydl:
