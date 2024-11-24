@@ -67,22 +67,22 @@ class PreferencesDialog(QDialog):
     def load_settings(self, defaults=False):
         self.loading_settings = True
         
-        if not defaults:
+        if defaults:
+            for setting_name, setting_func in self.SETTINGS.items():
+                setting_func["set-value-func"](self.settings_manager.DEFAULT_SETTINGS[setting_name]["value"])
+                self.settings_manager.remove(setting_name)
+        else:
             for setting_name, setting_func in self.SETTINGS.items():
                 value = self.settings_manager.load_setting(setting_name)
                 if value != None:
                     setting_func["set-value-func"](value)
-        else:
-            for setting_name, setting_func in self.SETTINGS.items():
-                setting_func["set-value-func"](self.settings_manager.DEFAULT_SETTINGS[setting_name]["value"])
-                self.settings_manager.remove(setting_name)
 
-        self.ui.preferredResolutionSettingComboBox.replace_all_items(
-            self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"],
-        )
-        self.ui.preferredBitrateSettingComboBox.replace_all_items(
-            self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"],
-        )
+            self.ui.preferredResolutionSettingComboBox.replace_all_items(
+                self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"],
+            )
+            self.ui.preferredBitrateSettingComboBox.replace_all_items(
+                self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"],
+            )
 
         self.loading_settings = False
 

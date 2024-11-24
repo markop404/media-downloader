@@ -27,7 +27,7 @@ class AboutDialog(QDialog):
         self.ui = Ui_AboutDialog()
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
-        self.setMinimumSize(self.sizeHint())
+        self.setFixedSize(self.sizeHint())
     
 
     def connect_signals_and_slots(self):
