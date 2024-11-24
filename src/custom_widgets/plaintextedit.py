@@ -42,7 +42,7 @@ class PlainTextEdit(QPlainTextEdit):
                 line += char
         if line:
             lines.add(line)
-            
+        
         return lines
 
 
@@ -55,7 +55,7 @@ class PlainTextEdit(QPlainTextEdit):
             elif line in text:
                 text = text.replace(url, "")
         
-        self.setPlainText(text)
+        self.set_text(text)
 
 
     def set_text(self, text=""):
@@ -69,4 +69,4 @@ class PlainTextEdit(QPlainTextEdit):
         for line in lines:
             text += line + "\n"
         
-        self.setPlainText(lines)
+        self.set_text(lines)
