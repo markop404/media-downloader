@@ -142,4 +142,6 @@ class Settings(QSettings):
         "crop-thumbnails": {"value": False, "type": bool},
         "embed-subtitles": {"value": True, "type": bool},
         "download-dir": {"value": None, "type": str},
+        "window-geometry": {"value": None, "type": None},
+        "window-state": {"value": None, "type": None},
     }
