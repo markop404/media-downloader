@@ -136,7 +136,7 @@ class Tab(QWidget):
         self.thread_running = True
 
         self.ui.plainTextEdit.cleanup()
-        urls = self.ui.plainTextEdit.get_lines(urls)
+        urls = self.ui.plainTextEdit.get_lines()
         self.update_status_indicators(situation="extracting_urls", progress=(1, len(urls)), percentage=0)
 
         self.ui.plainTextEdit.setReadOnly(True)
@@ -548,8 +548,10 @@ class Tab(QWidget):
     
 
     def update_subtitles(self, subtitles):
-        for subtitle_lang, subtitle_name in subtitles.items():
-            ...
+        self.ui.qualityComboBox.generate_and_replace_all_items(
+            subtitles,
+            first_item="None",
+        )
 
 
     def update_status_indicators(self, situation=None, progress=None, percentage=None):

@@ -2,15 +2,16 @@
 <ui version="4.0">
  <class>TabButtons</class>
  <widget class="QWidget" name="TabButtons">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>191</width>
-    <height>44</height>
-   </rect>
-  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>3</number>
+   </property>
    <item>
     <widget class="QPushButton" name="newTabButton">
      <property name="focusPolicy">

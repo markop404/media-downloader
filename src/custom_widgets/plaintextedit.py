@@ -46,7 +46,7 @@ class PlainTextEdit(QPlainTextEdit):
         self.set_text(lines)
     
 
-    def get_lines():
+    def get_lines(self):
         text = self.toPlainText()
         lines = set()
         line = ""
@@ -66,7 +66,7 @@ class PlainTextEdit(QPlainTextEdit):
         return lines
 
 
-    def remove_lines(lines):
+    def remove_lines(self, lines):
         text = self.toPlainText()
 
         for line in lines:
@@ -84,7 +84,7 @@ class PlainTextEdit(QPlainTextEdit):
         self.setting_text = False
 
 
-    def set_text_by_lines(lines):
+    def set_text_by_lines(self, lines):
         text = ""
         for line in lines:
             text += line + "\n"
