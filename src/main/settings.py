@@ -112,8 +112,26 @@ class Settings(QSettings):
             "Audio": "mp3",
             "Video": "mp4",
         },
-        "preferred-esolutions": [0, 2160, 1440, 1920, 1080, 720, 480, 360],
-        "preferred-bitrates": [0, 320, 256, 192, 160, 128, 96, 64],
+        "preferred-resolutions": {
+            "Best": 0,
+            "2160p": 2160,
+            "1440p": 1440,
+            "1920p": 1920,
+            "1080p": 1080,
+            "720p": 720,
+            "480p": 480,
+            "360p": 360,
+        },
+        "preferred-bitrates": {
+            "Best": 0,
+            "320 kbps": 320,
+            "256 kbps": 256,
+            "192 kbps": 192,
+            "160 kbps": 160,
+            "128 kbps": 128,
+            "96 kbps": 96,
+            "64 kbps": 64,
+        },
     }
     DEFAULT_SETTINGS = {
         "remember-tab-settings": {"value": True, "type": bool},
@@ -124,6 +142,4 @@ class Settings(QSettings):
         "crop-thumbnails": {"value": False, "type": bool},
         "embed-subtitles": {"value": True, "type": bool},
         "download-dir": {"value": None, "type": str},
-        "window-position": {"value": None, "type": QPoint},
-        "window-size": {"value": None, "type": QSize},
     }

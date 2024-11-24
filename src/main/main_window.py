@@ -39,14 +39,20 @@ class MainWindow(QMainWindow):
         self.settings_manager = main.Settings()
         self.SETTINGS = [
             {
-                "name": "window-position",
-                "set-value-func": self.move,
-                "get-value-func": self.pos,
+                "name": "window-geometry",
+                "set-value-func": self.saveGeometry,
+                "get-value-func": lambda: 
+                    self.restoreGeometry(
+                        self.settings_manager.value("window-geometry")
+                    ),
             },
             {
-                "name": "window-size",
-                "set-value-func": self.resize,
-                "get-value-func": self.size,
+                "name": "window-state",
+                "set-value-func": self.saveState,
+                "get-value-func": lambda: 
+                    self.restoreState(
+                        self.settings_manager.value("window-state")
+                    ),
             },
         ]
         self.load_settings()
