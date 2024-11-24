@@ -24,10 +24,30 @@ class PlainTextEdit(QPlainTextEdit):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setting_text = False
+
+
+    def cleanup(self):
+        text = self.toPlainText()
+        lines = ""
+        line = ""
+
+        for char in text:
+            if line == "" and (char == " " or char == "\t" or char == "\n"):
+                continue
+            elif line != "" and char == "\n":
+                line.replace(" ", "")
+                lines += line + "\n"
+                line = ""
+            else:
+                line += char
+        if line:
+            lines += line + "\n"
+        
+        self.set_text(lines)
     
 
     def get_lines():
-        text + self.toPlainText()
+        text = self.toPlainText()
         lines = set()
         line = ""
 

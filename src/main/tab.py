@@ -135,7 +135,8 @@ class Tab(QWidget):
     def prep_thread_start(self):
         self.thread_running = True
 
-        urls = utils.plain_text_to_set(self.ui.plainTextEdit.toPlainText())
+        self.ui.plainTextEdit.cleanup()
+        urls = self.ui.plainTextEdit.get_lines(urls)
         self.change_plain_text_edit(utils.list_to_plain_text(urls))
         self.update_status_indicators(situation="extracting_urls", progress=(1, len(urls)), percentage=0)
 
