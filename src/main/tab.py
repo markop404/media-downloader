@@ -137,7 +137,6 @@ class Tab(QWidget):
 
         self.ui.plainTextEdit.cleanup()
         urls = self.ui.plainTextEdit.get_lines(urls)
-        self.change_plain_text_edit(utils.list_to_plain_text(urls))
         self.update_status_indicators(situation="extracting_urls", progress=(1, len(urls)), percentage=0)
 
         self.ui.plainTextEdit.setReadOnly(True)
