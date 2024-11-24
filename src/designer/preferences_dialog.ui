@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>PreferencesDialog</class>
  <widget class="QDialog" name="PreferencesDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>743</width>
+    <height>406</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>Preferences</string>
   </property>
@@ -385,7 +393,7 @@
   <customwidget>
    <class>Toggle</class>
    <extends>QSlider</extends>
-   <header>main.toggle</header>
+   <header>custom_widgets.toggle</header>
   </customwidget>
  </customwidgets>
  <resources/>

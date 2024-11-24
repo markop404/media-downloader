@@ -2,9 +2,17 @@
 <ui version="4.0">
  <class>Tab</class>
  <widget class="QWidget" name="Tab">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1241</width>
+    <height>684</height>
+   </rect>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QPlainTextEdit" name="plainTextEdit">
+    <widget class="PlainTextEdit" name="plainTextEdit">
      <property name="placeholderText">
       <string>Paste URLs here...</string>
      </property>
@@ -65,7 +73,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QComboBox" name="formatComboBox">
+      <widget class="ComboBox" name="formatComboBox">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
@@ -92,7 +100,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QComboBox" name="qualityComboBox">
+      <widget class="ComboBox" name="qualityComboBox">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
@@ -115,7 +123,7 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QComboBox" name="subtitlesComboBox">
+      <widget class="ComboBox" name="subtitlesComboBox">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
@@ -437,6 +445,18 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlainTextEdit</class>
+   <extends>QPlainTextEdit</extends>
+   <header>custom_widgets.plaintextedit</header>
+  </customwidget>
+  <customwidget>
+   <class>ComboBox</class>
+   <extends>QComboBox</extends>
+   <header>custom_widgets.combobox</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

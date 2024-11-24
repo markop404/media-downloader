@@ -117,14 +117,13 @@ class Tab(QWidget):
         self.download_directory = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
         self.thread_running = False
         self.cancel_progress = False
-        self.subtitles = {}
-        self.qualities = {"mp4": {}, "mp3": []}
         self.user_answer = None
-        self.changing_plain_text_edit = False
         self.preferred_qualities = {
             "resolution": self.settings_manager.load_setting("preferred-resolution"),
             "bitrate": self.settings_manager.load_setting("preferred-bitrate"),
         }
+        self.subtitles = {}
+        self.qualities = {"mp4": {}, "mp3": []}
     
 
     def setup_filedialog(self):
@@ -547,7 +546,7 @@ class Tab(QWidget):
    
 
     def on_text_change(self):
-        if not self.changing_plain_text_edit and not self.thread_running:
+        if not self.ui.plainTextEdit.setting_text and not self.thread_running:
             utils.replace_combobox_items(self.ui.subtitlesComboBox)
             self.update_status_indicators()
             self.subtitles = {}
@@ -614,9 +613,3 @@ class Tab(QWidget):
             subtitles = [self.subtitles[subtitles]]
         
         return file_type, selected_quality, subtitles
-
-
-    def change_plain_text_edit(self, text=""):
-        self.changing_plain_text_edit = True
-        self.ui.plainTextEdit.setPlainText(text)
-        self.changing_plain_text_edit = False

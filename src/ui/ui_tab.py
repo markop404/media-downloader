@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabwcIkDB.ui'
+## Form generated from reading UI file 'tabuelGvb.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -16,17 +16,20 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
-    QHBoxLayout, QLabel, QPlainTextEdit, QProgressBar,
-    QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout,
-    QWidget)
+    QHBoxLayout, QLabel, QProgressBar, QPushButton,
+    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
+
+from custom_widgets.combobox import ComboBox
+from custom_widgets.plaintextedit import PlainTextEdit
 
 class Ui_Tab(object):
     def setupUi(self, Tab):
         if not Tab.objectName():
             Tab.setObjectName(u"Tab")
+        Tab.resize(1241, 684)
         self.verticalLayout = QVBoxLayout(Tab)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.plainTextEdit = QPlainTextEdit(Tab)
+        self.plainTextEdit = PlainTextEdit(Tab)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
 
         self.verticalLayout.addWidget(self.plainTextEdit)
@@ -58,7 +61,7 @@ class Ui_Tab(object):
 
         self.downloadOptionsLayout.setWidget(0, QFormLayout.LabelRole, self.formatLabel)
 
-        self.formatComboBox = QComboBox(Tab)
+        self.formatComboBox = ComboBox(Tab)
         self.formatComboBox.addItem("")
         self.formatComboBox.addItem("")
         self.formatComboBox.setObjectName(u"formatComboBox")
@@ -71,7 +74,7 @@ class Ui_Tab(object):
 
         self.downloadOptionsLayout.setWidget(1, QFormLayout.LabelRole, self.qualityLabel)
 
-        self.qualityComboBox = QComboBox(Tab)
+        self.qualityComboBox = ComboBox(Tab)
         self.qualityComboBox.setObjectName(u"qualityComboBox")
         self.qualityComboBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.qualityComboBox.setSizeAdjustPolicy(QComboBox.SizeAdjustPolicy.AdjustToContents)
@@ -83,7 +86,7 @@ class Ui_Tab(object):
 
         self.downloadOptionsLayout.setWidget(2, QFormLayout.LabelRole, self.subtitlesLabel)
 
-        self.subtitlesComboBox = QComboBox(Tab)
+        self.subtitlesComboBox = ComboBox(Tab)
         self.subtitlesComboBox.setObjectName(u"subtitlesComboBox")
         self.subtitlesComboBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.subtitlesComboBox.setSizeAdjustPolicy(QComboBox.SizeAdjustPolicy.AdjustToContents)
