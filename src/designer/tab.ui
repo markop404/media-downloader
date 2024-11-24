@@ -2,14 +2,6 @@
 <ui version="4.0">
  <class>Tab</class>
  <widget class="QWidget" name="Tab">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>1241</width>
-    <height>684</height>
-   </rect>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="PlainTextEdit" name="plainTextEdit">
@@ -68,7 +60,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="formatLabel">
        <property name="text">
-        <string>&lt;u&gt;F&lt;/u&gt;ormat:</string>
+        <string>Format:</string>
        </property>
       </widget>
      </item>
@@ -95,7 +87,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="qualityLabel">
        <property name="text">
-        <string>&lt;u&gt;Q&lt;/u&gt;uality:</string>
+        <string>Quality:</string>
        </property>
       </widget>
      </item>
@@ -118,7 +110,7 @@
      <item row="2" column="0">
       <widget class="QLabel" name="subtitlesLabel">
        <property name="text">
-        <string>&lt;u&gt;S&lt;/u&gt;ubtitles:</string>
+        <string>Subtitles:</string>
        </property>
       </widget>
      </item>

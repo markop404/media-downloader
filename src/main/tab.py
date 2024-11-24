@@ -34,8 +34,6 @@ class Tab(QWidget):
     def __init__(self, parent, pretty_tab_number):
         super().__init__()
         self.setup_ui()
-        
-        self.settings_manager = Settings()
         self.SETTINGS = [
             {
                 "name": "download-format",
@@ -53,9 +51,9 @@ class Tab(QWidget):
                 "get-value-func": self.ui.embedSubtitlesCheckBox.isChecked,
             },
         ]
-        self.load_settings()
-
+        self.settings_manager = Settings()
         self.setup_vars(parent, pretty_tab_number)
+        self.load_settings()
         self.update_download_directory_indicators()
         self.setup_filedialog()
         self.event_invoker = utils.Invoker()
@@ -117,7 +115,7 @@ class Tab(QWidget):
         self.download_directory = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
         self.thread_running = False
         self.cancel_progress = False
-        self.user_answer = None
+        self.user_answer = False
         self.preferred_qualities = {
             "resolution": self.settings_manager.load_setting("preferred-resolution"),
             "bitrate": self.settings_manager.load_setting("preferred-bitrate"),
@@ -138,41 +136,6 @@ class Tab(QWidget):
         self.ui.setDownloadFolderButton.clicked.connect(self.set_download_location)
         self.ui.formatComboBox.currentTextChanged.connect(self.update_shown_qualities)
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
-
-
-    def update_status_indicators(self, situation=None, progress=None, percentage=None):
-        tab_index = self.parent.ui.tabWidget.indexOf(self)
-        if situation:
-            if progress and len(progress) == 2:
-                progress_text = f" ({progress[0]}/{progress[1]})"
-            else:
-                progress_text = ""
-
-            text = f"{self.settings_manager.CONSTANT_SETTTINGS["status_label_text"][situation]}{progress_text}"
-            icon = self.settings_manager.CONSTANT_SETTTINGS["status_label_icons"][situation]
-            self.ui.statusLabel.setText(text)
-            self.ui.statusIconLabel.setPixmap(icon.pixmap(QSize(28, 28)))
-            if isinstance(percentage, int):
-                self.ui.progressBar.setValue(percentage)
-            self.parent.update_tab_status_indicators(tab_index, self.pretty_tab_number, situation, progress)
-        else:
-            self.ui.statusLabel.setText("")
-            self.ui.progressBar.setValue(0)
-            self.parent.update_tab_status_indicators(tab_index, self.pretty_tab_number)
-            self.ui.statusIconLabel.setPixmap(QPixmap())
-
-
-    def update_download_directory_indicators(self):
-        dir_name = QDir(self.download_directory).dirName()
-        full_path = QUrl.fromLocalFile(self.download_directory).toString()
-
-        if dir_name:
-            new_text = f"<a href=\"{full_path}\">{dir_name}</a>"
-        else:
-            new_text = f"<a href=\"{full_path}\">{self.download_directory}</a>"
-
-        self.ui.downloadFolderIndicatorLabel.setText(new_text)
-        self.ui.downloadFolderIndicatorLabel.setToolTip(self.download_directory)
 
 
     def prep_thread_start(self):
@@ -572,6 +535,22 @@ class Tab(QWidget):
             self.update_download_directory_indicators()
 
 
+    def get_download_opts(self):
+        file_type = self.ui.formatComboBox.currentData()
+        subtitles = self.ui.subtitlesComboBox.currentData()
+        selected_quality = self.ui.qualityComboBox.currentData()
+        
+        if selected_quality:
+            quality = selected_quality
+        else:
+            if file_type == "mp4":
+                quality = self.settings_manager.load_setting("preferred-resolution")
+            elif file_type == "mp3":
+                quality = self.settings_manager.load_setting("preferred-bitrate")
+        
+        return file_type, selected_quality, subtitles
+
+
     def update_shown_qualities(self):
         _format = self.ui.formatComboBox.currentText()
 
@@ -589,27 +568,38 @@ class Tab(QWidget):
         self.ui.qualityComboBox.setPlaceholderText(placeholder_text)
         if preferred_quality in qualities:
             self.ui.qualityComboBox.setCurrentText(preferred_quality)
-    
 
-    def get_download_opts(self):
-        file_type = self.settings_manager.CONSTANT_SETTTINGS["formats"][self.ui.formatComboBox.currentText()]
-        selected_quality = utils.str_to_int(self.ui.qualityComboBox.currentText())
-        
-        if file_type == "mp4":
-            if selected_quality in self.qualities["mp4"]:
-                quality = self.qualities["mp4"][selected_quality]
-            else:
-                quality = self.settings_manager.load_setting("preferred-resolution")
-        elif file_type == "mp3":
-            if selected_quality in self.qualities["mp3"]:
-                quality = selected_quality
-            else:
-                quality = self.settings_manager.load_setting("preferred-bitrate")
 
-        subtitles = self.ui.subtitlesComboBox.currentText()
-        if not subtitles:
-            subtitles = None
+    def update_status_indicators(self, situation=None, progress=None, percentage=None):
+        tab_index = self.parent.ui.tabWidget.indexOf(self)
+        if situation:
+            if progress and len(progress) == 2:
+                progress_text = f" ({progress[0]}/{progress[1]})"
+            else:
+                progress_text = ""
+
+            text = f"{self.settings_manager.CONSTANT_SETTTINGS["status_label_text"][situation]}{progress_text}"
+            icon = self.settings_manager.CONSTANT_SETTTINGS["status_label_icons"][situation]
+            self.ui.statusLabel.setText(text)
+            self.ui.statusIconLabel.setPixmap(icon.pixmap(QSize(28, 28)))
+            if isinstance(percentage, int):
+                self.ui.progressBar.setValue(percentage)
+            self.parent.update_tab_status_indicators(tab_index, self.pretty_tab_number, situation, progress)
         else:
-            subtitles = [self.subtitles[subtitles]]
-        
-        return file_type, selected_quality, subtitles
+            self.ui.statusLabel.setText("")
+            self.ui.progressBar.setValue(0)
+            self.parent.update_tab_status_indicators(tab_index, self.pretty_tab_number)
+            self.ui.statusIconLabel.setPixmap(QPixmap())
+
+
+    def update_download_directory_indicators(self):
+        dir_name = QDir(self.download_directory).dirName()
+        full_path = QUrl.fromLocalFile(self.download_directory).toString()
+
+        if dir_name:
+            new_text = f"<a href=\"{full_path}\">{dir_name}</a>"
+        else:
+            new_text = f"<a href=\"{full_path}\">{self.download_directory}</a>"
+
+        self.ui.downloadFolderIndicatorLabel.setText(new_text)
+        self.ui.downloadFolderIndicatorLabel.setToolTip(self.download_directory)
