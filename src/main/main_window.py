@@ -40,19 +40,14 @@ class MainWindow(QMainWindow):
         self.SETTINGS = [
             {
                 "name": "window-geometry",
-                "set-value-func": self.saveGeometry,
-                "get-value-func": lambda: 
-                    self.restoreGeometry(
-                        self.settings_manager.value("window-geometry")
-                    ),
+                "set-value-func": self.restoreGeometry,
+                "get-value-func": self.saveGeometry,
+
             },
             {
                 "name": "window-state",
-                "set-value-func": self.saveState,
-                "get-value-func": lambda: 
-                    self.restoreState(
-                        self.settings_manager.value("window-state")
-                    ),
+                "set-value-func": self.restoreState,
+                "get-value-func": self.saveState,
             },
         ]
         self.load_settings()
@@ -68,7 +63,7 @@ class MainWindow(QMainWindow):
 
     def load_settings(self):
         for setting in self.SETTINGS:
-            value = self.settings_manager.load_setting(setting["name"])
+            value = self.settings_manager.value(setting["name"])
             if value != None:
                 setting["set-value-func"](value)
 
