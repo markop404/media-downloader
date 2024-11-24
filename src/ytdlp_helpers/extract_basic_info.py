@@ -19,8 +19,6 @@
 
 from re import search
 
-from utils import str_to_int
-
 
 def extract_basic_info(data_list):
     all_bitrates = set()

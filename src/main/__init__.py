@@ -24,4 +24,3 @@ from .main_window import MainWindow
 from .preferences_dialog import PreferencesDialog
 from .settings import Settings
 from .application import Application
-from .toggle import Toggle

@@ -22,7 +22,6 @@ import os
 import yt_dlp
 
 from .check_internet_connection import check_internet_connection
-from utils import str_to_int
 
 
 def download(

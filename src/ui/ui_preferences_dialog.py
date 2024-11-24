@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogibvPIa.ui'
+## Form generated from reading UI file 'preferences_dialogXgzKvQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -15,17 +15,17 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractButton, QApplication, QComboBox, QDialog,
-    QDialogButtonBox, QHBoxLayout, QLabel, QSizePolicy,
-    QSpacerItem, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
+    QHBoxLayout, QLabel, QSizePolicy, QSpacerItem,
+    QVBoxLayout, QWidget)
 
+from custom_widgets.combobox import ComboBox
 from custom_widgets.toggle import Toggle
 
 class Ui_PreferencesDialog(object):
     def setupUi(self, PreferencesDialog):
         if not PreferencesDialog.objectName():
             PreferencesDialog.setObjectName(u"PreferencesDialog")
-        PreferencesDialog.resize(743, 406)
         self.PreferencesDialogLayout = QVBoxLayout(PreferencesDialog)
         self.PreferencesDialogLayout.setObjectName(u"PreferencesDialogLayout")
         self.topSpacer = QSpacerItem(0, 21, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
@@ -149,7 +149,7 @@ class Ui_PreferencesDialog(object):
 
         self.preferredResolutionSettingLayout.addItem(self.preferredResolutionSettingLayoutSpacer)
 
-        self.preferredResolutionSettingComboBox = QComboBox(PreferencesDialog)
+        self.preferredResolutionSettingComboBox = ComboBox(PreferencesDialog)
         self.preferredResolutionSettingComboBox.setObjectName(u"preferredResolutionSettingComboBox")
         self.preferredResolutionSettingComboBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
@@ -189,7 +189,7 @@ class Ui_PreferencesDialog(object):
 
         self.preferredBitrateSettingLayout.addItem(self.preferredBitrateSettingLayoutSpacer)
 
-        self.preferredBitrateSettingComboBox = QComboBox(PreferencesDialog)
+        self.preferredBitrateSettingComboBox = ComboBox(PreferencesDialog)
         self.preferredBitrateSettingComboBox.setObjectName(u"preferredBitrateSettingComboBox")
         self.preferredBitrateSettingComboBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
