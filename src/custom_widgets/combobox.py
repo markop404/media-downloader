@@ -21,7 +21,7 @@ from PySide6.QtWidgets import QComboBox
 
 
 class ComboBox(QComboBox):
-    def generate_and_set_items(self, items, prefix="", suffix="", first_item=None, sort_reverse=True):
+    def generate_and_replace_all_items(self, items, prefix="", suffix="", first_item=None, sort_reverse=True):
         data = {}
 
         if first_item:
@@ -29,13 +29,13 @@ class ComboBox(QComboBox):
         
         for item in sorted(items, reverse=sort_reverse):
             pretty_item = prefix + str(item) + suffix
-            data[pretty_item] = item
+            data[item] = pretty_item
         
         self.replace_all_items(data)
 
 
     def replace_all_items(self, items={}):
         self.clear()
-        for text, data in items.items():
+        for data, text in items.items():
             self.addItem(text, data)
         self.setCurrentIndex(0)

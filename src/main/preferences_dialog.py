@@ -48,9 +48,7 @@ class PreferencesDialog(QDialog):
                         self.ui.preferredResolutionSettingComboBox.setCurrentText(
                             self.settings_manager.CONSTANT_SETTTINGS["resolutions"][value]
                         ),
-                "get-value-func": 
-                    lambda: 
-                        utils.str_to_int(self.ui.preferredResolutionSettingComboBox.currentText()),
+                "get-value-func": self.ui.preferredResolutionSettingComboBox.currentData,
             },
             "preferred-bitrate": {
                 "set-value-func":
@@ -58,9 +56,7 @@ class PreferencesDialog(QDialog):
                         self.ui.preferredBitrateSettingComboBox.setCurrentText(
                             self.settings_manager.CONSTANT_SETTTINGS["bitrates"][value]
                         ),
-                "get-value-func":
-                    lambda: 
-                        utils.str_to_int(self.ui.preferredBitrateSettingComboBox.currentText()),
+                "get-value-func": self.ui.preferredBitrateSettingComboBox.currentData,
             },
         }
 
@@ -81,13 +77,11 @@ class PreferencesDialog(QDialog):
                 setting_func["set-value-func"](self.settings_manager.DEFAULT_SETTINGS[setting_name]["value"])
                 self.settings_manager.remove(setting_name)
 
-        utils.replace_combobox_items(
-            self.ui.preferredResolutionSettingComboBox,
-            self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"].keys(),
+        self.ui.preferredResolutionSettingComboBox.replace_all_items(
+            self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"],
         )
-        utils.replace_combobox_items(
-            self.ui.preferredBitrateSettingComboBox,
-            self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"].keys(),
+        self.ui.preferredBitrateSettingComboBox.replace_all_items(
+            self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"],
         )
 
         self.loading_settings = False
