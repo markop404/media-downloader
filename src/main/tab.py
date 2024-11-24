@@ -116,12 +116,6 @@ class Tab(QWidget):
         self.thread_running = False
         self.cancel_progress = False
         self.user_answer = False
-        self.preferred_qualities = {
-            "resolution": self.settings_manager.load_setting("preferred-resolution"),
-            "bitrate": self.settings_manager.load_setting("preferred-bitrate"),
-        }
-        self.subtitles = {}
-        self.qualities = {"mp4": {}, "mp3": []}
     
 
     def setup_filedialog(self):
@@ -278,7 +272,7 @@ class Tab(QWidget):
                     )
             )
         if self.settings_manager.load_setting("remove-downloaded-urls"):
-            self.remove_urls_from_entry([url])
+            self.ui.plainTextEdit.remove_lines([url])
     
 
     def postprocess_progress(self, data, processed_url_count, total_url_count):
@@ -364,25 +358,17 @@ class Tab(QWidget):
         if failed_urls and data:
             self.handle_invalid_url_warning(failed_urls, error_type="data_pull")
 
-        self.preferred_qualities = {
-            "resolution": self.settings_manager.load_setting("preferred-resolution"),
-            "bitrate": self.settings_manager.load_setting("preferred-bitrate"),
-        }
         try:
-            data = ytdlp_helpers.extract_basic_info(data, self.preferred_qualities)
+            data = ytdlp_helpers.extract_basic_info(data)
         except BaseException as e:
             print(e)
             self.prep_thread_exit("data_pull_failed")
             return
 
-        self.qualities, self.preferred_qualities = data[0], data[2]
-        self.run_in_gui_thread(self.update_shown_qualities)
-        
+        qualities = data[0]
         subtitles = data[1]
-        if subtitles:
-            self.subtitles["None"] = "none"
-            self.subtitles.update(subtitles)
-            utils.replace_combobox_items(self.ui.subtitlesComboBox, self.subtitles.keys())
+        self.run_in_gui_thread(lambda: self.update_shown_qualities(qualities))
+        self.run_in_gui_thread(lambda: self.update_shown_subtitles(subtitles))
         
         self.prep_thread_exit("data_pull_finished", percentage=100)
 
@@ -500,21 +486,14 @@ class Tab(QWidget):
             time.sleep(0.01)
 
         if self.user_answer:
-            self.remove_urls_from_entry(urls)
+            self.run_in_gui_thread(lambda: self.ui.plainTextEdit.remove_lines(urls))
 
-
-    def remove_urls_from_entry(self, urls):
-        text = self.ui.plainTextEdit.toPlainText()
-        self.run_in_gui_thread(lambda: self.change_plain_text_edit(utils.remove_lines(text, urls)))
-   
 
     def on_text_change(self):
         if not self.ui.plainTextEdit.setting_text and not self.thread_running:
-            utils.replace_combobox_items(self.ui.subtitlesComboBox)
             self.update_status_indicators()
-            self.subtitles = {}
-            self.qualities = {"mp4": {}, "mp3": []}
-            self.update_shown_qualities()
+            self.ui.qualityComboBox.replace_all_items()
+            self.ui.subtitlesComboBox.replace_all_items()
 
 
     def show_combobox_popup(self, combobox):
@@ -551,23 +530,26 @@ class Tab(QWidget):
         return file_type, selected_quality, subtitles
 
 
-    def update_shown_qualities(self):
-        _format = self.ui.formatComboBox.currentText()
+    def update_shown_qualities(self, qualities):
+        _format = self.ui.formatComboBox.currentData()
 
-        if self.settings_manager.CONSTANT_SETTTINGS["formats"][_format] == "mp4":
-            qualities = self.qualities["mp4"]
+        if _format == "mp4":
+            qualities = qualities["resolutions"]
             placeholder_text = self.settings_manager.load_setting("preferred-resolution")
-            preferred_quality = self.preferred_qualities["resolution"]
+            suffix = "p"
         
-        elif self.settings_manager.CONSTANT_SETTTINGS["formats"][_format] == "mp3":
-            qualities = self.qualities["mp3"]
+        elif _format == "mp3":
+            qualities = qualities["bitrates"]
             placeholder_text = self.settings_manager.load_setting("preferred-bitrate")
-            preferred_quality = self.preferred_qualities["bitrate"]
+            suffix = " kbps"
 
-        utils.replace_combobox_items(self.ui.qualityComboBox, qualities)
+        self.ui.qualityComboBox.generate_and_replace_all_items(qualities, suffix=suffix, first_item="Best")
         self.ui.qualityComboBox.setPlaceholderText(placeholder_text)
-        if preferred_quality in qualities:
-            self.ui.qualityComboBox.setCurrentText(preferred_quality)
+    
+
+    def update_subtitles(self, subtitles):
+        for subtitle_lang, subtitle_name in subtitles.items():
+            ...
 
 
     def update_status_indicators(self, situation=None, progress=None, percentage=None):
