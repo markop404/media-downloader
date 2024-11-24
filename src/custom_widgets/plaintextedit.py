@@ -26,13 +26,15 @@ class PlainTextEdit(QPlainTextEdit):
         self.setting_text = False
     
 
-    def plain_text_to_set(text):
+    def get_lines():
+        text + self.toPlainText()
         lines = set()
-        line = str()
+        line = ""
+
         for char in text:
-            if char == " " or char == "\t" or char == "\n" and line == "":
+            if line == "" and (char == " " or char == "\t" or char == "\n"):
                 continue
-            elif char == "\n" and line != "":
+            elif line != "" and char == "\n":
                 line.replace(" ", "")
                 lines.add(line)
                 line = ""
@@ -40,28 +42,31 @@ class PlainTextEdit(QPlainTextEdit):
                 line += char
         if line:
             lines.add(line)
+            
         return lines
 
 
-    def list_to_plain_text(lines):
+    def remove_lines(lines):
+        text = self.toPlainText()
+
+        for line in lines:
+            if line + "\n" in text:
+                text = text.replace(url + "\n", "")
+            elif line in text:
+                text = text.replace(url, "")
+        
+        self.setPlainText(text)
+
+
+    def set_text(self, text=""):
+        self.setting_text = True
+        self.setPlainText(text)
+        self.setting_text = False
+
+
+    def set_text_by_lines(lines):
         text = ""
         for line in lines:
             text += line + "\n"
         
-        return text
-
-
-    def remove_lines(text, urls):   
-        for url in urls:
-            if url + "\n" in text:
-                text = text.replace(url + "\n", "")
-            elif url in text:
-                text = text.replace(url, "")
-        
-        return text
-
-
-    def setText(self, text=""):
-        self.setting_text = True
-        self.setPlainText(text)
-        self.setting_text = False
+        self.setPlainText(lines)
