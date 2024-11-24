@@ -17,16 +17,25 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from PySide6.QtCore import QEvent, QObject
+from PySide6.QtWidgets import QComboBox
 
 
-class InvokeEvent(QEvent):
-    def __init__(self, fn):
-        QEvent.__init__(self, QEvent.Type(QEvent.registerEventType()))
-        self.fn = fn
+class ComboBox(QComboBox):
+    def generate_data(self, items, prefix="", suffix="", first_item=None, sort_reverse=False):
+        data = {}
+
+        if first_item:
+            data[first_item] = None
+        
+        for item in sorted(items, reverse=sort_reverse):
+            pretty_item = prefix + str(item) + suffix
+            data[pretty_item] = item
+        
+        return data
 
 
-class Invoker(QObject):
-    def event(self, event):
-        event.fn()
-        return True
+    def replace_all_items(combobox, items=[], generate_data=False):
+        self.clear()
+        for text, data in items:
+            combobox.addItem(text, data)
+        self.setCurrentIndex(0)

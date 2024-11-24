@@ -17,16 +17,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from PySide6.QtCore import QEvent, QObject
-
-
-class InvokeEvent(QEvent):
-    def __init__(self, fn):
-        QEvent.__init__(self, QEvent.Type(QEvent.registerEventType()))
-        self.fn = fn
-
-
-class Invoker(QObject):
-    def event(self, event):
-        event.fn()
-        return True
+from .toggle import Toggle
+from .combobox import ComboBox
+from .plaintextedit import PlainTextEdit
