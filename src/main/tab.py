@@ -108,6 +108,8 @@ class Tab(QWidget):
                 )
         )
 
+        self.ui.formatComboBox.replace_all_items(Settings.CONSTANT_SETTTINGS["formats"])
+
 
     def setup_vars(self, parent, pretty_tab_number):
         self.parent = parent
@@ -530,24 +532,26 @@ class Tab(QWidget):
         return file_type, selected_quality, subtitles
 
 
-    def update_shown_qualities(self, qualities):
+    def update_shown_qualities(self, qualities=None):
         _format = self.ui.formatComboBox.currentData()
 
-        if _format == "mp4":
-            qualities = qualities["resolutions"]
-            placeholder_text = self.settings_manager.load_setting("preferred-resolution")
-            suffix = "p"
+        if qualities:
+            if _format == "mp4":
+                qualities = qualities["resolutions"]
+                suffix = "p"
+            elif _format == "mp3":
+                qualities = qualities["bitrates"]
+                suffix = " kbps"
+            self.ui.qualityComboBox.generate_and_replace_all_items(qualities, suffix=suffix, first_item="Best")
         
+        if _format == "mp4":
+            placeholder_text = Settings.CONSTANT_SETTTINGS["preferred-resolutions"][self.settings_manager.load_setting("preferred-resolution")]
         elif _format == "mp3":
-            qualities = qualities["bitrates"]
-            placeholder_text = self.settings_manager.load_setting("preferred-bitrate")
-            suffix = " kbps"
-
-        self.ui.qualityComboBox.generate_and_replace_all_items(qualities, suffix=suffix, first_item="Best")
+            placeholder_text = Settings.CONSTANT_SETTTINGS["preferred-resolutions"][self.settings_manager.load_setting("preferred-bitrate")]
         self.ui.qualityComboBox.setPlaceholderText(placeholder_text)
     
 
-    def update_subtitles(self, subtitles):
+    def update_subtitles(self, subtitles=None):
         self.ui.qualityComboBox.generate_and_replace_all_items(
             subtitles,
             first_item="None",

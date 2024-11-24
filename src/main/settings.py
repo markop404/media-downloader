@@ -109,8 +109,8 @@ class Settings(QSettings):
             "refresh": {"default": "&Pull Data", "secondary": "Cancel Data &Pull"},
         },
         "formats": {
-            "Audio": "mp3",
-            "Video": "mp4",
+            "mp4": "Video",
+            "mp3": "Audio",
         },
         "preferred-resolutions": {
             0:  "Best",

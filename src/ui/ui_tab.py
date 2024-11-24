@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabWnNtoB.ui'
+## Form generated from reading UI file 'tabKKSjZl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -61,8 +61,6 @@ class Ui_Tab(object):
         self.downloadOptionsLayout.setWidget(0, QFormLayout.LabelRole, self.formatLabel)
 
         self.formatComboBox = ComboBox(Tab)
-        self.formatComboBox.addItem("")
-        self.formatComboBox.addItem("")
         self.formatComboBox.setObjectName(u"formatComboBox")
         self.formatComboBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
@@ -252,9 +250,6 @@ class Ui_Tab(object):
 #endif // QT_CONFIG(tooltip)
         self.donationLinkLabel.setText(QCoreApplication.translate("Tab", u"<a href=\"https://downloader.markopejic.com/donate\">Donate</a>", None))
         self.formatLabel.setText(QCoreApplication.translate("Tab", u"Format:", None))
-        self.formatComboBox.setItemText(0, QCoreApplication.translate("Tab", u"Video", None))
-        self.formatComboBox.setItemText(1, QCoreApplication.translate("Tab", u"Audio", None))
-
 #if QT_CONFIG(tooltip)
         self.formatComboBox.setToolTip(QCoreApplication.translate("Tab", u"Show Options (Alt+F)", None))
 #endif // QT_CONFIG(tooltip)
