@@ -71,9 +71,9 @@ class PlainTextEdit(QPlainTextEdit):
 
         for line in lines:
             if line + "\n" in text:
-                text = text.replace(url + "\n", "")
+                text = text.replace(line + "\n", "")
             elif line in text:
-                text = text.replace(url, "")
+                text = text.replace(line, "")
         
         self.set_text(text)
 
