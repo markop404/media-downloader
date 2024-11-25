@@ -54,7 +54,7 @@
   </action>
   <action name="actionPreferences">
    <property name="icon">
-    <iconset theme="preferences-system"/>
+    <iconset theme="document-properties"/>
    </property>
    <property name="text">
     <string>Preferences</string>

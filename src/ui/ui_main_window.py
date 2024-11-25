@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowKuCEgV.ui'
+## Form generated from reading UI file 'main_windowlfumdH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -35,7 +35,7 @@ class Ui_MainWindow(object):
         self.actionKeyboardShortcuts.setMenuRole(QAction.MenuRole.NoRole)
         self.actionPreferences = QAction(MainWindow)
         self.actionPreferences.setObjectName(u"actionPreferences")
-        icon2 = QIcon(QIcon.fromTheme(u"preferences-system"))
+        icon2 = QIcon(QIcon.fromTheme(u"document-properties"))
         self.actionPreferences.setIcon(icon2)
         self.actionPreferences.setMenuRole(QAction.MenuRole.NoRole)
         self.centralwidget = QWidget(MainWindow)
