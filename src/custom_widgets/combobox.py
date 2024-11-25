@@ -21,19 +21,6 @@ from PySide6.QtWidgets import QComboBox
 
 
 class ComboBox(QComboBox):
-    def generate_and_replace_all_items(self, items, prefix="", suffix="", first_item=None, sort_reverse=True):
-        data = {}
-
-        if first_item:
-            data[first_item] = None
-        
-        for item in sorted(items, reverse=sort_reverse):
-            pretty_item = prefix + str(item) + suffix
-            data[item] = pretty_item
-        
-        self.replace_all_items(data)
-
-
     def replace_all_items(self, items={}):
         self.clear()
         for data, text in items.items():
