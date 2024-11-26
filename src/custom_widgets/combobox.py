@@ -22,12 +22,13 @@ from PySide6.QtWidgets import QComboBox
 
 class ComboBox(QComboBox):
     def replace_all_items(self, items={}, default=None):
-        index = 0
         self.clear()
 
         for data, text in items.items():
             self.addItem(text, data)
 
         if default:
-            index = self.findData(default)
-        self.setCurrentIndex(index)
+            if index := self.findData(default):
+                self.setCurrentIndex(index)
+        else:
+            self.setCurrentIndex(0)
