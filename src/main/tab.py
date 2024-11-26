@@ -58,7 +58,7 @@ class Tab(QWidget):
         self.setup_filedialog()
         self.event_invoker = utils.Invoker()
         self.connect_signals_and_slots()
-        self.update_qualities()
+        self.update_qualities(clear=True)
 
 
     def load_settings(self):
@@ -118,6 +118,8 @@ class Tab(QWidget):
         self.thread_running = False
         self.cancel_progress = False
         self.user_answer = False
+        self.subtitles = None
+        self.qualities = None
     
 
     def setup_filedialog(self):
@@ -130,7 +132,7 @@ class Tab(QWidget):
         self.ui.dataPullButton.clicked.connect(self.start_update_info)
         self.ui.downloadButton.clicked.connect(self.start_download)
         self.ui.setDownloadFolderButton.clicked.connect(self.set_download_location)
-        self.ui.formatComboBox.currentTextChanged.connect(lambda: self.update_qualities())
+        self.ui.formatComboBox.currentTextChanged.connect(lambda: self.update_qualities(clear=True))
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
 
 
@@ -151,8 +153,15 @@ class Tab(QWidget):
     def prep_thread_exit(self, situation=None, percentage=0):
         self.thread_running = False
         self.cancel_progress = False
-        self.run_in_gui_thread(self.restore_widgets_to_normal)
-        self.run_in_gui_thread(lambda: self.update_status_indicators(situation, percentage=percentage))
+        
+        to_run = [
+            lambda: self.restore_widgets_to_normal(),
+            lambda: self.update_qualities(),
+            lambda: self.update_subtitles(),
+            lambda: self.update_status_indicators(situation, percentage=percentage),
+        ]
+        for func in to_run:
+            self.run_in_gui_thread(func)
     
 
     def restore_widgets_to_normal(self):
@@ -367,10 +376,8 @@ class Tab(QWidget):
             self.prep_thread_exit("data_pull_failed")
             return
 
-        qualities = data[0]
-        subtitles = data[1]
-        self.run_in_gui_thread(lambda: self.update_qualities(qualities))
-        self.run_in_gui_thread(lambda: self.update_subtitles(subtitles))
+        self.qualities = data[0]
+        self.subtitles = data[1]
         
         self.prep_thread_exit("data_pull_finished", percentage=100)
 
@@ -532,35 +539,46 @@ class Tab(QWidget):
         return file_type, selected_quality, subtitles
 
 
-    def update_qualities(self, qualities=None):
+    def update_qualities(self, clear=False):
         _format = self.ui.formatComboBox.currentData()
-        combobox_qualities = {}
-
-        if qualities:
-            suffix = ""
-            if _format == "mp4":
-                suffix = "p"
-            elif _format == "mp3":
-                suffix = " kbps"
-
-            for quality in sorted(qualities, reverse=True):
-                combobox_qualities[quality] = str(quality) + suffix
-
-        self.ui.qualityComboBox.replace_all_items(combobox_qualities)
 
         if _format == "mp4":
             placeholder_text = Settings.CONSTANT_SETTTINGS["preferred-resolutions"][self.settings_manager.load_setting("preferred-resolution")]
         elif _format == "mp3":
             placeholder_text = Settings.CONSTANT_SETTTINGS["preferred-bitrates"][self.settings_manager.load_setting("preferred-bitrate")]
         self.ui.qualityComboBox.setPlaceholderText(placeholder_text)
+        
+        if clear:
+            self.qualities = None
+            self.ui.qualityComboBox.replace_all_items()
+            return
+        elif isinstance(self.qualities, dict):
+            combobox_qualities = {}
+            suffix = ""
+            if _format == "mp4":
+                suffix = "p"
+                qualities = self.qualities["resolutions"]
+            elif _format == "mp3":
+                suffix = " kbps"
+                qualities = self.qualities["bitrates"]
+
+            for repetition, quality in enumerate(sorted(qualities, reverse=True)):
+                combobox_qualities[quality] = str(quality) + suffix
+                if repetition == 0:
+                    combobox_qualities[quality] += " (Best)"
+        
+            self.ui.qualityComboBox.replace_all_items(combobox_qualities)
 
 
-    def update_subtitles(self, subtitles=None):
-        if subtitles:
-            subtitles = {"": "None"} + subtitles
-            self.ui.subtitlesComboBox.replace_all_items(subtitles)
-        else:
+    def update_subtitles(self, clear=False):
+        if clear:
+            self.subtitles = None
             self.ui.subtitlesComboBox.replace_all_items()
+            return
+        elif self.subtitles and isinstance(self.subtitles, dict):
+            subtitles = {"": "None"}
+            subtitles.update(self.subtitles)
+            self.ui.subtitlesComboBox.replace_all_items(subtitles)
 
 
     def update_download_directory_indicators(self):
