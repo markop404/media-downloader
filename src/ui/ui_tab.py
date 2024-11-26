@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabKKSjZl.ui'
+## Form generated from reading UI file 'tabaYtTqK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -180,7 +180,7 @@ class Ui_Tab(object):
         self.downloadButton = QPushButton(Tab)
         self.downloadButton.setObjectName(u"downloadButton")
         self.downloadButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon2 = QIcon(QIcon.fromTheme(u"emblem-downloads"))
+        icon2 = QIcon(QIcon.fromTheme(u"go-bottom"))
         self.downloadButton.setIcon(icon2)
 
         self.actionButtonsLayout.addWidget(self.downloadButton)
