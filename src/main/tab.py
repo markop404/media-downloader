@@ -132,7 +132,7 @@ class Tab(QWidget):
         self.ui.dataPullButton.clicked.connect(self.start_update_info)
         self.ui.downloadButton.clicked.connect(self.start_download)
         self.ui.setDownloadFolderButton.clicked.connect(self.set_download_location)
-        self.ui.formatComboBox.currentTextChanged.connect(lambda: self.update_qualities(clear=True))
+        self.ui.formatComboBox.currentTextChanged.connect(lambda: self.update_qualities())
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
 
 
@@ -501,8 +501,8 @@ class Tab(QWidget):
     def on_text_change(self):
         if not self.ui.plainTextEdit.setting_text and not self.thread_running:
             self.update_status_indicators()
-            self.ui.qualityComboBox.replace_all_items()
-            self.ui.subtitlesComboBox.replace_all_items()
+            self.update_qualities(clear=True)
+            self.update_subtitles(clear=True)
 
 
     def show_combobox_popup(self, combobox):
@@ -555,19 +555,26 @@ class Tab(QWidget):
         elif isinstance(self.qualities, dict):
             combobox_qualities = {}
             suffix = ""
+            preferred_quality = 0
+            default_quality = 0
+
             if _format == "mp4":
                 suffix = "p"
                 qualities = self.qualities["resolutions"]
+                preferred_quality = self.settings_manager.load_setting("preferred-resolution")
             elif _format == "mp3":
                 suffix = " kbps"
                 qualities = self.qualities["bitrates"]
+                preferred_quality = self.settings_manager.load_setting("preferred-bitrate")
 
             for repetition, quality in enumerate(sorted(qualities, reverse=True)):
                 combobox_qualities[quality] = str(quality) + suffix
+                if quality <= preferred_quality and not default_quality:
+                    default_quality = quality
                 if repetition == 0:
                     combobox_qualities[quality] += " (Best)"
-        
-            self.ui.qualityComboBox.replace_all_items(combobox_qualities)
+
+            self.ui.qualityComboBox.replace_all_items(combobox_qualities, default=default_quality)
 
 
     def update_subtitles(self, clear=False):
