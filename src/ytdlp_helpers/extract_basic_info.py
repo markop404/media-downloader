@@ -60,5 +60,6 @@ def extract_basic_info(data_list):
     all_bitrates = sorted(all_bitrates, reverse=True)
     all_resolutions = sorted(all_resolutions, reverse=True)
     qualities = {"bitrates": all_bitrates, "resolutions": all_resolutions}
+    subtitles = dict(sorted(subtitles.items(), key=lambda item: item[1]))
 
     return qualities, subtitles

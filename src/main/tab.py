@@ -279,14 +279,11 @@ class Tab(QWidget):
             self.handle_invalid_url_warning(failed_urls, error_type="data_pull")
 
         try:
-            data = ytdlp_helpers.extract_basic_info(data)
+            self.qualities, self.subtitles = ytdlp_helpers.extract_basic_info(data)
         except BaseException as e:
             print(e)
             self.prep_thread_exit("data_pull_failed")
             return
-
-        self.qualities = data[0]
-        self.subtitles = data[1]
         
         self.prep_thread_exit("data_pull_finished", percentage=100)
 
@@ -574,7 +571,7 @@ class Tab(QWidget):
 
             for repetition, quality in enumerate(sorted(qualities, reverse=True)):
                 combobox_qualities[quality] = str(quality) + suffix
-                if quality <= preferred_quality and not default_quality:
+                if not default_quality and quality <= preferred_quality:
                     default_quality = quality
                 if repetition == 0:
                     combobox_qualities[quality] += " (Best)"
@@ -583,14 +580,16 @@ class Tab(QWidget):
 
 
     def update_subtitles(self, clear=False):
+        subtitles = {}
         if clear:
             self.subtitles = None
             self.ui.subtitlesComboBox.replace_all_items()
             return
-        elif self.subtitles and isinstance(self.subtitles, dict):
+        elif isinstance(self.subtitles, dict):
             subtitles = {"": "None"}
             subtitles.update(self.subtitles)
-            self.ui.subtitlesComboBox.replace_all_items(subtitles)
+        
+        self.ui.subtitlesComboBox.replace_all_items(subtitles)
 
 
     def update_download_directory_indicators(self):
