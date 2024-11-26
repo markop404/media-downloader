@@ -576,7 +576,7 @@ class Tab(QWidget):
                 if repetition == 0:
                     combobox_qualities[quality] += " (Best)"
 
-            self.ui.qualityComboBox.replace_all_items(combobox_qualities, default=default_quality)
+            self.ui.qualityComboBox.replace_all_items(combobox_qualities, default_item=default_quality)
 
 
     def update_subtitles(self, clear=False):
