@@ -60,6 +60,13 @@ class PreferencesDialog(QDialog):
             },
         }
 
+        self.ui.preferredResolutionSettingComboBox.replace_all_items(
+            self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"],
+        )
+        self.ui.preferredBitrateSettingComboBox.replace_all_items(
+            self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"],
+        )
+
         self.load_settings()
         self.setFixedSize(self.sizeHint())
 
@@ -76,13 +83,6 @@ class PreferencesDialog(QDialog):
                 value = self.settings_manager.load_setting(setting_name)
                 if value != None:
                     setting_func["set-value-func"](value)
-
-            self.ui.preferredResolutionSettingComboBox.replace_all_items(
-                self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"],
-            )
-            self.ui.preferredBitrateSettingComboBox.replace_all_items(
-                self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"],
-            )
 
         self.loading_settings = False
 
