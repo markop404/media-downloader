@@ -585,7 +585,7 @@ class Tab(QWidget):
             self.subtitles = None
             self.ui.subtitlesComboBox.replace_all_items()
             return
-        elif isinstance(self.subtitles, dict):
+        elif self.subtitles and isinstance(self.subtitles, dict):
             subtitles.update({"": "None"})
             subtitles.update(self.subtitles)
         
