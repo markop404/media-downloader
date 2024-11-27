@@ -287,7 +287,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="dataPullButton">
+      <widget class="LargePushButton" name="dataPullButton">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
@@ -306,7 +306,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="downloadButton">
+      <widget class="LargePushButton" name="downloadButton">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
@@ -437,6 +437,11 @@
    <class>ComboBox</class>
    <extends>QComboBox</extends>
    <header>custom_widgets.combobox</header>
+  </customwidget>
+  <customwidget>
+   <class>LargePushButton</class>
+   <extends>QPushButton</extends>
+   <header>custom_widgets.largepushbutton</header>
   </customwidget>
  </customwidgets>
  <resources/>

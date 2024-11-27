@@ -17,7 +17,15 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from .toggle import Toggle
-from .combobox import ComboBox
-from .plaintextedit import PlainTextEdit
-from .largepushbutton import LargePushButton
+from PySide6.QtWidgets import QPushButton
+from PySide6.QtCore import QSize
+
+
+class LargePushButton(QPushButton):
+    def __init__(self, *args, **kargs):
+        super().__init__(*args, **kargs)
+
+        current_size = self.sizeHint()
+        new_width = current_size.width() + 60
+        new_height = current_size.height() + 7
+        self.setMinimumSize(QSize(new_width, new_height))

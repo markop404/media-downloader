@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabaYtTqK.ui'
+## Form generated from reading UI file 'tabAGiZjl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -20,6 +20,7 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
     QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 
 from custom_widgets.combobox import ComboBox
+from custom_widgets.largepushbutton import LargePushButton
 from custom_widgets.plaintextedit import PlainTextEdit
 
 class Ui_Tab(object):
@@ -169,7 +170,7 @@ class Ui_Tab(object):
 
         self.actionButtonsLayout.addItem(self.horizontalSpacer8)
 
-        self.dataPullButton = QPushButton(Tab)
+        self.dataPullButton = LargePushButton(Tab)
         self.dataPullButton.setObjectName(u"dataPullButton")
         self.dataPullButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon1 = QIcon(QIcon.fromTheme(u"view-refresh"))
@@ -177,7 +178,7 @@ class Ui_Tab(object):
 
         self.actionButtonsLayout.addWidget(self.dataPullButton)
 
-        self.downloadButton = QPushButton(Tab)
+        self.downloadButton = LargePushButton(Tab)
         self.downloadButton.setObjectName(u"downloadButton")
         self.downloadButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon2 = QIcon(QIcon.fromTheme(u"go-bottom"))
