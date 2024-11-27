@@ -26,6 +26,6 @@ class LargePushButton(QPushButton):
         super().__init__(*args, **kargs)
 
         current_size = self.sizeHint()
-        new_width = current_size.width() + 60
-        new_height = current_size.height() + 7
+        new_width = current_size.width() + 70
+        new_height = current_size.height() + 8
         self.setMinimumSize(QSize(new_width, new_height))

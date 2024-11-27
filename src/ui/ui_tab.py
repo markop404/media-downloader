@@ -181,7 +181,7 @@ class Ui_Tab(object):
         self.downloadButton = LargePushButton(Tab)
         self.downloadButton.setObjectName(u"downloadButton")
         self.downloadButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon2 = QIcon(QIcon.fromTheme(u"go-bottom"))
+        icon2 = QIcon(QIcon.fromTheme(u"go-down"))
         self.downloadButton.setIcon(icon2)
 
         self.actionButtonsLayout.addWidget(self.downloadButton)

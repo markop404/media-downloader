@@ -317,7 +317,7 @@
         <string>&amp;Download</string>
        </property>
        <property name="icon">
-        <iconset theme="go-bottom"/>
+        <iconset theme="go-down"/>
        </property>
        <property name="default">
         <bool>true</bool>
