@@ -78,6 +78,10 @@ class Tab(QWidget):
                 setting["set-value-func"](value)
     
 
+    def update_settings(self):
+        self.update_qualities()
+    
+
     def save_settings(self):
         for setting in self.SETTINGS:
             self.settings_manager.setValue(setting["name"], setting["get-value-func"]())

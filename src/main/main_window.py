@@ -106,9 +106,16 @@ class MainWindow(QMainWindow):
     def connect_signals_and_slots(self):
         self.ui.actionAbout.triggered.connect(self.about_dialog._exec)
         self.ui.actionKeyboardShortcuts.triggered.connect(self.keyboard_shortcuts_dialog.exec)
-        self.ui.actionPreferences.triggered.connect(self.preferences_dialog.exec)
+        self.ui.actionPreferences.triggered.connect(self.exec_preferences)
         self.tab_buttons.newTabButton.clicked.connect(self.create_new_tab)
         self.ui.tabWidget.tabCloseRequested.connect(self.close_tab)
+
+
+    def exec_preferences(self):
+        self.preferences_dialog.exec()
+
+        for tab_index in range(self.ui.tabWidget.count()):
+            self.ui.tabWidget.widget(tab_index).update_settings()
 
 
     def create_new_tab(self):
