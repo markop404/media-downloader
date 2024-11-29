@@ -79,7 +79,7 @@ class Tab(QWidget):
     
 
     def update_settings(self):
-        self.update_qualities()
+        self.update_qualities(placeholder_only=True)
     
 
     def save_settings(self):
@@ -539,7 +539,7 @@ class Tab(QWidget):
         return file_type, selected_quality, subtitles
 
 
-    def update_qualities(self, clear=False):
+    def update_qualities(self, clear=False, placeholder_only=False):
         _format = self.ui.formatComboBox.currentData()
 
         if _format == "mp4":
@@ -554,33 +554,34 @@ class Tab(QWidget):
             )
         self.ui.qualityComboBox.setPlaceholderText(placeholder_text)
         
-        if clear:
-            self.qualities = None
-            self.ui.qualityComboBox.replace_all_items()
-            return
-        elif isinstance(self.qualities, dict):
-            combobox_qualities = {}
-            suffix = ""
-            preferred_quality = 0
-            default_quality = 0
+        if not placeholder_only:
+            if clear:
+                self.qualities = None
+                self.ui.qualityComboBox.replace_all_items()
+                return
+            elif isinstance(self.qualities, dict):
+                combobox_qualities = {}
+                suffix = ""
+                preferred_quality = 0
+                default_quality = 0
 
-            if _format == "mp4":
-                suffix = "p"
-                qualities = self.qualities["resolutions"]
-                preferred_quality = self.settings_manager.load_setting("preferred-resolution")
-            elif _format == "mp3":
-                suffix = " kbps"
-                qualities = self.qualities["bitrates"]
-                preferred_quality = self.settings_manager.load_setting("preferred-bitrate")
+                if _format == "mp4":
+                    suffix = "p"
+                    qualities = self.qualities["resolutions"]
+                    preferred_quality = self.settings_manager.load_setting("preferred-resolution")
+                elif _format == "mp3":
+                    suffix = " kbps"
+                    qualities = self.qualities["bitrates"]
+                    preferred_quality = self.settings_manager.load_setting("preferred-bitrate")
 
-            for repetition, quality in enumerate(sorted(qualities, reverse=True)):
-                combobox_qualities[quality] = str(quality) + suffix
-                if not default_quality and quality <= preferred_quality:
-                    default_quality = quality
-                if repetition == 0:
-                    combobox_qualities[quality] += " (Best)"
+                for repetition, quality in enumerate(sorted(qualities, reverse=True)):
+                    combobox_qualities[quality] = str(quality) + suffix
+                    if not default_quality and quality <= preferred_quality:
+                        default_quality = quality
+                    if repetition == 0:
+                        combobox_qualities[quality] += " (Best)"
 
-            self.ui.qualityComboBox.replace_all_items(combobox_qualities, default_item=default_quality)
+                self.ui.qualityComboBox.replace_all_items(combobox_qualities, default_item=default_quality)
 
 
     def update_subtitles(self, clear=False):
