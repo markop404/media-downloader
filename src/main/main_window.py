@@ -115,7 +115,7 @@ class MainWindow(QMainWindow):
     
 
     def retry_all(self):
-        for tab_index in self.tabWidget.count():
+        for tab_index in range(self.ui.tabWidget.count()):
             self.ui.tabWidget.widget(tab_index).retry_failed()
 
 
