@@ -107,11 +107,22 @@ class MainWindow(QMainWindow):
 
 
     def connect_signals_and_slots(self):
+        self.ui.actionCancelAll.triggered.connect(self.cancel_all)
+        self.ui.actionRetryAll.triggered.connect(self.retry_all)
         self.ui.actionAbout.triggered.connect(self.about_dialog._exec)
         self.ui.actionKeyboardShortcuts.triggered.connect(self.keyboard_shortcuts_dialog.exec)
         self.ui.actionPreferences.triggered.connect(self.exec_preferences)
         self.tab_buttons.newTabButton.clicked.connect(self.create_new_tab)
         self.ui.tabWidget.tabCloseRequested.connect(self.close_tab)
+    
+
+    def cancel_all(self):
+        ...
+    
+
+    def retry_all(self):
+        for tab_index in self.tabWidget.count():
+            self.tabWidget.widget(tab_index).retry_if_failed()
 
 
     def exec_preferences(self):
