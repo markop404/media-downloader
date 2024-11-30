@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowiOQqvx.ui'
+## Form generated from reading UI file 'main_windowFGoUge.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -43,11 +43,6 @@ class Ui_MainWindow(object):
         icon3 = QIcon(QIcon.fromTheme(u"view-refresh"))
         self.actionRetryAll.setIcon(icon3)
         self.actionRetryAll.setMenuRole(QAction.MenuRole.NoRole)
-        self.actionCancelAll = QAction(MainWindow)
-        self.actionCancelAll.setObjectName(u"actionCancelAll")
-        icon4 = QIcon(QIcon.fromTheme(u"media-playback-stop"))
-        self.actionCancelAll.setIcon(icon4)
-        self.actionCancelAll.setMenuRole(QAction.MenuRole.NoRole)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -84,10 +79,6 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(shortcut)
         self.actionRetryAll.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+R", None))
-#endif // QT_CONFIG(shortcut)
-        self.actionCancelAll.setText(QCoreApplication.translate("MainWindow", u"Cancel All", None))
-#if QT_CONFIG(shortcut)
-        self.actionCancelAll.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+C", None))
 #endif // QT_CONFIG(shortcut)
     # retranslateUi
 

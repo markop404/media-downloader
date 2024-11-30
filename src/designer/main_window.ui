@@ -83,20 +83,6 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionCancelAll">
-   <property name="icon">
-    <iconset theme="media-playback-stop"/>
-   </property>
-   <property name="text">
-    <string>Cancel All</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+C</string>
-   </property>
-   <property name="menuRole">
-    <enum>QAction::MenuRole::NoRole</enum>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>

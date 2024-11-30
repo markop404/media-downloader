@@ -84,10 +84,6 @@ class Tab(QWidget):
 
     def retry_failed(self):
         ...
-    
-
-    def cancel_current_process(self):
-        ...
 
 
     def save_settings(self):
