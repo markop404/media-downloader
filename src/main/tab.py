@@ -82,11 +82,11 @@ class Tab(QWidget):
         self.update_quality_placeholder_text(self.ui.formatComboBox.currentData())
     
 
-    def retry_all_if_failed(self):
+    def retry_failed(self):
         ...
     
 
-    def cancel_all(self):
+    def cancel_current_process(self):
         ...
 
 

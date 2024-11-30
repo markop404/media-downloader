@@ -117,12 +117,13 @@ class MainWindow(QMainWindow):
     
 
     def cancel_all(self):
-        ...
+        for tab_index in self.tabWidget.count():
+            self.ui.tabWidget.widget(tab_index).cancel_current_process()
     
 
     def retry_all(self):
         for tab_index in self.tabWidget.count():
-            self.tabWidget.widget(tab_index).retry_if_failed()
+            self.ui.tabWidget.widget(tab_index).retry_failed()
 
 
     def exec_preferences(self):
