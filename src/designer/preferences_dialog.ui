@@ -30,14 +30,11 @@
         <widget class="QLabel" name="restoreSettingsMainLabel">
          <property name="font">
           <font>
-           <bold>true</bold>
+           <fontweight>DemiBold</fontweight>
           </font>
          </property>
          <property name="text">
           <string>Restore previously used settings in new tabs</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -48,14 +45,11 @@
         <widget class="QLabel" name="restoreSettingsDescriptionLabel">
          <property name="font">
           <font>
-           <fontweight>ExtraLight</fontweight>
+           <fontweight>Thin</fontweight>
           </font>
          </property>
          <property name="text">
           <string>Restore settings from previously used tab in new tabs</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -74,7 +68,7 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>185</width>
+         <width>200</width>
          <height>20</height>
         </size>
        </property>
@@ -122,14 +116,11 @@
         <widget class="QLabel" name="removeURLsMainLabel">
          <property name="font">
           <font>
-           <bold>true</bold>
+           <fontweight>DemiBold</fontweight>
           </font>
          </property>
          <property name="text">
           <string>Remove URLs as they are downloaded</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -140,14 +131,11 @@
         <widget class="QLabel" name="removeURLsDescriptionLabel">
          <property name="font">
           <font>
-           <fontweight>ExtraLight</fontweight>
+           <fontweight>Thin</fontweight>
           </font>
          </property>
          <property name="text">
           <string>Remove each URL from the text entry when it finishes downloading</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -166,7 +154,7 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>185</width>
+         <width>200</width>
          <height>20</height>
         </size>
        </property>
@@ -214,14 +202,11 @@
         <widget class="QLabel" name="preferredResolutionMainLabel">
          <property name="font">
           <font>
-           <bold>true</bold>
+           <fontweight>DemiBold</fontweight>
           </font>
          </property>
          <property name="text">
           <string>Preferred video quality</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -232,14 +217,11 @@
         <widget class="QLabel" name="preferredResolutionDescriptionLabel">
          <property name="font">
           <font>
-           <fontweight>ExtraLight</fontweight>
+           <fontweight>Thin</fontweight>
           </font>
          </property>
          <property name="text">
           <string>Highest resolution that gets selected by default</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -258,7 +240,7 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>185</width>
+         <width>200</width>
          <height>20</height>
         </size>
        </property>
@@ -297,14 +279,11 @@
         <widget class="QLabel" name="preferredBitrateSettingMainLabel">
          <property name="font">
           <font>
-           <bold>true</bold>
+           <fontweight>DemiBold</fontweight>
           </font>
          </property>
          <property name="text">
           <string>Preferred audio quality</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -315,14 +294,11 @@
         <widget class="QLabel" name="preferredBitrateSettingDescriptionLabel">
          <property name="font">
           <font>
-           <fontweight>ExtraLight</fontweight>
+           <fontweight>Thin</fontweight>
           </font>
          </property>
          <property name="text">
           <string>Highest bitrate that gets selected by default</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -341,7 +317,7 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>185</width>
+         <width>200</width>
          <height>20</height>
         </size>
        </property>

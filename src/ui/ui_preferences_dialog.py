@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogXgzKvQ.ui'
+## Form generated from reading UI file 'preferences_dialogsgFxXP.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.0
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -39,9 +39,8 @@ class Ui_PreferencesDialog(object):
         self.restoreSettingsMainLabel = QLabel(PreferencesDialog)
         self.restoreSettingsMainLabel.setObjectName(u"restoreSettingsMainLabel")
         font = QFont()
-        font.setBold(True)
+        font.setWeight(QFont.DemiBold)
         self.restoreSettingsMainLabel.setFont(font)
-        self.restoreSettingsMainLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.restoreSettingsMainLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.restoreSettingsLabelLayout.addWidget(self.restoreSettingsMainLabel)
@@ -49,9 +48,8 @@ class Ui_PreferencesDialog(object):
         self.restoreSettingsDescriptionLabel = QLabel(PreferencesDialog)
         self.restoreSettingsDescriptionLabel.setObjectName(u"restoreSettingsDescriptionLabel")
         font1 = QFont()
-        font1.setWeight(QFont.ExtraLight)
+        font1.setWeight(QFont.Thin)
         self.restoreSettingsDescriptionLabel.setFont(font1)
-        self.restoreSettingsDescriptionLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
         self.restoreSettingsDescriptionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.restoreSettingsLabelLayout.addWidget(self.restoreSettingsDescriptionLabel)
@@ -59,7 +57,7 @@ class Ui_PreferencesDialog(object):
 
         self.restoreSettingsLayout.addLayout(self.restoreSettingsLabelLayout)
 
-        self.restoreSettingsLayoutSpacer = QSpacerItem(185, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.restoreSettingsLayoutSpacer = QSpacerItem(200, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.restoreSettingsLayout.addItem(self.restoreSettingsLayoutSpacer)
 
@@ -86,7 +84,6 @@ class Ui_PreferencesDialog(object):
         self.removeURLsMainLabel = QLabel(PreferencesDialog)
         self.removeURLsMainLabel.setObjectName(u"removeURLsMainLabel")
         self.removeURLsMainLabel.setFont(font)
-        self.removeURLsMainLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.removeURLsMainLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.removeURLsLabelLayout.addWidget(self.removeURLsMainLabel)
@@ -94,7 +91,6 @@ class Ui_PreferencesDialog(object):
         self.removeURLsDescriptionLabel = QLabel(PreferencesDialog)
         self.removeURLsDescriptionLabel.setObjectName(u"removeURLsDescriptionLabel")
         self.removeURLsDescriptionLabel.setFont(font1)
-        self.removeURLsDescriptionLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
         self.removeURLsDescriptionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.removeURLsLabelLayout.addWidget(self.removeURLsDescriptionLabel)
@@ -102,7 +98,7 @@ class Ui_PreferencesDialog(object):
 
         self.removeURLsLayout.addLayout(self.removeURLsLabelLayout)
 
-        self.removeURLsLayoutSpacer = QSpacerItem(185, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.removeURLsLayoutSpacer = QSpacerItem(200, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.removeURLsLayout.addItem(self.removeURLsLayoutSpacer)
 
@@ -129,7 +125,6 @@ class Ui_PreferencesDialog(object):
         self.preferredResolutionMainLabel = QLabel(PreferencesDialog)
         self.preferredResolutionMainLabel.setObjectName(u"preferredResolutionMainLabel")
         self.preferredResolutionMainLabel.setFont(font)
-        self.preferredResolutionMainLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.preferredResolutionMainLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.preferredResolutionSettingLabelLayout.addWidget(self.preferredResolutionMainLabel)
@@ -137,7 +132,6 @@ class Ui_PreferencesDialog(object):
         self.preferredResolutionDescriptionLabel = QLabel(PreferencesDialog)
         self.preferredResolutionDescriptionLabel.setObjectName(u"preferredResolutionDescriptionLabel")
         self.preferredResolutionDescriptionLabel.setFont(font1)
-        self.preferredResolutionDescriptionLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
         self.preferredResolutionDescriptionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.preferredResolutionSettingLabelLayout.addWidget(self.preferredResolutionDescriptionLabel)
@@ -145,7 +139,7 @@ class Ui_PreferencesDialog(object):
 
         self.preferredResolutionSettingLayout.addLayout(self.preferredResolutionSettingLabelLayout)
 
-        self.preferredResolutionSettingLayoutSpacer = QSpacerItem(185, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.preferredResolutionSettingLayoutSpacer = QSpacerItem(200, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.preferredResolutionSettingLayout.addItem(self.preferredResolutionSettingLayoutSpacer)
 
@@ -169,7 +163,6 @@ class Ui_PreferencesDialog(object):
         self.preferredBitrateSettingMainLabel = QLabel(PreferencesDialog)
         self.preferredBitrateSettingMainLabel.setObjectName(u"preferredBitrateSettingMainLabel")
         self.preferredBitrateSettingMainLabel.setFont(font)
-        self.preferredBitrateSettingMainLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.preferredBitrateSettingMainLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.preferredBitrateSettingLabelLayout.addWidget(self.preferredBitrateSettingMainLabel)
@@ -177,7 +170,6 @@ class Ui_PreferencesDialog(object):
         self.preferredBitrateSettingDescriptionLabel = QLabel(PreferencesDialog)
         self.preferredBitrateSettingDescriptionLabel.setObjectName(u"preferredBitrateSettingDescriptionLabel")
         self.preferredBitrateSettingDescriptionLabel.setFont(font1)
-        self.preferredBitrateSettingDescriptionLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
         self.preferredBitrateSettingDescriptionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.preferredBitrateSettingLabelLayout.addWidget(self.preferredBitrateSettingDescriptionLabel)
@@ -185,7 +177,7 @@ class Ui_PreferencesDialog(object):
 
         self.preferredBitrateSettingLayout.addLayout(self.preferredBitrateSettingLabelLayout)
 
-        self.preferredBitrateSettingLayoutSpacer = QSpacerItem(185, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.preferredBitrateSettingLayoutSpacer = QSpacerItem(200, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.preferredBitrateSettingLayout.addItem(self.preferredBitrateSettingLayoutSpacer)
 
