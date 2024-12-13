@@ -2,6 +2,11 @@
 <ui version="4.0">
  <class>PreferencesDialog</class>
  <widget class="QDialog" name="PreferencesDialog">
+  <property name="font">
+   <font>
+    <fontweight>Thin</fontweight>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Preferences</string>
   </property>
@@ -45,7 +50,7 @@
         <widget class="QLabel" name="restoreSettingsDescriptionLabel">
          <property name="font">
           <font>
-           <fontweight>Thin</fontweight>
+           <fontweight>ExtraLight</fontweight>
           </font>
          </property>
          <property name="text">
@@ -131,7 +136,7 @@
         <widget class="QLabel" name="removeURLsDescriptionLabel">
          <property name="font">
           <font>
-           <fontweight>Thin</fontweight>
+           <fontweight>ExtraLight</fontweight>
           </font>
          </property>
          <property name="text">
@@ -217,7 +222,7 @@
         <widget class="QLabel" name="preferredResolutionDescriptionLabel">
          <property name="font">
           <font>
-           <fontweight>Thin</fontweight>
+           <fontweight>ExtraLight</fontweight>
           </font>
          </property>
          <property name="text">
@@ -294,7 +299,7 @@
         <widget class="QLabel" name="preferredBitrateSettingDescriptionLabel">
          <property name="font">
           <font>
-           <fontweight>Thin</fontweight>
+           <fontweight>ExtraLight</fontweight>
           </font>
          </property>
          <property name="text">
