@@ -2,12 +2,6 @@
 <ui version="4.0">
  <class>PreferencesDialog</class>
  <widget class="QDialog" name="PreferencesDialog">
-  <property name="font">
-   <font>
-    <stylestrategy>PreferAntialias</stylestrategy>
-    <hintingpreference>PreferFullHinting</hintingpreference>
-   </font>
-  </property>
   <property name="windowTitle">
    <string>Preferences</string>
   </property>
@@ -381,14 +375,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>Toggle</class>
-   <extends>QSlider</extends>
-   <header>custom_widgets.toggle</header>
-  </customwidget>
-  <customwidget>
    <class>ComboBox</class>
    <extends>QComboBox</extends>
    <header>custom_widgets.combobox</header>
+  </customwidget>
+  <customwidget>
+   <class>Toggle</class>
+   <extends>QSlider</extends>
+   <header>custom_widgets.toggle</header>
   </customwidget>
  </customwidgets>
  <resources/>

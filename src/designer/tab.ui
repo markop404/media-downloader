@@ -2,12 +2,6 @@
 <ui version="4.0">
  <class>Tab</class>
  <widget class="QWidget" name="Tab">
-  <property name="font">
-   <font>
-    <stylestrategy>PreferAntialias</stylestrategy>
-    <hintingpreference>PreferFullHinting</hintingpreference>
-   </font>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="PlainTextEdit" name="plainTextEdit">

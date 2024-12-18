@@ -10,12 +10,6 @@
     <height>675</height>
    </rect>
   </property>
-  <property name="font">
-   <font>
-    <stylestrategy>PreferAntialias</stylestrategy>
-    <hintingpreference>PreferFullHinting</hintingpreference>
-   </font>
-  </property>
   <property name="windowTitle">
    <string>Media Downloader</string>
   </property>

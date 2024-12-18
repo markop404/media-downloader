@@ -2,12 +2,6 @@
 <ui version="4.0">
  <class>TabButtons</class>
  <widget class="QWidget" name="TabButtons">
-  <property name="font">
-   <font>
-    <stylestrategy>PreferAntialias</stylestrategy>
-    <hintingpreference>PreferFullHinting</hintingpreference>
-   </font>
-  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="topMargin">
     <number>0</number>

@@ -2,12 +2,6 @@
 <ui version="4.0">
  <class>AboutDialog</class>
  <widget class="QDialog" name="AboutDialog">
-  <property name="font">
-   <font>
-    <stylestrategy>PreferAntialias</stylestrategy>
-    <hintingpreference>PreferFullHinting</hintingpreference>
-   </font>
-  </property>
   <property name="windowTitle">
    <string>About</string>
   </property>
