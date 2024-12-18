@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabJDomXW.ui'
+## Form generated from reading UI file 'tabbwwMQp.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -27,11 +27,6 @@ class Ui_Tab(object):
     def setupUi(self, Tab):
         if not Tab.objectName():
             Tab.setObjectName(u"Tab")
-        Tab.resize(1230, 708)
-        font = QFont()
-        font.setStyleStrategy(QFont.PreferAntialias)
-        font.setHintingPreference(QFont.PreferFullHinting)
-        Tab.setFont(font)
         self.verticalLayout = QVBoxLayout(Tab)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.plainTextEdit = PlainTextEdit(Tab)
@@ -219,12 +214,9 @@ class Ui_Tab(object):
 
         self.statusLabel = QLabel(Tab)
         self.statusLabel.setObjectName(u"statusLabel")
-        font1 = QFont()
-        font1.setFamilies([u"Cantarell"])
-        font1.setPointSize(14)
-        font1.setStyleStrategy(QFont.PreferAntialias)
-        font1.setHintingPreference(QFont.PreferFullHinting)
-        self.statusLabel.setFont(font1)
+        font = QFont()
+        font.setPointSize(14)
+        self.statusLabel.setFont(font)
 
         self.statusIndicatorsLayout.addWidget(self.statusLabel)
 

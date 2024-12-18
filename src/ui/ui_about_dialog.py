@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialogIemgcW.ui'
+## Form generated from reading UI file 'about_dialoguNsRQG.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -23,11 +23,6 @@ class Ui_AboutDialog(object):
     def setupUi(self, AboutDialog):
         if not AboutDialog.objectName():
             AboutDialog.setObjectName(u"AboutDialog")
-        AboutDialog.resize(318, 278)
-        font = QFont()
-        font.setStyleStrategy(QFont.PreferAntialias)
-        font.setHintingPreference(QFont.PreferFullHinting)
-        AboutDialog.setFont(font)
         self.verticalLayout = QVBoxLayout(AboutDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.headerLayout = QHBoxLayout()
@@ -42,12 +37,12 @@ class Ui_AboutDialog(object):
 
         self.appNameLabel = QLabel(AboutDialog)
         self.appNameLabel.setObjectName(u"appNameLabel")
-        font1 = QFont()
-        font1.setPointSize(16)
-        font1.setWeight(QFont.ExtraBold)
-        font1.setStyleStrategy(QFont.PreferAntialias)
-        font1.setHintingPreference(QFont.PreferFullHinting)
-        self.appNameLabel.setFont(font1)
+        font = QFont()
+        font.setPointSize(16)
+        font.setWeight(QFont.ExtraBold)
+        font.setStyleStrategy(QFont.PreferAntialias)
+        font.setHintingPreference(QFont.PreferFullHinting)
+        self.appNameLabel.setFont(font)
         self.appNameLabel.setMargin(4)
 
         self.headerLayout.addWidget(self.appNameLabel)
@@ -151,9 +146,6 @@ class Ui_AboutDialog(object):
 
 
         self.retranslateUi(AboutDialog)
-
-        self.tabWidget.setCurrentIndex(0)
-
 
         QMetaObject.connectSlotsByName(AboutDialog)
     # setupUi

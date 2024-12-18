@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonslpfNbc.ui'
+## Form generated from reading UI file 'tab_buttonslTqFVE.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -22,10 +22,6 @@ class Ui_TabButtons(object):
     def setupUi(self, TabButtons):
         if not TabButtons.objectName():
             TabButtons.setObjectName(u"TabButtons")
-        font = QFont()
-        font.setStyleStrategy(QFont.PreferAntialias)
-        font.setHintingPreference(QFont.PreferFullHinting)
-        TabButtons.setFont(font)
         self.horizontalLayout = QHBoxLayout(TabButtons)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(-1, 0, 0, 3)
