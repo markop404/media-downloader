@@ -26,6 +26,9 @@
      <property name="toolTip">
       <string>New Tab&lt;br&gt;(Ctrl+T)</string>
      </property>
+     <property name="text">
+      <string>New Tab</string>
+     </property>
      <property name="icon">
       <iconset theme="list-add"/>
      </property>
@@ -41,6 +44,9 @@
      </property>
      <property name="toolTip">
       <string>Menu&lt;br&gt;(Alt+M)</string>
+     </property>
+     <property name="text">
+      <string>&amp;Menu</string>
      </property>
      <property name="icon">
       <iconset theme="preferences-other"/>

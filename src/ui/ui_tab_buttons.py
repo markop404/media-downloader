@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonsRmuPrp.ui'
+## Form generated from reading UI file 'tab_buttonslpfNbc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -55,12 +55,14 @@ class Ui_TabButtons(object):
 #if QT_CONFIG(tooltip)
         self.newTabButton.setToolTip(QCoreApplication.translate("TabButtons", u"New Tab<br>(Ctrl+T)", None))
 #endif // QT_CONFIG(tooltip)
+        self.newTabButton.setText(QCoreApplication.translate("TabButtons", u"New Tab", None))
 #if QT_CONFIG(shortcut)
         self.newTabButton.setShortcut(QCoreApplication.translate("TabButtons", u"Ctrl+T", None))
 #endif // QT_CONFIG(shortcut)
 #if QT_CONFIG(tooltip)
         self.menuButton.setToolTip(QCoreApplication.translate("TabButtons", u"Menu<br>(Alt+M)", None))
 #endif // QT_CONFIG(tooltip)
+        self.menuButton.setText(QCoreApplication.translate("TabButtons", u"&Menu", None))
         pass
     # retranslateUi
 
