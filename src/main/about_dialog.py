@@ -21,6 +21,7 @@ from PySide6.QtWidgets import QDialog
 from PySide6.QtGui import QDesktopServices
 from ui import Ui_AboutDialog
 
+
 class AboutDialog(QDialog):
     def __init__(self, parent):
         super().__init__(parent)

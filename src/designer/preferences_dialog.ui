@@ -4,7 +4,8 @@
  <widget class="QDialog" name="PreferencesDialog">
   <property name="font">
    <font>
-    <fontweight>Thin</fontweight>
+    <stylestrategy>PreferAntialias</stylestrategy>
+    <hintingpreference>PreferFullHinting</hintingpreference>
    </font>
   </property>
   <property name="windowTitle">
@@ -35,6 +36,8 @@
         <widget class="QLabel" name="restoreSettingsMainLabel">
          <property name="font">
           <font>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <hintingpreference>PreferFullHinting</hintingpreference>
            <fontweight>DemiBold</fontweight>
           </font>
          </property>
@@ -50,6 +53,8 @@
         <widget class="QLabel" name="restoreSettingsDescriptionLabel">
          <property name="font">
           <font>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <hintingpreference>PreferFullHinting</hintingpreference>
            <fontweight>ExtraLight</fontweight>
           </font>
          </property>
@@ -121,6 +126,8 @@
         <widget class="QLabel" name="removeURLsMainLabel">
          <property name="font">
           <font>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <hintingpreference>PreferFullHinting</hintingpreference>
            <fontweight>DemiBold</fontweight>
           </font>
          </property>
@@ -136,6 +143,8 @@
         <widget class="QLabel" name="removeURLsDescriptionLabel">
          <property name="font">
           <font>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <hintingpreference>PreferFullHinting</hintingpreference>
            <fontweight>ExtraLight</fontweight>
           </font>
          </property>
@@ -207,6 +216,8 @@
         <widget class="QLabel" name="preferredResolutionMainLabel">
          <property name="font">
           <font>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <hintingpreference>PreferFullHinting</hintingpreference>
            <fontweight>DemiBold</fontweight>
           </font>
          </property>
@@ -222,6 +233,8 @@
         <widget class="QLabel" name="preferredResolutionDescriptionLabel">
          <property name="font">
           <font>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <hintingpreference>PreferFullHinting</hintingpreference>
            <fontweight>ExtraLight</fontweight>
           </font>
          </property>
@@ -284,6 +297,8 @@
         <widget class="QLabel" name="preferredBitrateSettingMainLabel">
          <property name="font">
           <font>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <hintingpreference>PreferFullHinting</hintingpreference>
            <fontweight>DemiBold</fontweight>
           </font>
          </property>
@@ -299,6 +314,8 @@
         <widget class="QLabel" name="preferredBitrateSettingDescriptionLabel">
          <property name="font">
           <font>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <hintingpreference>PreferFullHinting</hintingpreference>
            <fontweight>ExtraLight</fontweight>
           </font>
          </property>

@@ -2,6 +2,12 @@
 <ui version="4.0">
  <class>KeyboardShortcutsDialog</class>
  <widget class="QDialog" name="KeyboardShortcutsDialog">
+  <property name="font">
+   <font>
+    <stylestrategy>PreferAntialias</stylestrategy>
+    <hintingpreference>PreferFullHinting</hintingpreference>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Keyboard Shortcuts</string>
   </property>
@@ -37,7 +43,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>17</height>
+           <height>19</height>
           </size>
          </property>
         </spacer>
@@ -47,6 +53,8 @@
          <property name="font">
           <font>
            <bold>true</bold>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <hintingpreference>PreferFullHinting</hintingpreference>
           </font>
          </property>
          <property name="text">
@@ -71,7 +79,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>10</height>
           </size>
          </property>
         </spacer>
@@ -93,6 +101,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -147,7 +157,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>12</height>
           </size>
          </property>
         </spacer>
@@ -169,6 +179,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -226,7 +238,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>12</height>
           </size>
          </property>
         </spacer>
@@ -245,6 +257,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -296,7 +310,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>17</height>
+           <height>19</height>
           </size>
          </property>
         </spacer>
@@ -306,6 +320,8 @@
          <property name="font">
           <font>
            <bold>true</bold>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <hintingpreference>PreferFullHinting</hintingpreference>
           </font>
          </property>
          <property name="text">
@@ -330,7 +346,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>10</height>
           </size>
          </property>
         </spacer>
@@ -352,6 +368,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -409,7 +427,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>12</height>
           </size>
          </property>
         </spacer>
@@ -431,6 +449,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -488,7 +508,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>12</height>
           </size>
          </property>
         </spacer>
@@ -510,6 +530,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -567,7 +589,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>12</height>
           </size>
          </property>
         </spacer>
@@ -589,6 +611,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -646,7 +670,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>12</height>
           </size>
          </property>
         </spacer>
@@ -668,6 +692,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -725,7 +751,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>12</height>
           </size>
          </property>
         </spacer>
@@ -747,6 +773,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -840,7 +868,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>17</height>
+           <height>19</height>
           </size>
          </property>
         </spacer>
@@ -850,6 +878,8 @@
          <property name="font">
           <font>
            <bold>true</bold>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <hintingpreference>PreferFullHinting</hintingpreference>
           </font>
          </property>
          <property name="text">
@@ -874,7 +904,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>10</height>
           </size>
          </property>
         </spacer>
@@ -896,6 +926,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -975,6 +1007,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -1054,6 +1088,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -1133,6 +1169,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -1212,6 +1250,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -1286,7 +1326,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>17</height>
+           <height>19</height>
           </size>
          </property>
         </spacer>
@@ -1296,6 +1336,8 @@
          <property name="font">
           <font>
            <bold>true</bold>
+           <stylestrategy>PreferAntialias</stylestrategy>
+           <hintingpreference>PreferFullHinting</hintingpreference>
           </font>
          </property>
          <property name="text">
@@ -1320,7 +1362,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>10</height>
           </size>
          </property>
         </spacer>
@@ -1342,6 +1384,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -1399,7 +1443,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>12</height>
           </size>
          </property>
         </spacer>
@@ -1421,6 +1465,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>
@@ -1478,7 +1524,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>13</height>
+           <height>12</height>
           </size>
          </property>
         </spacer>
@@ -1500,6 +1546,8 @@
            <property name="font">
             <font>
              <pointsize>15</pointsize>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <hintingpreference>PreferFullHinting</hintingpreference>
              <fontweight>Light</fontweight>
             </font>
            </property>

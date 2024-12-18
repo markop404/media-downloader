@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabAGiZjl.ui'
+## Form generated from reading UI file 'tabJDomXW.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.0
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -27,6 +27,11 @@ class Ui_Tab(object):
     def setupUi(self, Tab):
         if not Tab.objectName():
             Tab.setObjectName(u"Tab")
+        Tab.resize(1230, 708)
+        font = QFont()
+        font.setStyleStrategy(QFont.PreferAntialias)
+        font.setHintingPreference(QFont.PreferFullHinting)
+        Tab.setFont(font)
         self.verticalLayout = QVBoxLayout(Tab)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.plainTextEdit = PlainTextEdit(Tab)
@@ -107,7 +112,7 @@ class Ui_Tab(object):
         self.setDownloadFolderButton = QPushButton(Tab)
         self.setDownloadFolderButton.setObjectName(u"setDownloadFolderButton")
         self.setDownloadFolderButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon = QIcon(QIcon.fromTheme(u"document-save-as"))
+        icon = QIcon(QIcon.fromTheme(u"folder-open"))
         self.setDownloadFolderButton.setIcon(icon)
 
         self.downloadFolderLayout.addWidget(self.setDownloadFolderButton)
@@ -181,7 +186,7 @@ class Ui_Tab(object):
         self.downloadButton = LargePushButton(Tab)
         self.downloadButton.setObjectName(u"downloadButton")
         self.downloadButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon2 = QIcon(QIcon.fromTheme(u"go-down"))
+        icon2 = QIcon(QIcon.fromTheme(u"emblem-downloads"))
         self.downloadButton.setIcon(icon2)
 
         self.actionButtonsLayout.addWidget(self.downloadButton)
@@ -214,10 +219,12 @@ class Ui_Tab(object):
 
         self.statusLabel = QLabel(Tab)
         self.statusLabel.setObjectName(u"statusLabel")
-        font = QFont()
-        font.setFamilies([u"Cantarell"])
-        font.setPointSize(14)
-        self.statusLabel.setFont(font)
+        font1 = QFont()
+        font1.setFamilies([u"Cantarell"])
+        font1.setPointSize(14)
+        font1.setStyleStrategy(QFont.PreferAntialias)
+        font1.setHintingPreference(QFont.PreferFullHinting)
+        self.statusLabel.setFont(font1)
 
         self.statusIndicatorsLayout.addWidget(self.statusLabel)
 
@@ -269,7 +276,7 @@ class Ui_Tab(object):
 #if QT_CONFIG(tooltip)
         self.setDownloadFolderButton.setToolTip(QCoreApplication.translate("Tab", u"Alt+C", None))
 #endif // QT_CONFIG(tooltip)
-        self.setDownloadFolderButton.setText(QCoreApplication.translate("Tab", u"&Change", None))
+        self.setDownloadFolderButton.setText(QCoreApplication.translate("Tab", u"&Choose", None))
 #if QT_CONFIG(tooltip)
         self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music.<br>(Alt+T)", None))
 #endif // QT_CONFIG(tooltip)

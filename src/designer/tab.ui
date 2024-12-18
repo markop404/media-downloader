@@ -2,6 +2,12 @@
 <ui version="4.0">
  <class>Tab</class>
  <widget class="QWidget" name="Tab">
+  <property name="font">
+   <font>
+    <stylestrategy>PreferAntialias</stylestrategy>
+    <hintingpreference>PreferFullHinting</hintingpreference>
+   </font>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="PlainTextEdit" name="plainTextEdit">
@@ -148,10 +154,10 @@
           <string>Alt+C</string>
          </property>
          <property name="text">
-          <string>&amp;Change</string>
+          <string>&amp;Choose</string>
          </property>
          <property name="icon">
-          <iconset theme="document-save-as"/>
+          <iconset theme="folder-open"/>
          </property>
         </widget>
        </item>
@@ -317,7 +323,7 @@
         <string>&amp;Download</string>
        </property>
        <property name="icon">
-        <iconset theme="go-down"/>
+        <iconset theme="emblem-downloads"/>
        </property>
        <property name="default">
         <bool>true</bool>
@@ -396,6 +402,8 @@
         <font>
          <family>Cantarell</family>
          <pointsize>14</pointsize>
+         <stylestrategy>PreferAntialias</stylestrategy>
+         <hintingpreference>PreferFullHinting</hintingpreference>
         </font>
        </property>
        <property name="text">
@@ -429,14 +437,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PlainTextEdit</class>
-   <extends>QPlainTextEdit</extends>
-   <header>custom_widgets.plaintextedit</header>
-  </customwidget>
-  <customwidget>
    <class>ComboBox</class>
    <extends>QComboBox</extends>
    <header>custom_widgets.combobox</header>
+  </customwidget>
+  <customwidget>
+   <class>PlainTextEdit</class>
+   <extends>QPlainTextEdit</extends>
+   <header>custom_widgets.plaintextedit</header>
   </customwidget>
   <customwidget>
    <class>LargePushButton</class>

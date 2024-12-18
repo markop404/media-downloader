@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialogEMfFnt.ui'
+## Form generated from reading UI file 'about_dialogIemgcW.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.0
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -23,6 +23,11 @@ class Ui_AboutDialog(object):
     def setupUi(self, AboutDialog):
         if not AboutDialog.objectName():
             AboutDialog.setObjectName(u"AboutDialog")
+        AboutDialog.resize(318, 278)
+        font = QFont()
+        font.setStyleStrategy(QFont.PreferAntialias)
+        font.setHintingPreference(QFont.PreferFullHinting)
+        AboutDialog.setFont(font)
         self.verticalLayout = QVBoxLayout(AboutDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.headerLayout = QHBoxLayout()
@@ -37,10 +42,12 @@ class Ui_AboutDialog(object):
 
         self.appNameLabel = QLabel(AboutDialog)
         self.appNameLabel.setObjectName(u"appNameLabel")
-        font = QFont()
-        font.setPointSize(16)
-        font.setWeight(QFont.ExtraBold)
-        self.appNameLabel.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(16)
+        font1.setWeight(QFont.ExtraBold)
+        font1.setStyleStrategy(QFont.PreferAntialias)
+        font1.setHintingPreference(QFont.PreferFullHinting)
+        self.appNameLabel.setFont(font1)
         self.appNameLabel.setMargin(4)
 
         self.headerLayout.addWidget(self.appNameLabel)
@@ -155,7 +162,7 @@ class Ui_AboutDialog(object):
         AboutDialog.setWindowTitle(QCoreApplication.translate("AboutDialog", u"About", None))
         self.appIconLabel.setText("")
         self.appNameLabel.setText(QCoreApplication.translate("AboutDialog", u"Media Downloader", None))
-        self.aboutLabel.setText(QCoreApplication.translate("AboutDialog", u"<span style=\" font-weight:700;\">Web video / audio downloader</span><br>v5.0.0<br><br>This app is the result of countless hours of development by <a href=\"https://markopejic.com\">Marko Peji\u0107</a>. If it's useful to you, please consider supporting its development with a <a href=\"https://downloader.markopejic.com/donate\">donation</a>. Thank you!", None))
+        self.aboutLabel.setText(QCoreApplication.translate("AboutDialog", u"<html><head/><body><p><span style=\" font-weight:700;\">Web video / audio downloader</span><br/>v5.0.0<br/><br/>This app is the result of countless hours of development by <a href=\"https://markopejic.com\"><span style=\" text-decoration: underline; color:#3daee9;\">Marko Peji\u0107</span></a>. If it's useful to you, please consider supporting its development with a <a href=\"https://downloader.markopejic.com/donate\"><span style=\" text-decoration: underline; color:#3daee9;\">donation</span></a>. Thank you!</p></body></html>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.aboutTab), QCoreApplication.translate("AboutDialog", u"About", None))
         self.donateButton.setText(QCoreApplication.translate("AboutDialog", u"Donate", None))
         self.supportedWebsitesButton.setText(QCoreApplication.translate("AboutDialog", u"Supported Websites", None))

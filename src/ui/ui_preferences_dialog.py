@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogxypuAF.ui'
+## Form generated from reading UI file 'preferences_dialogRBTMMm.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -26,8 +26,10 @@ class Ui_PreferencesDialog(object):
     def setupUi(self, PreferencesDialog):
         if not PreferencesDialog.objectName():
             PreferencesDialog.setObjectName(u"PreferencesDialog")
+        PreferencesDialog.resize(701, 408)
         font = QFont()
-        font.setWeight(QFont.Thin)
+        font.setStyleStrategy(QFont.PreferAntialias)
+        font.setHintingPreference(QFont.PreferFullHinting)
         PreferencesDialog.setFont(font)
         self.PreferencesDialogLayout = QVBoxLayout(PreferencesDialog)
         self.PreferencesDialogLayout.setObjectName(u"PreferencesDialogLayout")
@@ -43,6 +45,8 @@ class Ui_PreferencesDialog(object):
         self.restoreSettingsMainLabel.setObjectName(u"restoreSettingsMainLabel")
         font1 = QFont()
         font1.setWeight(QFont.DemiBold)
+        font1.setStyleStrategy(QFont.PreferAntialias)
+        font1.setHintingPreference(QFont.PreferFullHinting)
         self.restoreSettingsMainLabel.setFont(font1)
         self.restoreSettingsMainLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
@@ -52,6 +56,8 @@ class Ui_PreferencesDialog(object):
         self.restoreSettingsDescriptionLabel.setObjectName(u"restoreSettingsDescriptionLabel")
         font2 = QFont()
         font2.setWeight(QFont.ExtraLight)
+        font2.setStyleStrategy(QFont.PreferAntialias)
+        font2.setHintingPreference(QFont.PreferFullHinting)
         self.restoreSettingsDescriptionLabel.setFont(font2)
         self.restoreSettingsDescriptionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 

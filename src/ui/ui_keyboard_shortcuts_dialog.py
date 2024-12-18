@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogezkdAr.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogzEyVin.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -23,6 +23,11 @@ class Ui_KeyboardShortcutsDialog(object):
     def setupUi(self, KeyboardShortcutsDialog):
         if not KeyboardShortcutsDialog.objectName():
             KeyboardShortcutsDialog.setObjectName(u"KeyboardShortcutsDialog")
+        KeyboardShortcutsDialog.resize(972, 722)
+        font = QFont()
+        font.setStyleStrategy(QFont.PreferAntialias)
+        font.setHintingPreference(QFont.PreferFullHinting)
+        KeyboardShortcutsDialog.setFont(font)
         self.verticalLayout = QVBoxLayout(KeyboardShortcutsDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.shortcutsColumnLayout = QHBoxLayout()
@@ -33,21 +38,23 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout = QVBoxLayout()
         self.leftColumnLayout.setObjectName(u"leftColumnLayout")
-        self.verticalSpacer_15 = QSpacerItem(20, 17, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_15 = QSpacerItem(20, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_15)
 
         self.generalSectionLabel = QLabel(KeyboardShortcutsDialog)
         self.generalSectionLabel.setObjectName(u"generalSectionLabel")
-        font = QFont()
-        font.setBold(True)
-        self.generalSectionLabel.setFont(font)
+        font1 = QFont()
+        font1.setBold(True)
+        font1.setStyleStrategy(QFont.PreferAntialias)
+        font1.setHintingPreference(QFont.PreferFullHinting)
+        self.generalSectionLabel.setFont(font1)
         self.generalSectionLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.generalSectionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.leftColumnLayout.addWidget(self.generalSectionLabel)
 
-        self.verticalSpacer_19 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_19 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_19)
 
@@ -61,10 +68,12 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator6 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator6.setObjectName(u"keySeparator6")
-        font1 = QFont()
-        font1.setPointSize(15)
-        font1.setWeight(QFont.Light)
-        self.keySeparator6.setFont(font1)
+        font2 = QFont()
+        font2.setPointSize(15)
+        font2.setWeight(QFont.Light)
+        font2.setStyleStrategy(QFont.PreferAntialias)
+        font2.setHintingPreference(QFont.PreferFullHinting)
+        self.keySeparator6.setFont(font2)
 
         self.shortcutLayout13.addWidget(self.keySeparator6)
 
@@ -87,7 +96,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout13)
 
-        self.verticalSpacer = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer)
 
@@ -101,7 +110,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator7 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator7.setObjectName(u"keySeparator7")
-        self.keySeparator7.setFont(font1)
+        self.keySeparator7.setFont(font2)
 
         self.shortcutLayout14.addWidget(self.keySeparator7)
 
@@ -124,7 +133,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout14)
 
-        self.verticalSpacer_23 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_23 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_23)
 
@@ -137,7 +146,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label = QLabel(KeyboardShortcutsDialog)
         self.label.setObjectName(u"label")
-        self.label.setFont(font1)
+        self.label.setFont(font2)
 
         self.horizontalLayout.addWidget(self.label)
 
@@ -158,19 +167,19 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.horizontalLayout)
 
-        self.verticalSpacer_13 = QSpacerItem(20, 17, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_13 = QSpacerItem(20, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_13)
 
         self.controlsSectionLabel = QLabel(KeyboardShortcutsDialog)
         self.controlsSectionLabel.setObjectName(u"controlsSectionLabel")
-        self.controlsSectionLabel.setFont(font)
+        self.controlsSectionLabel.setFont(font1)
         self.controlsSectionLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.controlsSectionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.leftColumnLayout.addWidget(self.controlsSectionLabel)
 
-        self.verticalSpacer_17 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_17 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_17)
 
@@ -184,7 +193,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator17 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator17.setObjectName(u"keySeparator17")
-        self.keySeparator17.setFont(font1)
+        self.keySeparator17.setFont(font2)
 
         self.shortcutLayout9.addWidget(self.keySeparator17)
 
@@ -207,7 +216,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout9)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_2 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_2)
 
@@ -221,7 +230,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.showQualityOptsShortcutButtonSeparator = QLabel(KeyboardShortcutsDialog)
         self.showQualityOptsShortcutButtonSeparator.setObjectName(u"showQualityOptsShortcutButtonSeparator")
-        self.showQualityOptsShortcutButtonSeparator.setFont(font1)
+        self.showQualityOptsShortcutButtonSeparator.setFont(font2)
 
         self.showQualityOptsShortcutLayout.addWidget(self.showQualityOptsShortcutButtonSeparator)
 
@@ -244,7 +253,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.showQualityOptsShortcutLayout)
 
-        self.verticalSpacer_3 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_3 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_3)
 
@@ -258,7 +267,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator10 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator10.setObjectName(u"keySeparator10")
-        self.keySeparator10.setFont(font1)
+        self.keySeparator10.setFont(font2)
 
         self.shortcutLayout2.addWidget(self.keySeparator10)
 
@@ -281,7 +290,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout2)
 
-        self.verticalSpacer_4 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_4 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_4)
 
@@ -295,7 +304,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator3 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator3.setObjectName(u"keySeparator3")
-        self.keySeparator3.setFont(font1)
+        self.keySeparator3.setFont(font2)
 
         self.chgDownloadDirShortcutLayout.addWidget(self.keySeparator3)
 
@@ -318,7 +327,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.chgDownloadDirShortcutLayout)
 
-        self.verticalSpacer_5 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_5 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_5)
 
@@ -332,7 +341,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator11 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator11.setObjectName(u"keySeparator11")
-        self.keySeparator11.setFont(font1)
+        self.keySeparator11.setFont(font2)
 
         self.shortcutLayout3.addWidget(self.keySeparator11)
 
@@ -355,7 +364,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout3)
 
-        self.verticalSpacer_6 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_6 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_6)
 
@@ -369,7 +378,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator12 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator12.setObjectName(u"keySeparator12")
-        self.keySeparator12.setFont(font1)
+        self.keySeparator12.setFont(font2)
 
         self.shortcutLayout4.addWidget(self.keySeparator12)
 
@@ -405,19 +414,19 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout = QVBoxLayout()
         self.rightColumnLayout.setObjectName(u"rightColumnLayout")
-        self.verticalSpacer_16 = QSpacerItem(20, 17, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_16 = QSpacerItem(20, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_16)
 
         self.tabsSectionLabel = QLabel(KeyboardShortcutsDialog)
         self.tabsSectionLabel.setObjectName(u"tabsSectionLabel")
-        self.tabsSectionLabel.setFont(font)
+        self.tabsSectionLabel.setFont(font1)
         self.tabsSectionLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.tabsSectionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.rightColumnLayout.addWidget(self.tabsSectionLabel)
 
-        self.verticalSpacer_18 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_18 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_18)
 
@@ -431,7 +440,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator9 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator9.setObjectName(u"keySeparator9")
-        self.keySeparator9.setFont(font1)
+        self.keySeparator9.setFont(font2)
 
         self.shortcutLayout16.addWidget(self.keySeparator9)
 
@@ -468,7 +477,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator16 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator16.setObjectName(u"keySeparator16")
-        self.keySeparator16.setFont(font1)
+        self.keySeparator16.setFont(font2)
 
         self.shortcutLayout8.addWidget(self.keySeparator16)
 
@@ -505,7 +514,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator14 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator14.setObjectName(u"keySeparator14")
-        self.keySeparator14.setFont(font1)
+        self.keySeparator14.setFont(font2)
 
         self.shortcutLayout6.addWidget(self.keySeparator14)
 
@@ -542,7 +551,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator15 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator15.setObjectName(u"keySeparator15")
-        self.keySeparator15.setFont(font1)
+        self.keySeparator15.setFont(font2)
 
         self.shortcutLayout7.addWidget(self.keySeparator15)
 
@@ -579,7 +588,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator5 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator5.setObjectName(u"keySeparator5")
-        self.keySeparator5.setFont(font1)
+        self.keySeparator5.setFont(font2)
 
         self.shortcutLayout12.addWidget(self.keySeparator5)
 
@@ -613,19 +622,19 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout12)
 
-        self.verticalSpacer_14 = QSpacerItem(20, 17, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_14 = QSpacerItem(20, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_14)
 
         self.otherSectionLabel = QLabel(KeyboardShortcutsDialog)
         self.otherSectionLabel.setObjectName(u"otherSectionLabel")
-        self.otherSectionLabel.setFont(font)
+        self.otherSectionLabel.setFont(font1)
         self.otherSectionLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.otherSectionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.rightColumnLayout.addWidget(self.otherSectionLabel)
 
-        self.verticalSpacer_20 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_20 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_20)
 
@@ -639,7 +648,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator5_2 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator5_2.setObjectName(u"keySeparator5_2")
-        self.keySeparator5_2.setFont(font1)
+        self.keySeparator5_2.setFont(font2)
 
         self.shortcutLayout12_2.addWidget(self.keySeparator5_2)
 
@@ -662,7 +671,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout12_2)
 
-        self.verticalSpacer_11 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_11 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_11)
 
@@ -676,7 +685,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator1_2 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator1_2.setObjectName(u"keySeparator1_2")
-        self.keySeparator1_2.setFont(font1)
+        self.keySeparator1_2.setFont(font2)
 
         self.shortcutLayout17.addWidget(self.keySeparator1_2)
 
@@ -699,7 +708,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout17)
 
-        self.verticalSpacer_12 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_12 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_12)
 
@@ -713,7 +722,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator8 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator8.setObjectName(u"keySeparator8")
-        self.keySeparator8.setFont(font1)
+        self.keySeparator8.setFont(font2)
 
         self.shortcutLayout15.addWidget(self.keySeparator8)
 

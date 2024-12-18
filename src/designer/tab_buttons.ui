@@ -2,6 +2,12 @@
 <ui version="4.0">
  <class>TabButtons</class>
  <widget class="QWidget" name="TabButtons">
+  <property name="font">
+   <font>
+    <stylestrategy>PreferAntialias</stylestrategy>
+    <hintingpreference>PreferFullHinting</hintingpreference>
+   </font>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="topMargin">
     <number>0</number>
@@ -18,10 +24,7 @@
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="toolTip">
-      <string>Ctrl+T</string>
-     </property>
-     <property name="text">
-      <string>New Tab</string>
+      <string>New Tab&lt;br&gt;(Ctrl+T)</string>
      </property>
      <property name="icon">
       <iconset theme="list-add"/>
@@ -36,8 +39,11 @@
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
-     <property name="text">
-      <string>&amp;Menu</string>
+     <property name="toolTip">
+      <string>Menu&lt;br&gt;(Alt+M)</string>
+     </property>
+     <property name="icon">
+      <iconset theme="preferences-other"/>
      </property>
     </widget>
    </item>
