@@ -1,0 +1,71 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "media-downloader"
+dynamic = ["version"]
+description = 'Web video/audio downloader'
+readme = "README.md"
+requires-python = ">=3.9"
+license = "GPL-3.0-or-later"
+keywords = ["downloader", "video", "audio", "web"]
+authors = [{ name = "Marko Pejić", email = "dev@markopejic.com" }]
+maintainers = [{name = "Marko Pejić", email = "dev@markopejic.com"}]
+classifiers = [
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",  
+  "Intended Audience :: End Users/Desktop",
+  "Programming Language :: Python",
+  "Development Status :: 5 - Production/Stable",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Topic :: Multimedia :: Sound/Audio",
+  "Topic :: Internet",
+
+]
+dependencies = [
+  "yt-dlp",
+  "PySide6-Essentials",
+]
+
+[project.urls]
+Homepage = "https://downloader.markopejic.com"
+Repository = "https://downloader.markopejic.com/source-code"
+Issues = "https://downloader.markopejic.com/report-an-issue"
+
+[tool.hatch.version]
+path = "src/media_downloader/__about__.py"
+
+[project.gui-scripts]
+media-downloader = foomod:main
+
+[tool.hatch.envs.default]
+dependencies = [
+  "coverage[toml]>=6.5",
+]
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+[tool.coverage.run]
+source_pkgs = ["media_downloader"]
+branch = true
+parallel = true
+
+[tool.coverage.paths]
+media_downloader = ["src/media_downloader"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]

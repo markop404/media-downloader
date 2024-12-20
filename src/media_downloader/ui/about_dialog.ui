@@ -68,9 +68,50 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
+        <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Web video / audio downloader</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Policy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>3</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <widget class="QLabel" name="aboutLabel">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Web video / audio downloader&lt;/span&gt;&lt;br/&gt;v5.0.0&lt;br/&gt;&lt;br/&gt;This app is the result of countless hours of development by &lt;a href=&quot;https://markopejic.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#3daee9;&quot;&gt;Marko Pejić&lt;/span&gt;&lt;/a&gt;. If it's useful to you, please consider supporting its development with a &lt;a href=&quot;https://downloader.markopejic.com/donate&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#3daee9;&quot;&gt;donation&lt;/span&gt;&lt;/a&gt;. Thank you!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>This app is the result of countless hours of development by &lt;a href=&quot;https://markopejic.com&quot;&gt;Marko Pejić&lt;/a&gt;. If it's useful to you, please consider supporting its development with a &lt;a href=&quot;https://downloader.markopejic.com/donate&quot;&gt;donation&lt;/a&gt;. Thank you!</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>

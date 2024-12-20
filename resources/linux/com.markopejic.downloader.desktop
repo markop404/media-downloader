@@ -2,11 +2,9 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-
 Name=Media Downloader
 Comment=Web video/audio downloader
-Categories=AudioVideo;Recorder;
-
+Categories=AudioVideo;Network;
 Icon=com.markopejic.downloader
 Exec=com.markopejic.downloader
 Terminal=false
