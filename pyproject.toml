@@ -29,7 +29,6 @@ classifiers = [
   "Operating System :: POSIX :: Linux",
   "Topic :: Multimedia :: Sound/Audio",
   "Topic :: Internet",
-
 ]
 dependencies = [
   "yt-dlp",
@@ -44,28 +43,33 @@ Issues = "https://downloader.markopejic.com/report-an-issue"
 [tool.hatch.version]
 path = "src/media_downloader/__about__.py"
 
-[project.gui-scripts]
-media-downloader = foomod:main
+# [project.gui-scripts]
+# media-downloader = foo.mod:main
 
-[tool.hatch.envs.default]
-dependencies = [
-  "coverage[toml]>=6.5",
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "*.ui",
 ]
 
-[[tool.hatch.envs.all.matrix]]
-python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+# [tool.coverage.run]
+# source_pkgs = ["media_downloader"]
+# branch = true
+# parallel = true
 
-[tool.coverage.run]
-source_pkgs = ["media_downloader"]
-branch = true
-parallel = true
+# [tool.coverage.paths]
+# media_downloader = ["src/media_downloader"]
 
-[tool.coverage.paths]
-media_downloader = ["src/media_downloader"]
+# [tool.coverage.report]
+# exclude_lines = [
+#   "no cov",
+#   "if __name__ == .__main__.:",
+#   "if TYPE_CHECKING:",
+# ]
 
-[tool.coverage.report]
-exclude_lines = [
-  "no cov",
-  "if __name__ == .__main__.:",
-  "if TYPE_CHECKING:",
-]
+# [tool.hatch.envs.default]
+# dependencies = [
+#   "coverage[toml]>=6.5",
+# ]
+
+# [[tool.hatch.envs.all.matrix]]
+# python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
