@@ -25,9 +25,9 @@ from PySide6.QtWidgets import QMessageBox, QWidget, QFileDialog
 from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize
 from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 
-import utils, ytdlp_helpers
+from media_downloader import utils, ytdlp_helpers
 from .settings import Settings
-from ui import Ui_Tab
+from media_downloader.ui import Ui_Tab
 
 
 class Tab(QWidget):

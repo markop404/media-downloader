@@ -361,12 +361,12 @@
   <customwidget>
    <class>ComboBox</class>
    <extends>QComboBox</extends>
-   <header>custom_widgets.combobox</header>
+   <header>media_downloader.custom_widgets.combobox</header>
   </customwidget>
   <customwidget>
    <class>Toggle</class>
    <extends>QSlider</extends>
-   <header>custom_widgets.toggle</header>
+   <header>media_downloader.custom_widgets.toggle</header>
   </customwidget>
  </customwidgets>
  <resources/>

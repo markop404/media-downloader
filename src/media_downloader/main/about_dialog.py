@@ -19,7 +19,7 @@
 
 from PySide6.QtWidgets import QDialog
 from PySide6.QtGui import QDesktopServices
-from ui import Ui_AboutDialog
+from media_downloader.ui import Ui_AboutDialog
 
 
 class AboutDialog(QDialog):

@@ -19,9 +19,9 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
     QHBoxLayout, QLabel, QProgressBar, QPushButton,
     QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 
-from custom_widgets.combobox import ComboBox
-from custom_widgets.largepushbutton import LargePushButton
-from custom_widgets.plaintextedit import PlainTextEdit
+from media_downloader.custom_widgets.combobox import ComboBox
+from media_downloader.custom_widgets.largepushbutton import LargePushButton
+from media_downloader.custom_widgets.plaintextedit import PlainTextEdit
 
 class Ui_Tab(object):
     def setupUi(self, Tab):

@@ -17,7 +17,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from main import Application
+from media_downloader.main import Application
 import sys
 
 sys.exit(Application().exec())

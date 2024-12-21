@@ -19,9 +19,9 @@
 
 from PySide6.QtWidgets import QDialog, QDialogButtonBox
 
-from ui import Ui_PreferencesDialog
+from media_downloader.ui import Ui_PreferencesDialog
 from .settings import Settings
-import utils
+from media_downloader import utils
 
 
 class PreferencesDialog(QDialog):
