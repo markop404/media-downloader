@@ -6,5 +6,5 @@ Name=Media Downloader
 Comment=Web video/audio downloader
 Categories=AudioVideo;Network;
 Icon=com.markopejic.downloader
-Exec=com.markopejic.downloader
+Exec=media-downloader
 Terminal=false
