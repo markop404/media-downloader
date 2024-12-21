@@ -1,16 +1,17 @@
 # -*- mode: python ; coding: utf-8 -*-
 
-VERSION = "v5.0.0"
-ICON = "icons/icon.png"
+from src.media_downloader__about__ import VERSION
+
+ICON_PATH = "resources/icons/com.markopejic.downloader.png"
 BINARIES = [("ffmpeg.exe", "."), ("ffprobe.exe", ".")]
 NAME = f"Media Downloader {VERSION}"
 
 
 a = Analysis(
-    ['src/__main__.py'],
+    ['src/media_downloader/__main__.py'],
     pathex=[],
     binaries=BINARIES,
-    datas=[(ICON, 'icons')],
+    datas=[(ICON, 'resources/icons')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
