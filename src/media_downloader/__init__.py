@@ -17,7 +17,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import main
-import ytdlp_helpers
-import utils
-import ui
+from . import main
+from . import ytdlp_helpers
+from . import utils
+from . import ui

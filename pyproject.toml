@@ -36,40 +36,18 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://downloader.markopejic.com"
-Repository = "https://downloader.markopejic.com/source-code"
-Issues = "https://downloader.markopejic.com/report-an-issue"
+homepage = "https://downloader.markopejic.com"
+repository = "https://downloader.markopejic.com/source-code"
+issues = "https://downloader.markopejic.com/report-an-issue"
+funding = "https://downloader.markopejic.com/donate"
 
 [tool.hatch.version]
 path = "src/media_downloader/__about__.py"
 
-# [project.gui-scripts]
-# media-downloader = foo.mod:main
+[project.gui-scripts]
+media-downloader = "media_downloader:__main__"
 
 [tool.hatch.build.targets.sdist]
 exclude = [
   "*.ui",
 ]
-
-# [tool.coverage.run]
-# source_pkgs = ["media_downloader"]
-# branch = true
-# parallel = true
-
-# [tool.coverage.paths]
-# media_downloader = ["src/media_downloader"]
-
-# [tool.coverage.report]
-# exclude_lines = [
-#   "no cov",
-#   "if __name__ == .__main__.:",
-#   "if TYPE_CHECKING:",
-# ]
-
-# [tool.hatch.envs.default]
-# dependencies = [
-#   "coverage[toml]>=6.5",
-# ]
-
-# [[tool.hatch.envs.all.matrix]]
-# python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
