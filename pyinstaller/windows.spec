@@ -1,6 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
 
-from src.media_downloader__about__ import VERSION
+from src.media_downloader.__about__ import VERSION
 
 ICON_PATH = "resources/icons/com.markopejic.downloader.png"
 BINARIES = [("ffmpeg.exe", "."), ("ffprobe.exe", ".")]
