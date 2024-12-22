@@ -44,6 +44,11 @@
        </item>
        <item>
         <widget class="QLabel" name="generalSectionLabel">
+         <property name="font">
+          <font>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>General</string>
          </property>
@@ -296,6 +301,11 @@
        </item>
        <item>
         <widget class="QLabel" name="controlsSectionLabel">
+         <property name="font">
+          <font>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Controls</string>
          </property>
@@ -847,6 +857,11 @@
        </item>
        <item>
         <widget class="QLabel" name="tabsSectionLabel">
+         <property name="font">
+          <font>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Tabs</string>
          </property>
@@ -1298,6 +1313,11 @@
        </item>
        <item>
         <widget class="QLabel" name="otherSectionLabel">
+         <property name="font">
+          <font>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Other</string>
          </property>

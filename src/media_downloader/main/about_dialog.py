@@ -17,9 +17,10 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from PySide6.QtWidgets import QDialog
+from PySide6.QtWidgets import QDialog, QLabel
 from PySide6.QtGui import QDesktopServices
 from media_downloader.ui import Ui_AboutDialog
+from media_downloader.__about__ import VERSION
 
 
 class AboutDialog(QDialog):
@@ -29,6 +30,8 @@ class AboutDialog(QDialog):
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
         self.setFixedSize(self.sizeHint())
+        
+        self.ui.tabWidget.widget(0).findChild(QLabel, "label").setText(VERSION)
     
 
     def connect_signals_and_slots(self):

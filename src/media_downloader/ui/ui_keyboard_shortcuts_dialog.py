@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogcFwTwP.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogKxjIJF.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -39,6 +39,9 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.generalSectionLabel = QLabel(KeyboardShortcutsDialog)
         self.generalSectionLabel.setObjectName(u"generalSectionLabel")
+        font = QFont()
+        font.setBold(True)
+        self.generalSectionLabel.setFont(font)
         self.generalSectionLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.generalSectionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
@@ -58,12 +61,12 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator6 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator6.setObjectName(u"keySeparator6")
-        font = QFont()
-        font.setPointSize(15)
-        font.setWeight(QFont.Light)
-        font.setStyleStrategy(QFont.PreferAntialias)
-        font.setHintingPreference(QFont.PreferFullHinting)
-        self.keySeparator6.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(15)
+        font1.setWeight(QFont.Light)
+        font1.setStyleStrategy(QFont.PreferAntialias)
+        font1.setHintingPreference(QFont.PreferFullHinting)
+        self.keySeparator6.setFont(font1)
 
         self.shortcutLayout13.addWidget(self.keySeparator6)
 
@@ -100,7 +103,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator7 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator7.setObjectName(u"keySeparator7")
-        self.keySeparator7.setFont(font)
+        self.keySeparator7.setFont(font1)
 
         self.shortcutLayout14.addWidget(self.keySeparator7)
 
@@ -162,6 +165,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.controlsSectionLabel = QLabel(KeyboardShortcutsDialog)
         self.controlsSectionLabel.setObjectName(u"controlsSectionLabel")
+        self.controlsSectionLabel.setFont(font)
         self.controlsSectionLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.controlsSectionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
@@ -181,7 +185,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator17 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator17.setObjectName(u"keySeparator17")
-        self.keySeparator17.setFont(font)
+        self.keySeparator17.setFont(font1)
 
         self.shortcutLayout9.addWidget(self.keySeparator17)
 
@@ -218,7 +222,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.showQualityOptsShortcutButtonSeparator = QLabel(KeyboardShortcutsDialog)
         self.showQualityOptsShortcutButtonSeparator.setObjectName(u"showQualityOptsShortcutButtonSeparator")
-        self.showQualityOptsShortcutButtonSeparator.setFont(font)
+        self.showQualityOptsShortcutButtonSeparator.setFont(font1)
 
         self.showQualityOptsShortcutLayout.addWidget(self.showQualityOptsShortcutButtonSeparator)
 
@@ -255,7 +259,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator10 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator10.setObjectName(u"keySeparator10")
-        self.keySeparator10.setFont(font)
+        self.keySeparator10.setFont(font1)
 
         self.shortcutLayout2.addWidget(self.keySeparator10)
 
@@ -292,7 +296,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator3 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator3.setObjectName(u"keySeparator3")
-        self.keySeparator3.setFont(font)
+        self.keySeparator3.setFont(font1)
 
         self.chgDownloadDirShortcutLayout.addWidget(self.keySeparator3)
 
@@ -329,7 +333,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator11 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator11.setObjectName(u"keySeparator11")
-        self.keySeparator11.setFont(font)
+        self.keySeparator11.setFont(font1)
 
         self.shortcutLayout3.addWidget(self.keySeparator11)
 
@@ -366,7 +370,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator12 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator12.setObjectName(u"keySeparator12")
-        self.keySeparator12.setFont(font)
+        self.keySeparator12.setFont(font1)
 
         self.shortcutLayout4.addWidget(self.keySeparator12)
 
@@ -408,6 +412,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.tabsSectionLabel = QLabel(KeyboardShortcutsDialog)
         self.tabsSectionLabel.setObjectName(u"tabsSectionLabel")
+        self.tabsSectionLabel.setFont(font)
         self.tabsSectionLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.tabsSectionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
@@ -427,7 +432,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator9 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator9.setObjectName(u"keySeparator9")
-        self.keySeparator9.setFont(font)
+        self.keySeparator9.setFont(font1)
 
         self.shortcutLayout16.addWidget(self.keySeparator9)
 
@@ -464,7 +469,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator16 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator16.setObjectName(u"keySeparator16")
-        self.keySeparator16.setFont(font)
+        self.keySeparator16.setFont(font1)
 
         self.shortcutLayout8.addWidget(self.keySeparator16)
 
@@ -501,7 +506,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator14 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator14.setObjectName(u"keySeparator14")
-        self.keySeparator14.setFont(font)
+        self.keySeparator14.setFont(font1)
 
         self.shortcutLayout6.addWidget(self.keySeparator14)
 
@@ -538,7 +543,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator15 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator15.setObjectName(u"keySeparator15")
-        self.keySeparator15.setFont(font)
+        self.keySeparator15.setFont(font1)
 
         self.shortcutLayout7.addWidget(self.keySeparator15)
 
@@ -575,7 +580,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator5 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator5.setObjectName(u"keySeparator5")
-        self.keySeparator5.setFont(font)
+        self.keySeparator5.setFont(font1)
 
         self.shortcutLayout12.addWidget(self.keySeparator5)
 
@@ -615,6 +620,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.otherSectionLabel = QLabel(KeyboardShortcutsDialog)
         self.otherSectionLabel.setObjectName(u"otherSectionLabel")
+        self.otherSectionLabel.setFont(font)
         self.otherSectionLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.otherSectionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
@@ -634,7 +640,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator5_2 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator5_2.setObjectName(u"keySeparator5_2")
-        self.keySeparator5_2.setFont(font)
+        self.keySeparator5_2.setFont(font1)
 
         self.shortcutLayout12_2.addWidget(self.keySeparator5_2)
 
@@ -671,7 +677,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator1_2 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator1_2.setObjectName(u"keySeparator1_2")
-        self.keySeparator1_2.setFont(font)
+        self.keySeparator1_2.setFont(font1)
 
         self.shortcutLayout17.addWidget(self.keySeparator1_2)
 
@@ -708,7 +714,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.keySeparator8 = QLabel(KeyboardShortcutsDialog)
         self.keySeparator8.setObjectName(u"keySeparator8")
-        self.keySeparator8.setFont(font)
+        self.keySeparator8.setFont(font1)
 
         self.shortcutLayout15.addWidget(self.keySeparator8)
 
