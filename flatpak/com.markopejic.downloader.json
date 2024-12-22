@@ -14,20 +14,6 @@
         "--device=dri",
         "--filesystem=xdg-download:create"
     ],
-    "cleanup" : [
-        "/include",
-        "/lib/pkgconfig",
-        "/man",
-        "/share/doc",
-        "/share/gtk-doc",
-        "/share/man",
-        "'*.la'",
-        "'*.a'",
-        "/share/ffmpeg"
-    ],
-    "cleanup-commands": [
-        "/app/cleanup-BaseApp.sh"
-    ],
     "modules": [
         "python3-yt-dlp.json",
         {
@@ -66,5 +52,19 @@
                 }
             ]
         }
+    ],
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "'*.la'",
+        "'*.a'",
+        "/share/ffmpeg"
+    ],
+    "cleanup-commands": [
+        "/app/cleanup-BaseApp.sh"
     ]
 }
