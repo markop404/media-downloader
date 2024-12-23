@@ -70,7 +70,7 @@
             "sources": [
                 {
                     "type": "archive",
-                    "path": "../dist/media_downloader-5.0.0a.tar.gz"
+                    "path": "../dist/media_downloader-5.0.0a0.tar.gz"
                 }
             ]
         }

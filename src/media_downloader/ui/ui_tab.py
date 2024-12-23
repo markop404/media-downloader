@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabbwwMQp.ui'
+## Form generated from reading UI file 'tablSWnQh.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -34,21 +34,33 @@ class Ui_Tab(object):
 
         self.verticalLayout.addWidget(self.plainTextEdit)
 
-        self.donationLayout = QHBoxLayout()
-        self.donationLayout.setObjectName(u"donationLayout")
-        self.horizontalSpacer1 = QSpacerItem(1166, 40, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.pushButton = QPushButton(Tab)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        icon = QIcon(QIcon.fromTheme(u"edit-clear"))
+        self.pushButton.setIcon(icon)
 
-        self.donationLayout.addItem(self.horizontalSpacer1)
+        self.horizontalLayout_2.addWidget(self.pushButton)
+
+        self.horizontalSpacer1 = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer1)
 
         self.donationLinkLabel = QLabel(Tab)
         self.donationLinkLabel.setObjectName(u"donationLinkLabel")
         self.donationLinkLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
         self.donationLinkLabel.setOpenExternalLinks(True)
 
-        self.donationLayout.addWidget(self.donationLinkLabel)
+        self.horizontalLayout_2.addWidget(self.donationLinkLabel)
 
 
-        self.verticalLayout.addLayout(self.donationLayout)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
+
+        self.verticalSpacer = QSpacerItem(0, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
 
         self.downloadOptionsLayout = QFormLayout()
         self.downloadOptionsLayout.setObjectName(u"downloadOptionsLayout")
@@ -107,8 +119,8 @@ class Ui_Tab(object):
         self.setDownloadFolderButton = QPushButton(Tab)
         self.setDownloadFolderButton.setObjectName(u"setDownloadFolderButton")
         self.setDownloadFolderButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon = QIcon(QIcon.fromTheme(u"folder-open"))
-        self.setDownloadFolderButton.setIcon(icon)
+        icon1 = QIcon(QIcon.fromTheme(u"folder-open"))
+        self.setDownloadFolderButton.setIcon(icon1)
 
         self.downloadFolderLayout.addWidget(self.setDownloadFolderButton)
 
@@ -118,13 +130,13 @@ class Ui_Tab(object):
 
         self.verticalLayout.addLayout(self.downloadOptionsLayout)
 
-        self.horizontalSpacer2 = QSpacerItem(697, 15, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer2 = QSpacerItem(0, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout.addItem(self.horizontalSpacer2)
 
         self.cropThumbnailsCheckBoxLayout = QHBoxLayout()
         self.cropThumbnailsCheckBoxLayout.setObjectName(u"cropThumbnailsCheckBoxLayout")
-        self.horizontalSpacer3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer3 = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.cropThumbnailsCheckBoxLayout.addItem(self.horizontalSpacer3)
 
@@ -134,7 +146,7 @@ class Ui_Tab(object):
 
         self.cropThumbnailsCheckBoxLayout.addWidget(self.cropThumbnailsCheckBox)
 
-        self.horizontalSpacer4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer4 = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.cropThumbnailsCheckBoxLayout.addItem(self.horizontalSpacer4)
 
@@ -143,7 +155,7 @@ class Ui_Tab(object):
 
         self.embedSubtitlesCheckBoxLayout = QHBoxLayout()
         self.embedSubtitlesCheckBoxLayout.setObjectName(u"embedSubtitlesCheckBoxLayout")
-        self.horizontalSpacer5 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer5 = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.embedSubtitlesCheckBoxLayout.addItem(self.horizontalSpacer5)
 
@@ -153,53 +165,53 @@ class Ui_Tab(object):
 
         self.embedSubtitlesCheckBoxLayout.addWidget(self.embedSubtitlesCheckBox)
 
-        self.horizontalSpacer6 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer6 = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.embedSubtitlesCheckBoxLayout.addItem(self.horizontalSpacer6)
 
 
         self.verticalLayout.addLayout(self.embedSubtitlesCheckBoxLayout)
 
-        self.horizontalSpacer7 = QSpacerItem(697, 40, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer7 = QSpacerItem(0, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout.addItem(self.horizontalSpacer7)
 
         self.actionButtonsLayout = QHBoxLayout()
         self.actionButtonsLayout.setObjectName(u"actionButtonsLayout")
-        self.horizontalSpacer8 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer8 = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.actionButtonsLayout.addItem(self.horizontalSpacer8)
 
         self.dataPullButton = LargePushButton(Tab)
         self.dataPullButton.setObjectName(u"dataPullButton")
         self.dataPullButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon1 = QIcon(QIcon.fromTheme(u"view-refresh"))
-        self.dataPullButton.setIcon(icon1)
+        icon2 = QIcon(QIcon.fromTheme(u"view-refresh"))
+        self.dataPullButton.setIcon(icon2)
 
         self.actionButtonsLayout.addWidget(self.dataPullButton)
 
         self.downloadButton = LargePushButton(Tab)
         self.downloadButton.setObjectName(u"downloadButton")
         self.downloadButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon2 = QIcon(QIcon.fromTheme(u"emblem-downloads"))
-        self.downloadButton.setIcon(icon2)
+        icon3 = QIcon(QIcon.fromTheme(u"emblem-downloads"))
+        self.downloadButton.setIcon(icon3)
 
         self.actionButtonsLayout.addWidget(self.downloadButton)
 
-        self.horizontalSpacer9 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer9 = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.actionButtonsLayout.addItem(self.horizontalSpacer9)
 
 
         self.verticalLayout.addLayout(self.actionButtonsLayout)
 
-        self.horizontalSpacer10 = QSpacerItem(697, 60, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer10 = QSpacerItem(0, 60, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout.addItem(self.horizontalSpacer10)
 
         self.statusIndicatorsLayout = QHBoxLayout()
         self.statusIndicatorsLayout.setObjectName(u"statusIndicatorsLayout")
-        self.horizontalSpacer11 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer11 = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.statusIndicatorsLayout.addItem(self.horizontalSpacer11)
 
@@ -208,7 +220,7 @@ class Ui_Tab(object):
 
         self.statusIndicatorsLayout.addWidget(self.statusIconLabel)
 
-        self.horizontalSpacer12 = QSpacerItem(3, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer12 = QSpacerItem(3, 0, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
 
         self.statusIndicatorsLayout.addItem(self.horizontalSpacer12)
 
@@ -220,7 +232,7 @@ class Ui_Tab(object):
 
         self.statusIndicatorsLayout.addWidget(self.statusLabel)
 
-        self.horizontalSpacer13 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer13 = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.statusIndicatorsLayout.addItem(self.horizontalSpacer13)
 
@@ -245,6 +257,7 @@ class Ui_Tab(object):
 
     def retranslateUi(self, Tab):
         self.plainTextEdit.setPlaceholderText(QCoreApplication.translate("Tab", u"Paste URLs here...", None))
+        self.pushButton.setText(QCoreApplication.translate("Tab", u"&Clear", None))
 #if QT_CONFIG(tooltip)
         self.donationLinkLabel.setToolTip(QCoreApplication.translate("Tab", u"This app is the result of countless hours of development by Marko Peji\u0107. If it's useful to you, please consider supporting its development with a donation.<br>Thank you!", None))
 #endif // QT_CONFIG(tooltip)
