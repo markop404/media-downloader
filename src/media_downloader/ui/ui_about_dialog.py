@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialoguNsRQG.ui'
+## Form generated from reading UI file 'about_dialogfZDqCV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -40,8 +40,6 @@ class Ui_AboutDialog(object):
         font = QFont()
         font.setPointSize(16)
         font.setWeight(QFont.ExtraBold)
-        font.setStyleStrategy(QFont.PreferAntialias)
-        font.setHintingPreference(QFont.PreferFullHinting)
         self.appNameLabel.setFont(font)
         self.appNameLabel.setMargin(4)
 
@@ -60,6 +58,27 @@ class Ui_AboutDialog(object):
         self.aboutTab.setObjectName(u"aboutTab")
         self.verticalLayout_3 = QVBoxLayout(self.aboutTab)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.label_2 = QLabel(self.aboutTab)
+        self.label_2.setObjectName(u"label_2")
+        font1 = QFont()
+        font1.setBold(True)
+        self.label_2.setFont(font1)
+        self.label_2.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
+        self.label_2.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+
+        self.verticalLayout_3.addWidget(self.label_2)
+
+        self.label = QLabel(self.aboutTab)
+        self.label.setObjectName(u"label")
+        self.label.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
+        self.label.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+
+        self.verticalLayout_3.addWidget(self.label)
+
+        self.verticalSpacer = QSpacerItem(20, 7, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer)
+
         self.aboutLabel = QLabel(self.aboutTab)
         self.aboutLabel.setObjectName(u"aboutLabel")
         self.aboutLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
@@ -79,18 +98,24 @@ class Ui_AboutDialog(object):
         self.donateButton = QPushButton(self.linksTab)
         self.donateButton.setObjectName(u"donateButton")
         self.donateButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        icon = QIcon(QIcon.fromTheme(u"emblem-favorite"))
+        self.donateButton.setIcon(icon)
 
         self.leftColumnButtonLayout.addWidget(self.donateButton)
 
         self.supportedWebsitesButton = QPushButton(self.linksTab)
         self.supportedWebsitesButton.setObjectName(u"supportedWebsitesButton")
         self.supportedWebsitesButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        icon1 = QIcon(QIcon.fromTheme(u"network-server"))
+        self.supportedWebsitesButton.setIcon(icon1)
 
         self.leftColumnButtonLayout.addWidget(self.supportedWebsitesButton)
 
         self.websiteButton = QPushButton(self.linksTab)
         self.websiteButton.setObjectName(u"websiteButton")
         self.websiteButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        icon2 = QIcon(QIcon.fromTheme(u"applications-internet"))
+        self.websiteButton.setIcon(icon2)
 
         self.leftColumnButtonLayout.addWidget(self.websiteButton)
 
@@ -102,18 +127,24 @@ class Ui_AboutDialog(object):
         self.whatsNewButton = QPushButton(self.linksTab)
         self.whatsNewButton.setObjectName(u"whatsNewButton")
         self.whatsNewButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        icon3 = QIcon(QIcon.fromTheme(u"document-open-recent"))
+        self.whatsNewButton.setIcon(icon3)
 
         self.rightColumnButtonLayout.addWidget(self.whatsNewButton)
 
         self.issueReportButton = QPushButton(self.linksTab)
         self.issueReportButton.setObjectName(u"issueReportButton")
         self.issueReportButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        icon4 = QIcon(QIcon.fromTheme(u"dialog-error"))
+        self.issueReportButton.setIcon(icon4)
 
         self.rightColumnButtonLayout.addWidget(self.issueReportButton)
 
         self.sourceCodeButton = QPushButton(self.linksTab)
         self.sourceCodeButton.setObjectName(u"sourceCodeButton")
         self.sourceCodeButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        icon5 = QIcon(QIcon.fromTheme(u"text-x-script"))
+        self.sourceCodeButton.setIcon(icon5)
 
         self.rightColumnButtonLayout.addWidget(self.sourceCodeButton)
 
@@ -154,11 +185,13 @@ class Ui_AboutDialog(object):
         AboutDialog.setWindowTitle(QCoreApplication.translate("AboutDialog", u"About", None))
         self.appIconLabel.setText("")
         self.appNameLabel.setText(QCoreApplication.translate("AboutDialog", u"Media Downloader", None))
-        self.aboutLabel.setText(QCoreApplication.translate("AboutDialog", u"<html><head/><body><p><span style=\" font-weight:700;\">Web video / audio downloader</span><br/>v5.0.0<br/><br/>This app is the result of countless hours of development by <a href=\"https://markopejic.com\"><span style=\" text-decoration: underline; color:#3daee9;\">Marko Peji\u0107</span></a>. If it's useful to you, please consider supporting its development with a <a href=\"https://downloader.markopejic.com/donate\"><span style=\" text-decoration: underline; color:#3daee9;\">donation</span></a>. Thank you!</p></body></html>", None))
+        self.label_2.setText(QCoreApplication.translate("AboutDialog", u"Web video / audio downloader", None))
+        self.label.setText(QCoreApplication.translate("AboutDialog", u"Unknown version", None))
+        self.aboutLabel.setText(QCoreApplication.translate("AboutDialog", u"This app is the result of countless hours of development by <a href=\"https://markopejic.com\">Marko Peji\u0107</a>. If it's useful to you, please consider supporting its development with a <a href=\"https://downloader.markopejic.com/donate\">donation</a>. Thank you!", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.aboutTab), QCoreApplication.translate("AboutDialog", u"About", None))
         self.donateButton.setText(QCoreApplication.translate("AboutDialog", u"Donate", None))
         self.supportedWebsitesButton.setText(QCoreApplication.translate("AboutDialog", u"Supported Websites", None))
-        self.websiteButton.setText(QCoreApplication.translate("AboutDialog", u"Website", None))
+        self.websiteButton.setText(QCoreApplication.translate("AboutDialog", u"Project Website", None))
         self.whatsNewButton.setText(QCoreApplication.translate("AboutDialog", u"What's New", None))
         self.issueReportButton.setText(QCoreApplication.translate("AboutDialog", u"Report an Issue", None))
         self.sourceCodeButton.setText(QCoreApplication.translate("AboutDialog", u"Source Code", None))
