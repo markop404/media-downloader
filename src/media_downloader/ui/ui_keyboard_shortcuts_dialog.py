@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogKxjIJF.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogfZZZvH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -33,7 +33,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout = QVBoxLayout()
         self.leftColumnLayout.setObjectName(u"leftColumnLayout")
-        self.verticalSpacer_15 = QSpacerItem(20, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_15 = QSpacerItem(0, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_15)
 
@@ -47,7 +47,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addWidget(self.generalSectionLabel)
 
-        self.verticalSpacer_19 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_19 = QSpacerItem(0, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_19)
 
@@ -64,8 +64,6 @@ class Ui_KeyboardShortcutsDialog(object):
         font1 = QFont()
         font1.setPointSize(15)
         font1.setWeight(QFont.Light)
-        font1.setStyleStrategy(QFont.PreferAntialias)
-        font1.setHintingPreference(QFont.PreferFullHinting)
         self.keySeparator6.setFont(font1)
 
         self.shortcutLayout13.addWidget(self.keySeparator6)
@@ -76,7 +74,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout13.addWidget(self.keyButton10)
 
-        self.horizontalSpacer5 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer5 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout13.addItem(self.horizontalSpacer5)
 
@@ -89,7 +87,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout13)
 
-        self.verticalSpacer = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer)
 
@@ -113,7 +111,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout14.addWidget(self.keyButton13)
 
-        self.horizontalSpacer6 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer6 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout14.addItem(self.horizontalSpacer6)
 
@@ -126,7 +124,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout14)
 
-        self.verticalSpacer_23 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_23 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_23)
 
@@ -139,6 +137,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.label = QLabel(KeyboardShortcutsDialog)
         self.label.setObjectName(u"label")
+        self.label.setFont(font1)
 
         self.horizontalLayout.addWidget(self.label)
 
@@ -147,7 +146,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.horizontalLayout.addWidget(self.toolButton)
 
-        self.horizontalSpacer = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
@@ -159,7 +158,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.horizontalLayout)
 
-        self.verticalSpacer_13 = QSpacerItem(20, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_13 = QSpacerItem(0, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_13)
 
@@ -171,7 +170,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addWidget(self.controlsSectionLabel)
 
-        self.verticalSpacer_17 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_17 = QSpacerItem(0, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_17)
 
@@ -195,7 +194,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout9.addWidget(self.keyButton33)
 
-        self.horizontalSpacer16 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer16 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout9.addItem(self.horizontalSpacer16)
 
@@ -208,7 +207,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout9)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_2 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_2)
 
@@ -232,7 +231,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.showQualityOptsShortcutLayout.addWidget(self.showQualityOptsShortcutButton2)
 
-        self.showQualityOptsShortcutSpacer = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.showQualityOptsShortcutSpacer = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.showQualityOptsShortcutLayout.addItem(self.showQualityOptsShortcutSpacer)
 
@@ -245,7 +244,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.showQualityOptsShortcutLayout)
 
-        self.verticalSpacer_3 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_3 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_3)
 
@@ -269,7 +268,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout2.addWidget(self.keyButton19)
 
-        self.horizontalSpacer9 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer9 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout2.addItem(self.horizontalSpacer9)
 
@@ -282,7 +281,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout2)
 
-        self.verticalSpacer_4 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_4 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_4)
 
@@ -306,7 +305,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.chgDownloadDirShortcutLayout.addWidget(self.chgDownloadDirShortcutButton2)
 
-        self.chgDownloadDirShortcutSpacer = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.chgDownloadDirShortcutSpacer = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.chgDownloadDirShortcutLayout.addItem(self.chgDownloadDirShortcutSpacer)
 
@@ -319,7 +318,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.chgDownloadDirShortcutLayout)
 
-        self.verticalSpacer_5 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_5 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_5)
 
@@ -343,7 +342,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout3.addWidget(self.keyButton21)
 
-        self.horizontalSpacer10 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer10 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout3.addItem(self.horizontalSpacer10)
 
@@ -356,7 +355,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout3)
 
-        self.verticalSpacer_6 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_6 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_6)
 
@@ -380,7 +379,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout4.addWidget(self.keyButton23)
 
-        self.horizontalSpacer11 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer11 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout4.addItem(self.horizontalSpacer11)
 
@@ -393,7 +392,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.leftColumnLayout.addLayout(self.shortcutLayout4)
 
-        self.verticalSpacer_21 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
+        self.verticalSpacer_21 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.leftColumnLayout.addItem(self.verticalSpacer_21)
 
@@ -406,7 +405,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout = QVBoxLayout()
         self.rightColumnLayout.setObjectName(u"rightColumnLayout")
-        self.verticalSpacer_16 = QSpacerItem(20, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_16 = QSpacerItem(0, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_16)
 
@@ -418,7 +417,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addWidget(self.tabsSectionLabel)
 
-        self.verticalSpacer_18 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_18 = QSpacerItem(0, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_18)
 
@@ -442,7 +441,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout16.addWidget(self.keyButton17)
 
-        self.horizontalSpacer8 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer8 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout16.addItem(self.horizontalSpacer8)
 
@@ -455,7 +454,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout16)
 
-        self.verticalSpacer_7 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_7 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_7)
 
@@ -479,7 +478,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout8.addWidget(self.keyButton31)
 
-        self.horizontalSpacer15 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer15 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout8.addItem(self.horizontalSpacer15)
 
@@ -492,7 +491,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout8)
 
-        self.verticalSpacer_8 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_8 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_8)
 
@@ -516,7 +515,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout6.addWidget(self.keyButton27)
 
-        self.horizontalSpacer13 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer13 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout6.addItem(self.horizontalSpacer13)
 
@@ -529,7 +528,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout6)
 
-        self.verticalSpacer_9 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_9 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_9)
 
@@ -553,7 +552,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout7.addWidget(self.keyButton29)
 
-        self.horizontalSpacer14 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer14 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout7.addItem(self.horizontalSpacer14)
 
@@ -566,7 +565,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout7)
 
-        self.verticalSpacer_10 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_10 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_10)
 
@@ -601,7 +600,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout12.addWidget(self.keyButton7)
 
-        self.horizontalSpacer4 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer4 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout12.addItem(self.horizontalSpacer4)
 
@@ -614,7 +613,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout12)
 
-        self.verticalSpacer_14 = QSpacerItem(20, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_14 = QSpacerItem(0, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_14)
 
@@ -626,7 +625,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addWidget(self.otherSectionLabel)
 
-        self.verticalSpacer_20 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_20 = QSpacerItem(0, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_20)
 
@@ -650,7 +649,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout12_2.addWidget(self.keyButton9_2)
 
-        self.horizontalSpacer4_2 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer4_2 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout12_2.addItem(self.horizontalSpacer4_2)
 
@@ -663,7 +662,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout12_2)
 
-        self.verticalSpacer_11 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_11 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_11)
 
@@ -687,7 +686,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout17.addWidget(self.keyButton2_2)
 
-        self.horizontalSpacer1_2 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer1_2 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout17.addItem(self.horizontalSpacer1_2)
 
@@ -700,7 +699,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout17)
 
-        self.verticalSpacer_12 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_12 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_12)
 
@@ -724,7 +723,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout15.addWidget(self.keyButton15)
 
-        self.horizontalSpacer7 = QSpacerItem(110, 20, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer7 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout15.addItem(self.horizontalSpacer7)
 
@@ -737,7 +736,41 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.rightColumnLayout.addLayout(self.shortcutLayout15)
 
-        self.verticalSpacer_22 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
+        self.verticalSpacer_24 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.rightColumnLayout.addItem(self.verticalSpacer_24)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.toolButton_3 = QToolButton(KeyboardShortcutsDialog)
+        self.toolButton_3.setObjectName(u"toolButton_3")
+
+        self.horizontalLayout_2.addWidget(self.toolButton_3)
+
+        self.label_3 = QLabel(KeyboardShortcutsDialog)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setFont(font1)
+
+        self.horizontalLayout_2.addWidget(self.label_3)
+
+        self.toolButton_4 = QToolButton(KeyboardShortcutsDialog)
+        self.toolButton_4.setObjectName(u"toolButton_4")
+
+        self.horizontalLayout_2.addWidget(self.toolButton_4)
+
+        self.horizontalSpacer_2 = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
+
+        self.label_4 = QLabel(KeyboardShortcutsDialog)
+        self.label_4.setObjectName(u"label_4")
+
+        self.horizontalLayout_2.addWidget(self.label_4)
+
+
+        self.rightColumnLayout.addLayout(self.horizontalLayout_2)
+
+        self.verticalSpacer_22 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.rightColumnLayout.addItem(self.verticalSpacer_22)
 
@@ -843,5 +876,9 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keySeparator8.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton15.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"?", None))
         self.shortcutDescriptionLabel7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"View Shortcuts", None))
+        self.toolButton_3.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
+        self.label_3.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
+        self.toolButton_4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"A", None))
+        self.label_4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Clear Url Entry Field", None))
     # retranslateUi
 
