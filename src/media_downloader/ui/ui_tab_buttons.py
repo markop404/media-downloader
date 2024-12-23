@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonslTqFVE.ui'
+## Form generated from reading UI file 'tab_buttonsMlmgDA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -24,7 +24,7 @@ class Ui_TabButtons(object):
             TabButtons.setObjectName(u"TabButtons")
         self.horizontalLayout = QHBoxLayout(TabButtons)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(-1, 0, 0, 3)
+        self.horizontalLayout.setContentsMargins(9, 0, 0, 4)
         self.newTabButton = QPushButton(TabButtons)
         self.newTabButton.setObjectName(u"newTabButton")
         self.newTabButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)

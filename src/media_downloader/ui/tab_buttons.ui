@@ -3,6 +3,9 @@
  <class>TabButtons</class>
  <widget class="QWidget" name="TabButtons">
   <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="leftMargin">
+    <number>9</number>
+   </property>
    <property name="topMargin">
     <number>0</number>
    </property>
@@ -10,7 +13,7 @@
     <number>0</number>
    </property>
    <property name="bottomMargin">
-    <number>3</number>
+    <number>4</number>
    </property>
    <item>
     <widget class="QPushButton" name="newTabButton">
