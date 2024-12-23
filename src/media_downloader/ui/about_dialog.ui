@@ -65,6 +65,9 @@
        <string>About</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QLabel" name="label_2">
          <property name="font">
@@ -75,9 +78,6 @@
          <property name="text">
           <string>Web video / audio downloader</string>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
-         </property>
          <property name="textInteractionFlags">
           <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
          </property>
@@ -87,9 +87,6 @@
         <widget class="QLabel" name="label">
          <property name="text">
           <string>Unknown version</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -106,8 +103,8 @@
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>20</width>
-           <height>7</height>
+           <width>0</width>
+           <height>9</height>
           </size>
          </property>
         </spacer>
@@ -116,9 +113,6 @@
         <widget class="QLabel" name="aboutLabel">
          <property name="text">
           <string>This app is the result of countless hours of development by &lt;a href=&quot;https://markopejic.com&quot;&gt;Marko Pejić&lt;/a&gt;. If it's useful to you, please consider supporting its development with a &lt;a href=&quot;https://downloader.markopejic.com/donate&quot;&gt;donation&lt;/a&gt;. Thank you!</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
          </property>
          <property name="wordWrap">
           <bool>true</bool>

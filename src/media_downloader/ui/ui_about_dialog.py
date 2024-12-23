@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialogfZDqCV.ui'
+## Form generated from reading UI file 'about_dialogaDfLzZ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -57,31 +57,29 @@ class Ui_AboutDialog(object):
         self.aboutTab = QWidget()
         self.aboutTab.setObjectName(u"aboutTab")
         self.verticalLayout_3 = QVBoxLayout(self.aboutTab)
+        self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label_2 = QLabel(self.aboutTab)
         self.label_2.setObjectName(u"label_2")
         font1 = QFont()
         font1.setBold(True)
         self.label_2.setFont(font1)
-        self.label_2.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
         self.label_2.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.verticalLayout_3.addWidget(self.label_2)
 
         self.label = QLabel(self.aboutTab)
         self.label.setObjectName(u"label")
-        self.label.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
         self.label.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.verticalLayout_3.addWidget(self.label)
 
-        self.verticalSpacer = QSpacerItem(20, 7, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
+        self.verticalSpacer = QSpacerItem(0, 9, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
 
         self.verticalLayout_3.addItem(self.verticalSpacer)
 
         self.aboutLabel = QLabel(self.aboutTab)
         self.aboutLabel.setObjectName(u"aboutLabel")
-        self.aboutLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
         self.aboutLabel.setWordWrap(True)
         self.aboutLabel.setOpenExternalLinks(True)
         self.aboutLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogRBTMMm.ui'
+## Form generated from reading UI file 'preferences_dialogzIUjwa.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -26,39 +26,31 @@ class Ui_PreferencesDialog(object):
     def setupUi(self, PreferencesDialog):
         if not PreferencesDialog.objectName():
             PreferencesDialog.setObjectName(u"PreferencesDialog")
-        PreferencesDialog.resize(701, 408)
-        font = QFont()
-        font.setStyleStrategy(QFont.PreferAntialias)
-        font.setHintingPreference(QFont.PreferFullHinting)
-        PreferencesDialog.setFont(font)
         self.PreferencesDialogLayout = QVBoxLayout(PreferencesDialog)
         self.PreferencesDialogLayout.setObjectName(u"PreferencesDialogLayout")
-        self.topSpacer = QSpacerItem(0, 21, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
+        self.topSpacer = QSpacerItem(0, 22, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
 
         self.PreferencesDialogLayout.addItem(self.topSpacer)
 
         self.restoreSettingsLayout = QHBoxLayout()
         self.restoreSettingsLayout.setObjectName(u"restoreSettingsLayout")
         self.restoreSettingsLabelLayout = QVBoxLayout()
+        self.restoreSettingsLabelLayout.setSpacing(1)
         self.restoreSettingsLabelLayout.setObjectName(u"restoreSettingsLabelLayout")
         self.restoreSettingsMainLabel = QLabel(PreferencesDialog)
         self.restoreSettingsMainLabel.setObjectName(u"restoreSettingsMainLabel")
-        font1 = QFont()
-        font1.setWeight(QFont.DemiBold)
-        font1.setStyleStrategy(QFont.PreferAntialias)
-        font1.setHintingPreference(QFont.PreferFullHinting)
-        self.restoreSettingsMainLabel.setFont(font1)
+        font = QFont()
+        font.setWeight(QFont.DemiBold)
+        self.restoreSettingsMainLabel.setFont(font)
         self.restoreSettingsMainLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.restoreSettingsLabelLayout.addWidget(self.restoreSettingsMainLabel)
 
         self.restoreSettingsDescriptionLabel = QLabel(PreferencesDialog)
         self.restoreSettingsDescriptionLabel.setObjectName(u"restoreSettingsDescriptionLabel")
-        font2 = QFont()
-        font2.setWeight(QFont.ExtraLight)
-        font2.setStyleStrategy(QFont.PreferAntialias)
-        font2.setHintingPreference(QFont.PreferFullHinting)
-        self.restoreSettingsDescriptionLabel.setFont(font2)
+        font1 = QFont()
+        font1.setWeight(QFont.ExtraLight)
+        self.restoreSettingsDescriptionLabel.setFont(font1)
         self.restoreSettingsDescriptionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.restoreSettingsLabelLayout.addWidget(self.restoreSettingsDescriptionLabel)
@@ -82,24 +74,25 @@ class Ui_PreferencesDialog(object):
 
         self.PreferencesDialogLayout.addLayout(self.restoreSettingsLayout)
 
-        self.verticalSpacer1 = QSpacerItem(0, 21, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
+        self.verticalSpacer1 = QSpacerItem(0, 22, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
 
         self.PreferencesDialogLayout.addItem(self.verticalSpacer1)
 
         self.removeURLsLayout = QHBoxLayout()
         self.removeURLsLayout.setObjectName(u"removeURLsLayout")
         self.removeURLsLabelLayout = QVBoxLayout()
+        self.removeURLsLabelLayout.setSpacing(1)
         self.removeURLsLabelLayout.setObjectName(u"removeURLsLabelLayout")
         self.removeURLsMainLabel = QLabel(PreferencesDialog)
         self.removeURLsMainLabel.setObjectName(u"removeURLsMainLabel")
-        self.removeURLsMainLabel.setFont(font1)
+        self.removeURLsMainLabel.setFont(font)
         self.removeURLsMainLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.removeURLsLabelLayout.addWidget(self.removeURLsMainLabel)
 
         self.removeURLsDescriptionLabel = QLabel(PreferencesDialog)
         self.removeURLsDescriptionLabel.setObjectName(u"removeURLsDescriptionLabel")
-        self.removeURLsDescriptionLabel.setFont(font2)
+        self.removeURLsDescriptionLabel.setFont(font1)
         self.removeURLsDescriptionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.removeURLsLabelLayout.addWidget(self.removeURLsDescriptionLabel)
@@ -123,24 +116,25 @@ class Ui_PreferencesDialog(object):
 
         self.PreferencesDialogLayout.addLayout(self.removeURLsLayout)
 
-        self.verticalSpacer2 = QSpacerItem(0, 21, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
+        self.verticalSpacer2 = QSpacerItem(0, 22, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
 
         self.PreferencesDialogLayout.addItem(self.verticalSpacer2)
 
         self.preferredResolutionSettingLayout = QHBoxLayout()
         self.preferredResolutionSettingLayout.setObjectName(u"preferredResolutionSettingLayout")
         self.preferredResolutionSettingLabelLayout = QVBoxLayout()
+        self.preferredResolutionSettingLabelLayout.setSpacing(1)
         self.preferredResolutionSettingLabelLayout.setObjectName(u"preferredResolutionSettingLabelLayout")
         self.preferredResolutionMainLabel = QLabel(PreferencesDialog)
         self.preferredResolutionMainLabel.setObjectName(u"preferredResolutionMainLabel")
-        self.preferredResolutionMainLabel.setFont(font1)
+        self.preferredResolutionMainLabel.setFont(font)
         self.preferredResolutionMainLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.preferredResolutionSettingLabelLayout.addWidget(self.preferredResolutionMainLabel)
 
         self.preferredResolutionDescriptionLabel = QLabel(PreferencesDialog)
         self.preferredResolutionDescriptionLabel.setObjectName(u"preferredResolutionDescriptionLabel")
-        self.preferredResolutionDescriptionLabel.setFont(font2)
+        self.preferredResolutionDescriptionLabel.setFont(font1)
         self.preferredResolutionDescriptionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.preferredResolutionSettingLabelLayout.addWidget(self.preferredResolutionDescriptionLabel)
@@ -161,24 +155,25 @@ class Ui_PreferencesDialog(object):
 
         self.PreferencesDialogLayout.addLayout(self.preferredResolutionSettingLayout)
 
-        self.verticalSpacer3 = QSpacerItem(0, 21, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
+        self.verticalSpacer3 = QSpacerItem(0, 22, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
 
         self.PreferencesDialogLayout.addItem(self.verticalSpacer3)
 
         self.preferredBitrateSettingLayout = QHBoxLayout()
         self.preferredBitrateSettingLayout.setObjectName(u"preferredBitrateSettingLayout")
         self.preferredBitrateSettingLabelLayout = QVBoxLayout()
+        self.preferredBitrateSettingLabelLayout.setSpacing(1)
         self.preferredBitrateSettingLabelLayout.setObjectName(u"preferredBitrateSettingLabelLayout")
         self.preferredBitrateSettingMainLabel = QLabel(PreferencesDialog)
         self.preferredBitrateSettingMainLabel.setObjectName(u"preferredBitrateSettingMainLabel")
-        self.preferredBitrateSettingMainLabel.setFont(font1)
+        self.preferredBitrateSettingMainLabel.setFont(font)
         self.preferredBitrateSettingMainLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.preferredBitrateSettingLabelLayout.addWidget(self.preferredBitrateSettingMainLabel)
 
         self.preferredBitrateSettingDescriptionLabel = QLabel(PreferencesDialog)
         self.preferredBitrateSettingDescriptionLabel.setObjectName(u"preferredBitrateSettingDescriptionLabel")
-        self.preferredBitrateSettingDescriptionLabel.setFont(font2)
+        self.preferredBitrateSettingDescriptionLabel.setFont(font1)
         self.preferredBitrateSettingDescriptionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.preferredBitrateSettingLabelLayout.addWidget(self.preferredBitrateSettingDescriptionLabel)
@@ -199,7 +194,7 @@ class Ui_PreferencesDialog(object):
 
         self.PreferencesDialogLayout.addLayout(self.preferredBitrateSettingLayout)
 
-        self.buttonBoxSpacer = QSpacerItem(0, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.buttonBoxSpacer = QSpacerItem(0, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.MinimumExpanding)
 
         self.PreferencesDialogLayout.addItem(self.buttonBoxSpacer)
 
