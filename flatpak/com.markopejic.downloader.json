@@ -14,6 +14,20 @@
         "--device=dri",
         "--filesystem=xdg-download:create"
     ],
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "'*.la'",
+        "'*.a'",
+        "/share/ffmpeg"
+    ],
+    "cleanup-commands": [
+        "/app/cleanup-BaseApp.sh"
+    ],
     "modules": [
         "python3-yt-dlp.json",
         {
@@ -31,11 +45,19 @@
                 "--enable-libopus",
                 "--enable-libvorbis"
             ],
+            "cleanup": [
+                "/share/ffmpeg"
+            ],
             "sources": [
                 {
                     "type": "archive",
                     "url": "https://ffmpeg.org/releases/ffmpeg-7.1.tar.xz",
-                    "sha256": "40973d44970dbc83ef302b0609f2e74982be2d85916dd2ee7472d30678a7abe6"
+                    "sha256": "40973d44970dbc83ef302b0609f2e74982be2d85916dd2ee7472d30678a7abe6",
+                    "x-checker-data": {
+                        "type": "html",
+                        "url": "https://ffmpeg.org/releases/",
+                        "pattern": ">(ffmpeg-([\\d.]+)\\.tar\\.xz)<"
+                    }
                 }
             ]
         },
@@ -48,23 +70,9 @@
             "sources": [
                 {
                     "type": "archive",
-                    "path": "../dist/media_downloader-0.0.0.tar.gz"
+                    "path": "../dist/media_downloader-5.0.0a.tar.gz"
                 }
             ]
         }
-    ],
-    "cleanup" : [
-        "/include",
-        "/lib/pkgconfig",
-        "/man",
-        "/share/doc",
-        "/share/gtk-doc",
-        "/share/man",
-        "'*.la'",
-        "'*.a'",
-        "/share/ffmpeg"
-    ],
-    "cleanup-commands": [
-        "/app/cleanup-BaseApp.sh"
     ]
 }

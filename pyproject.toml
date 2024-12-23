@@ -11,7 +11,7 @@ requires-python = ">=3.9"
 license = { text = "GPL-3.0-or-later" }
 keywords = ["downloader", "video", "audio", "web"]
 authors = [{ name = "Marko Pejić", email = "dev@markopejic.com" }]
-maintainers = [{name = "Marko Pejić", email = "dev@markopejic.com"}]
+maintainers = [{ name = "Marko Pejić", email = "dev@markopejic.com" }]
 classifiers = [
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
@@ -45,7 +45,7 @@ funding = "https://downloader.markopejic.com/donate"
 media-downloader = "media_downloader:__main__"
 
 [tool.setuptools.dynamic]
-version = {attr = "media_downloader.__about__.VERSION"}
+version = { attr = "media_downloader.__about__.VERSION" }
 
 [tool.setuptools.data-files]
 "share/applications" = ["resources/linux/com.markopejic.downloader.desktop"]
