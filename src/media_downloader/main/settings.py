@@ -42,19 +42,19 @@ class Settings(QSettings):
     APP_NAME = "Media Downloader"
     CONSTANT_SETTTINGS = {
         "status_label_text": {
-            "download_failed": "Downloading Failed.",
-            "download_cancelled": "Downloading Cancelled.",
-            "download_finished": "Downloading Finished.",
+            "download_failed": "Downloading Failed",
+            "download_cancelled": "Downloading Cancelled",
+            "download_finished": "Downloading Finished",
             "cancelling_download": "Cancelling Download...",
             "downloading": "Downloading...",
             "extracting_urls": "Analyzing URLs...",
-            "data_pull_failed": "Data Pull Failed.",
-            "data_pull_cancelled": "Data Pull Cancelled.",
-            "data_pull_finished": "Data Pull Finished.",
+            "data_pull_failed": "Data Pull Failed",
+            "data_pull_cancelled": "Data Pull Cancelled",
+            "data_pull_finished": "Data Pull Finished",
             "cancelling_data_pull": "Cancelling Data Pull...",
             "pulling_data": "Pulling Data...",
             "converting": "Processing...",
-            "no_internet": "No internet connection.",
+            "no_internet": "No internet connection",
         },
         "status_label_icons": {
             "download_failed": QIcon(QIcon.fromTheme("list-remove")),
