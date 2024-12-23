@@ -1,6 +1,6 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "media-downloader"
@@ -8,7 +8,7 @@ dynamic = ["version"]
 description = 'Web video/audio downloader'
 readme = "README.md"
 requires-python = ">=3.9"
-license = "GPL-3.0-or-later"
+license = { text = "GPL-3.0-or-later" }
 keywords = ["downloader", "video", "audio", "web"]
 authors = [{ name = "Marko Pejić", email = "dev@markopejic.com" }]
 maintainers = [{name = "Marko Pejić", email = "dev@markopejic.com"}]
@@ -41,13 +41,13 @@ repository = "https://downloader.markopejic.com/source-code"
 issues = "https://downloader.markopejic.com/report-an-issue"
 funding = "https://downloader.markopejic.com/donate"
 
-[tool.hatch.version]
-path = "src/media_downloader/__about__.py"
-
 [project.gui-scripts]
 media-downloader = "media_downloader:__main__"
 
-[tool.hatch.build.targets.sdist]
-exclude = [
-  "*.ui",
-]
+[tool.setuptools.dynamic]
+version = {attr = "media_downloader.__about__.VERSION"}
+
+[tool.setuptools.data-files]
+"share/applications" = ["resources/linux/com.markopejic.downloader.desktop"]
+"share/icons/hicolor/512x512/apps" = ["resources/icons/com.markopejic.downloader.png"]
+"share/metainfo" = ["resources/linux/com.markopejic.downloader.metainfo.xml"]
