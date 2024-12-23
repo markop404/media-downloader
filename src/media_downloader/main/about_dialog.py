@@ -19,8 +19,8 @@
 
 from PySide6.QtWidgets import QDialog, QLabel
 from PySide6.QtGui import QDesktopServices
-from media_downloader.ui import Ui_AboutDialog
-from media_downloader.__about__ import VERSION
+from ..ui import Ui_AboutDialog
+from ..__about__ import VERSION
 
 
 class AboutDialog(QDialog):

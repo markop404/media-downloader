@@ -18,7 +18,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="text">
-        <string>Cl&amp;ear</string>
+        <string>Cle&amp;ar</string>
        </property>
        <property name="icon">
         <iconset theme="edit-clear"/>

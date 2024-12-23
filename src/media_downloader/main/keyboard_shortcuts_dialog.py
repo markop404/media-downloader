@@ -18,7 +18,9 @@
 
 
 from PySide6.QtWidgets import QDialog
-from media_downloader.ui import Ui_KeyboardShortcutsDialog
+
+from ..ui import Ui_KeyboardShortcutsDialog
+
 
 class KeyboardShortcutsDialog(QDialog):
     def __init__(self, parent):

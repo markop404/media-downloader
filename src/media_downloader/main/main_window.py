@@ -23,8 +23,8 @@ import time
 from PySide6.QtWidgets import QMainWindow, QWidget, QMenu
 from PySide6.QtGui import QIcon, QKeySequence, QShortcut
 
-from media_downloader import main
-from media_downloader.ui import Ui_TabButtons, Ui_MainWindow
+from .. import main
+from ..ui import Ui_TabButtons, Ui_MainWindow
 
 
 class MainWindow(QMainWindow):

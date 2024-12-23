@@ -19,8 +19,8 @@ from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogBu
     QHBoxLayout, QLabel, QSizePolicy, QSpacerItem,
     QVBoxLayout, QWidget)
 
-from media_downloader.custom_widgets.combobox import ComboBox
-from media_downloader.custom_widgets.toggle import Toggle
+from ..custom_widgets.combobox import ComboBox
+from ..custom_widgets.toggle import Toggle
 
 class Ui_PreferencesDialog(object):
     def setupUi(self, PreferencesDialog):
