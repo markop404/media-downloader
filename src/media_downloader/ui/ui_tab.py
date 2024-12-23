@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tablSWnQh.ui'
+## Form generated from reading UI file 'tabzJNAio.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -281,7 +281,7 @@ class Ui_Tab(object):
 #if QT_CONFIG(tooltip)
         self.setDownloadFolderButton.setToolTip(QCoreApplication.translate("Tab", u"Alt+C", None))
 #endif // QT_CONFIG(tooltip)
-        self.setDownloadFolderButton.setText(QCoreApplication.translate("Tab", u"&Choose", None))
+        self.setDownloadFolderButton.setText(QCoreApplication.translate("Tab", u"C&hoose", None))
 #if QT_CONFIG(tooltip)
         self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music.<br>(Alt+T)", None))
 #endif // QT_CONFIG(tooltip)

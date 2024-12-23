@@ -174,7 +174,7 @@
           <string>Alt+C</string>
          </property>
          <property name="text">
-          <string>&amp;Choose</string>
+          <string>C&amp;hoose</string>
          </property>
          <property name="icon">
           <iconset theme="folder-open"/>
