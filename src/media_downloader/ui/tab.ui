@@ -18,7 +18,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="text">
-        <string>&amp;Clear</string>
+        <string>Cl&amp;ear</string>
        </property>
        <property name="icon">
         <iconset theme="edit-clear"/>
@@ -174,7 +174,7 @@
           <string>Alt+C</string>
          </property>
          <property name="text">
-          <string>C&amp;hoose</string>
+          <string>&amp;Choose</string>
          </property>
          <property name="icon">
           <iconset theme="folder-open"/>

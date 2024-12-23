@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabzJNAio.ui'
+## Form generated from reading UI file 'tabWWASeS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -257,7 +257,7 @@ class Ui_Tab(object):
 
     def retranslateUi(self, Tab):
         self.plainTextEdit.setPlaceholderText(QCoreApplication.translate("Tab", u"Paste URLs here...", None))
-        self.pushButton.setText(QCoreApplication.translate("Tab", u"&Clear", None))
+        self.pushButton.setText(QCoreApplication.translate("Tab", u"Cl&ear", None))
 #if QT_CONFIG(tooltip)
         self.donationLinkLabel.setToolTip(QCoreApplication.translate("Tab", u"This app is the result of countless hours of development by Marko Peji\u0107. If it's useful to you, please consider supporting its development with a donation.<br>Thank you!", None))
 #endif // QT_CONFIG(tooltip)
@@ -281,7 +281,7 @@ class Ui_Tab(object):
 #if QT_CONFIG(tooltip)
         self.setDownloadFolderButton.setToolTip(QCoreApplication.translate("Tab", u"Alt+C", None))
 #endif // QT_CONFIG(tooltip)
-        self.setDownloadFolderButton.setText(QCoreApplication.translate("Tab", u"C&hoose", None))
+        self.setDownloadFolderButton.setText(QCoreApplication.translate("Tab", u"&Choose", None))
 #if QT_CONFIG(tooltip)
         self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music.<br>(Alt+T)", None))
 #endif // QT_CONFIG(tooltip)
