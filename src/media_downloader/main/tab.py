@@ -393,16 +393,16 @@ class Tab(QWidget):
 
     def handle_invalid_url_warning(self, urls, error_type="download"):
         if error_type == "download":
-            beggining_text = f"The following {len(urls)} URLs couldn't be downloaded:"
+            beggining_text = f"The following <b>{len(urls)}</b> URLs from tab {self.pretty_tab_number} couldn't be downloaded:"
         else:
-            beggining_text = f"The following {len(urls)} URLs are invalid:"
+            beggining_text = f"The following <b>{len(urls)}</b> URLs from tab {self.pretty_tab_number} are invalid:"
 
         url_list_text = "<ul>"
         for url in urls:
             url_list_text += f"<li><a href=\"{url}\">{url}</a></li>"
         url_list_text += "</ul>"
 
-        ending_text = "Remove them from the text entry?"
+        ending_text = "Clear the url entry?"
         text = beggining_text + url_list_text + ending_text
 
         while self.parent.popup_window_running:
@@ -415,7 +415,7 @@ class Tab(QWidget):
             time.sleep(0.01)
 
         if self.user_answer:
-            self.run_in_gui_thread(lambda: self.ui.plainTextEdit.remove_lines(urls))
+            self.run_in_gui_thread(lambda: self.ui.plainTextEdit.set_text(""))
 
 
     def on_text_change(self):

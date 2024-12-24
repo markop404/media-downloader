@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabDvyosm.ui'
+## Form generated from reading UI file 'tabyRAJFt.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
     QHBoxLayout, QLabel, QProgressBar, QPushButton,
     QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 
-from media_downloader.custom_widgets.combobox import ComboBox
+from ..custom_widgets.combobox import ComboBox
 from media_downloader.custom_widgets.largepushbutton import LargePushButton
 from media_downloader.custom_widgets.plaintextedit import PlainTextEdit
 
@@ -34,31 +34,14 @@ class Ui_Tab(object):
 
         self.verticalLayout.addWidget(self.plainTextEdit)
 
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.pushButton = QPushButton(Tab)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon = QIcon(QIcon.fromTheme(u"edit-clear"))
-        self.pushButton.setIcon(icon)
-
-        self.horizontalLayout_2.addWidget(self.pushButton)
-
-        self.horizontalSpacer1 = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacer1)
-
         self.donationLinkLabel = QLabel(Tab)
         self.donationLinkLabel.setObjectName(u"donationLinkLabel")
-        self.donationLinkLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
+        self.donationLinkLabel.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTop|Qt.AlignmentFlag.AlignTrailing)
         self.donationLinkLabel.setOpenExternalLinks(True)
 
-        self.horizontalLayout_2.addWidget(self.donationLinkLabel)
+        self.verticalLayout.addWidget(self.donationLinkLabel)
 
-
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
-
-        self.verticalSpacer = QSpacerItem(0, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer = QSpacerItem(0, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout.addItem(self.verticalSpacer)
 
@@ -119,8 +102,8 @@ class Ui_Tab(object):
         self.setDownloadFolderButton = QPushButton(Tab)
         self.setDownloadFolderButton.setObjectName(u"setDownloadFolderButton")
         self.setDownloadFolderButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon1 = QIcon(QIcon.fromTheme(u"folder-open"))
-        self.setDownloadFolderButton.setIcon(icon1)
+        icon = QIcon(QIcon.fromTheme(u"folder-open"))
+        self.setDownloadFolderButton.setIcon(icon)
 
         self.downloadFolderLayout.addWidget(self.setDownloadFolderButton)
 
@@ -185,16 +168,16 @@ class Ui_Tab(object):
         self.dataPullButton = LargePushButton(Tab)
         self.dataPullButton.setObjectName(u"dataPullButton")
         self.dataPullButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon2 = QIcon(QIcon.fromTheme(u"view-refresh"))
-        self.dataPullButton.setIcon(icon2)
+        icon1 = QIcon(QIcon.fromTheme(u"view-refresh"))
+        self.dataPullButton.setIcon(icon1)
 
         self.actionButtonsLayout.addWidget(self.dataPullButton)
 
         self.downloadButton = LargePushButton(Tab)
         self.downloadButton.setObjectName(u"downloadButton")
         self.downloadButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon3 = QIcon(QIcon.fromTheme(u"emblem-downloads"))
-        self.downloadButton.setIcon(icon3)
+        icon2 = QIcon(QIcon.fromTheme(u"emblem-downloads"))
+        self.downloadButton.setIcon(icon2)
 
         self.actionButtonsLayout.addWidget(self.downloadButton)
 
@@ -257,7 +240,6 @@ class Ui_Tab(object):
 
     def retranslateUi(self, Tab):
         self.plainTextEdit.setPlaceholderText(QCoreApplication.translate("Tab", u"Paste URLs here...", None))
-        self.pushButton.setText(QCoreApplication.translate("Tab", u"Cle&ar", None))
 #if QT_CONFIG(tooltip)
         self.donationLinkLabel.setToolTip(QCoreApplication.translate("Tab", u"This app is the result of countless hours of development by Marko Peji\u0107. If it's useful to you, please consider supporting its development with a donation.<br>Thank you!", None))
 #endif // QT_CONFIG(tooltip)

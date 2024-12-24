@@ -11,50 +11,23 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="focusPolicy">
-        <enum>Qt::FocusPolicy::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>Cle&amp;ar</string>
-       </property>
-       <property name="icon">
-        <iconset theme="edit-clear"/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer1">
-       <property name="orientation">
-        <enum>Qt::Orientation::Horizontal</enum>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="donationLinkLabel">
-       <property name="toolTip">
-        <string>This app is the result of countless hours of development by Marko Pejić. If it's useful to you, please consider supporting its development with a donation.&lt;br&gt;Thank you!</string>
-       </property>
-       <property name="text">
-        <string>&lt;a href=&quot;https://downloader.markopejic.com/donate&quot;&gt;Donate&lt;/a&gt;</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
-       </property>
-       <property name="openExternalLinks">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <widget class="QLabel" name="donationLinkLabel">
+     <property name="toolTip">
+      <string>This app is the result of countless hours of development by Marko Pejić. If it's useful to you, please consider supporting its development with a donation.&lt;br&gt;Thank you!</string>
+     </property>
+     <property name="text">
+      <string>&lt;a href=&quot;https://downloader.markopejic.com/donate&quot;&gt;Donate&lt;/a&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTop|Qt::AlignmentFlag::AlignTrailing</set>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
    <item>
     <spacer name="verticalSpacer">
-     <property name="focusPolicy">
-      <enum>Qt::FocusPolicy::NoFocus</enum>
-     </property>
      <property name="orientation">
       <enum>Qt::Orientation::Vertical</enum>
      </property>
@@ -64,7 +37,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>0</width>
-       <height>15</height>
+       <height>10</height>
       </size>
      </property>
     </spacer>
@@ -417,7 +390,7 @@
   <customwidget>
    <class>ComboBox</class>
    <extends>QComboBox</extends>
-   <header>media_downloader.custom_widgets.combobox</header>
+   <header>..custom_widgets.combobox</header>
   </customwidget>
   <customwidget>
    <class>PlainTextEdit</class>
