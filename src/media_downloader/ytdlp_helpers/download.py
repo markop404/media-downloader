@@ -39,7 +39,10 @@ def download(
     youtubedl_options = {
         "outtmpl": f"{download_location}/%(title)s.%(ext)s",
         "noplaylist": True,
-        "postprocessors": [{"key": "FFmpegMetadata"}, {"key": "EmbedThumbnail", "already_have_thumbnail": False}],
+        "postprocessors": [
+            {"key": "FFmpegMetadata"},
+            {"key": "EmbedThumbnail", "already_have_thumbnail": False}
+        ],
         "writethumbnail": True,
         "postprocessor_args": {},
         "quiet": True,
