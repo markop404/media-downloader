@@ -23,6 +23,7 @@ from PySide6.QtWidgets import QApplication
 from PySide6.QtGui import QIcon
 
 from .main_window import MainWindow
+from .. import resources_rc
 
 
 class Application(QApplication):
@@ -35,7 +36,7 @@ class Application(QApplication):
         self.setApplicationDisplayName("Media Downloader")
         
         icon = QIcon()
-        icon.addFile("icons/icon.png")
+        icon.addFile(":/resources/icons/com.markopejic.downloader.png")
         self.setWindowIcon(icon)
 
         if os.name == "nt":

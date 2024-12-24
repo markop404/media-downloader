@@ -31,7 +31,7 @@ class Ui_AboutDialog(object):
         self.appIconLabel = QLabel(AboutDialog)
         self.appIconLabel.setObjectName(u"appIconLabel")
         self.appIconLabel.setMaximumSize(QSize(65, 65))
-        self.appIconLabel.setPixmap(QPixmap(u":/resources/resources/icons/com.markopejic.downloader.png"))
+        self.appIconLabel.setPixmap(QPixmap(u":/resources/icons/com.markopejic.downloader.png"))
         self.appIconLabel.setScaledContents(True)
 
         self.headerLayout.addWidget(self.appIconLabel)
