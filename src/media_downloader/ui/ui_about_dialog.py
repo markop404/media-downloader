@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialogaDfLzZ.ui'
+## Form generated from reading UI file 'about_dialogmTkNKa.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -18,6 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
     QHBoxLayout, QLabel, QPushButton, QSizePolicy,
     QSpacerItem, QTabWidget, QVBoxLayout, QWidget)
+from . import resources_rc
 
 class Ui_AboutDialog(object):
     def setupUi(self, AboutDialog):
@@ -30,7 +31,7 @@ class Ui_AboutDialog(object):
         self.appIconLabel = QLabel(AboutDialog)
         self.appIconLabel.setObjectName(u"appIconLabel")
         self.appIconLabel.setMaximumSize(QSize(65, 65))
-        self.appIconLabel.setPixmap(QPixmap(u"icons/icon.png"))
+        self.appIconLabel.setPixmap(QPixmap(u":/resources/resources/icons/com.markopejic.downloader.png"))
         self.appIconLabel.setScaledContents(True)
 
         self.headerLayout.addWidget(self.appIconLabel)
@@ -181,7 +182,6 @@ class Ui_AboutDialog(object):
 
     def retranslateUi(self, AboutDialog):
         AboutDialog.setWindowTitle(QCoreApplication.translate("AboutDialog", u"About", None))
-        self.appIconLabel.setText("")
         self.appNameLabel.setText(QCoreApplication.translate("AboutDialog", u"Media Downloader", None))
         self.label_2.setText(QCoreApplication.translate("AboutDialog", u"Web video / audio downloader", None))
         self.label.setText(QCoreApplication.translate("AboutDialog", u"Unknown version", None))
