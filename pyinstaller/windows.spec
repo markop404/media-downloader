@@ -2,16 +2,14 @@
 
 from src.media_downloader.__about__ import VERSION
 
-ICON_PATH = "resources/icons/com.markopejic.downloader.png"
-BINARIES = [("ffmpeg.exe", "."), ("ffprobe.exe", ".")]
-NAME = f"Media Downloader {VERSION}"
-
-
 a = Analysis(
-    ['src/media_downloader/__main__.py'],
+    ["src/media_downloader/__main__.py"],
     pathex=[],
-    binaries=BINARIES,
-    datas=[(ICON, 'resources/icons')],
+    binaries=[
+        ("ffmpeg.exe", "."),
+        ("ffprobe.exe", "."),
+    ],
+    datas=[],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -28,7 +26,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name=NAME,
+    name=f"MediaDownloader_{VERSION}",
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -41,5 +39,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=ICON,
+    icon="resources/icons/com.markopejic.downloader.png",
 )
