@@ -17,30 +17,4 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import os
-
-from PySide6.QtWidgets import QApplication
-from PySide6.QtGui import QIcon
-
-from .main_window import MainWindow
-from .. import resources
-
-
-class Application(QApplication):
-    def __init__(self):
-        super().__init__()
-
-        self.setApplicationName("MediaDownloader")
-        self.setOrganizationName("MarkoPejic")
-        self.setDesktopFileName("com.markopejic.downloader")
-        self.setApplicationDisplayName("Media Downloader")
-        
-        icon = QIcon()
-        icon.addFile(":/resources/icons/com.markopejic.downloader.png")
-        self.setWindowIcon(icon)
-
-        if os.name == "nt":
-            self.setStyle("Fusion")
-
-        self.window = MainWindow()
-        self.window.show()
+from . import resources_rc
