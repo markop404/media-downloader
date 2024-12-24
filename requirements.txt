@@ -1,2 +1,2 @@
-PySide6-Essentials
-yt-dlp[default]
+PySide6-Essentials==6.8.1.1
+yt-dlp[default]==2024.12.23
