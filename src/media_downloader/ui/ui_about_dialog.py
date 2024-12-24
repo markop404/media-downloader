@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'about_dialogmTkNKa.ui'
+## Form generated from reading UI file 'about_dialogvhyJzE.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
     QHBoxLayout, QLabel, QPushButton, QSizePolicy,
     QSpacerItem, QTabWidget, QVBoxLayout, QWidget)
-from . import resources_rc
+from .. import resources_rc
 
 class Ui_AboutDialog(object):
     def setupUi(self, AboutDialog):
