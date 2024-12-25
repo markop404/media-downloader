@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogZYQSOJ.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogcOVlHd.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -23,7 +23,6 @@ class Ui_KeyboardShortcutsDialog(object):
     def setupUi(self, KeyboardShortcutsDialog):
         if not KeyboardShortcutsDialog.objectName():
             KeyboardShortcutsDialog.setObjectName(u"KeyboardShortcutsDialog")
-        KeyboardShortcutsDialog.resize(983, 722)
         self.verticalLayout = QVBoxLayout(KeyboardShortcutsDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.shortcutsColumnLayout = QHBoxLayout()
@@ -802,11 +801,11 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton22.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator12.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton23.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"T", None))
-        self.shortcutDescriptionLabel11.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle Thumbnail Cropping", None))
+        self.shortcutDescriptionLabel11.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle Crop Thumbnails", None))
         self.keyButton20.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator11.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton21.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"E", None))
-        self.shortcutDescriptionLabel10.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle Subtitle Embedding", None))
+        self.shortcutDescriptionLabel10.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle Embed Subtitles", None))
         self.tabsSectionLabel.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Tabs", None))
         self.keyButton16.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
         self.keySeparator9.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
@@ -827,7 +826,7 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keyButton8.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator5.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton9.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"0", None))
-        self.keySeparator4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"....", None))
+        self.keySeparator4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"...", None))
         self.keyButton7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"9", None))
         self.shortcutDescriptionLabel4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Switch to Tab Directly", None))
         self.otherSectionLabel.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Other", None))

@@ -708,7 +708,7 @@
          <item>
           <widget class="QLabel" name="shortcutDescriptionLabel11">
            <property name="text">
-            <string>Toggle Thumbnail Cropping</string>
+            <string>Toggle Crop Thumbnails</string>
            </property>
            <property name="textInteractionFlags">
             <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -787,7 +787,7 @@
          <item>
           <widget class="QLabel" name="shortcutDescriptionLabel10">
            <property name="text">
-            <string>Toggle Subtitle Embedding</string>
+            <string>Toggle Embed Subtitles</string>
            </property>
            <property name="textInteractionFlags">
             <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -1233,7 +1233,7 @@
          <item>
           <widget class="QLabel" name="keySeparator4">
            <property name="text">
-            <string>....</string>
+            <string>...</string>
            </property>
           </widget>
          </item>
