@@ -66,23 +66,6 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="actionRetryAll">
-   <property name="icon">
-    <iconset theme="view-refresh"/>
-   </property>
-   <property name="text">
-    <string>Retry All</string>
-   </property>
-   <property name="toolTip">
-    <string>Retry All</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+R</string>
-   </property>
-   <property name="menuRole">
-    <enum>QAction::MenuRole::NoRole</enum>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>

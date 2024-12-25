@@ -81,10 +81,6 @@ class Tab(QWidget):
 
     def update_settings(self):
         self.update_quality_placeholder_text(self.ui.formatComboBox.currentData())
-    
-
-    def retry_failed(self):
-        ...
 
 
     def save_settings(self):

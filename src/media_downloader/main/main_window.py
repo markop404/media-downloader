@@ -88,9 +88,7 @@ class MainWindow(QMainWindow):
         self.tab_buttons.setupUi(self.tab_button_layout)
         
         self.main_menu = QMenu()
-        self.main_menu.addAction(self.ui.actionRetryAll)
         self.main_menu.addAction(self.ui.actionPreferences)
-        self.main_menu.addSeparator()
         self.main_menu.addAction(self.ui.actionKeyboardShortcuts)
         self.main_menu.addAction(self.ui.actionAbout)
         self.tab_buttons.menuButton.setMenu(self.main_menu)
@@ -106,17 +104,11 @@ class MainWindow(QMainWindow):
 
 
     def connect_signals_and_slots(self):
-        self.ui.actionRetryAll.triggered.connect(self.retry_all)
         self.ui.actionAbout.triggered.connect(self.about_dialog._exec)
         self.ui.actionKeyboardShortcuts.triggered.connect(self.keyboard_shortcuts_dialog.exec)
         self.ui.actionPreferences.triggered.connect(self.exec_preferences)
         self.tab_buttons.newTabButton.clicked.connect(self.create_new_tab)
         self.ui.tabWidget.tabCloseRequested.connect(self.close_tab)
-    
-
-    def retry_all(self):
-        for tab_index in range(self.ui.tabWidget.count()):
-            self.ui.tabWidget.widget(tab_index).retry_failed()
 
 
     def exec_preferences(self):

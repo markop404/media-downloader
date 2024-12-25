@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogcOVlHd.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogeRnGLD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -123,40 +123,6 @@ class Ui_KeyboardShortcutsDialog(object):
 
 
         self.leftColumnLayout.addLayout(self.shortcutLayout14)
-
-        self.verticalSpacer_23 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-
-        self.leftColumnLayout.addItem(self.verticalSpacer_23)
-
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.toolButton_2 = QToolButton(KeyboardShortcutsDialog)
-        self.toolButton_2.setObjectName(u"toolButton_2")
-
-        self.horizontalLayout.addWidget(self.toolButton_2)
-
-        self.label = QLabel(KeyboardShortcutsDialog)
-        self.label.setObjectName(u"label")
-        self.label.setFont(font1)
-
-        self.horizontalLayout.addWidget(self.label)
-
-        self.toolButton = QToolButton(KeyboardShortcutsDialog)
-        self.toolButton.setObjectName(u"toolButton")
-
-        self.horizontalLayout.addWidget(self.toolButton)
-
-        self.horizontalSpacer = QSpacerItem(110, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer)
-
-        self.label_2 = QLabel(KeyboardShortcutsDialog)
-        self.label_2.setObjectName(u"label_2")
-
-        self.horizontalLayout.addWidget(self.label_2)
-
-
-        self.leftColumnLayout.addLayout(self.horizontalLayout)
 
         self.verticalSpacer_13 = QSpacerItem(0, 19, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
@@ -777,10 +743,6 @@ class Ui_KeyboardShortcutsDialog(object):
         self.keySeparator7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton13.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"P", None))
         self.shortcutDescriptionLabel6.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Pull Data", None))
-        self.toolButton_2.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
-        self.label.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
-        self.toolButton.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"R", None))
-        self.label_2.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Retry Failed", None))
         self.controlsSectionLabel.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Controls", None))
         self.keyButton32.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator17.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
