@@ -69,7 +69,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Show Options&lt;br&gt;(Alt+F)</string>
+        <string>Format Options&lt;br&gt;(Alt+F)</string>
        </property>
       </widget>
      </item>
@@ -86,7 +86,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Show Options&lt;br&gt;(Alt+Q)</string>
+        <string>Quality Options&lt;br&gt;(Alt+Q)</string>
        </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
@@ -109,7 +109,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Show Options&lt;br&gt;(Alt+S)</string>
+        <string>Subtitle Options&lt;br&gt;(Alt+S)</string>
        </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>

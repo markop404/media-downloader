@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabjKAnYx.ui'
+## Form generated from reading UI file 'tabrPjKxz.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -246,16 +246,16 @@ class Ui_Tab(object):
         self.donationLinkLabel.setText(QCoreApplication.translate("Tab", u"<a href=\"https://downloader.markopejic.com/donate\">Donate</a>", None))
         self.formatLabel.setText(QCoreApplication.translate("Tab", u"Format:", None))
 #if QT_CONFIG(tooltip)
-        self.formatComboBox.setToolTip(QCoreApplication.translate("Tab", u"Show Options<br>(Alt+F)", None))
+        self.formatComboBox.setToolTip(QCoreApplication.translate("Tab", u"Format Options<br>(Alt+F)", None))
 #endif // QT_CONFIG(tooltip)
         self.qualityLabel.setText(QCoreApplication.translate("Tab", u"Quality:", None))
 #if QT_CONFIG(tooltip)
-        self.qualityComboBox.setToolTip(QCoreApplication.translate("Tab", u"Show Options<br>(Alt+Q)", None))
+        self.qualityComboBox.setToolTip(QCoreApplication.translate("Tab", u"Quality Options<br>(Alt+Q)", None))
 #endif // QT_CONFIG(tooltip)
         self.qualityComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"None", None))
         self.subtitlesLabel.setText(QCoreApplication.translate("Tab", u"Subtitles:", None))
 #if QT_CONFIG(tooltip)
-        self.subtitlesComboBox.setToolTip(QCoreApplication.translate("Tab", u"Show Options<br>(Alt+S)", None))
+        self.subtitlesComboBox.setToolTip(QCoreApplication.translate("Tab", u"Subtitle Options<br>(Alt+S)", None))
 #endif // QT_CONFIG(tooltip)
         self.subtitlesComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"None", None))
         self.downloadFolderLabel.setText(QCoreApplication.translate("Tab", u"Download Folder:", None))
