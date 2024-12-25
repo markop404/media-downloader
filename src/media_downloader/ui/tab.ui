@@ -267,7 +267,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Get subtitle and quality information for all URLs&lt;br&gt;(Alt+P)</string>
+        <string>Get subtitle and quality options for all URLs&lt;br&gt;(Alt+P)</string>
        </property>
        <property name="text">
         <string>&amp;Pull Data</string>

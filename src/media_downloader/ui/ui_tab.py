@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabrPjKxz.ui'
+## Form generated from reading UI file 'tabPBVJuC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -273,7 +273,7 @@ class Ui_Tab(object):
 #endif // QT_CONFIG(tooltip)
         self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"&Embed subtitles", None))
 #if QT_CONFIG(tooltip)
-        self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Get subtitle and quality information for all URLs<br>(Alt+P)", None))
+        self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Get subtitle and quality options for all URLs<br>(Alt+P)", None))
 #endif // QT_CONFIG(tooltip)
         self.dataPullButton.setText(QCoreApplication.translate("Tab", u"&Pull Data", None))
 #if QT_CONFIG(tooltip)
