@@ -69,7 +69,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Show Options (Alt+F)</string>
+        <string>Show Options&lt;br&gt;(Alt+F)</string>
        </property>
       </widget>
      </item>
@@ -86,7 +86,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Show Options (Alt+Q)</string>
+        <string>Show Options&lt;br&gt;(Alt+Q)</string>
        </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
@@ -109,7 +109,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Show Options (Alt+S)</string>
+        <string>Show Options&lt;br&gt;(Alt+S)</string>
        </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
@@ -147,7 +147,7 @@
           <string>Alt+C</string>
          </property>
          <property name="text">
-          <string>&amp;Choose</string>
+          <string>&amp;Change...</string>
          </property>
          <property name="icon">
           <iconset theme="folder-open"/>
@@ -220,7 +220,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Embeds subtitles instead of downloading them to a separate file.&lt;br&gt;(Alt+S)</string>
+        <string>Embed subtitles directly into audio/video files.&lt;br&gt;(Alt+E)</string>
        </property>
        <property name="text">
         <string>&amp;Embed subtitles</string>
@@ -267,7 +267,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download.&lt;br&gt;(Alt+P)</string>
+        <string>Get subtitle and quality information for all URLs.&lt;br&gt;(Alt+P)</string>
        </property>
        <property name="text">
         <string>&amp;Pull Data</string>
