@@ -189,7 +189,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Useful when downloading music.&lt;br&gt;(Alt+T)</string>
+        <string>Useful when downloading music&lt;br&gt;(Alt+T)</string>
        </property>
        <property name="text">
         <string>Crop &amp;thumbnails / album arts to square shape</string>
@@ -220,7 +220,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Embed subtitles directly into audio/video files.&lt;br&gt;(Alt+E)</string>
+        <string>Embed subtitles directly into audio/video files&lt;br&gt;(Alt+E)</string>
        </property>
        <property name="text">
         <string>&amp;Embed subtitles</string>
@@ -267,7 +267,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Get subtitle and quality information for all URLs.&lt;br&gt;(Alt+P)</string>
+        <string>Get subtitle and quality information for all URLs&lt;br&gt;(Alt+P)</string>
        </property>
        <property name="text">
         <string>&amp;Pull Data</string>
