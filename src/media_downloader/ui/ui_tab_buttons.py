@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonsMlmgDA.ui'
+## Form generated from reading UI file 'tab_buttonsIPJHbx.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -15,7 +15,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QHBoxLayout, QPushButton, QSizePolicy,
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QSizePolicy, QToolButton,
     QWidget)
 
 class Ui_TabButtons(object):
@@ -25,7 +25,7 @@ class Ui_TabButtons(object):
         self.horizontalLayout = QHBoxLayout(TabButtons)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(9, 0, 0, 4)
-        self.newTabButton = QPushButton(TabButtons)
+        self.newTabButton = QToolButton(TabButtons)
         self.newTabButton.setObjectName(u"newTabButton")
         self.newTabButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon = QIcon(QIcon.fromTheme(u"list-add"))
@@ -33,11 +33,12 @@ class Ui_TabButtons(object):
 
         self.horizontalLayout.addWidget(self.newTabButton)
 
-        self.menuButton = QPushButton(TabButtons)
+        self.menuButton = QToolButton(TabButtons)
         self.menuButton.setObjectName(u"menuButton")
         self.menuButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon1 = QIcon(QIcon.fromTheme(u"preferences-other"))
         self.menuButton.setIcon(icon1)
+        self.menuButton.setPopupMode(QToolButton.ToolButtonPopupMode.InstantPopup)
 
         self.horizontalLayout.addWidget(self.menuButton)
 

@@ -16,7 +16,7 @@
     <number>4</number>
    </property>
    <item>
-    <widget class="QPushButton" name="newTabButton">
+    <widget class="QToolButton" name="newTabButton">
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
@@ -35,7 +35,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="menuButton">
+    <widget class="QToolButton" name="menuButton">
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
@@ -47,6 +47,9 @@
      </property>
      <property name="icon">
       <iconset theme="preferences-other"/>
+     </property>
+     <property name="popupMode">
+      <enum>QToolButton::ToolButtonPopupMode::InstantPopup</enum>
      </property>
     </widget>
    </item>
