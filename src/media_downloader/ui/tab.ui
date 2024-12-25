@@ -144,7 +144,7 @@
           <enum>Qt::FocusPolicy::NoFocus</enum>
          </property>
          <property name="toolTip">
-          <string>Alt+C</string>
+          <string>Change download folder&lt;br&gt;(Alt+C)</string>
          </property>
          <property name="text">
           <string>&amp;Change...</string>
@@ -267,7 +267,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Get subtitle and quality options for all URLs&lt;br&gt;(Alt+P)</string>
+        <string>Get subtitle and quality options&lt;br&gt;(Alt+P)</string>
        </property>
        <property name="text">
         <string>&amp;Pull Data</string>
@@ -286,7 +286,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Alt+D</string>
+        <string>Download&lt;br&gt;(Alt+D)</string>
        </property>
        <property name="text">
         <string>&amp;Download</string>
