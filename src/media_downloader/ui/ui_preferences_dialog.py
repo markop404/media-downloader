@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'preferences_dialogzIUjwa.ui'
+## Form generated from reading UI file 'preferences_dialogCFzVeD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -215,10 +215,10 @@ class Ui_PreferencesDialog(object):
         self.restoreSettingsMainLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Restore previously used settings in new tabs", None))
         self.restoreSettingsDescriptionLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Restore settings from previously used tab in new tabs", None))
         self.removeURLsMainLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Remove URLs as they are downloaded", None))
-        self.removeURLsDescriptionLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Remove each URL from the text entry when it finishes downloading", None))
+        self.removeURLsDescriptionLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Remove each URL from the url entry when it finishes downloading", None))
         self.preferredResolutionMainLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Preferred video quality", None))
-        self.preferredResolutionDescriptionLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Highest resolution that gets selected by default", None))
+        self.preferredResolutionDescriptionLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Highest resolution that gets automatically selected", None))
         self.preferredBitrateSettingMainLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Preferred audio quality", None))
-        self.preferredBitrateSettingDescriptionLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Highest bitrate that gets selected by default", None))
+        self.preferredBitrateSettingDescriptionLabel.setText(QCoreApplication.translate("PreferencesDialog", u"Highest bitrate that gets automatically selected", None))
     # retranslateUi
 
