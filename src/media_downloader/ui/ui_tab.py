@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabBZXFoI.ui'
+## Form generated from reading UI file 'tabLJZzsn.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -248,11 +248,12 @@ class Ui_Tab(object):
 #if QT_CONFIG(tooltip)
         self.formatComboBox.setToolTip(QCoreApplication.translate("Tab", u"Format Options<br>(Alt+F)", None))
 #endif // QT_CONFIG(tooltip)
+        self.formatComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"Unknown", None))
         self.qualityLabel.setText(QCoreApplication.translate("Tab", u"Quality:", None))
 #if QT_CONFIG(tooltip)
         self.qualityComboBox.setToolTip(QCoreApplication.translate("Tab", u"Quality Options<br>(Alt+Q)", None))
 #endif // QT_CONFIG(tooltip)
-        self.qualityComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"None", None))
+        self.qualityComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"Unknown", None))
         self.subtitlesLabel.setText(QCoreApplication.translate("Tab", u"Subtitles:", None))
 #if QT_CONFIG(tooltip)
         self.subtitlesComboBox.setToolTip(QCoreApplication.translate("Tab", u"Subtitle Options<br>(Alt+S)", None))
@@ -265,17 +266,17 @@ class Ui_Tab(object):
 #endif // QT_CONFIG(tooltip)
         self.setDownloadFolderButton.setText(QCoreApplication.translate("Tab", u"&Change...", None))
 #if QT_CONFIG(tooltip)
-        self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music<br>(Alt+T)", None))
+        self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Crop thumbnails / album arts square<br>(Alt+T)", None))
 #endif // QT_CONFIG(tooltip)
-        self.cropThumbnailsCheckBox.setText(QCoreApplication.translate("Tab", u"Crop &thumbnails / album arts to square shape", None))
+        self.cropThumbnailsCheckBox.setText(QCoreApplication.translate("Tab", u"Crop &thumbnails square", None))
 #if QT_CONFIG(tooltip)
         self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Embed subtitles directly into audio/video files<br>(Alt+E)", None))
 #endif // QT_CONFIG(tooltip)
         self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"&Embed subtitles", None))
 #if QT_CONFIG(tooltip)
-        self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Get subtitle and quality options<br>(Alt+P)", None))
+        self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Fetch subtitle and quality options<br>(Alt+P)", None))
 #endif // QT_CONFIG(tooltip)
-        self.dataPullButton.setText(QCoreApplication.translate("Tab", u"&Pull Data", None))
+        self.dataPullButton.setText(QCoreApplication.translate("Tab", u"Get Options", None))
 #if QT_CONFIG(tooltip)
         self.downloadButton.setToolTip(QCoreApplication.translate("Tab", u"Download<br>(Alt+D)", None))
 #endif // QT_CONFIG(tooltip)
