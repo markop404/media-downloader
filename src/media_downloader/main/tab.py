@@ -552,7 +552,7 @@ class Tab(QWidget):
                 [self.settings_manager.load_setting("preferred-bitrate")]
             )
         if placeholder_text:
-            placeholder_text = "<= " + placeholder_text
+            placeholder_text = "<=" + placeholder_text
             self.ui.qualityComboBox.setPlaceholderText(placeholder_text)
 
 

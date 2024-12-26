@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabQfhDTH.ui'
+## Form generated from reading UI file 'tabRMGcnE.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -248,12 +248,10 @@ class Ui_Tab(object):
 #if QT_CONFIG(tooltip)
         self.formatComboBox.setToolTip(QCoreApplication.translate("Tab", u"Format Options<br>(Alt+F)", None))
 #endif // QT_CONFIG(tooltip)
-        self.formatComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"Unknown", None))
         self.qualityLabel.setText(QCoreApplication.translate("Tab", u"Quality:", None))
 #if QT_CONFIG(tooltip)
         self.qualityComboBox.setToolTip(QCoreApplication.translate("Tab", u"Quality Options<br>(Alt+Q)", None))
 #endif // QT_CONFIG(tooltip)
-        self.qualityComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"Unknown", None))
         self.subtitlesLabel.setText(QCoreApplication.translate("Tab", u"Subtitles:", None))
 #if QT_CONFIG(tooltip)
         self.subtitlesComboBox.setToolTip(QCoreApplication.translate("Tab", u"Subtitle Options<br>(Alt+S)", None))
