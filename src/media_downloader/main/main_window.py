@@ -99,8 +99,8 @@ class MainWindow(QMainWindow):
         for i in range(1, 10):
             QShortcut(QKeySequence(f"Alt+{i}"), self).activated.connect(lambda i=i: self.switch_tab(i - 1))
         QShortcut(QKeySequence("Alt+0"), self).activated.connect(lambda: self.switch_tab(9))
-        QShortcut(QKeySequence("Ctrl+PgUp"), self).activated.connect(lambda: self.switch_tab(move="left"))
-        QShortcut(QKeySequence("Ctrl+PgDown"), self).activated.connect(lambda: self.switch_tab(move="right"))
+        QShortcut(QKeySequence("Ctrl+PgUp"), self).activated.connect(lambda: self.switch_tab(move=0))
+        QShortcut(QKeySequence("Ctrl+PgDown"), self).activated.connect(lambda: self.switch_tab(move=1))
         QShortcut(QKeySequence("Ctrl+w"), self).activated.connect(self.close_tab)
 
 
@@ -170,12 +170,12 @@ class MainWindow(QMainWindow):
     def switch_tab(self, index=None, move=None):
         if isinstance(index, int):
             self.ui.tabWidget.setCurrentIndex(index)
-        elif move:
+        elif isinstance(move, int):
             current_index = self.ui.tabWidget.currentIndex()
             new_index = current_index
-            if move == "left":
+            if move == 0:
                 new_index = current_index - 1
-            elif move == "right":
+            elif move == 1:
                 new_index = current_index + 1
             
             self.ui.tabWidget.setCurrentIndex(new_index)
