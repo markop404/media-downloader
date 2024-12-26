@@ -18,7 +18,6 @@
 
 
 import threading
-import time
 import os
 
 from PySide6.QtWidgets import QMessageBox, QWidget, QFileDialog
@@ -79,7 +78,7 @@ class Tab(QWidget):
                 setting["set-value-func"](value)
     
 
-    def update_settings(self):
+    def on_settings_update(self):
         self.update_quality_placeholder_text(self.ui.formatComboBox.currentData())
 
 
@@ -403,13 +402,13 @@ class Tab(QWidget):
         text = beggining_text + url_list_text + ending_text
 
         while self.parent.popup_window_running:
-            time.sleep(0.01)
+            pass
 
         self.parent.popup_window_running = True
         self.run_in_gui_thread(lambda: self.display_invalid_url_warning(text))
 
         while self.parent.popup_window_running:
-            time.sleep(0.01)
+            pass
 
         if self.user_answer:
             self.run_in_gui_thread(lambda: self.ui.plainTextEdit.set_text(""))

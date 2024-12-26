@@ -60,19 +60,19 @@ class Settings(QSettings):
     }
     CONSTANT_SETTINGS = {
         "status_label_text": {
-            "download_failed": "Downloading Failed",
-            "download_cancelled": "Downloading Cancelled",
-            "download_finished": "Downloading Finished",
+            "download_failed": "Downloading Failed.",
+            "download_cancelled": "Downloading Cancelled.",
+            "download_finished": "Downloading Finished.",
             "cancelling_download": "Cancelling Download...",
             "downloading": "Downloading...",
             "extracting_urls": "Analyzing URLs...",
-            "data_fetch_failed": "Loading Options Failed",
-            "data_fetch_cancelled": "Loading Options Cancelled",
-            "data_fetch_finished": "Loading Options Finished",
+            "data_fetch_failed": "Loading Options Failed.",
+            "data_fetch_cancelled": "Loading Options Cancelled.",
+            "data_fetch_finished": "Loading Options Finished.",
             "cancelling_data_fetch": "Cancelling Option Loading...",
             "fetching_data": "Loading Options...",
             "converting": "Processing...",
-            "no_internet": "No internet connection",
+            "no_internet": "No internet connection.",
         },
         "status_label_icons": {
             "download_failed": "list-remove",

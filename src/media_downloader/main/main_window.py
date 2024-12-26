@@ -116,7 +116,7 @@ class MainWindow(QMainWindow):
         self.preferences_dialog.exec()
 
         for tab_index in range(self.ui.tabWidget.count()):
-            self.ui.tabWidget.widget(tab_index).update_settings()
+            self.ui.tabWidget.widget(tab_index).on_settings_update()
 
 
     def create_new_tab(self):
