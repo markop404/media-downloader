@@ -37,8 +37,6 @@ def extract_urls(urls, on_progress=None):
             try:
                 extracted_urls = extracted_urls.union(_extract_urls(url, ydl))
                 processed_url_count += 1
-                if on_progress:
-                    on_progress(processed_url_count, total_url_count)
             except yt_dlp.utils.DownloadError as e:
                 print(e)
                 errors.add(e)
@@ -46,20 +44,24 @@ def extract_urls(urls, on_progress=None):
                     return extracted_urls, failed_urls, False, errors
                 failed_urls.add(url)
 
+            if on_progress:
+                on_progress(processed_url_count, total_url_count)
+
     if failed_urls:
         with yt_dlp.YoutubeDL(options) as ydl:
             for url in failed_urls:
                 try:
                     extracted_urls = extracted_urls.union(_extract_urls(url, ydl))
                     processed_url_count += 1
-                    if on_progress:
-                        on_progress(processed_url_count, total_url_count)
                     failed_urls.discard(url)
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
                     errors.add(e)
                     if not check_internet_connection():
                         return extracted_urls, failed_urls, False, errors
+
+                if on_progress:
+                    on_progress(processed_url_count, total_url_count)
 
     return extracted_urls, failed_urls, True, errors
 

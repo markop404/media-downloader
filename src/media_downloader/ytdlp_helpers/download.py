@@ -89,15 +89,16 @@ def download(
         for url in urls:
             try:
                 ydl.download(url)
-                processed_url_count += 1
-                if on_url_progress:
-                    on_url_progress(url, processed_url_count, TOTAL_URL_COUNT) 
+                processed_url_count += 1 
             except yt_dlp.utils.DownloadError as e:
                 print(e)
                 errors.add(e)
                 if not check_internet_connection():
                     return failed_urls, False
                 failed_urls.add(url)
+            
+            if on_url_progress:
+                on_url_progress(url, processed_url_count, TOTAL_URL_COUNT)
 
     if failed_urls:
         new_youtubedl_options = {}
@@ -112,12 +113,13 @@ def download(
                     ydl.download(url)
                     failed_urls.remove(url)
                     processed_url_count += 1
-                    if on_url_progress:
-                        on_url_progress(url, processed_url_count, TOTAL_URL_COUNT)
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
                     errors.add(e)
                     if not check_internet_connection():
                         return failed_urls, False
+
+                if on_url_progress:
+                    on_url_progress(url, processed_url_count, TOTAL_URL_COUNT)
 
     return failed_urls, True, errors
