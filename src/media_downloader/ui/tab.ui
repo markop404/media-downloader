@@ -265,12 +265,12 @@
       </spacer>
      </item>
      <item>
-      <widget class="LargePushButton" name="dataPullButton">
+      <widget class="LargePushButton" name="dataFetchButton">
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Load subtitle and quality options&lt;br&gt;(Alt+P)</string>
+        <string>Load subtitle and quality options&lt;br&gt;(Alt+L)</string>
        </property>
        <property name="text">
         <string>&amp;Load Options</string>

@@ -186,7 +186,7 @@
             <enum>Qt::FocusPolicy::NoFocus</enum>
            </property>
            <property name="text">
-            <string>P</string>
+            <string>L</string>
            </property>
           </widget>
          </item>
@@ -209,7 +209,7 @@
          <item>
           <widget class="QLabel" name="shortcutDescriptionLabel6">
            <property name="text">
-            <string>Pull Data</string>
+            <string>Load Options</string>
            </property>
            <property name="textInteractionFlags">
             <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>

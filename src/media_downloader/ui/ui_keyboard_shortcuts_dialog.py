@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogeRnGLD.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogLFhDiC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -741,8 +741,8 @@ class Ui_KeyboardShortcutsDialog(object):
         self.shortcutDescriptionLabel5.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Download", None))
         self.keyButton12.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
-        self.keyButton13.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"P", None))
-        self.shortcutDescriptionLabel6.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Pull Data", None))
+        self.keyButton13.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"L", None))
+        self.shortcutDescriptionLabel6.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Load Options", None))
         self.controlsSectionLabel.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Controls", None))
         self.keyButton32.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator17.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))

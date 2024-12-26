@@ -134,7 +134,7 @@ class Tab(QWidget):
     
 
     def connect_signals_and_slots(self):
-        self.ui.dataPullButton.clicked.connect(self.start_update_info)
+        self.ui.dataFetchButton.clicked.connect(self.start_update_info)
         self.ui.downloadButton.clicked.connect(self.start_download)
         self.ui.setDownloadFolderButton.clicked.connect(self.set_download_location)
         self.ui.formatComboBox.currentTextChanged.connect(lambda: self.update_qualities())
@@ -179,16 +179,16 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            data_pull_button_text = (
+            data_fetch_button_text = (
                 self.settings_manager.CONSTANT_SETTTINGS["button_text"]["refresh"]["secondary"]
             )
-            self.ui.dataPullButton.setText(data_pull_button_text)
+            self.ui.dataFetchButton.setText(data_fetch_button_text)
             self.ui.downloadButton.setEnabled(False)
             threading.Thread(target=lambda: self.update_info(urls), daemon=True).start()
         elif self.thread_running:
             self.cancel_progress = True
-            self.ui.dataPullButton.setEnabled(False)
-            self.update_status_indicators("cancelling_data_pull")
+            self.ui.dataFetchButton.setEnabled(False)
+            self.update_status_indicators("cancelling_data_fetch")
 
 
     def start_download(self):
@@ -201,7 +201,7 @@ class Tab(QWidget):
                 self.settings_manager.CONSTANT_SETTTINGS["button_text"]["download"]["secondary"]
             )
             self.ui.downloadButton.setText(download_button_text)
-            self.ui.dataPullButton.setEnabled(False)
+            self.ui.dataFetchButton.setEnabled(False)
             self.ui.formatComboBox.setEnabled(False)
             self.ui.setDownloadFolderButton.setEnabled(False)
             self.ui.embedSubtitlesCheckBox.setEnabled(False)
@@ -228,24 +228,24 @@ class Tab(QWidget):
                         ),
             )
         except SystemExit:
-            self.prep_thread_exit("data_pull_cancelled")
+            self.prep_thread_exit("data_fetch_cancelled")
             return
         except BaseException as e:
-            self.prep_thread_exit("data_pull_failed")
+            self.prep_thread_exit("data_fetch_failed")
             print(e)
             return
         if not exit_status:
             self.prep_thread_exit("no_internet")
             return
         elif not urls and failed_urls1:
-            self.handle_invalid_url_warning(failed_urls1, error_type="data_pull")
-            self.prep_thread_exit("data_pull_failed")
+            self.handle_invalid_url_warning(failed_urls1, error_type="data_fetch")
+            self.prep_thread_exit("data_fetch_failed")
             return
 
         self.run_in_gui_thread(
             lambda:
                 self.update_status_indicators(
-                    situation="pulling_data",
+                    situation="fetching_data",
                     progress=(1, len(urls)),
                     percentage=0,
                 )
@@ -257,7 +257,7 @@ class Tab(QWidget):
                 on_progress=lambda
                     processed_url_count,
                     total_url_count,
-                    situation="pulling_data":
+                    situation="fetching_data":
                         self.url_extraction_progress(
                             situation,
                             processed_url_count,
@@ -265,32 +265,32 @@ class Tab(QWidget):
                         ),
             )
         except SystemExit:
-            self.prep_thread_exit("data_pull_cancelled")
+            self.prep_thread_exit("data_fetch_cancelled")
             return
         except BaseException as e:
             print(e)
-            self.prep_thread_exit("data_pull_failed")
+            self.prep_thread_exit("data_fetch_failed")
             return
         failed_urls = failed_urls1.union(failed_urls2)
         if not exit_status:
             self.prep_thread_exit("no_internet")
             return
         elif failed_urls and not data:
-            self.handle_invalid_url_warning(failed_urls, error_type="data_pull")
-            self.prep_thread_exit("data_pull_failed")
+            self.handle_invalid_url_warning(failed_urls, error_type="data_fetch")
+            self.prep_thread_exit("data_fetch_failed")
             return
         
         if failed_urls and data:
-            self.handle_invalid_url_warning(failed_urls, error_type="data_pull")
+            self.handle_invalid_url_warning(failed_urls, error_type="data_fetch")
 
         try:
             self.qualities, self.subtitles = ytdlp_helpers.extract_basic_info(data)
         except BaseException as e:
             print(e)
-            self.prep_thread_exit("data_pull_failed")
+            self.prep_thread_exit("data_fetch_failed")
             return
         
-        self.prep_thread_exit("data_pull_finished", percentage=100)
+        self.prep_thread_exit("data_fetch_finished", percentage=100)
 
 
     def download(self, urls):
@@ -651,9 +651,9 @@ class Tab(QWidget):
         self.ui.setDownloadFolderButton.setEnabled(True)
         self.ui.embedSubtitlesCheckBox.setEnabled(True)
         self.ui.cropThumbnailsCheckBox.setEnabled(True)
-        self.ui.dataPullButton.setEnabled(True)
+        self.ui.dataFetchButton.setEnabled(True)
         self.ui.downloadButton.setEnabled(True)
-        self.ui.dataPullButton.setText(
+        self.ui.dataFetchButton.setText(
             self.settings_manager.CONSTANT_SETTTINGS["button_text"]["refresh"]["default"]
         )
         self.ui.downloadButton.setText(

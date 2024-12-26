@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabTLNedf.ui'
+## Form generated from reading UI file 'tabQfhDTH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -165,13 +165,13 @@ class Ui_Tab(object):
 
         self.actionButtonsLayout.addItem(self.horizontalSpacer8)
 
-        self.dataPullButton = LargePushButton(Tab)
-        self.dataPullButton.setObjectName(u"dataPullButton")
-        self.dataPullButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.dataFetchButton = LargePushButton(Tab)
+        self.dataFetchButton.setObjectName(u"dataFetchButton")
+        self.dataFetchButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon1 = QIcon(QIcon.fromTheme(u"view-refresh"))
-        self.dataPullButton.setIcon(icon1)
+        self.dataFetchButton.setIcon(icon1)
 
-        self.actionButtonsLayout.addWidget(self.dataPullButton)
+        self.actionButtonsLayout.addWidget(self.dataFetchButton)
 
         self.downloadButton = LargePushButton(Tab)
         self.downloadButton.setObjectName(u"downloadButton")
@@ -231,7 +231,7 @@ class Ui_Tab(object):
 
         self.retranslateUi(Tab)
 
-        self.dataPullButton.setDefault(True)
+        self.dataFetchButton.setDefault(True)
         self.downloadButton.setDefault(True)
 
 
@@ -274,9 +274,9 @@ class Ui_Tab(object):
 #endif // QT_CONFIG(tooltip)
         self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"&Embed subtitles", None))
 #if QT_CONFIG(tooltip)
-        self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Load subtitle and quality options<br>(Alt+P)", None))
+        self.dataFetchButton.setToolTip(QCoreApplication.translate("Tab", u"Load subtitle and quality options<br>(Alt+L)", None))
 #endif // QT_CONFIG(tooltip)
-        self.dataPullButton.setText(QCoreApplication.translate("Tab", u"&Load Options", None))
+        self.dataFetchButton.setText(QCoreApplication.translate("Tab", u"&Load Options", None))
 #if QT_CONFIG(tooltip)
         self.downloadButton.setToolTip(QCoreApplication.translate("Tab", u"Download<br>(Alt+D)", None))
 #endif // QT_CONFIG(tooltip)
