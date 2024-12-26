@@ -113,6 +113,7 @@ class Tab(QWidget):
                 )
         )
 
+        self.ui.downloadButton.setIcon(Settings.ICONS["emblem-downloads"])
         self.ui.formatComboBox.replace_all_items(Settings.CONSTANT_SETTTINGS["formats"])
 
 
