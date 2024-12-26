@@ -270,10 +270,10 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Fetch subtitle and quality options&lt;br&gt;(Alt+P)</string>
+        <string>Load subtitle and quality options&lt;br&gt;(Alt+P)</string>
        </property>
        <property name="text">
-        <string>Get Options</string>
+        <string>&amp;Load Options</string>
        </property>
        <property name="icon">
         <iconset theme="view-refresh"/>
