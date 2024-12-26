@@ -542,6 +542,7 @@ class Tab(QWidget):
 
 
     def update_quality_placeholder_text(self, _format):
+        placeholder_text = ""
         if _format == "mp4":
             placeholder_text = (
                 Settings.CONSTANT_SETTINGS["preferred-resolutions"]
@@ -553,7 +554,6 @@ class Tab(QWidget):
                 [self.settings_manager.load_setting("preferred-bitrate")]
             )
         if placeholder_text:
-            placeholder_text = "<=" + placeholder_text
             self.ui.qualityComboBox.setPlaceholderText(placeholder_text)
 
 
