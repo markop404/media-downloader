@@ -46,7 +46,7 @@ class PreferencesDialog(QDialog):
                 "set-value-func":
                     lambda value: 
                         self.ui.preferredResolutionSettingComboBox.setCurrentText(
-                            self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"][value]
+                            self.settings_manager.CONSTANT_SETTINGS["preferred-resolutions"][value]
                         ),
                 "get-value-func": self.ui.preferredResolutionSettingComboBox.currentData,
             },
@@ -54,17 +54,17 @@ class PreferencesDialog(QDialog):
                 "set-value-func":
                     lambda value: 
                         self.ui.preferredBitrateSettingComboBox.setCurrentText(
-                            self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"][value]
+                            self.settings_manager.CONSTANT_SETTINGS["preferred-bitrates"][value]
                         ),
                 "get-value-func": self.ui.preferredBitrateSettingComboBox.currentData,
             },
         }
 
         self.ui.preferredResolutionSettingComboBox.replace_all_items(
-            self.settings_manager.CONSTANT_SETTTINGS["preferred-resolutions"],
+            self.settings_manager.CONSTANT_SETTINGS["preferred-resolutions"],
         )
         self.ui.preferredBitrateSettingComboBox.replace_all_items(
-            self.settings_manager.CONSTANT_SETTTINGS["preferred-bitrates"],
+            self.settings_manager.CONSTANT_SETTINGS["preferred-bitrates"],
         )
 
         self.load_settings()
