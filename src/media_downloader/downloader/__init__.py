@@ -31,7 +31,6 @@ class Downloader():
             "quiet": True,
             "noplaylist": True,
             "windowsfilenames": True,
-            "outtmpl": f"{download_location}/%(title)s.%(ext)s",
             "postprocessors": [
                 {"key": "FFmpegMetadata"},
                 {"key": "EmbedThumbnail", "already_have_thumbnail": False}
@@ -65,8 +64,11 @@ class Downloader():
         crop_thumbnails=False,
     ):
         ydl_config = self.ydl_config
+        ydl_config.update({
+            "outtmpl": f"{download_location}/%(title)s.%(ext)s",
+        })
         urls = set(urls)
-        remaining_urls = urls
+        remaining_urls = urls.copy()
         TOTAL_URL_COUNT = len(urls)
         processed_url_count = 0
         errors = set()
