@@ -30,6 +30,16 @@ class Downloader():
         self.ydl_config = {
             "quiet": True,
             "noplaylist": True,
+            "windowsfilenames": True,
+            "outtmpl": f"{download_location}/%(title)s.%(ext)s",
+            "postprocessors": [
+                {"key": "FFmpegMetadata"},
+                {"key": "EmbedThumbnail", "already_have_thumbnail": False}
+            ],
+            "writethumbnail": True,
+            "postprocessor_args": {},
+            "writesubtitles": True,
+            "allsubtitles": True,
         }
     
 
@@ -55,15 +65,6 @@ class Downloader():
         crop_thumbnails=False,
     ):
         ydl_config = self.ydl_config
-        ydl_config.update({
-            "outtmpl": f"{download_location}/%(title)s.%(ext)s",
-            "postprocessors": [
-                {"key": "FFmpegMetadata"},
-                {"key": "EmbedThumbnail", "already_have_thumbnail": False}
-            ],
-            "writethumbnail": True,
-            "postprocessor_args": {},
-        })
         urls = set(urls)
         remaining_urls = urls
         TOTAL_URL_COUNT = len(urls)
@@ -141,9 +142,7 @@ class Downloader():
             data = {}
             errors = set()
             ydl_config = self.ydl_config
-            ydl_config.update({
-                "extract_flat": True,
-            })
+            ydl_config.update({"extract_flat": True})
 
             for _ in range(2):
                 with yt_dlp.YoutubeDL(ydl_config) as ydl:
@@ -183,10 +182,6 @@ class Downloader():
         data = []
         errors = set()
         ydl_config = self.ydl_config
-        ydl_config.update({
-            "writesubtitles": True,
-            "allsubtitles": True,
-        })
 
         for _ in range(2):
             with yt_dlp.YoutubeDL(ydl_config) as ydl:
