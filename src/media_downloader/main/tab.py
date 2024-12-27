@@ -218,6 +218,7 @@ class Tab(QWidget):
         try:
             urls, failed_urls1, exit_status, errors = self.downloader.extract_urls(
                 urls,
+                force=True,
                 on_progress=lambda 
                     processed_url_count,
                     total_url_count,
@@ -253,7 +254,7 @@ class Tab(QWidget):
         )
         
         try:
-            self.qualities, self.subtitles, failed_urls2, exit_status, errors = self.downloader.extract_data(
+            self.qualities, self.subtitles, failed_urls2, exit_status, errors = self.downloader.fetch_pretty_data(
                 urls,
                 on_progress=lambda
                     processed_url_count,
@@ -303,10 +304,10 @@ class Tab(QWidget):
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
             return
-        except BaseException as e:
-            print(e)
-            self.prep_thread_exit("download_failed")
-            return
+        # except BaseException as e:
+        #     print(e)
+        #     self.prep_thread_exit("download_failed")
+        #     return
 
         if not exit_status:
             self.prep_thread_exit("no_internet")
@@ -343,10 +344,10 @@ class Tab(QWidget):
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
             return
-        except BaseException as e:
-            print(e)
-            self.prep_thread_exit("download_failed")
-            return
+        # except BaseException as e:
+        #     print(e)
+        #     self.prep_thread_exit("download_failed")
+        #     return
         failed_urls = failed_urls1.union(failed_urls2)
         if not exit_status:
             self.prep_thread_exit("no_internet")
