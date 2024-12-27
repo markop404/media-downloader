@@ -216,7 +216,7 @@ class Tab(QWidget):
 
     def update_info(self, urls):
         try:
-            urls, failed_urls1, exit_status, errors = self.downloader.extract_urls(
+            urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
                 urls,
                 force=True,
                 on_progress=lambda 
@@ -254,7 +254,7 @@ class Tab(QWidget):
         )
         
         try:
-            self.qualities, self.subtitles, failed_urls2, exit_status, errors = self.downloader.fetch_pretty_data(
+            self.qualities, self.subtitles, failed_urls2, errors, exit_status = self.downloader.fetch_pretty_data(
                 urls,
                 on_progress=lambda
                     processed_url_count,
@@ -289,7 +289,7 @@ class Tab(QWidget):
 
     def download(self, urls):
         try:
-            urls, failed_urls1, exit_status, errors = self.downloader.extract_urls(
+            urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
                 urls,
                 lambda
                     processed_url_count,
@@ -329,7 +329,7 @@ class Tab(QWidget):
         file_type, quality, subtitle_lang = self.get_download_opts()
 
         try:
-            failed_urls2, exit_status, errors = self.downloader.download(
+            failed_urls2, errors, exit_status = self.downloader.download(
                 urls=urls,
                 subtitle_lang=subtitle_lang,
                 on_progress=self.download_progress,
