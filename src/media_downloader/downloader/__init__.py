@@ -142,7 +142,7 @@ class Downloader():
             data = {}
             errors = set()
             ydl_config = self.ydl_config
-            ydl_config.update({"extract_flat": True})
+            ydl_config.update({"extract_flat": "in_playlist"})
 
             for _ in range(2):
                 with yt_dlp.YoutubeDL(ydl_config) as ydl:
