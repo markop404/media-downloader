@@ -277,13 +277,13 @@ class Tab(QWidget):
         if not exit_status:
             self.prep_thread_exit("no_internet")
             return
-        elif failed_urls and not data:
+        elif failed_urls and not self.qualities:
             self.handle_invalid_url_warning(failed_urls, error_type="data_fetch")
             self.prep_thread_exit("data_fetch_failed")
             return
-        if failed_urls and data:
+        elif failed_urls and self.qualities:
             self.handle_invalid_url_warning(failed_urls, error_type="data_fetch")
-        
+
         self.prep_thread_exit("data_fetch_finished", percentage=100)
 
 
