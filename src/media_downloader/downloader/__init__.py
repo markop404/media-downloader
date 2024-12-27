@@ -31,7 +31,7 @@ class Downloader():
             "converted_urls": None,
             "data": None,
         }
-        self.config = {
+        self.ydl_config = {
             "quiet": True,
             "noplaylist": True,
         }
@@ -55,8 +55,8 @@ class Downloader():
         embed_subtitles=True,
         crop_thumbnails=False,
     ):
-        config = self.config
-        config.update({
+        ydl_config = self.ydl_config
+        ydl_config.update({
             "outtmpl": f"{download_location}/%(title)s.%(ext)s",
             "postprocessors": [
                 {"key": "FFmpegMetadata"},
@@ -65,137 +65,110 @@ class Downloader():
             "writethumbnail": True,
             "postprocessor_args": {},
         })
-        errors = set()
-        failed_urls = set()
+        urls = set(urls)
+        remaining_urls = urls
         TOTAL_URL_COUNT = len(urls)
         processed_url_count = 0
+        errors = set()
 
         if on_progress:
-            config["progress_hooks"] = [lambda data: on_progress(data, processed_url_count, TOTAL_URL_COUNT)]
+            ydl_config["progress_hooks"] = [lambda data: on_progress(data, processed_url_count, TOTAL_URL_COUNT)]
         
         if postprocessor_progress:
-            config["postprocessor_hooks"] = [lambda data: postprocessor_progress(data, processed_url_count, TOTAL_URL_COUNT)]
+            ydl_config["postprocessor_hooks"] = [lambda data: postprocessor_progress(data, processed_url_count, TOTAL_URL_COUNT)]
 
         if crop_thumbnails:
-            config["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-c:v", "png", "-vf", "crop=ih"]
+            ydl_config["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-c:v", "png", "-vf", "crop=ih"]
         
         if subtitle_lang:
-            config["writesubtitles"] = True
-            config["subtitleslangs"] = subtitle_lang
+            ydl_config["writesubtitles"] = True
+            ydl_config["subtitleslangs"] = subtitle_lang
             if embed_subtitles:
-                config["postprocessors"].append({"key": "FFmpegEmbedSubtitle"})
+                ydl_config["postprocessors"].append({"key": "FFmpegEmbedSubtitle"})
 
         if file_type == "mp4":
-            config["format"] = "bestvideo+bestaudio"
-            config["merge_output_format"] = "mp4"
+            ydl_config["format"] = "bestvideo+bestaudio"
+            ydl_config["merge_output_format"] = "mp4"
             if quality:
-                config["format_sort"] = ["fps", "abr", f"res:{quality}"]
+                ydl_config["format_sort"] = ["fps", "abr", f"res:{quality}"]
         
         elif file_type == "mp3":
-            config["postprocessors"] = [
+            ydl_config["postprocessors"] = [
                 {
                     "key": "FFmpegExtractAudio",
                     "preferredcodec": "mp3"
                 }
-            ] + config["postprocessors"]
-            config["format"] = "bestaudio"
+            ] + ydl_config["postprocessors"]
+            ydl_config["format"] = "bestaudio"
             if quality:
-                config["format_sort"] = [f"abr:{quality}"]
+                ydl_config["format_sort"] = [f"abr:{quality}"]
 
-
-        with yt_dlp.YoutubeDL(config) as ydl:
-            for url in urls:
-                try:
-                    ydl.download(url)
-                    processed_url_count += 1 
-                except yt_dlp.utils.DownloadError as e:
-                    print(e)
-                    errors.add(e)
-                    if not self.check_internet_connection():
-                        return failed_urls, False
-                    failed_urls.add(url)
-                
-                if on_url_progress:
-                    on_url_progress(url, processed_url_count, TOTAL_URL_COUNT)
-
-        if failed_urls:
-            new_config = {}
-            if "progress_hooks" in config:
-                new_config["progress_hooks"] = config["progress_hooks"]
-            if "postprocessor_hooks" in config:
-                new_config["postprocessor_hooks"] = config["postprocessor_hooks"]
-            invalid_urls = set()
-
-            with yt_dlp.YoutubeDL(new_config) as ydl:
-                for url in failed_urls:
+        for _ in range(2):
+            with yt_dlp.YoutubeDL(ydl_config) as ydl:
+                for url in urls:
                     try:
                         ydl.download(url)
                         processed_url_count += 1
+                        remaining_urls.discard(url)
                     except yt_dlp.utils.DownloadError as e:
                         print(e)
                         errors.add(e)
-                        invalid_urls.add(url)
                         if not self.check_internet_connection():
-                            return failed_urls, False
-
+                            return remaining_urls, False
+                    
                     if on_url_progress:
                         on_url_progress(url, processed_url_count, TOTAL_URL_COUNT)
+
+            if remaining_urls:
+                new_ydl_config = {}
+                if "progress_hooks" in ydl_config:
+                    new_ydl_config["progress_hooks"] = ydl_config["progress_hooks"]
+                if "postprocessor_hooks" in ydl_config:
+                    new_ydl_config["postprocessor_hooks"] = ydl_config["postprocessor_hooks"]
+                ydl_config = new_ydl_config
 
         return invalid_urls, True, errors
 
 
     def extract_urls(self, urls, on_progress=None, force=False):
+        urls = set(urls)
         if urls != self.cache["original_urls"] or force:
             processed_url_count = 0
+            TOTAL_URL_COUNT = len(urls)
             data = {}
-            total_url_count = len(urls)
             extracted_urls = set()
-            failed_urls = set()
+            remaining_urls = urls
             errors = set()
-            config = self.config
-            config.update({
+            ydl_config = self.ydl_config
+            ydl_config.update({
                 "extract_flat": True,
             })
 
-            with yt_dlp.YoutubeDL(config) as ydl:
-                for url in urls:
-                    try:
-                        temp_urls, temp_data = self._extract_urls(url, ydl)
-                        extracted_urls.update(temp_urls)
-                        if temp_data:
-                            data.update(temp_data)
-                        processed_url_count += 1
-                    except yt_dlp.utils.DownloadError as e:
-                        print(e)
-                        errors.add(e)
-                        if not self.check_internet_connection():
-                            return extracted_urls, failed_urls, False, errors
-                        failed_urls.add(url)
-
-                    if on_progress:
-                        on_progress(processed_url_count, total_url_count)
-
-            if failed_urls:
-                with yt_dlp.YoutubeDL(config) as ydl:
-                    for url in failed_urls:
+            for _ in range(2):
+                with yt_dlp.YoutubeDL(ydl_config) as ydl:
+                    for url in urls:
                         try:
-                            extracted_urls.update(self._extract_urls(url, ydl))
+                            temp_urls, temp_data = self._extract_urls(url, ydl)
+                            extracted_urls.update(temp_urls)
+                            data.update(temp_data)
                             processed_url_count += 1
-                            failed_urls.discard(url)
+                            remaining_urls.discard(url)
                         except yt_dlp.utils.DownloadError as e:
                             print(e)
                             errors.add(e)
                             if not self.check_internet_connection():
-                                return extracted_urls, failed_urls, False, errors
+                                return extracted_urls, remaining_urls, False, errors
 
                         if on_progress:
-                            on_progress(processed_url_count, total_url_count)
+                            on_progress(processed_url_count, TOTAL_URL_COUNT)
+
+                    urls = remaining_urls
 
             self.cache["original_urls"] = urls
             self.cache["extracted_urls"] = extracted_urls
             self.cache["data"] = data
 
-            return extracted_urls, failed_urls, True, errors
+            return extracted_urls, remaining_urls, True, errors
         else:
             return self.cache["extracted_urls"], set(), True, list()
 
@@ -207,7 +180,7 @@ class Downloader():
         if "entries" in data:
             for entry in data["entries"]:
                 urls.add(entry["url"])
-            data = None
+            data = {}
         else:
             data = {data["webpage_url"]: data}
             urls.add(url)
@@ -218,8 +191,8 @@ class Downloader():
     def fetch_data(self, urls, on_progress=None):
         data = []
         failed_urls = set()
-        config = self.config
-        config.update({
+        ydl_config = self.ydl_config
+        ydl_config.update({
             "writesubtitles": True,
             "allsubtitles": True,
         })
@@ -227,7 +200,7 @@ class Downloader():
         processed_url_count = 0
         errors = set()
 
-        with yt_dlp.YoutubeDL(config) as ydl:
+        with yt_dlp.YoutubeDL(ydl_config) as ydl:
             for url in urls:
                 if url not in self.cache["data"]:
                     try:
@@ -247,7 +220,7 @@ class Downloader():
                     on_progress(processed_url_count, TOTAL_URL_COUNT)
 
         if failed_urls:
-            with yt_dlp.YoutubeDL(config) as ydl:
+            with yt_dlp.YoutubeDL(ydl_config) as ydl:
                 for url in failed_urls:
                     try:
                         data.append(self._fetch_data(ydl, url))
