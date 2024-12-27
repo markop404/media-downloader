@@ -133,7 +133,7 @@ class Downloader():
     def extract_urls(self, urls, on_progress=None, force=False):
         if urls != self.cache["original_urls"] or force:
             urls = set(urls)
-            remaining_urls = set(urls)
+            remaining_urls = urls.copy()
             extracted_urls = set()
             processed_url_count = 0
             TOTAL_URL_COUNT = len(urls)
@@ -177,7 +177,7 @@ class Downloader():
 
     def fetch_pretty_data(self, urls, on_progress=None):
         urls = set(urls)
-        remaining_urls = urls
+        remaining_urls = urls.copy()
         TOTAL_URL_COUNT = len(urls)
         processed_url_count = 0
         data = []
@@ -264,7 +264,3 @@ class Downloader():
         except BaseException as e:
             print(e)
             return False
-
-
-downloader = Downloader()
-downloader.extract_urls(["https://www.youtube.com/watch?v=JaTRtAwL5e8"])
