@@ -25,7 +25,7 @@ from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize
 from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 
 from .. import utils
-from .. import ytdlp_helpers
+from ..downloader import Downloader
 from .settings import Settings
 from ..ui import Ui_Tab
 
@@ -52,6 +52,7 @@ class Tab(QWidget):
             },
         ]
         self.settings_manager = Settings()
+        self.downloader = Downloader()
         self.setup_vars(parent, pretty_tab_number)
         self.load_settings()
         self.update_download_directory_indicators()
@@ -215,7 +216,7 @@ class Tab(QWidget):
 
     def update_info(self, urls):
         try:
-            urls, failed_urls1, exit_status, errors = ytdlp_helpers.extract_urls(
+            urls, failed_urls1, exit_status, errors = self.downloader.extract_urls(
                 urls,
                 on_progress=lambda 
                     processed_url_count,
@@ -230,10 +231,10 @@ class Tab(QWidget):
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
             return
-        except BaseException as e:
-            self.prep_thread_exit("data_fetch_failed")
-            print(e)
-            return
+        # except BaseException as e:
+        #     self.prep_thread_exit("data_fetch_failed")
+        #     print(e)
+        #     return
         if not exit_status:
             self.prep_thread_exit("no_internet")
             return
@@ -252,7 +253,7 @@ class Tab(QWidget):
         )
         
         try:
-            data, failed_urls2, exit_status, errors = ytdlp_helpers.extract_data(
+            self.qualities, self.subtitles, failed_urls2, exit_status, errors = self.downloader.extract_data(
                 urls,
                 on_progress=lambda
                     processed_url_count,
@@ -267,10 +268,10 @@ class Tab(QWidget):
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
             return
-        except BaseException as e:
-            print(e)
-            self.prep_thread_exit("data_fetch_failed")
-            return
+        # except BaseException as e:
+        #     print(e)
+        #     self.prep_thread_exit("data_fetch_failed")
+        #     return
         failed_urls = failed_urls1.union(failed_urls2)
         if not exit_status:
             self.prep_thread_exit("no_internet")
@@ -279,23 +280,15 @@ class Tab(QWidget):
             self.handle_invalid_url_warning(failed_urls, error_type="data_fetch")
             self.prep_thread_exit("data_fetch_failed")
             return
-        
         if failed_urls and data:
             self.handle_invalid_url_warning(failed_urls, error_type="data_fetch")
-
-        try:
-            self.qualities, self.subtitles = ytdlp_helpers.extract_basic_info(data)
-        except BaseException as e:
-            print(e)
-            self.prep_thread_exit("data_fetch_failed")
-            return
         
         self.prep_thread_exit("data_fetch_finished", percentage=100)
 
 
     def download(self, urls):
         try:
-            urls, failed_urls1, exit_status, errors = ytdlp_helpers.extract_urls(
+            urls, failed_urls1, exit_status, errors = self.downloader.extract_urls(
                 urls,
                 lambda
                     processed_url_count,
@@ -335,7 +328,7 @@ class Tab(QWidget):
         file_type, quality, subtitle_lang = self.get_download_opts()
 
         try:
-            failed_urls2, exit_status, errors = ytdlp_helpers.download(
+            failed_urls2, exit_status, errors = self.downloader.download(
                 urls=urls,
                 subtitle_lang=subtitle_lang,
                 on_progress=self.download_progress,
@@ -419,6 +412,7 @@ class Tab(QWidget):
             self.update_status_indicators()
             self.update_qualities(clear=True)
             self.update_subtitles(clear=True)
+            self.downloader.clear_cache()
 
 
     def show_combobox_popup(self, combobox):

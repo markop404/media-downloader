@@ -18,6 +18,6 @@
 
 
 from . import main
-from . import ytdlp_helpers
+from . import downloader
 from . import utils
 from . import ui
