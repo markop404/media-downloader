@@ -140,12 +140,13 @@ class Downloader():
 
     def extract_urls(self, urls, url_progress_hook=None, force=False):
         urls = set(urls)
-        if urls != self.cache["original_urls"] or force:
+        if urls == self.cache["original_urls"] and not force:
+            return self.cache["extracted_urls"], set(), set(), True
+        else:
             failed_urls = set()
             extracted_urls = set()
             processed_url_count = 0
             total_url_count = len(urls)
-            self.cache["original_urls"] = urls
             data = {}
             errors = set()
             ydl_config = self.ydl_config
@@ -160,7 +161,7 @@ class Downloader():
                                 for entry in new_data["entries"]:
                                     extracted_urls.add(entry["url"])
                             else:
-                                self.cache["data"][url] = new_data
+                                data[url] = new_data
                                 extracted_urls.add(url)
                             processed_url_count += 1
                             failed_urls.discard(url)
@@ -177,11 +178,11 @@ class Downloader():
                 if failed_urls:
                     urls = failed_urls
             
+            self.cache["data"] = data
+            self.cache["original_urls"] = urls
             self.cache["extracted_urls"] = extracted_urls
             return extracted_urls, failed_urls, errors, True
-        else:
-            return self.cache["extracted_urls"], set(), set(), True
-
+            
 
     def fetch_pretty_data(self, urls, url_progress_hook=None):
         urls = set(urls)
