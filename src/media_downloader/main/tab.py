@@ -285,6 +285,7 @@ class Tab(QWidget):
     def download(self, urls, file_type, subtitle_lang, quality):
         if self.downloader.cache.get("original_urls") == urls:
             urls = self.downloader.cache.get("extracted_urls")
+            failed_urls1 = set()
         else:
             self.update_status_indicators(
                 status="extracting_urls",
