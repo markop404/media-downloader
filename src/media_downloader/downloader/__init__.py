@@ -61,7 +61,6 @@ class Downloader():
                 {"key": "FFmpegMetadata"},
                 {"key": "EmbedThumbnail", "already_have_thumbnail": False}
             ],
-            "postprocessor_args": {},
             "writethumbnail": True,
         })
         urls = set(urls)
@@ -217,8 +216,8 @@ class Downloader():
                             if not self.check_internet_connection():
                                 return {}, {}, failed_urls, errors, False
                 
-                        if url_progress_hook:
-                            url_progress_hook(processed_url_count, total_url_count)
+                    if url_progress_hook:
+                        url_progress_hook(processed_url_count, total_url_count)
 
             if failed_urls:
                 urls = failed_urls
@@ -286,6 +285,7 @@ class Downloader():
 
 
     def check_internet_connection(self):
+        # Cloudflare DNS
         HOST = "2606:4700:4700::1111"
         PORT = 53
         TIMEOUT = 5
