@@ -171,12 +171,12 @@ class Tab(QWidget):
             return
 
         if not self.thread_running:
+            urls = self.prep_thread_start()
             self.update_status_indicators(
                 status="extracting_urls",
                 progress=(1, len(urls)),
                 percentage=0
             )
-            urls = self.prep_thread_start()
             data_fetch_button_text = (
                 self.settings_manager.STATIC_SETTINGS["button_text"]["refresh"]["secondary"]
             )
@@ -206,7 +206,7 @@ class Tab(QWidget):
             self.ui.cropThumbnailsCheckBox.setEnabled(False)
 
             file_type = self.ui.formatComboBox.currentData()
-            subtitles = self.ui.subtitlesComboBox.currentData()
+            subtitle_lang = self.ui.subtitlesComboBox.currentData()
             selected_quality = self.ui.qualityComboBox.currentData()
             if selected_quality:
                 quality = selected_quality
@@ -216,7 +216,7 @@ class Tab(QWidget):
                 elif file_type == "mp3":
                     quality = self.settings_manager.load_setting("preferred-bitrate")
 
-            threading.Thread(target=lambda: self.download(urls, file_type, subtitles, quality), daemon=True).start()
+            threading.Thread(target=lambda: self.download(urls, file_type, subtitle_lang, quality), daemon=True).start()
         else:
             self.cancel_progress = True
             self.ui.downloadButton.setEnabled(False)
@@ -282,7 +282,7 @@ class Tab(QWidget):
         self.prep_thread_exit("data_fetch_finished", percentage=100)
 
 
-    def download(self, urls, file_type, subtitles, quality):
+    def download(self, urls, file_type, subtitle_lang, quality):
         if self.downloader.cache.get("original_urls") == urls:
             urls = self.downloader.cache.get("extracted_urls")
         else:
