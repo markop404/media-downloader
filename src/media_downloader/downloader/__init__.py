@@ -17,7 +17,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import requests
+import socket
 import re
 
 import yt_dlp
@@ -81,7 +81,9 @@ class Downloader():
             ]
 
         if crop_thumbnails:
-            ydl_config["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-c:v", "png", "-vf", "crop=ih"]
+            ydl_config["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = [
+                "-c:v", "png", "-vf", "crop=ih"
+            ]
         
         if subtitle_lang:
             ydl_config["writesubtitles"] = True
@@ -188,23 +190,25 @@ class Downloader():
 
     def fetch_pretty_data(self, urls, url_progress_hook=None):
         urls = set(urls)
-        failed_urls = set()
-        processed_url_count = 0
-        total_url_count = len(urls)
         data = []
-        errors = set()
-        ydl_config = self.ydl_config
-        ydl_config.update({
-            "writesubtitles": True,
-            "allsubtitles": True,
-        })
 
-        for _ in range(2):
-            with yt_dlp.YoutubeDL(ydl_config) as ydl:
-                for url in urls:
-                    if url in self.cache["data"] and self.cache["data"][url]:
-                        data.append(self.cache["data"][url])
-                    else:
+        if urls in self.cache["data"].keys():
+            for value in self.cache["data"].values():
+                data.append(value)
+        else:
+            failed_urls = set()
+            processed_url_count = 0
+            total_url_count = len(urls)
+            errors = set()
+            ydl_config = self.ydl_config
+            ydl_config.update({
+                "writesubtitles": True,
+                "allsubtitles": True,
+            })
+
+            for _ in range(2):
+                with yt_dlp.YoutubeDL(ydl_config) as ydl:
+                    for url in urls:
                         try:
                             new_data = ydl.extract_info(url, download=False)
                             if "entries" in new_data:
@@ -219,14 +223,14 @@ class Downloader():
                             failed_urls.add(url)
                             if not self.check_internet_connection():
                                 return {}, {}, failed_urls, errors, False
-                
-                    if url_progress_hook:
-                        url_progress_hook(processed_url_count, total_url_count)
+                    
+                        if url_progress_hook:
+                            url_progress_hook(processed_url_count, total_url_count)
 
-            if failed_urls:
-                urls = failed_urls
-            else:
-                break
+                if failed_urls:
+                    urls = failed_urls
+                else:
+                    break
                 
         all_bitrates = set()
         all_resolutions = set()
