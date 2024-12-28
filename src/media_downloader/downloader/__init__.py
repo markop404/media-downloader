@@ -106,7 +106,7 @@ class Downloader():
             if quality:
                 ydl_config["format_sort"] = [f"abr:{quality}"]
 
-        for _ in range(2):
+        for iteration in range(2):
             with yt_dlp.YoutubeDL(ydl_config) as ydl:
                 for url in urls:
                     try:
@@ -124,7 +124,7 @@ class Downloader():
                         if url_progress_hook:
                             url_progress_hook()
 
-            if failed_urls:
+            if failed_urls and iteration == 1:
                 new_ydl_config = {}
                 if "progress_hooks" in ydl_config:
                     new_ydl_config["progress_hooks"] = ydl_config["progress_hooks"]
@@ -132,6 +132,8 @@ class Downloader():
                     new_ydl_config["postprocessor_hooks"] = ydl_config["postprocessor_hooks"]
                 ydl_config = new_ydl_config
                 urls = failed_urls
+            else:
+                break
 
         return failed_urls, errors, True
 
@@ -175,6 +177,8 @@ class Downloader():
 
                 if failed_urls:
                     urls = failed_urls
+                else:
+                    break
             
             self.cache["data"] = data
             self.cache["original_urls"] = urls
@@ -221,6 +225,8 @@ class Downloader():
 
             if failed_urls:
                 urls = failed_urls
+            else:
+                break
                 
         all_bitrates = set()
         all_resolutions = set()
