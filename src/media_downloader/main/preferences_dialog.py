@@ -32,7 +32,7 @@ class PreferencesDialog(QDialog):
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
         
-        self.settings_manager = Settings()
+        self.settings = Settings()
         self.SETTINGS = {
             "remember-tab-settings": {
                 "set-value-func": lambda value: self.ui.horizontalSlider.setValue(int(value)),
@@ -46,7 +46,7 @@ class PreferencesDialog(QDialog):
                 "set-value-func":
                     lambda value: 
                         self.ui.preferredResolutionSettingComboBox.setCurrentText(
-                            self.settings_manager.STATIC_SETTINGS["preferred-resolutions"][value]
+                            self.settings.STATIC_SETTINGS["preferred-resolutions"][value]
                         ),
                 "get-value-func": self.ui.preferredResolutionSettingComboBox.currentData,
             },
@@ -54,17 +54,17 @@ class PreferencesDialog(QDialog):
                 "set-value-func":
                     lambda value: 
                         self.ui.preferredBitrateSettingComboBox.setCurrentText(
-                            self.settings_manager.STATIC_SETTINGS["preferred-bitrates"][value]
+                            self.settings.STATIC_SETTINGS["preferred-bitrates"][value]
                         ),
                 "get-value-func": self.ui.preferredBitrateSettingComboBox.currentData,
             },
         }
 
         self.ui.preferredResolutionSettingComboBox.replace_all_items(
-            self.settings_manager.STATIC_SETTINGS["preferred-resolutions"],
+            self.settings.STATIC_SETTINGS["preferred-resolutions"],
         )
         self.ui.preferredBitrateSettingComboBox.replace_all_items(
-            self.settings_manager.STATIC_SETTINGS["preferred-bitrates"],
+            self.settings.STATIC_SETTINGS["preferred-bitrates"],
         )
 
         self.load_settings()
@@ -76,11 +76,11 @@ class PreferencesDialog(QDialog):
         
         if defaults:
             for setting_name, setting_func in self.SETTINGS.items():
-                setting_func["set-value-func"](self.settings_manager.DEFAULT_SETTINGS[setting_name]["value"])
-                self.settings_manager.remove(setting_name)
+                setting_func["set-value-func"](self.settings.DEFAULT_SETTINGS[setting_name]["value"])
+                self.settings.remove(setting_name)
         else:
             for setting_name, setting_func in self.SETTINGS.items():
-                value = self.settings_manager.load_setting(setting_name)
+                value = self.settings.load_setting(setting_name)
                 if value != None:
                     setting_func["set-value-func"](value)
 
@@ -89,7 +89,7 @@ class PreferencesDialog(QDialog):
 
     def save_setting(self, setting_name):
         if not self.loading_settings:
-            self.settings_manager.save_setting(
+            self.settings.save_setting(
                 setting_name,
                 self.SETTINGS[setting_name]["get-value-func"](),
                 force=True,

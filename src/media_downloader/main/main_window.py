@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
         self.highest_tab_number = 0
         self.popup_window_running = False
         
-        self.settings_manager = main.Settings()
+        self.settings = main.Settings()
         self.SETTINGS = [
             {
                 "name": "window-geometry",
@@ -63,14 +63,14 @@ class MainWindow(QMainWindow):
 
     def load_settings(self):
         for setting in self.SETTINGS:
-            value = self.settings_manager.value(setting["name"])
+            value = self.settings.value(setting["name"])
             if value != None:
                 setting["set-value-func"](value)
 
 
     def save_settings(self):
         for setting in self.SETTINGS:
-            self.settings_manager.save_setting(setting["name"], setting["get-value-func"]())
+            self.settings.save_setting(setting["name"], setting["get-value-func"]())
         
         self.ui.tabWidget.currentWidget().save_settings()
 
@@ -154,10 +154,10 @@ class MainWindow(QMainWindow):
             else:
                 progress_text = ""
                 
-            situation_text = self.settings_manager.STATIC_SETTINGS["tab_text"][situation]
+            situation_text = self.settings.STATIC_SETTINGS["tab_text"][situation]
             text = f"{pretty_tab_number} - {situation_text}{progress_text}"
-            icon = self.settings_manager.ICONS[
-                self.settings_manager.STATIC_SETTINGS["tab_icons"][situation]
+            icon = self.settings.ICONS[
+                self.settings.STATIC_SETTINGS["tab_icons"][situation]
             ]
         else:
             text = f"{pretty_tab_number}"
