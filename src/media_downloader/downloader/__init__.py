@@ -114,7 +114,7 @@ class Downloader():
                         processed_url_count += 1
                         failed_urls.discard(url)
                         if url_progress_hook:
-                            url_progress_hook(url)
+                            url_progress_hook(processed_url_count, total_url_count, url)
                     except yt_dlp.utils.DownloadError as e:
                         print(e)
                         errors.add(e)
@@ -122,7 +122,7 @@ class Downloader():
                         if not self.check_internet_connection():
                             return failed_urls, errors, False
                         if url_progress_hook:
-                            url_progress_hook()
+                            url_progress_hook(processed_url_count, total_url_count)
 
             if failed_urls and iteration == 1:
                 new_ydl_config = {}
