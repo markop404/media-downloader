@@ -144,14 +144,7 @@ class Tab(QWidget):
 
     def prep_thread_start(self):
         self.thread_running = True
-
         urls = self.ui.plainTextEdit.cleanup_and_get_lines()
-        self.update_status_indicators(
-            status="extracting_urls",
-            progress=(1, len(urls)),
-            percentage=0
-        )
-
         self.ui.plainTextEdit.setReadOnly(True)
         self.ui.qualityComboBox.setEnabled(False)
         self.ui.subtitlesComboBox.setEnabled(False)
@@ -178,6 +171,11 @@ class Tab(QWidget):
             return
 
         if not self.thread_running:
+            self.update_status_indicators(
+                status="extracting_urls",
+                progress=(1, len(urls)),
+                percentage=0
+            )
             urls = self.prep_thread_start()
             data_fetch_button_text = (
                 self.settings_manager.STATIC_SETTINGS["button_text"]["refresh"]["secondary"]
@@ -206,7 +204,19 @@ class Tab(QWidget):
             self.ui.setDownloadFolderButton.setEnabled(False)
             self.ui.embedSubtitlesCheckBox.setEnabled(False)
             self.ui.cropThumbnailsCheckBox.setEnabled(False)
-            threading.Thread(target=lambda: self.download(urls), daemon=True).start()
+
+            file_type = self.ui.formatComboBox.currentData()
+            subtitles = self.ui.subtitlesComboBox.currentData()
+            selected_quality = self.ui.qualityComboBox.currentData()
+            if selected_quality:
+                quality = selected_quality
+            else:
+                if file_type == "mp4":
+                    quality = self.settings_manager.load_setting("preferred-resolution")
+                elif file_type == "mp3":
+                    quality = self.settings_manager.load_setting("preferred-bitrate")
+
+            threading.Thread(target=lambda: self.download(urls, file_type, subtitles, quality), daemon=True).start()
         else:
             self.cancel_progress = True
             self.ui.downloadButton.setEnabled(False)
@@ -272,27 +282,35 @@ class Tab(QWidget):
         self.prep_thread_exit("data_fetch_finished", percentage=100)
 
 
-    def download(self, urls):
-        try:
-            urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
-                urls,
-                url_progress_hook=lambda *args, **kargs:
-                    self.update_url_progress("fetching_data", *args, **kargs),
+    def download(self, urls, file_type, subtitles, quality):
+        if self.downloader.cache.get("original_urls") == urls:
+            urls = self.downloader.cache.get("extracted_urls")
+        else:
+            self.update_status_indicators(
+                status="extracting_urls",
+                progress=(1, len(urls)),
+                percentage=0
             )
-        except SystemExit:
-            self.prep_thread_exit("download_cancelled")
-            return
-        # except BaseException as e:
-        #     print(e)
-        #     self.prep_thread_exit("download_failed")
-        #     return
-        if not exit_status:
-            self.prep_thread_exit("no_internet")
-            return
-        elif not urls and failed_urls1:
-            self.handle_invalid_url_warning(failed_urls1)
-            self.prep_thread_exit("download_failed")
-            return
+            try:
+                urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
+                    urls,
+                    url_progress_hook=lambda *args, **kargs:
+                        self.update_url_progress("fetching_data", *args, **kargs),
+                )
+            except SystemExit:
+                self.prep_thread_exit("download_cancelled")
+                return
+            # except BaseException as e:
+            #     print(e)
+            #     self.prep_thread_exit("download_failed")
+            #     return
+            if not exit_status:
+                self.prep_thread_exit("no_internet")
+                return
+            elif not urls and failed_urls1:
+                self.handle_invalid_url_warning(failed_urls1)
+                self.prep_thread_exit("download_failed")
+                return
 
         self.run_in_gui_thread(
             lambda:
@@ -302,8 +320,6 @@ class Tab(QWidget):
                     percentage=0,
                 )
         )
-
-        file_type, quality, subtitle_lang = self.get_download_opts()
 
         try:
             failed_urls2, errors, exit_status = self.downloader.download(
@@ -428,7 +444,7 @@ class Tab(QWidget):
         )
 
 
-    def update_url_progress(self, status, processed_url_count, total_url_count, url=None, clear_url=False):
+    def update_url_progress(self, status, processed_url_count, total_url_count, url=None):
         self.abort_if_requested()
 
         current_url_index = processed_url_count
@@ -447,9 +463,6 @@ class Tab(QWidget):
                     percentage=percentage,
                 )
         )
-
-        if clear_url and url and self.settings_manager.load_setting("remove-downloaded-urls"):
-            self.run_in_gui_thread(lambda: self.ui.plainTextEdit.remove_lines([url]))
     
 
     def update_url_download_progress(self, url=None):
@@ -465,23 +478,9 @@ class Tab(QWidget):
             raise SystemExit
 
 
-    def get_download_opts(self):
-        file_type = self.ui.formatComboBox.currentData()
-        subtitles = self.ui.subtitlesComboBox.currentData()
-        selected_quality = self.ui.qualityComboBox.currentData()
-        
-        if selected_quality:
-            quality = selected_quality
-        else:
-            if file_type == "mp4":
-                quality = self.settings_manager.load_setting("preferred-resolution")
-            elif file_type == "mp3":
-                quality = self.settings_manager.load_setting("preferred-bitrate")
-        
-        return file_type, selected_quality, subtitles
+    def update_qualities(self, clear=False):
+        _format = self.ui.formatComboBox.currentData()
 
-
-    def update_quality_placeholder_text(self, _format):
         placeholder_text = ""
         if _format == "mp4":
             placeholder_text = (
@@ -495,11 +494,6 @@ class Tab(QWidget):
             )
         if placeholder_text:
             self.ui.qualityComboBox.setPlaceholderText(placeholder_text)
-
-
-    def update_qualities(self, clear=False):
-        _format = self.ui.formatComboBox.currentData()
-        self.update_quality_placeholder_text(_format)
         
         if clear:
             self.qualities = None
