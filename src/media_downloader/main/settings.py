@@ -105,7 +105,7 @@ class Settings(QSettings):
                 "no_internet": "list-remove",
             },
             "window_titles": {
-                "error": "Error - Tab <pretty_tab_number>",
+                "error": "Error - Tab <tab_name>",
             },
             "button_text": {
                 "download": {"default": "&Download", "secondary": "Cancel &Downloading"},

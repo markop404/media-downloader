@@ -44,19 +44,19 @@ class Downloader():
     def download(
         self,
         urls,
-        download_location="",
-        on_progress=None,
-        on_url_progress=None,
+        download_dir="",
+        download_progress_hook=None,
+        url_progress_hook=None,
+        postprocessor_progress_hook=None,
         file_type="mp4",
         subtitle_lang=None,
         quality=None,
-        postprocessor_progress=None,
         embed_subtitles=True,
         crop_thumbnails=False,
     ):
         ydl_config = self.ydl_config
         ydl_config.update({
-            "outtmpl": f"{download_location}/%(title)s.%(ext)s",
+            "outtmpl": f"{download_dir}/%(title)s.%(ext)s",
             "windowsfilenames": True,
             "postprocessors": [
                 {"key": "FFmpegMetadata"},
@@ -71,11 +71,16 @@ class Downloader():
         total_url_count = len(urls)
         errors = set()
 
-        if on_progress:
-            ydl_config["progress_hooks"] = [lambda data: on_progress(data, processed_url_count, total_url_count)]
+        if download_progress_hook:
+            ydl_config["progress_hooks"] = [
+                lambda data, progress_hook=download_progress_hook: 
+                    self.download_progress_hook(data, progress_hook, processed_url_count, total_url_count)
+            ]
         
-        if postprocessor_progress:
-            ydl_config["postprocessor_hooks"] = [lambda data: postprocessor_progress(data, processed_url_count, total_url_count)]
+        if postprocessor_progress_hook:
+            ydl_config["postprocessor_hooks"] = [
+                lambda data: postprocessor_progress_hook(processed_url_count, total_url_count)
+            ]
 
         if crop_thumbnails:
             ydl_config["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-c:v", "png", "-vf", "crop=ih"]
@@ -110,15 +115,16 @@ class Downloader():
                         ydl.download(url)
                         processed_url_count += 1
                         failed_urls.discard(url)
+                        if url_progress_hook:
+                            url_progress_hook(url)
                     except yt_dlp.utils.DownloadError as e:
                         print(e)
                         errors.add(e)
                         failed_urls.add(url)
                         if not self.check_internet_connection():
                             return failed_urls, errors, False
-                    
-                    if on_url_progress:
-                        on_url_progress(url, processed_url_count, total_url_count)
+                        if url_progress_hook:
+                            url_progress_hook()
 
             if failed_urls:
                 new_ydl_config = {}
@@ -132,7 +138,7 @@ class Downloader():
         return failed_urls, errors, True
 
 
-    def extract_urls(self, urls, on_progress=None, force=False):
+    def extract_urls(self, urls, url_progress_hook=None, force=False):
         urls = set(urls)
         if urls != self.cache["original_urls"] or force:
             failed_urls = set()
@@ -163,10 +169,10 @@ class Downloader():
                             errors.add(e)
                             failed_urls.add(url)
                             if not self.check_internet_connection():
-                                return extracted_urls, failed_urls, errors, False 
+                                return extracted_urls, failed_urls, errors, False
 
-                        if on_progress:
-                            on_progress(processed_url_count, total_url_count)
+                        if url_progress_hook:
+                            url_progress_hook(processed_url_count, total_url_count)
 
                 if failed_urls:
                     urls = failed_urls
@@ -177,7 +183,7 @@ class Downloader():
             return self.cache["extracted_urls"], set(), set(), True
 
 
-    def fetch_pretty_data(self, urls, on_progress=None):
+    def fetch_pretty_data(self, urls, url_progress_hook=None):
         urls = set(urls)
         failed_urls = set()
         processed_url_count = 0
@@ -210,9 +216,9 @@ class Downloader():
                             failed_urls.add(url)
                             if not self.check_internet_connection():
                                 return {}, {}, failed_urls, errors, False
-
-                    if on_progress:
-                        on_progress(processed_url_count, total_url_count)
+                
+                        if url_progress_hook:
+                            url_progress_hook(processed_url_count, total_url_count)
 
             if failed_urls:
                 urls = failed_urls
@@ -259,6 +265,24 @@ class Downloader():
         subtitles = dict(sorted(subtitles.items(), key=lambda item: item[1]))
 
         return qualities, subtitles, failed_urls, errors, True
+
+
+    def download_progress_hook(self, data, progress_hook, processed_url_count, total_url_count):
+        percentage = None
+        if data["status"] == "downloading":            
+            if "downloaded_bytes" in data and "total_bytes" in data:
+                if data["downloaded_bytes"] and data["total_bytes"]:
+                    try:
+                        percentage = int((data["downloaded_bytes"] / data["total_bytes"]) * 100)
+                    except:
+                        pass
+            elif "fragment_index" in data and "fragment_count" in data:
+                if data["fragment_index"] and data["fragment_count"]:
+                    try:
+                        percentage = int((data["fragment_index"] / data["fragment_count"]) * 100)
+                    except:
+                        pass
+        progress_hook(percentage, processed_url_count, total_url_count)
 
 
     def check_internet_connection(self):

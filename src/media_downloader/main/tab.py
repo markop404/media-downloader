@@ -31,10 +31,10 @@ from ..ui import Ui_Tab
 
 
 class Tab(QWidget):
-    def __init__(self, parent, pretty_tab_number):
+    def __init__(self, parent, tab_name):
         super().__init__()
         self.settings_manager = Settings()
-        self.setup_vars(parent, pretty_tab_number)
+        self.setup_vars(parent, tab_name)
         self.event_invoker = utils.Invoker()
         self.downloader = Downloader()
         self.setup_ui()
@@ -89,9 +89,9 @@ class Tab(QWidget):
         self.ui.formatComboBox.replace_all_items(self.settings_manager.STATIC_SETTINGS["formats"])
 
 
-    def setup_vars(self, parent, pretty_tab_number):
+    def setup_vars(self, parent, tab_name):
         self.parent = parent
-        self.pretty_tab_number = pretty_tab_number
+        self.tab_name = tab_name
         self.download_directory = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
         self.thread_running = False
         self.cancel_progress = False
@@ -109,7 +109,7 @@ class Tab(QWidget):
     def connect_signals_and_slots(self):
         self.ui.dataFetchButton.clicked.connect(self.start_update_info)
         self.ui.downloadButton.clicked.connect(self.start_download)
-        self.ui.setDownloadFolderButton.clicked.connect(self.set_download_location)
+        self.ui.setDownloadFolderButton.clicked.connect(self.set_download_dir)
         self.ui.formatComboBox.currentTextChanged.connect(lambda: self.update_qualities())
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
 
@@ -147,7 +147,7 @@ class Tab(QWidget):
 
         urls = self.ui.plainTextEdit.cleanup_and_get_lines()
         self.update_status_indicators(
-            situation="extracting_urls",
+            status="extracting_urls",
             progress=(1, len(urls)),
             percentage=0
         )
@@ -159,7 +159,7 @@ class Tab(QWidget):
         return urls
     
 
-    def prep_thread_exit(self, situation=None, percentage=0):
+    def prep_thread_exit(self, status=None, percentage=0):
         self.thread_running = False
         self.cancel_progress = False
         
@@ -167,7 +167,7 @@ class Tab(QWidget):
             lambda: self.restore_widgets_to_normal(),
             lambda: self.update_qualities(),
             lambda: self.update_subtitles(),
-            lambda: self.update_status_indicators(situation, percentage=percentage),
+            lambda: self.update_status_indicators(status, percentage=percentage),
         ]
         for func in to_run:
             self.run_in_gui_thread(func)
@@ -210,7 +210,7 @@ class Tab(QWidget):
         else:
             self.cancel_progress = True
             self.ui.downloadButton.setEnabled(False)
-            self.update_status_indicators(situation="cancelling_download")
+            self.update_status_indicators(status="cancelling_download")
 
 
     def update_info(self, urls):
@@ -218,12 +218,12 @@ class Tab(QWidget):
             urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
                 urls,
                 force=True,
-                on_progress=lambda 
+                url_progress_hook=lambda 
                     processed_url_count,
                     total_url_count,
-                    situation="extracting_urls":
-                        self.url_extraction_progress(
-                            situation,
+                    status="extracting_urls":
+                        self.update_url_extraction_progress(
+                            status,
                             processed_url_count,
                             total_url_count
                         ),
@@ -246,7 +246,7 @@ class Tab(QWidget):
         self.run_in_gui_thread(
             lambda:
                 self.update_status_indicators(
-                    situation="fetching_data",
+                    status="fetching_data",
                     progress=(1, len(urls)),
                     percentage=0,
                 )
@@ -255,12 +255,12 @@ class Tab(QWidget):
         try:
             self.qualities, self.subtitles, failed_urls2, errors, exit_status = self.downloader.fetch_pretty_data(
                 urls,
-                on_progress=lambda
+                url_progress_hook=lambda
                     processed_url_count,
                     total_url_count,
-                    situation="fetching_data":
-                        self.url_extraction_progress(
-                            situation,
+                    status="fetching_data":
+                        self.update_url_extraction_progress(
+                            status,
                             processed_url_count,
                             total_url_count
                         ),
@@ -290,12 +290,12 @@ class Tab(QWidget):
         try:
             urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
                 urls,
-                lambda
+                url_progress_hook=lambda
                     processed_url_count,
                     total_url_count,
-                    situation="extracting_urls":
-                        self.url_extraction_progress(
-                            situation,
+                    status="extracting_urls":
+                        self.update_url_extraction_progress(
+                            status,
                             processed_url_count,
                             total_url_count
                         )
@@ -303,11 +303,10 @@ class Tab(QWidget):
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
             return
-        # except BaseException as e:
-        #     print(e)
-        #     self.prep_thread_exit("download_failed")
-        #     return
-
+        except BaseException as e:
+            print(e)
+            self.prep_thread_exit("download_failed")
+            return
         if not exit_status:
             self.prep_thread_exit("no_internet")
             return
@@ -319,7 +318,7 @@ class Tab(QWidget):
         self.run_in_gui_thread(
             lambda:
                 self.update_status_indicators(
-                    situation="downloading",
+                    status="downloading",
                     progress=(1, len(urls)),
                     percentage=0,
                 )
@@ -331,22 +330,22 @@ class Tab(QWidget):
             failed_urls2, errors, exit_status = self.downloader.download(
                 urls=urls,
                 subtitle_lang=subtitle_lang,
-                on_progress=self.download_progress,
-                download_location=self.download_directory,
+                download_dir=self.download_directory,
                 file_type=file_type,
                 quality=quality,
-                postprocessor_progress=self.postprocess_progress,
-                on_url_progress=self.url_download_progress,
                 embed_subtitles=self.ui.embedSubtitlesCheckBox.isChecked(),
                 crop_thumbnails=self.ui.cropThumbnailsCheckBox.isChecked(),
+                download_progress_hook=self.update_downloading_progress,
+                url_progress_hook=lambda url=None: self.update_url_progress(url),
+                postprocessor_progress_hook=self.update_converting_progress,
             )
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
             return
-        # except BaseException as e:
-        #     print(e)
-        #     self.prep_thread_exit("download_failed")
-        #     return
+        except BaseException as e:
+            print(e)
+            self.prep_thread_exit("download_failed")
+            return
         failed_urls = failed_urls1.union(failed_urls2)
         if not exit_status:
             self.prep_thread_exit("no_internet")
@@ -365,8 +364,8 @@ class Tab(QWidget):
         answer = QMessageBox.warning(
             self,
             self.settings_manager.STATIC_SETTINGS["window_titles"]["error"].replace(
-                "<pretty_tab_number>",
-                str(self.pretty_tab_number)
+                "<tab_name>",
+                str(self.tab_name)
             ),
             text,
             buttons=QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
@@ -382,9 +381,9 @@ class Tab(QWidget):
 
     def handle_invalid_url_warning(self, urls, error_type="download"):
         if error_type == "download":
-            beggining_text = f"The following <b>{len(urls)}</b> URLs from tab {self.pretty_tab_number} couldn't be downloaded:"
+            beggining_text = f"The following <b>{len(urls)}</b> URLs from tab {self.tab_name} couldn't be downloaded:"
         else:
-            beggining_text = f"The following <b>{len(urls)}</b> URLs from tab {self.pretty_tab_number} are invalid:"
+            beggining_text = f"The following <b>{len(urls)}</b> URLs from tab {self.tab_name} are invalid:"
 
         url_list_text = "<ul>"
         for url in urls:
@@ -427,95 +426,74 @@ class Tab(QWidget):
         )
 
 
-    def set_download_location(self):
+    def set_download_dir(self):
         if self.file_dialog.exec():
             self.download_directory = self.file_dialog.selectedFiles()[0]
             self.update_download_directory_indicators()
 
 
-    def url_extraction_progress(self, situation, processed_url_count, total_url_count):
-        if self.cancel_progress:
-            raise SystemExit
-        if processed_url_count + 1 <= total_url_count:
+    def update_downloading_progress(self, percentage, processed_url_count, total_url_count):
+        self.abort_if_requested()
+        if processed_url_count < total_url_count:
             processed_url_count += 1
-
-        try:
-            percentage = int(((processed_url_count - 1) / total_url_count) * 100)
-        except:
-            return
 
         self.run_in_gui_thread(
             lambda:
                 self.update_status_indicators(
-                    situation=situation,
+                    status="downloading",
                     progress=(processed_url_count, total_url_count),
                     percentage=percentage,
                 )
         )
 
 
-    def download_progress(self, data, processed_url_count, total_url_count):
-        if self.cancel_progress:
-            raise SystemExit
-        percentage = None
-    
-        if data["status"] == "downloading":            
-            if "downloaded_bytes" in data and "total_bytes" in data:
-                if data["downloaded_bytes"] and data["total_bytes"]:
-                    try:
-                        percentage = int((data["downloaded_bytes"] / data["total_bytes"]) * 100)
-                    except:
-                        percentage = None
-            elif "fragment_index" in data and "fragment_count" in data:
-                if data["fragment_index"] and data["fragment_count"]:
-                    try:
-                        percentage = int((data["fragment_index"] / data["fragment_count"]) * 100)
-                    except:
-                        percentage = None
-        
-        if processed_url_count + 1 <= total_url_count:
-            self.run_in_gui_thread(
-                lambda:
-                    self.update_status_indicators(
-                        situation="downloading",
-                        progress=(processed_url_count + 1, total_url_count),
-                        percentage=percentage,
-                    )
-            )
-
-
-    def url_download_progress(self, url, processed_url_count, total_url_count):
-        if self.cancel_progress:
-            raise SystemExit
-
+    def update_converting_progress(self, processed_url_count, total_url_count):
+        self.abort_if_requested()
+        current_url_index = processed_url_count
         if processed_url_count < total_url_count:
-            percentage = 0
-        else:
-            percentage = None
-        if processed_url_count + 1 <= total_url_count:
-            self.run_in_gui_thread(
-                lambda:
-                    self.update_status_indicators(
-                        situation="downloading",
-                        progress=(processed_url_count + 1, total_url_count),
-                        percentage=percentage,
-                    )
-            )
-        if self.settings_manager.load_setting("remove-downloaded-urls"):
-            self.ui.plainTextEdit.remove_lines([url])
-    
+            current_url_index += 1
 
-    def postprocess_progress(self, data, processed_url_count, total_url_count):
-        if self.cancel_progress:
-            raise SystemExit
         self.run_in_gui_thread(
             lambda:
                 self.update_status_indicators(
-                    situation="converting",
-                    progress=(processed_url_count + 1, total_url_count),
+                    status="converting",
+                    progress=(current_url_index, total_url_count),
                     percentage=100,
                 )
         )
+
+
+    def update_url_extraction_progress(self, status, processed_url_count, total_url_count):
+        self.abort_if_requested()
+        current_url_index = processed_url_count
+        if processed_url_count < total_url_count:
+            current_url_index += 1
+        
+        try:
+            percentage = int(processed_url_count / total_url_count * 100)
+        except:
+            percentage = None
+
+        self.run_in_gui_thread(
+            lambda:
+                self.update_status_indicators(
+                    status=status,
+                    progress=(current_url_index, total_url_count),
+                    percentage=percentage,
+                )
+        )
+
+
+    def update_url_progress(self, url=None):
+        self.abort_if_requested()
+        
+        if url and self.settings_manager.load_setting("remove-downloaded-urls"):
+            self.ui.plainTextEdit.remove_lines([url])
+    
+
+    def abort_if_requested(self):
+        if self.cancel_progress:
+            raise SystemExit
 
 
     def get_download_opts(self):
@@ -609,16 +587,16 @@ class Tab(QWidget):
         self.ui.downloadFolderIndicatorLabel.setToolTip(self.download_directory)
 
 
-    def update_status_indicators(self, situation=None, progress=None, percentage=None):
+    def update_status_indicators(self, status=None, progress=None, percentage=None):
         tab_index = self.parent.ui.tabWidget.indexOf(self)
-        if situation:
+        if status:
             if progress and len(progress) == 2:
                 progress_text = f" ({progress[0]}/{progress[1]})"
             else:
                 progress_text = ""
-            situation_text = self.settings_manager.STATIC_SETTINGS["status_label_text"][situation]
-            text = f"{situation_text}{progress_text}"
-            icon = self.settings_manager.ICONS[self.settings_manager.STATIC_SETTINGS["status_label_icons"][situation]]
+            status_text = self.settings_manager.STATIC_SETTINGS["status_label_text"][status]
+            text = f"{status_text}{progress_text}"
+            icon = self.settings_manager.ICONS[self.settings_manager.STATIC_SETTINGS["status_label_icons"][status]]
             
             self.ui.statusLabel.setText(text)
             self.ui.statusIconLabel.setPixmap(icon.pixmap(QSize(28, 28)))
@@ -626,14 +604,14 @@ class Tab(QWidget):
                 self.ui.progressBar.setValue(percentage)
             self.parent.update_tab_status_indicators(
                 tab_index,
-                self.pretty_tab_number,
-                situation,
+                self.tab_name,
+                status,
                 progress,
             )
         else:
             self.ui.statusLabel.setText("")
             self.ui.progressBar.setValue(0)
-            self.parent.update_tab_status_indicators(tab_index, self.pretty_tab_number)
+            self.parent.update_tab_status_indicators(tab_index, self.tab_name)
             self.ui.statusIconLabel.setPixmap(QPixmap())
 
 

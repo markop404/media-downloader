@@ -147,20 +147,20 @@ class MainWindow(QMainWindow):
         tab_object.deleteLater()
     
 
-    def update_tab_status_indicators(self, index, pretty_tab_number, situation=None, progress=None):
-        if situation:
+    def update_tab_status_indicators(self, index, tab_name, status=None, progress=None):
+        if status:
             if progress and len(progress) == 2:
                 progress_text = f" {progress[0]}/{progress[1]}"
             else:
                 progress_text = ""
                 
-            situation_text = self.settings.STATIC_SETTINGS["tab_text"][situation]
-            text = f"{pretty_tab_number} - {situation_text}{progress_text}"
+            status_text = self.settings.STATIC_SETTINGS["tab_text"][status]
+            text = f"{tab_name} - {status_text}{progress_text}"
             icon = self.settings.ICONS[
-                self.settings.STATIC_SETTINGS["tab_icons"][situation]
+                self.settings.STATIC_SETTINGS["tab_icons"][status]
             ]
         else:
-            text = f"{pretty_tab_number}"
+            text = f"{tab_name}"
             icon = QIcon()
         
         self.ui.tabWidget.setTabText(index, text)
