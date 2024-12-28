@@ -218,15 +218,7 @@ class Tab(QWidget):
             urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
                 urls,
                 force=True,
-                url_progress_hook=lambda 
-                    processed_url_count,
-                    total_url_count,
-                    status="extracting_urls":
-                        self.update_url_extraction_progress(
-                            status,
-                            processed_url_count,
-                            total_url_count
-                        ),
+                url_progress_hook=self.update_url_extraction_progress,
             )
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
@@ -255,15 +247,7 @@ class Tab(QWidget):
         try:
             self.qualities, self.subtitles, failed_urls2, errors, exit_status = self.downloader.fetch_pretty_data(
                 urls,
-                url_progress_hook=lambda
-                    processed_url_count,
-                    total_url_count,
-                    status="fetching_data":
-                        self.update_url_extraction_progress(
-                            status,
-                            processed_url_count,
-                            total_url_count
-                        ),
+                url_progress_hook=self.update_fetching_data_progress,
             )
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
@@ -290,15 +274,7 @@ class Tab(QWidget):
         try:
             urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
                 urls,
-                url_progress_hook=lambda
-                    processed_url_count,
-                    total_url_count,
-                    status="extracting_urls":
-                        self.update_url_extraction_progress(
-                            status,
-                            processed_url_count,
-                            total_url_count
-                        )
+                url_progress_hook=self.update_url_extraction_progress,
             )
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
@@ -335,29 +311,9 @@ class Tab(QWidget):
                 quality=quality,
                 embed_subtitles=self.ui.embedSubtitlesCheckBox.isChecked(),
                 crop_thumbnails=self.ui.cropThumbnailsCheckBox.isChecked(),
-                download_progress_hook=lambda
-                    percentage,
-                    processed_url_count,
-                    total_url_count,
-                    status="downloading",:
-                        self.update_downloading_progress(
-                            status,
-                            percentage,
-                            processed_url_count,
-                            total_url_count,
-                        ),
-                url_progress_hook=lambda url=None: self.update_url_progress(url),
-                postprocessor_progress_hook=lambda
-                    processed_url_count,
-                    total_url_count,
-                    status="converting",
-                    percentage=100,:
-                        self.update_downloading_progress(
-                            status,
-                            percentage,
-                            processed_url_count,
-                            total_url_count,
-                        ),
+                download_progress_hook=self.update_downloading_progress,
+                url_progress_hook=self.update_url_download_progress,
+                postprocessor_progress_hook=self.update_conversion_progress,
             )
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
@@ -452,7 +408,7 @@ class Tab(QWidget):
             self.update_download_directory_indicators()
 
 
-    def update_downloading_progress(self, status, percentage, processed_url_count, total_url_count):
+    def update_download_progress(self, status, percentage, processed_url_count, total_url_count):
         self.abort_if_requested()
         if processed_url_count < total_url_count:
             processed_url_count += 1
@@ -467,12 +423,12 @@ class Tab(QWidget):
         )
 
 
-    def update_url_extraction_progress(self, status, processed_url_count, total_url_count):
+    def update_url_progress(self, status, processed_url_count, total_url_count, url=None, clear_url=False):
         self.abort_if_requested()
+
         current_url_index = processed_url_count
         if processed_url_count < total_url_count:
             current_url_index += 1
-        
         try:
             percentage = int(processed_url_count / total_url_count * 100)
         except:
@@ -487,13 +443,33 @@ class Tab(QWidget):
                 )
         )
 
-
-    def update_url_progress(self, url=None):
-        self.abort_if_requested()
-        
-        if url and self.settings_manager.load_setting("remove-downloaded-urls"):
+        if clear_url and url and self.settings_manager.load_setting("remove-downloaded-urls"):
             self.run_in_gui_thread(lambda: self.ui.plainTextEdit.remove_lines([url]))
     
+
+    def update_downloading_progress(self, *args, **kargs):
+        self.update_download_progress("downloading", *args, **kargs)
+    
+
+    def update_conversion_progress(self, *args, **kargs):
+        self.update_download_progress("converting", 100, *args, **kargs)
+    
+
+    def update_url_extraction_progress(self, *args, **kargs):
+        self.update_url_progress("extracting_urls", *args, **kargs)
+    
+
+    def update_fetching_data_progress(self, *args, **kargs):
+        self.update_url_progress("fetching_data", *args, **kargs)
+    
+
+    def update_url_download_progress(self, url=None):
+        self.abort_if_requested()
+
+        if url:
+            if self.settings_manager.load_setting("remove-downloaded-urls"):
+                self.run_in_gui_thread(lambda: self.ui.plainTextEdit.remove_lines([url]))
+
 
     def abort_if_requested(self):
         if self.cancel_progress:
