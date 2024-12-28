@@ -17,7 +17,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import os
 import requests
 import re
 
@@ -287,8 +286,12 @@ class Downloader():
 
 
     def check_internet_connection(self):
+        HOST = "2606:4700:4700::1111"
+        PORT = 53
+        TIMEOUT = 5
+
         try:
-            requests.get("https://markopejic.com", timeout=10)
+            socket.create_connection((HOST, PORT), TIMEOUT)
             return True
         except BaseException as e:
             print(e)
