@@ -218,7 +218,8 @@ class Tab(QWidget):
             urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
                 urls,
                 force=True,
-                url_progress_hook=self.update_url_extraction_progress,
+                url_progress_hook=lambda *args, **kargs:
+                    self.update_url_progress("fetching_data", *args, **kargs),
             )
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
@@ -247,7 +248,8 @@ class Tab(QWidget):
         try:
             self.qualities, self.subtitles, failed_urls2, errors, exit_status = self.downloader.fetch_pretty_data(
                 urls,
-                url_progress_hook=self.update_fetching_data_progress,
+                url_progress_hook=lambda *args, **kargs:
+                    self.update_url_progress("extracting_urls", *args, **kargs),
             )
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
@@ -274,7 +276,8 @@ class Tab(QWidget):
         try:
             urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
                 urls,
-                url_progress_hook=self.update_url_extraction_progress,
+                url_progress_hook=lambda *args, **kargs:
+                    self.update_url_progress("fetching_data", *args, **kargs),
             )
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
@@ -311,9 +314,11 @@ class Tab(QWidget):
                 quality=quality,
                 embed_subtitles=self.ui.embedSubtitlesCheckBox.isChecked(),
                 crop_thumbnails=self.ui.cropThumbnailsCheckBox.isChecked(),
-                download_progress_hook=self.update_downloading_progress,
+                download_progress_hook=lambda *args, **kargs: 
+                    self.update_download_progress("downloading", *args, **kargs),
                 url_progress_hook=self.update_url_download_progress,
-                postprocessor_progress_hook=self.update_conversion_progress,
+                postprocessor_progress_hook=lambda *args, **kargs:
+                    self.update_download_progress("converting", 100, *args, **kargs),
             )
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
@@ -445,22 +450,6 @@ class Tab(QWidget):
 
         if clear_url and url and self.settings_manager.load_setting("remove-downloaded-urls"):
             self.run_in_gui_thread(lambda: self.ui.plainTextEdit.remove_lines([url]))
-    
-
-    def update_downloading_progress(self, *args, **kargs):
-        self.update_download_progress("downloading", *args, **kargs)
-    
-
-    def update_conversion_progress(self, *args, **kargs):
-        self.update_download_progress("converting", 100, *args, **kargs)
-    
-
-    def update_url_extraction_progress(self, *args, **kargs):
-        self.update_url_progress("extracting_urls", *args, **kargs)
-    
-
-    def update_fetching_data_progress(self, *args, **kargs):
-        self.update_url_progress("fetching_data", *args, **kargs)
     
 
     def update_url_download_progress(self, url=None):
