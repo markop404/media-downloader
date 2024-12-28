@@ -154,10 +154,10 @@ class MainWindow(QMainWindow):
             else:
                 progress_text = ""
                 
-            situation_text = self.settings_manager.CONSTANT_SETTINGS["tab_text"][situation]
+            situation_text = self.settings_manager.STATIC_SETTINGS["tab_text"][situation]
             text = f"{pretty_tab_number} - {situation_text}{progress_text}"
             icon = self.settings_manager.ICONS[
-                self.settings_manager.CONSTANT_SETTINGS["tab_icons"][situation]
+                self.settings_manager.STATIC_SETTINGS["tab_icons"][situation]
             ]
         else:
             text = f"{pretty_tab_number}"

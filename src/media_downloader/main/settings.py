@@ -39,18 +39,17 @@ class Settings(QSettings):
         return self.value(setting, type=value_type, defaultValue=default_value)
         
 
-    APP_NAME = "Media Downloader"
     ICONS = {
         "emblem-downloads": QIcon(
             QIcon.fromTheme(
                 "emblem-downloads",
-                QIcon.fromTheme("edit-download")
+                QIcon(QIcon.fromTheme("edit-download"))
             )
         ),
         "emblem-default": QIcon(
             QIcon.fromTheme(
                 "emblem-default",
-                QIcon.fromTheme("dialog-ok")
+                QIcon(QIcon.fromTheme("dialog-ok"))
             )
         ),
         "list-remove": QIcon(QIcon.fromTheme("list-remove")),
@@ -58,7 +57,7 @@ class Settings(QSettings):
         "network-offline": QIcon(QIcon.fromTheme("network-offline")),
         "media-playback-stop": QIcon(QIcon.fromTheme("media-playback-stop")),
     }
-    CONSTANT_SETTINGS = {
+    STATIC_SETTINGS = {
         "status_label_text": {
             "download_failed": "Downloading Failed.",
             "download_cancelled": "Downloading Cancelled.",

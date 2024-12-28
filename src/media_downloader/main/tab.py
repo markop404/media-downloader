@@ -114,7 +114,7 @@ class Tab(QWidget):
         )
 
         self.ui.downloadButton.setIcon(Settings.ICONS["emblem-downloads"])
-        self.ui.formatComboBox.replace_all_items(Settings.CONSTANT_SETTINGS["formats"])
+        self.ui.formatComboBox.replace_all_items(Settings.STATIC_SETTINGS["formats"])
 
 
     def setup_vars(self, parent, pretty_tab_number):
@@ -145,8 +145,7 @@ class Tab(QWidget):
     def prep_thread_start(self):
         self.thread_running = True
 
-        self.ui.plainTextEdit.cleanup()
-        urls = self.ui.plainTextEdit.get_lines()
+        urls = self.ui.plainTextEdit.cleanup_and_get_lines()
         self.update_status_indicators(
             situation="extracting_urls",
             progress=(1, len(urls)),
@@ -181,7 +180,7 @@ class Tab(QWidget):
         if not self.thread_running:
             urls = self.prep_thread_start()
             data_fetch_button_text = (
-                Settings.CONSTANT_SETTINGS["button_text"]["refresh"]["secondary"]
+                Settings.STATIC_SETTINGS["button_text"]["refresh"]["secondary"]
             )
             self.ui.dataFetchButton.setText(data_fetch_button_text)
             self.ui.downloadButton.setEnabled(False)
@@ -199,7 +198,7 @@ class Tab(QWidget):
         if not self.thread_running:
             urls = self.prep_thread_start()
             download_button_text = (
-                Settings.CONSTANT_SETTINGS["button_text"]["download"]["secondary"]
+                Settings.STATIC_SETTINGS["button_text"]["download"]["secondary"]
             )
             self.ui.downloadButton.setText(download_button_text)
             self.ui.dataFetchButton.setEnabled(False)
@@ -365,7 +364,7 @@ class Tab(QWidget):
     def display_invalid_url_warning(self, text):
         answer = QMessageBox.warning(
             self,
-            Settings.CONSTANT_SETTINGS["window_titles"]["error"].replace(
+            Settings.STATIC_SETTINGS["window_titles"]["error"].replace(
                 "<pretty_tab_number>",
                 str(self.pretty_tab_number)
             ),
@@ -539,12 +538,12 @@ class Tab(QWidget):
         placeholder_text = ""
         if _format == "mp4":
             placeholder_text = (
-                Settings.CONSTANT_SETTINGS["preferred-resolutions"]
+                Settings.STATIC_SETTINGS["preferred-resolutions"]
                 [self.settings_manager.load_setting("preferred-resolution")]
             )
         elif _format == "mp3":
             placeholder_text = (
-                Settings.CONSTANT_SETTINGS["preferred-bitrates"]
+                Settings.STATIC_SETTINGS["preferred-bitrates"]
                 [self.settings_manager.load_setting("preferred-bitrate")]
             )
         if placeholder_text:
@@ -617,9 +616,9 @@ class Tab(QWidget):
                 progress_text = f" ({progress[0]}/{progress[1]})"
             else:
                 progress_text = ""
-            situation_text = Settings.CONSTANT_SETTINGS["status_label_text"][situation]
+            situation_text = Settings.STATIC_SETTINGS["status_label_text"][situation]
             text = f"{situation_text}{progress_text}"
-            icon = Settings.ICONS[Settings.CONSTANT_SETTINGS["status_label_icons"][situation]]
+            icon = Settings.ICONS[Settings.STATIC_SETTINGS["status_label_icons"][situation]]
             
             self.ui.statusLabel.setText(text)
             self.ui.statusIconLabel.setPixmap(icon.pixmap(QSize(28, 28)))
@@ -649,8 +648,8 @@ class Tab(QWidget):
         self.ui.dataFetchButton.setEnabled(True)
         self.ui.downloadButton.setEnabled(True)
         self.ui.dataFetchButton.setText(
-            Settings.CONSTANT_SETTINGS["button_text"]["refresh"]["default"]
+            Settings.STATIC_SETTINGS["button_text"]["refresh"]["default"]
         )
         self.ui.downloadButton.setText(
-            Settings.CONSTANT_SETTINGS["button_text"]["download"]["default"]
+            Settings.STATIC_SETTINGS["button_text"]["download"]["default"]
         )

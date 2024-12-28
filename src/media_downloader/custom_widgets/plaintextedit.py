@@ -26,8 +26,11 @@ class PlainTextEdit(QPlainTextEdit):
         self.setting_text = False
 
 
-    def cleanup(self):      
-        self.set_text_by_lines(self.get_lines())
+    def cleanup_and_get_lines(self):
+        lines = self.get_lines()
+        self.set_text_by_lines(lines)
+
+        return lines
     
 
     def get_lines(self):
