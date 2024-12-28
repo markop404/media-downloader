@@ -157,9 +157,9 @@ class Tab(QWidget):
         self.cancel_progress = False
         
         to_run = [
-            lambda: self.restore_widgets_to_normal(),
-            lambda: self.update_qualities(),
-            lambda: self.update_subtitles(),
+            self.restore_widgets_to_normal,
+            self.update_qualities,
+            self.update_subtitles,
             lambda: self.update_status_indicators(status, percentage=percentage),
         ]
         for func in to_run:
@@ -216,7 +216,10 @@ class Tab(QWidget):
                 elif file_type == "mp3":
                     quality = self.settings_manager.load_setting("preferred-bitrate")
 
-            threading.Thread(target=lambda: self.download(urls, file_type, subtitle_lang, quality), daemon=True).start()
+            threading.Thread(
+                target=lambda: self.download(urls, file_type, subtitle_lang, quality),
+                daemon=True,
+            ).start()
         else:
             self.cancel_progress = True
             self.ui.downloadButton.setEnabled(False)
@@ -225,7 +228,10 @@ class Tab(QWidget):
 
     def update_info(self, urls):
         try:
-            urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
+            urls,
+            failed_urls1,
+            errors,
+            exit_status = self.downloader.extract_urls(
                 urls,
                 force=True,
                 url_progress_hook=lambda *args, **kargs:
@@ -234,10 +240,10 @@ class Tab(QWidget):
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
             return
-        # except BaseException as e:
-        #     self.prep_thread_exit("data_fetch_failed")
-        #     print(e)
-        #     return
+        except BaseException as e:
+            self.prep_thread_exit("data_fetch_failed")
+            print(e)
+            return
         if not exit_status:
             self.prep_thread_exit("no_internet")
             return
@@ -256,7 +262,11 @@ class Tab(QWidget):
         )
         
         try:
-            self.qualities, self.subtitles, failed_urls2, errors, exit_status = self.downloader.fetch_pretty_data(
+            self.qualities,
+            self.subtitles,
+            failed_urls2,
+            errors,
+            exit_status = self.downloader.fetch_pretty_data(
                 urls,
                 url_progress_hook=lambda *args, **kargs:
                     self.update_url_progress("extracting_urls", *args, **kargs),
@@ -264,10 +274,10 @@ class Tab(QWidget):
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
             return
-        # except BaseException as e:
-        #     print(e)
-        #     self.prep_thread_exit("data_fetch_failed")
-        #     return
+        except BaseException as e:
+            print(e)
+            self.prep_thread_exit("data_fetch_failed")
+            return
         failed_urls = failed_urls1.union(failed_urls2)
         if not exit_status:
             self.prep_thread_exit("no_internet")
@@ -293,7 +303,10 @@ class Tab(QWidget):
                 percentage=0
             )
             try:
-                urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
+                urls,
+                failed_urls1,
+                errors,
+                exit_status = self.downloader.extract_urls(
                     urls,
                     url_progress_hook=lambda *args, **kargs:
                         self.update_url_progress("fetching_data", *args, **kargs),
@@ -301,10 +314,10 @@ class Tab(QWidget):
             except SystemExit:
                 self.prep_thread_exit("download_cancelled")
                 return
-            # except BaseException as e:
-            #     print(e)
-            #     self.prep_thread_exit("download_failed")
-            #     return
+            except BaseException as e:
+                print(e)
+                self.prep_thread_exit("download_failed")
+                return
             if not exit_status:
                 self.prep_thread_exit("no_internet")
                 return
@@ -340,10 +353,10 @@ class Tab(QWidget):
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
             return
-        # except BaseException as e:
-        #     print(e)
-        #     self.prep_thread_exit("download_failed")
-        #     return
+        except BaseException as e:
+            print(e)
+            self.prep_thread_exit("download_failed")
+            return
         failed_urls = failed_urls1.union(failed_urls2)
         if not exit_status:
             self.prep_thread_exit("no_internet")
@@ -522,7 +535,10 @@ class Tab(QWidget):
                 if repetition == 0:
                     combobox_qualities[quality] += " (Best)"
 
-            self.ui.qualityComboBox.replace_all_items(combobox_qualities, default_item=default_quality)
+            self.ui.qualityComboBox.replace_all_items(
+                combobox_qualities,
+                default_item=default_quality
+            )
 
 
     def update_subtitles(self, clear=False):
@@ -560,7 +576,9 @@ class Tab(QWidget):
                 progress_text = ""
             status_text = self.settings_manager.STATIC_SETTINGS["status_label_text"][status]
             text = f"{status_text}{progress_text}"
-            icon = self.settings_manager.ICONS[self.settings_manager.STATIC_SETTINGS["status_label_icons"][status]]
+            icon = self.settings_manager.ICONS[
+                self.settings_manager.STATIC_SETTINGS["status_label_icons"][status]
+            ]
             
             self.ui.statusLabel.setText(text)
             self.ui.statusIconLabel.setPixmap(icon.pixmap(QSize(28, 28)))
