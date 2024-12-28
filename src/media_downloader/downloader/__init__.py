@@ -36,7 +36,7 @@ class Downloader():
     def clear_cache(self):
         self.cache = {
             "original_urls": set(),
-            "converted_urls": set(),
+            "extracted_urls": set(),
             "data": {},
         }
 

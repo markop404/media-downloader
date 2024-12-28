@@ -231,10 +231,10 @@ class Tab(QWidget):
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
             return
-        except BaseException as e:
-            self.prep_thread_exit("data_fetch_failed")
-            print(e)
-            return
+        # except BaseException as e:
+        #     self.prep_thread_exit("data_fetch_failed")
+        #     print(e)
+        #     return
         if not exit_status:
             self.prep_thread_exit("no_internet")
             return
@@ -268,10 +268,10 @@ class Tab(QWidget):
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
             return
-        except BaseException as e:
-            print(e)
-            self.prep_thread_exit("data_fetch_failed")
-            return
+        # except BaseException as e:
+        #     print(e)
+        #     self.prep_thread_exit("data_fetch_failed")
+        #     return
         failed_urls = failed_urls1.union(failed_urls2)
         if not exit_status:
             self.prep_thread_exit("no_internet")
@@ -303,10 +303,10 @@ class Tab(QWidget):
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
             return
-        except BaseException as e:
-            print(e)
-            self.prep_thread_exit("download_failed")
-            return
+        # except BaseException as e:
+        #     print(e)
+        #     self.prep_thread_exit("download_failed")
+        #     return
         if not exit_status:
             self.prep_thread_exit("no_internet")
             return
@@ -335,17 +335,37 @@ class Tab(QWidget):
                 quality=quality,
                 embed_subtitles=self.ui.embedSubtitlesCheckBox.isChecked(),
                 crop_thumbnails=self.ui.cropThumbnailsCheckBox.isChecked(),
-                download_progress_hook=self.update_downloading_progress,
+                download_progress_hook=lambda
+                    percentage,
+                    processed_url_count,
+                    total_url_count,
+                    status="downloading",:
+                        self.update_downloading_progress(
+                            status,
+                            percentage,
+                            processed_url_count,
+                            total_url_count,
+                        ),
                 url_progress_hook=lambda url=None: self.update_url_progress(url),
-                postprocessor_progress_hook=self.update_converting_progress,
+                postprocessor_progress_hook=lambda
+                    processed_url_count,
+                    total_url_count,
+                    status="converting",
+                    percentage=100,:
+                        self.update_downloading_progress(
+                            status,
+                            percentage,
+                            processed_url_count,
+                            total_url_count,
+                        ),
             )
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
             return
-        except BaseException as e:
-            print(e)
-            self.prep_thread_exit("download_failed")
-            return
+        # except BaseException as e:
+        #     print(e)
+        #     self.prep_thread_exit("download_failed")
+        #     return
         failed_urls = failed_urls1.union(failed_urls2)
         if not exit_status:
             self.prep_thread_exit("no_internet")
@@ -381,9 +401,9 @@ class Tab(QWidget):
 
     def handle_invalid_url_warning(self, urls, error_type="download"):
         if error_type == "download":
-            beggining_text = f"The following <b>{len(urls)}</b> URLs from tab {self.tab_name} couldn't be downloaded:"
+            beggining_text = f"The following {len(urls)} URLs from tab {self.tab_name} couldn't be downloaded:"
         else:
-            beggining_text = f"The following <b>{len(urls)}</b> URLs from tab {self.tab_name} are invalid:"
+            beggining_text = f"The following {len(urls)} URLs from tab {self.tab_name} are invalid:"
 
         url_list_text = "<ul>"
         for url in urls:
@@ -432,7 +452,7 @@ class Tab(QWidget):
             self.update_download_directory_indicators()
 
 
-    def update_downloading_progress(self, percentage, processed_url_count, total_url_count):
+    def update_downloading_progress(self, status, percentage, processed_url_count, total_url_count):
         self.abort_if_requested()
         if processed_url_count < total_url_count:
             processed_url_count += 1
@@ -440,25 +460,9 @@ class Tab(QWidget):
         self.run_in_gui_thread(
             lambda:
                 self.update_status_indicators(
-                    status="downloading",
+                    status=status,
                     progress=(processed_url_count, total_url_count),
                     percentage=percentage,
-                )
-        )
-
-
-    def update_converting_progress(self, processed_url_count, total_url_count):
-        self.abort_if_requested()
-        current_url_index = processed_url_count
-        if processed_url_count < total_url_count:
-            current_url_index += 1
-
-        self.run_in_gui_thread(
-            lambda:
-                self.update_status_indicators(
-                    status="converting",
-                    progress=(current_url_index, total_url_count),
-                    percentage=100,
                 )
         )
 
@@ -488,7 +492,7 @@ class Tab(QWidget):
         self.abort_if_requested()
         
         if url and self.settings_manager.load_setting("remove-downloaded-urls"):
-            self.ui.plainTextEdit.remove_lines([url])
+            self.run_in_gui_thread(lambda: self.ui.plainTextEdit.remove_lines([url]))
     
 
     def abort_if_requested(self):
