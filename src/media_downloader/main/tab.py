@@ -43,49 +43,49 @@ class Tab(QWidget):
                 "name": "download-format",
                 "set-value-func": self.ui.formatComboBox.setCurrentText,
                 "get-value-func": self.ui.formatComboBox.currentText,
-                "update": False,
+                "updatable": False,
             },
             {
                 "name": "crop-thumbnails",
                 "set-value-func": self.ui.cropThumbnailsCheckBox.setChecked,
                 "get-value-func": self.ui.cropThumbnailsCheckBox.isChecked,
-                "update": False,
+                "updatable": False,
             },
             {
                 "name": "embed-subtitles",
                 "set-value-func": self.ui.embedSubtitlesCheckBox.setChecked,
                 "get-value-func": self.ui.embedSubtitlesCheckBox.isChecked,
-                "update": False,
+                "updatable": False,
             },
             {
                 "name": "preferred-resolution",
                 "set-value-func": lambda _: self.update_qualities(placeholder_text_only=True),
                 "get-value-func": None,
-                "update": True,
+                "updatable": True,
             },
             {
                 "name": "preferred-bitrate",
                 "set-value-func": lambda _: self.update_qualities(placeholder_text_only=True),
                 "get-value-func": None,
-                "update": True,
+                "updatable": True,
             },
             {
                 "name": "remove-downloaded-urls",
                 "set-value-func": None,
                 "get-value-func": None,
-                "update": False,
+                "updatable": False,
             },
             {
                 "name": "download-dir",
                 "set-value-func": self.update_download_dir,
                 "get-value-func": lambda: self.download_dir,
-                "update": False,
+                "updatable": False,
             },
             {
                 "name": "remember-tab-settings",
                 "set-value-func": None,
                 "get-value-func": None,
-                "update": False,
+                "updatable": False,
             },
         ]
         self.load_settings()
@@ -158,7 +158,7 @@ class Tab(QWidget):
 
     def update_settings(self):
         for setting in self.SETTINGS:
-            if setting["update"] and setting["set-value-func"]:
+            if setting["updatable"] and setting["set-value-func"]:
                 value = self.settings_manager.load_setting(setting["name"])
                 setting["set-value-func"](value)
 
