@@ -18,7 +18,7 @@
 
 
 from PySide6.QtGui import QIcon
-from PySide6.QtCore import QSettings, QPoint, QSize
+from PySide6.QtCore import QSettings, QPoint, QSize, QStandardPaths
 
 
 class Settings(QSettings):
@@ -144,7 +144,10 @@ class Settings(QSettings):
             "download-format": {"value": "mp4", "type": str},
             "crop-thumbnails": {"value": False, "type": bool},
             "embed-subtitles": {"value": True, "type": bool},
-            "download-dir": {"value": None, "type": str},
+            "download-dir": {
+                "value": QStandardPaths.writableLocation(QStandardPaths.DownloadLocation),
+                "type": str
+            },
         }
 
 
@@ -155,7 +158,10 @@ class Settings(QSettings):
 
 
     def load_setting(self, setting):
-        default_value = self.DEFAULT_SETTINGS[setting]["value"]
-        value_type = self.DEFAULT_SETTINGS[setting]["type"]
-        
-        return self.value(setting, type=value_type, defaultValue=default_value)
+        if setting in self.DEFAULT_SETTINGS:
+            default_value = self.DEFAULT_SETTINGS[setting]["value"]
+            value_type = self.DEFAULT_SETTINGS[setting]["type"]
+            
+            return self.value(setting, type=value_type, defaultValue=default_value)
+        else:
+            return self.value(setting)

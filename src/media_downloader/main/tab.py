@@ -21,7 +21,7 @@ import threading
 import os
 
 from PySide6.QtWidgets import QMessageBox, QWidget, QFileDialog
-from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize
+from PySide6.QtCore import QCoreApplication, QUrl, QDir, QSize
 from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 
 from .. import utils
@@ -59,13 +59,13 @@ class Tab(QWidget):
             },
             {
                 "name": "preferred-resolution",
-                "set-value-func": self.ui.embedSubtitlesCheckBox.setChecked,
+                "set-value-func": lambda _: self.update_qualities(placeholder_text_only=True),
                 "get-value-func": None,
                 "update": True,
             },
             {
                 "name": "preferred-bitrate",
-                "set-value-func": self.ui.embedSubtitlesCheckBox.setChecked,
+                "set-value-func": lambda _: self.update_qualities(placeholder_text_only=True),
                 "get-value-func": None,
                 "update": True,
             },
@@ -77,16 +77,20 @@ class Tab(QWidget):
             },
             {
                 "name": "download-dir",
-                "set-value-func": self.ui.embedSubtitlesCheckBox.setChecked,
+                "set-value-func": self.update_download_dir,
                 "get-value-func": lambda: self.download_dir,
-                "update": False, 
+                "update": False,
+            },
+            {
+                "name": "remember-tab-settings",
+                "set-value-func": None,
+                "get-value-func": None,
+                "update": False,
             },
         ]
         self.load_settings()
-        self.update_download_dir_indicators()
         self.setup_filedialog()
         self.connect_signals_and_slots()
-        self.update_qualities(clear=True)
 
 
     def setup_ui(self):
@@ -119,7 +123,6 @@ class Tab(QWidget):
     def setup_vars(self, parent, tab_name):
         self.parent = parent
         self.tab_name = tab_name
-        self.download_dir = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
         self.thread_running = False
         self.cancel_progress = False
         self.user_answer = False
@@ -136,8 +139,8 @@ class Tab(QWidget):
     def connect_signals_and_slots(self):
         self.ui.dataFetchButton.clicked.connect(self.start_update_info)
         self.ui.downloadButton.clicked.connect(self.start_download)
-        self.ui.setDownloadFolderButton.clicked.connect(self.set_download_dir)
-        self.ui.formatComboBox.currentTextChanged.connect(lambda: self.update_qualities())
+        self.ui.setDownloadFolderButton.clicked.connect(self.open_file_dialog)
+        self.ui.formatComboBox.currentTextChanged.connect(self.update_qualities)
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
 
 
@@ -145,13 +148,8 @@ class Tab(QWidget):
         if self.settings_manager.load_setting("remember-tab-settings"):
             for setting in self.SETTINGS:
                 value = self.settings_manager.load_setting(setting["name"])
-                if value != None:
+                if value != None and setting["set-value-func"]:
                     setting["set-value-func"](value)
-            
-            if download_dir := self.settings_manager.load_setting("download-dir"):
-                if os.path.exists(download_dir):
-                    self.download_dir = download_dir
-                    self.update_download_dir_indicators()
         else:
             for setting in self.SETTINGS:
                 value = self.settings_manager.DEFAULT_SETTINGS[setting["name"]]["value"]
@@ -160,16 +158,15 @@ class Tab(QWidget):
 
     def update_settings(self):
         for setting in self.SETTINGS:
-            if setting["update"]:
+            if setting["update"] and setting["set-value-func"]:
                 value = self.settings_manager.load_setting(setting["name"])
                 setting["set-value-func"](value)
 
 
     def save_settings(self):
         for setting in self.SETTINGS:
-            self.settings_manager.setValue(setting["name"], setting["get-value-func"]())
-        
-        self.settings_manager.setValue("download-dir", self.download_dir)
+            if setting["get-value-func"]:
+                self.settings_manager.save_setting(setting["name"], setting["get-value-func"]())
 
 
     def prep_thread_start(self):
@@ -453,10 +450,10 @@ class Tab(QWidget):
         )
 
 
-    def set_download_dir(self):
+    def open_file_dialog(self):
         if self.file_dialog.exec():
-            self.download_dir = self.file_dialog.selectedFiles()[0]
-            self.update_download_dir_indicators()
+            download_dir = self.file_dialog.selectedFiles()[0]
+            self.update_download_dir(download_dir)
 
 
     def update_download_progress(self, status, percentage, processed_url_count, total_url_count):
@@ -583,17 +580,18 @@ class Tab(QWidget):
         self.ui.subtitlesComboBox.replace_all_items(subtitles)
 
 
-    def update_download_dir_indicators(self):
-        dir_name = QDir(self.download_dir).dirName()
-        full_path = QUrl.fromLocalFile(self.download_dir).toString()
+    def update_download_dir(self, download_dir):
+        self.download_dir = download_dir
+        dir_name = QDir(download_dir).dirName()
+        full_path = QUrl.fromLocalFile(download_dir).toString()
 
         if dir_name:
             new_text = f"<a href=\"{full_path}\">{dir_name}</a>"
         else:
-            new_text = f"<a href=\"{full_path}\">{self.download_dir}</a>"
+            new_text = f"<a href=\"{full_path}\">{download_dir}</a>"
 
         self.ui.downloadFolderIndicatorLabel.setText(new_text)
-        self.ui.downloadFolderIndicatorLabel.setToolTip(self.download_dir)
+        self.ui.downloadFolderIndicatorLabel.setToolTip(download_dir)
 
 
     def update_status_indicators(self, status=None, progress=None, percentage=None):
