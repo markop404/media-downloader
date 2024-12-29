@@ -296,12 +296,12 @@ class Downloader():
 
     def check_internet_connection(self):
         # Cloudflare DNS
-        HOST = "2606:4700:4700::1111"
+        HOST = "1.1.1.1"
         PORT = 53
         TIMEOUT = 5
 
         try:
-            socket.create_connection((HOST, PORT), TIMEOUT)
+            socket.create_connection((HOST, PORT), TIMEOUT).close()
             return True
         except BaseException as e:
             print(e)
