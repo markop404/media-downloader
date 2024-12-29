@@ -43,20 +43,47 @@ class Tab(QWidget):
                 "name": "download-format",
                 "set-value-func": self.ui.formatComboBox.setCurrentText,
                 "get-value-func": self.ui.formatComboBox.currentText,
+                "update": False,
             },
             {
                 "name": "crop-thumbnails",
                 "set-value-func": self.ui.cropThumbnailsCheckBox.setChecked,
                 "get-value-func": self.ui.cropThumbnailsCheckBox.isChecked,
+                "update": False,
             },
             {
                 "name": "embed-subtitles",
                 "set-value-func": self.ui.embedSubtitlesCheckBox.setChecked,
                 "get-value-func": self.ui.embedSubtitlesCheckBox.isChecked,
+                "update": False,
+            },
+            {
+                "name": "preferred-resolution",
+                "set-value-func": self.ui.embedSubtitlesCheckBox.setChecked,
+                "get-value-func": None,
+                "update": True,
+            },
+            {
+                "name": "preferred-bitrate",
+                "set-value-func": self.ui.embedSubtitlesCheckBox.setChecked,
+                "get-value-func": None,
+                "update": True,
+            },
+            {
+                "name": "remove-downloaded-urls",
+                "set-value-func": None,
+                "get-value-func": None,
+                "update": False,
+            },
+            {
+                "name": "download-dir",
+                "set-value-func": self.ui.embedSubtitlesCheckBox.setChecked,
+                "get-value-func": lambda: self.download_dir,
+                "update": False, 
             },
         ]
         self.load_settings()
-        self.update_download_directory_indicators()
+        self.update_download_dir_indicators()
         self.setup_filedialog()
         self.connect_signals_and_slots()
         self.update_qualities(clear=True)
@@ -92,7 +119,7 @@ class Tab(QWidget):
     def setup_vars(self, parent, tab_name):
         self.parent = parent
         self.tab_name = tab_name
-        self.download_directory = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
+        self.download_dir = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
         self.thread_running = False
         self.cancel_progress = False
         self.user_answer = False
@@ -103,7 +130,7 @@ class Tab(QWidget):
     def setup_filedialog(self):
         self.file_dialog = QFileDialog(self)
         self.file_dialog.setFileMode(QFileDialog.Directory)
-        self.file_dialog.setDirectory(self.download_directory)
+        self.file_dialog.setDirectory(self.download_dir)
     
 
     def connect_signals_and_slots(self):
@@ -123,23 +150,26 @@ class Tab(QWidget):
             
             if download_dir := self.settings_manager.load_setting("download-dir"):
                 if os.path.exists(download_dir):
-                    self.download_directory = download_dir
-                    self.update_download_directory_indicators()
+                    self.download_dir = download_dir
+                    self.update_download_dir_indicators()
         else:
             for setting in self.SETTINGS:
                 value = self.settings_manager.DEFAULT_SETTINGS[setting["name"]]["value"]
                 setting["set-value-func"](value)
     
 
-    def on_settings_update(self):
-        self.update_qualities(self.ui.formatComboBox.currentData(), placeholder_text_only=True)
+    def update_settings(self):
+        for setting in self.SETTINGS:
+            if setting["update"]:
+                value = self.settings_manager.load_setting(setting["name"])
+                setting["set-value-func"](value)
 
 
     def save_settings(self):
         for setting in self.SETTINGS:
             self.settings_manager.setValue(setting["name"], setting["get-value-func"]())
         
-        self.settings_manager.setValue("download-dir", self.download_directory)
+        self.settings_manager.setValue("download-dir", self.download_dir)
 
 
     def prep_thread_start(self):
@@ -231,8 +261,8 @@ class Tab(QWidget):
             urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
                 urls,
                 force=True,
-                url_progress_hook=lambda *args, **kargs:
-                    self.update_fetching_progress("extracting_urls", *args, **kargs),
+                url_progress_hook=lambda *args, **kwargs:
+                    self.update_fetching_progress("extracting_urls", *args, **kwargs),
             )
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
@@ -261,8 +291,8 @@ class Tab(QWidget):
         try:
             self.qualities, self.subtitles, failed_urls2, errors, exit_status = self.downloader.fetch_pretty_data(
                 urls,
-                url_progress_hook=lambda *args, **kargs:
-                    self.update_fetching_progress("fetching_data", *args, **kargs),
+                url_progress_hook=lambda *args, **kwargs:
+                    self.update_fetching_progress("fetching_data", *args, **kwargs),
             )
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
@@ -294,8 +324,8 @@ class Tab(QWidget):
         try:
             urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
                 urls,
-                url_progress_hook=lambda *args, **kargs:
-                    self.update_fetching_progress("extracting_urls", *args, **kargs),
+                url_progress_hook=lambda *args, **kwargs:
+                    self.update_fetching_progress("extracting_urls", *args, **kwargs),
             )
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
@@ -325,16 +355,16 @@ class Tab(QWidget):
             failed_urls2, errors, exit_status = self.downloader.download(
                 urls=urls,
                 subtitle_lang=subtitle_lang,
-                download_dir=self.download_directory,
+                download_dir=self.download_dir,
                 file_type=file_type,
                 quality=quality,
                 embed_subtitles=self.ui.embedSubtitlesCheckBox.isChecked(),
                 crop_thumbnails=self.ui.cropThumbnailsCheckBox.isChecked(),
-                download_progress_hook=lambda *args, **kargs: 
-                    self.update_download_progress("downloading", *args, **kargs),
+                download_progress_hook=lambda *args, **kwargs: 
+                    self.update_download_progress("downloading", *args, **kwargs),
                 url_progress_hook=self.update_url_download_progress,
-                postprocessor_progress_hook=lambda *args, **kargs:
-                    self.update_download_progress("converting", 100, *args, **kargs),
+                postprocessor_progress_hook=lambda *args, **kwargs:
+                    self.update_download_progress("converting", 100, *args, **kwargs),
             )
         except SystemExit:
             self.prep_thread_exit("download_cancelled")
@@ -425,8 +455,8 @@ class Tab(QWidget):
 
     def set_download_dir(self):
         if self.file_dialog.exec():
-            self.download_directory = self.file_dialog.selectedFiles()[0]
-            self.update_download_directory_indicators()
+            self.download_dir = self.file_dialog.selectedFiles()[0]
+            self.update_download_dir_indicators()
 
 
     def update_download_progress(self, status, percentage, processed_url_count, total_url_count):
@@ -553,17 +583,17 @@ class Tab(QWidget):
         self.ui.subtitlesComboBox.replace_all_items(subtitles)
 
 
-    def update_download_directory_indicators(self):
-        dir_name = QDir(self.download_directory).dirName()
-        full_path = QUrl.fromLocalFile(self.download_directory).toString()
+    def update_download_dir_indicators(self):
+        dir_name = QDir(self.download_dir).dirName()
+        full_path = QUrl.fromLocalFile(self.download_dir).toString()
 
         if dir_name:
             new_text = f"<a href=\"{full_path}\">{dir_name}</a>"
         else:
-            new_text = f"<a href=\"{full_path}\">{self.download_directory}</a>"
+            new_text = f"<a href=\"{full_path}\">{self.download_dir}</a>"
 
         self.ui.downloadFolderIndicatorLabel.setText(new_text)
-        self.ui.downloadFolderIndicatorLabel.setToolTip(self.download_directory)
+        self.ui.downloadFolderIndicatorLabel.setToolTip(self.download_dir)
 
 
     def update_status_indicators(self, status=None, progress=None, percentage=None):

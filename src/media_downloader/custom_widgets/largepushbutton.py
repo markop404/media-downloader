@@ -22,8 +22,8 @@ from PySide6.QtCore import QSize
 
 
 class LargePushButton(QPushButton):
-    def __init__(self, *args, **kargs):
-        super().__init__(*args, **kargs)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
         current_size = self.sizeHint()
         new_width = current_size.width() + 68
