@@ -191,15 +191,15 @@ class Downloader():
     def fetch_pretty_data(self, urls, url_progress_hook=None):
         urls = set(urls)
         data = []
+        failed_urls = set()
+        errors = set()
 
-        if urls in self.cache["data"].keys():
+        if all(item in urls for item in self.cache["data"]):
             for value in self.cache["data"].values():
                 data.append(value)
         else:
-            failed_urls = set()
             processed_url_count = 0
             total_url_count = len(urls)
-            errors = set()
             ydl_config = self.ydl_config
             ydl_config.update({
                 "writesubtitles": True,
