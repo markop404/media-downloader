@@ -34,8 +34,10 @@ class Downloader():
 
     def clear_cache(self):
         self.cache = {
-            "original_urls": set(),
-            "extracted_urls": set(),
+            "urls": {
+                "original": set(),
+                "extracted": set()
+            },
             "data": {},
         }
 
@@ -121,7 +123,7 @@ class Downloader():
                         print(e)
                         errors.add(e)
                         failed_urls.add(url)
-                        if not self.check_internet_connection():
+                        if not self.internet_connection():
                             return failed_urls, errors, False
                         if url_progress_hook:
                             url_progress_hook(processed_url_count, total_url_count)
@@ -142,8 +144,8 @@ class Downloader():
 
     def extract_urls(self, urls, url_progress_hook=None, force=False):
         urls = set(urls)
-        if urls == self.cache["original_urls"] and not force:
-            return self.cache["extracted_urls"], set(), set(), True
+        if self.cache_available(urls) and not force:
+            return self.cache["urls"]["extracted"], set(), set(), True
         else:
             failed_urls = set()
             extracted_urls = set()
@@ -171,7 +173,7 @@ class Downloader():
                             print(e)
                             errors.add(e)
                             failed_urls.add(url)
-                            if not self.check_internet_connection():
+                            if not self.internet_connection():
                                 return extracted_urls, failed_urls, errors, False
 
                         if url_progress_hook:
@@ -183,8 +185,8 @@ class Downloader():
                     break
             
             self.cache["data"] = data
-            self.cache["original_urls"] = urls
-            self.cache["extracted_urls"] = extracted_urls
+            self.cache["urls"]["original"] = urls
+            self.cache["urls"]["extracted"] = extracted_urls
             return extracted_urls, failed_urls, errors, True
             
 
@@ -194,7 +196,7 @@ class Downloader():
         failed_urls = set()
         errors = set()
 
-        if all(item in urls for item in self.cache["data"]):
+        if self.cache_available(urls):
             for value in self.cache["data"].values():
                 data.append(value)
         else:
@@ -221,7 +223,7 @@ class Downloader():
                             print(e)
                             errors.add(e)
                             failed_urls.add(url)
-                            if not self.check_internet_connection():
+                            if not self.internet_connection():
                                 return {}, {}, failed_urls, errors, False
                     
                         if url_progress_hook:
@@ -294,15 +296,17 @@ class Downloader():
         progress_hook(percentage, processed_url_count, total_url_count)
 
 
-    def check_internet_connection(self):
-        # Cloudflare DNS
-        HOST = "1.1.1.1"
-        PORT = 53
-        TIMEOUT = 5
-
+    def internet_connection(self):
         try:
-            socket.create_connection((HOST, PORT), TIMEOUT).close()
+            socket.create_connection(("1.1.1.1", 53)).close()
             return True
         except BaseException as e:
             print(e)
+            return False
+    
+
+    def cache_available(self, urls):
+        if all(item in urls for item in self.cache["data"]):
+            return True
+        else:
             return False

@@ -63,7 +63,7 @@ class MainWindow(QMainWindow):
 
     def load_settings(self):
         for setting in self.SETTINGS:
-            value = self.settings.value(setting["name"])
+            value = self.settings.load_setting(setting["name"])
             if value != None:
                 setting["set-value-func"](value)
 

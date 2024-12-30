@@ -148,6 +148,8 @@ class Settings(QSettings):
                 "value": QStandardPaths.writableLocation(QStandardPaths.DownloadLocation),
                 "type": str
             },
+            "window-geometry": {"value": None, "type": None},
+            "window-state": {"value": None, "type": None},
         }
 
 
