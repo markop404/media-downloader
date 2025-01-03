@@ -71,6 +71,9 @@ class Downloader():
         total_url_count = len(urls)
         errors = set()
 
+        if urls == self.cache["urls"]["original"]:
+            urls = self.cache["urls"]["extracted"]
+
         if download_progress_hook:
             ydl_config["progress_hooks"] = [
                 lambda data, progress_hook=download_progress_hook: 

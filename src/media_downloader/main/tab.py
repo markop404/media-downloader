@@ -78,7 +78,7 @@ class Tab(QWidget):
             {
                 "name": "download-dir",
                 "set-value-func": self.update_download_dir,
-                "get-value-func": lambda: self.download_dir,
+                "get-value-func": lambda: self.ui.file_dialog.directory().toString(),
                 "updatable": False,
             },
             {
@@ -124,21 +124,23 @@ class Tab(QWidget):
         self.parent = parent
         self.tab_name = tab_name
         self.thread_running = False
-        self.cancel_progress = False
+        self.abort_progress = False
         self.user_answer = False
-        self.subtitles = None
-        self.qualities = None
     
 
-    def setup_filedialog(self):
-        self.file_dialog = QFileDialog(self)
-        self.file_dialog.setFileMode(QFileDialog.Directory)
-        self.file_dialog.setDirectory(self.download_dir)
+    def setup_filedialog(self, download_dir):
+        self.ui.file_dialog = QFileDialog(self)
+        self.ui.file_dialog.setFileMode(QFileDialog.Directory)
+        self.ui.file_dialog.setDirectory(download_dir)
     
 
     def connect_signals_and_slots(self):
-        self.ui.dataFetchButton.clicked.connect(lambda: self.prep_thread_start(self.start_update_info))
-        self.ui.downloadButton.clicked.connect(lambda: self.prep_thread_start(self.start_download))
+        self.ui.dataFetchButton.clicked.connect(
+            lambda: self.prep_thread_start(self.start_update_info, "cancelling_data_fetch")
+        )
+        self.ui.downloadButton.clicked.connect(
+            lambda: self.prep_thread_start(self.start_download, "cancelling_download")
+        )
         self.ui.setDownloadFolderButton.clicked.connect(self.open_file_dialog)
         self.ui.formatComboBox.currentTextChanged.connect(self.update_qualities)
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
@@ -169,7 +171,7 @@ class Tab(QWidget):
                 self.settings_manager.save_setting(setting["name"], setting["get-value-func"]())
 
 
-    def prep_thread_start(self, func):
+    def prep_thread_start(self, func, cancel_situation):
         if not self.ui.plainTextEdit.toPlainText():
             return
         
@@ -179,80 +181,41 @@ class Tab(QWidget):
             urls = self.ui.plainTextEdit.cleanup_and_get_lines()
             func(urls)
         else:
-            self.cancel_progress = True
+            self.abort_progress = True
             self.ui.dataFetchButton.setEnabled(False)
             self.ui.downloadButton.setEnabled(False)
-            self.update_status_indicators("cancelling_data_fetch")
+            self.update_status_indicators(cancel_situation)
     
 
     def prep_thread_exit(self, status=None, percentage=0):
         self.thread_running = False
-        self.cancel_progress = False
+        self.abort_progress = False
         
         self.update_status_indicators(status, percentage=percentage)
         self.run_in_gui_thread(self.restore_widgets)
     
     
     def start_update_info(self, urls):
-        data_fetch_button_text = (
+        self.ui.dataFetchButton.setText(
             self.settings_manager.STATIC_SETTINGS["button_text"]["refresh"]["secondary"]
         )
-        self.ui.dataFetchButton.setText(data_fetch_button_text)
         self.ui.downloadButton.setEnabled(False)
         self.ui.qualityComboBox.setEnabled(False)
         self.ui.subtitlesComboBox.setEnabled(False)
         threading.Thread(target=lambda: self.update_info(urls), daemon=True).start()
 
 
-    def start_download(self):
-        download_button_text = (
+    def start_download(self, urls):
+        self.ui.downloadButton.setText(
             self.settings_manager.STATIC_SETTINGS["button_text"]["download"]["secondary"]
         )
-        self.ui.downloadButton.setText(download_button_text)
-
+        self.ui.dataFetchButton.setEnabled(False)
         threading.Thread(target=lambda: self.download(urls), daemon=True).start()
 
 
     def update_info(self, urls):
         try:
-            urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
-                urls,
-                force=True,
-                url_progress_hook=lambda *args, **kwargs:
-                    self.update_fetching_progress("extracting_urls", *args, **kwargs),
-            )
-        except SystemExit:
-            self.prep_thread_exit("data_fetch_cancelled")
-            return
-        except BaseException as e:
-            self.prep_thread_exit("data_fetch_failed")
-            print(e)
-            return
-        if not exit_status:
-            self.prep_thread_exit("no_internet")
-            return
-        elif not urls and failed_urls1:
-            self.handle_invalid_url_warning(failed_urls1, error_type="data_fetch")
-            self.prep_thread_exit("data_fetch_failed")
-            return
-
-        if not self.downloader.cache_available():
-            self.run_in_gui_thread(
-                lambda:
-                    self.update_status_indicators(
-                        status="fetching_data",
-                        progress=(1, len(urls)),
-                        percentage=0,
-                    )
-            )
-            url_progress_hook = lambda *args, **kwargs: self.update_fetching_progress(
-                "fetching_data", *args, **kwargs
-            )
-        else:
-            url_progress_hook = None
-        
-        try:
-            self.qualities, self.subtitles, failed_urls2, errors, exit_status = self.downloader.fetch_pretty_data(
+            qualities, subtitles, failed_urls, errors, exit_status = self.downloader.fetch_pretty_data(
                 urls,
                 url_progress_hook=url_progress_hook,
             )
@@ -263,46 +226,51 @@ class Tab(QWidget):
             print(e)
             self.prep_thread_exit("data_fetch_failed")
             return
-        failed_urls = failed_urls1.union(failed_urls2)
         if not exit_status:
             self.prep_thread_exit("no_internet")
             return
-        elif failed_urls and not self.qualities:
+        elif failed_urls and not qualities:
             self.handle_invalid_url_warning(failed_urls, error_type="data_fetch")
             self.prep_thread_exit("data_fetch_failed")
             return
-        elif failed_urls and self.qualities:
+        elif failed_urls and qualities:
             self.handle_invalid_url_warning(failed_urls, error_type="data_fetch")
+
+        self.update_qualities(qualities)
+        self.update_subtitles(subtitles)
 
         self.prep_thread_exit("data_fetch_finished", percentage=100)
 
 
-    def download(self, urls, file_type, subtitle_lang, quality):
-        self.update_status_indicators(
-            status="extracting_urls",
-            progress=(1, len(urls)),
-            percentage=0
-        )
-        try:
-            urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
-                urls,
-                url_progress_hook=lambda *args, **kwargs:
-                    self.update_fetching_progress("extracting_urls", *args, **kwargs),
+    def download(self, urls):
+        if self.downloader.cache_available():
+            ...
+        else:
+            self.update_status_indicators(
+                status="extracting_urls",
+                progress=(1, len(urls)),
+                percentage=0
             )
-        except SystemExit:
-            self.prep_thread_exit("download_cancelled")
-            return
-        except BaseException as e:
-            print(e)
-            self.prep_thread_exit("download_failed")
-            return
-        if not exit_status:
-            self.prep_thread_exit("no_internet")
-            return
-        elif not urls and failed_urls1:
-            self.handle_invalid_url_warning(failed_urls1)
-            self.prep_thread_exit("download_failed")
-            return
+            try:
+                urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
+                    urls,
+                    url_progress_hook=lambda *args, **kwargs:
+                        self.update_fetching_progress("extracting_urls", *args, **kwargs),
+                )
+            except SystemExit:
+                self.prep_thread_exit("download_cancelled")
+                return
+            except BaseException as e:
+                print(e)
+                self.prep_thread_exit("download_failed")
+                return
+            if not exit_status:
+                self.prep_thread_exit("no_internet")
+                return
+            elif not urls and failed_urls1:
+                self.handle_invalid_url_warning(failed_urls1)
+                self.prep_thread_exit("download_failed")
+                return
 
         self.run_in_gui_thread(
             lambda:
@@ -317,7 +285,7 @@ class Tab(QWidget):
             failed_urls2, errors, exit_status = self.downloader.download(
                 urls=urls,
                 subtitle_lang=subtitle_lang,
-                download_dir=self.download_dir,
+                download_dir=self.ui.file_dialog.directory().toString(),
                 file_type=file_type,
                 quality=quality,
                 embed_subtitles=self.ui.embedSubtitlesCheckBox.isChecked(),
@@ -416,8 +384,8 @@ class Tab(QWidget):
 
 
     def open_file_dialog(self):
-        if self.file_dialog.exec():
-            download_dir = self.file_dialog.selectedFiles()[0]
+        if self.ui.file_dialog.exec():
+            download_dir = self.ui.file_dialog.selectedFiles()[0]
             self.update_download_dir(download_dir)
 
 
@@ -478,11 +446,11 @@ class Tab(QWidget):
 
 
     def abort_if_requested(self):
-        if self.cancel_progress:
+        if self.abort_progress:
             raise SystemExit
 
 
-    def update_qualities(self, clear=False, placeholder_text_only=False):
+    def update_qualities(self, qualities=None, placeholder_text_only=False):
         _format = self.ui.formatComboBox.currentData()
 
         placeholder_text = ""
@@ -500,11 +468,7 @@ class Tab(QWidget):
             self.ui.qualityComboBox.setPlaceholderText(placeholder_text)
         
         if not placeholder_text_only:
-            if clear:
-                self.qualities = None
-                self.ui.qualityComboBox.replace_all_items()
-                return
-            elif isinstance(self.qualities, dict):
+            if isinstance(qualities, dict) and qualities:
                 combobox_qualities = {}
                 suffix = ""
                 preferred_quality = 0
@@ -512,11 +476,11 @@ class Tab(QWidget):
 
                 if _format == "mp4":
                     suffix = "p"
-                    qualities = self.qualities["resolutions"]
+                    qualities = qualities["resolutions"]
                     preferred_quality = self.settings_manager.load_setting("preferred-resolution")
                 elif _format == "mp3":
                     suffix = " kbps"
-                    qualities = self.qualities["bitrates"]
+                    qualities = qualities["bitrates"]
                     preferred_quality = self.settings_manager.load_setting("preferred-bitrate")
 
                 for repetition, quality in enumerate(sorted(qualities, reverse=True)):
@@ -530,30 +494,26 @@ class Tab(QWidget):
                     combobox_qualities,
                     default_item=default_quality
                 )
+            else:
+                self.ui.qualityComboBox.replace_all_items()
 
 
-    def update_subtitles(self, clear=False):
-        subtitles = {}
-        if clear:
-            self.subtitles = None
+    def update_subtitles(self, subtitles=None):
+        if isinstance(subtitles, dict) and subtitles:
+            new_subtitles = {"": "None"}
+            new_subtitles.update(subtitles)
+            self.ui.subtitlesComboBox.replace_all_items(new_subtitles)
+        else:
             self.ui.subtitlesComboBox.replace_all_items()
-            return
-        elif self.subtitles and isinstance(self.subtitles, dict):
-            subtitles.update({"": "None"})
-            subtitles.update(self.subtitles)
-        
-        self.ui.subtitlesComboBox.replace_all_items(subtitles)
 
 
     def update_download_dir(self, download_dir):
-        self.download_dir = download_dir
         dir_name = QDir(download_dir).dirName()
         full_path = QUrl.fromLocalFile(download_dir).toString()
-
-        if dir_name:
-            new_text = f"<a href=\"{full_path}\">{dir_name}</a>"
-        else:
-            new_text = f"<a href=\"{full_path}\">{download_dir}</a>"
+        if not dir_name:
+            dir_name = full_path
+        
+        new_text = f"<a href=\"{full_path}\">{dir_name}</a>"
 
         self.ui.downloadFolderIndicatorLabel.setText(new_text)
         self.ui.downloadFolderIndicatorLabel.setToolTip(download_dir)
