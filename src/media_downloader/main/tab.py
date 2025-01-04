@@ -244,7 +244,7 @@ class Tab(QWidget):
 
     def download(self, urls):
         if self.downloader.cache_available():
-            ...
+            failed_urls1 = set()
         else:
             self.update_status_indicators(
                 status="extracting_urls",
@@ -280,11 +280,30 @@ class Tab(QWidget):
                     percentage=0,
                 )
         )
+        to_run = [
+            lambda: self.ui.formatComboBox.setEnabled(False),
+            lambda: self.ui.qualityComboBox.setEnabled(False),
+            lambda: self.ui.subtitlesComboBox.setEnabled(False),
+            lambda: self.ui.cropThumbnailsCheckBox.setEnabled(False),
+            lambda: self.ui.embedSubtitlesCheckBox.setEnabled(False),
+        ]
+        for func in to_run:
+            self.run_in_gui_thread(func)
+
+        file_type = self.ui.formatComboBox.currentData()
+        selected_quality = self.ui.qualityComboBox.currentData()
+        if selected_quality:
+            quality = selected_quality
+        else:
+            if file_type == "mp4":
+                quality = self.settings_manager.load_setting("preferred-resolution")
+            elif file_type == "mp3":
+                quality = self.settings_manager.load_setting("preferred-bitrate")
 
         try:
             failed_urls2, errors, exit_status = self.downloader.download(
                 urls=urls,
-                subtitle_lang=subtitle_lang,
+                subtitle_lang=self.ui.subtitlesComboBox.currentData(),
                 download_dir=self.ui.file_dialog.directory().toString(),
                 file_type=file_type,
                 quality=quality,
