@@ -38,7 +38,6 @@ class Downloader():
                 "original": set(),
                 "extracted": set()
             },
-            "data": {},
         }
 
 
@@ -71,7 +70,7 @@ class Downloader():
         total_url_count = len(urls)
         errors = set()
 
-        if urls == self.cache["urls"]["original"]:
+        if self.cache_available(urls):
             urls = self.cache["urls"]["extracted"]
 
         if download_progress_hook:
@@ -187,7 +186,6 @@ class Downloader():
                 else:
                     break
             
-            self.cache["data"] = data
             self.cache["urls"]["original"] = urls
             self.cache["urls"]["extracted"] = extracted_urls
             return extracted_urls, failed_urls, errors, True
@@ -195,47 +193,51 @@ class Downloader():
 
     def fetch_pretty_data(self, urls, url_progress_hook=None):
         urls = set(urls)
-        data = []
+        self.cache["urls"]["original"] = urls
         failed_urls = set()
+        extracted_urls = set()
+        data = []
         errors = set()
-
+        processed_url_count = 0
+        total_url_count = len(urls)
+        ydl_config = self.ydl_config
+        ydl_config.update({
+            "writesubtitles": True,
+            "allsubtitles": True,
+        })
         if self.cache_available(urls):
-            for value in self.cache["data"].values():
-                data.append(value)
-        else:
-            processed_url_count = 0
-            total_url_count = len(urls)
-            ydl_config = self.ydl_config
-            ydl_config.update({
-                "writesubtitles": True,
-                "allsubtitles": True,
-            })
+            urls = self.cache["urls"]["extracted"]
+        
+        for _ in range(2):
+            while i < len(remaining_urls):
 
-            for _ in range(2):
-                with yt_dlp.YoutubeDL(ydl_config) as ydl:
-                    for url in urls:
-                        try:
-                            new_data = ydl.extract_info(url, download=False)
-                            if "entries" in new_data:
-                                data += new_data["entries"]
-                            else:
-                                data.append(new_data)
-                            processed_url_count += 1
-                            failed_urls.discard(url)
-                        except yt_dlp.utils.DownloadError as e:
-                            print(e)
-                            errors.add(e)
-                            failed_urls.add(url)
-                            if not self.internet_connection():
-                                return {}, {}, failed_urls, errors, False
-                    
-                        if url_progress_hook:
-                            url_progress_hook(processed_url_count, total_url_count)
+        
+            with yt_dlp.YoutubeDL(ydl_config) as ydl:
+                for url in urls:
+                    try:
+                        new_data = ydl.extract_info(url, download=False)
+                        if "entries" in new_data:
+                            data += new_data["entries"]
+                        else:
+                            data.append(new_data)
+                        processed_url_count += 1
+                        failed_urls.discard(url)
+                    except yt_dlp.utils.DownloadError as e:
+                        print(e)
+                        errors.add(e)
+                        failed_urls.add(url)
+                        if not self.internet_connection():
+                            return {}, {}, failed_urls, errors, False
+                
+                    if url_progress_hook:
+                        url_progress_hook(processed_url_count, total_url_count)
 
-                if failed_urls:
-                    urls = failed_urls
-                else:
-                    break
+            if failed_urls:
+                urls = failed_urls
+            else:
+                break
+        
+        self.cache["urls"]["extracted"] = extracted_urls
                 
         all_bitrates = set()
         all_resolutions = set()
@@ -309,7 +311,7 @@ class Downloader():
     
 
     def cache_available(self, urls):
-        if all(item in urls for item in self.cache["data"]):
+        if set(urls) == self.cache["urls"]["original"]:
             return True
         else:
             return False
