@@ -198,44 +198,36 @@ class Downloader():
         extracted_urls = set()
         data = []
         errors = set()
-        processed_url_count = 0
         total_url_count = len(urls)
         ydl_config = self.ydl_config
         ydl_config.update({
             "writesubtitles": True,
             "allsubtitles": True,
+            "extract_flat": "in_playlist",
         })
-        if self.cache_available(urls):
-            urls = self.cache["urls"]["extracted"]
         
-        for _ in range(2):
+        with yt_dlp.YoutubeDL(ydl_config) as ydl:
             while i < len(remaining_urls):
-
-        
-            with yt_dlp.YoutubeDL(ydl_config) as ydl:
-                for url in urls:
-                    try:
-                        new_data = ydl.extract_info(url, download=False)
-                        if "entries" in new_data:
-                            data += new_data["entries"]
-                        else:
-                            data.append(new_data)
-                        processed_url_count += 1
-                        failed_urls.discard(url)
-                    except yt_dlp.utils.DownloadError as e:
-                        print(e)
-                        errors.add(e)
-                        failed_urls.add(url)
-                        if not self.internet_connection():
-                            return {}, {}, failed_urls, errors, False
-                
-                    if url_progress_hook:
-                        url_progress_hook(processed_url_count, total_url_count)
-
-            if failed_urls:
-                urls = failed_urls
-            else:
-                break
+                try:
+                    url = remaining_urls[i]
+                    new_data = ydl.extract_info(url, download=False)
+                    if "entries" in new_data:
+                        for entry in new_data["entries"]:
+                            urls.add(entry["url"])
+                        urls.remove(url)
+                    else:
+                        data.append(new_data)
+                    i += 1
+                    failed_urls.discard(url)
+                except yt_dlp.utils.DownloadError as e:
+                    print(e)
+                    errors.add(e)
+                    failed_urls.add(url)
+                    if not self.internet_connection():
+                        return {}, {}, failed_urls, errors, False
+            
+                if url_progress_hook:
+                    url_progress_hook(i, len(remaining_urls))
         
         self.cache["urls"]["extracted"] = extracted_urls
                 
