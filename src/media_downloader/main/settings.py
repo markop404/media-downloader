@@ -18,12 +18,13 @@
 
 
 from PySide6.QtGui import QIcon
-from PySide6.QtCore import QSettings, QPoint, QSize, QStandardPaths
+from PySide6.QtCore import QSettings, QPoint, QSize, QStandardPaths, QByteArray
 
 
 class Settings(QSettings):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.save_setting = self.setValue
     
         self.ICONS = {
             "emblem-downloads": QIcon(
@@ -148,15 +149,9 @@ class Settings(QSettings):
                 "value": QStandardPaths.writableLocation(QStandardPaths.DownloadLocation),
                 "type": str
             },
-            "window-geometry": {"value": None, "type": None},
-            "window-state": {"value": None, "type": None},
+            "window-geometry": {"value": QByteArray(), "type": QByteArray},
+            "window-state": {"value": QByteArray(), "type": QByteArray},
         }
-
-
-    def save_setting(self, setting, value, force=False):
-        old_value = self.value(setting)
-        if force or old_value != value:
-            self.setValue(setting, value)
 
 
     def load_setting(self, setting):

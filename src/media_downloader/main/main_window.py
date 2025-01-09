@@ -51,7 +51,6 @@ class MainWindow(QMainWindow):
             },
         ]
         self.load_settings()
-
         self.create_new_tab()
 
 

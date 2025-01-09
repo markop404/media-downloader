@@ -17,8 +17,20 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from .toggle import Toggle
-from .combobox import ComboBox
-from .plaintextedit import PlainTextEdit
-from .largepushbutton import LargePushButton
-from .directory_picker import DirectoryPicker
+from PySide6.QtWidgets import QFileDialog
+
+
+class DirectoryPicker(QFileDialog):
+    def __init__(self):
+        super().__init__()
+        self.set_directory = self.setDirectory
+        self.setFileMode(QFileDialog.Directory)
+    
+
+    def open(self):
+        if self.exec():
+            return self.selectedFiles()[0]
+    
+
+    def current_directory(self):
+        return self.directory().path()

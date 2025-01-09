@@ -197,6 +197,7 @@ class Downloader():
         failed_urls = set()
         extracted_urls = set()
         data = []
+        i = 0
         errors = set()
         total_url_count = len(urls)
         ydl_config = self.ydl_config

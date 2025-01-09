@@ -20,7 +20,7 @@
 import threading
 import os
 
-from PySide6.QtWidgets import QMessageBox, QWidget, QFileDialog
+from PySide6.QtWidgets import QMessageBox, QWidget
 from PySide6.QtCore import QCoreApplication, QUrl, QDir, QSize
 from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 
@@ -28,6 +28,7 @@ from .. import utils
 from ..downloader import Downloader
 from .settings import Settings
 from ..ui import Ui_Tab
+from ..custom_widgets import DirectoryPicker
 
 
 class Tab(QWidget):
@@ -38,6 +39,7 @@ class Tab(QWidget):
         self.event_invoker = utils.Invoker()
         self.downloader = Downloader()
         self.setup_ui()
+        self.ui.directory_picker = DirectoryPicker()
         self.SETTINGS = [
             {
                 "name": "download-format",
@@ -78,7 +80,7 @@ class Tab(QWidget):
             {
                 "name": "download-dir",
                 "set-value-func": self.update_download_dir,
-                "get-value-func": lambda: self.ui.file_dialog.directory().toString(),
+                "get-value-func": self.ui.directory_picker.current_directory,
                 "updatable": False,
             },
             {
@@ -89,7 +91,6 @@ class Tab(QWidget):
             },
         ]
         self.load_settings()
-        self.setup_filedialog()
         self.connect_signals_and_slots()
 
 
@@ -128,12 +129,6 @@ class Tab(QWidget):
         self.user_answer = False
     
 
-    def setup_filedialog(self, download_dir):
-        self.ui.file_dialog = QFileDialog(self)
-        self.ui.file_dialog.setFileMode(QFileDialog.Directory)
-        self.ui.file_dialog.setDirectory(download_dir)
-    
-
     def connect_signals_and_slots(self):
         self.ui.dataFetchButton.clicked.connect(
             lambda: self.prep_thread_start(self.start_update_info, "cancelling_data_fetch")
@@ -141,7 +136,7 @@ class Tab(QWidget):
         self.ui.downloadButton.clicked.connect(
             lambda: self.prep_thread_start(self.start_download, "cancelling_download")
         )
-        self.ui.setDownloadFolderButton.clicked.connect(self.open_file_dialog)
+        self.ui.setDownloadFolderButton.clicked.connect(self.open_directory_picker)
         self.ui.formatComboBox.currentTextChanged.connect(self.update_qualities)
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
 
@@ -217,15 +212,17 @@ class Tab(QWidget):
         try:
             qualities, subtitles, failed_urls, errors, exit_status = self.downloader.fetch_pretty_data(
                 urls,
-                url_progress_hook=url_progress_hook,
+                url_progress_hook=lambda *args, **kwargs: self.update_fetching_progress(
+                "fetching_data", *args, **kwargs
+                ),
             )
         except SystemExit:
             self.prep_thread_exit("data_fetch_cancelled")
             return
-        except BaseException as e:
-            print(e)
-            self.prep_thread_exit("data_fetch_failed")
-            return
+        # except BaseException as e:
+        #     print(e)
+        #     self.prep_thread_exit("data_fetch_failed")
+        #     return
         if not exit_status:
             self.prep_thread_exit("no_internet")
             return
@@ -243,7 +240,7 @@ class Tab(QWidget):
 
 
     def download(self, urls):
-        if self.downloader.cache_available():
+        if self.downloader.cache_available(urls):
             failed_urls1 = set()
         else:
             self.update_status_indicators(
@@ -304,7 +301,7 @@ class Tab(QWidget):
             failed_urls2, errors, exit_status = self.downloader.download(
                 urls=urls,
                 subtitle_lang=self.ui.subtitlesComboBox.currentData(),
-                download_dir=self.ui.file_dialog.directory().toString(),
+                download_dir=self.directory_picker.current_directory(),
                 file_type=file_type,
                 quality=quality,
                 embed_subtitles=self.ui.embedSubtitlesCheckBox.isChecked(),
@@ -385,8 +382,8 @@ class Tab(QWidget):
     def on_text_change(self):
         if not self.ui.plainTextEdit.setting_text and not self.thread_running:
             self.update_status_indicators()
-            self.update_qualities(clear=True)
-            self.update_subtitles(clear=True)
+            self.update_qualities()
+            self.update_subtitles()
             self.downloader.clear_cache()
 
 
@@ -402,10 +399,9 @@ class Tab(QWidget):
         )
 
 
-    def open_file_dialog(self):
-        if self.ui.file_dialog.exec():
-            download_dir = self.ui.file_dialog.selectedFiles()[0]
-            self.update_download_dir(download_dir)
+    def open_directory_picker(self):
+        if new_download_directory := self.ui.directory_picker.open():
+            self.update_download_dir(new_download_directory)
 
 
     def update_download_progress(self, status, percentage, processed_url_count, total_url_count):
@@ -528,14 +524,14 @@ class Tab(QWidget):
 
     def update_download_dir(self, download_dir):
         dir_name = QDir(download_dir).dirName()
-        full_path = QUrl.fromLocalFile(download_dir).toString()
         if not dir_name:
             dir_name = full_path
         
-        new_text = f"<a href=\"{full_path}\">{dir_name}</a>"
+        new_text = f"<a href=\"{download_dir}\">{dir_name}</a>"
 
         self.ui.downloadFolderIndicatorLabel.setText(new_text)
         self.ui.downloadFolderIndicatorLabel.setToolTip(download_dir)
+        self.ui.directory_picker.set_directory(download_dir)
 
 
     def update_status_indicators(self, status=None, progress=None, percentage=None):
