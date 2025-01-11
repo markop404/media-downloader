@@ -208,9 +208,9 @@ class Downloader():
         })
         
         with yt_dlp.YoutubeDL(ydl_config) as ydl:
-            while i < len(remaining_urls):
+            while i < len(urls):
                 try:
-                    url = remaining_urls[i]
+                    url = urls[i]
                     new_data = ydl.extract_info(url, download=False)
                     if "entries" in new_data:
                         for entry in new_data["entries"]:
@@ -228,7 +228,7 @@ class Downloader():
                         return {}, {}, failed_urls, errors, False
             
                 if url_progress_hook:
-                    url_progress_hook(i, len(remaining_urls))
+                    url_progress_hook(i, len(urls))
         
         self.cache["urls"]["extracted"] = extracted_urls
                 
