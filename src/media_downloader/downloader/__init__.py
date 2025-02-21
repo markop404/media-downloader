@@ -27,19 +27,9 @@ import yt_dlp
 class Downloader(yt_dlp.YoutubeDL):
     def __init__(self):
         super().__init__()
-        self.clear_cache()
 
         DOWNLOAD_ATTEMPTS = 2
         DNS = ("1.1.1.1", 53)
-
-
-    def clear_cache(self):
-        self.cache = {
-            "urls": {
-                "original": set(),
-                "extracted": set(),
-            },
-        }
 
 
     def _download(
@@ -71,9 +61,6 @@ class Downloader(yt_dlp.YoutubeDL):
         processed_url_count = 0
         total_url_count = len(urls)
         errors = set()
-
-        if self.cache_available(urls):
-            pending_urls = self.cache["urls"]["extracted"]
 
         if download_progress_func:
             self.params["progress_hooks"] = [
@@ -145,54 +132,48 @@ class Downloader(yt_dlp.YoutubeDL):
 
 
     def extract_urls(self, urls, url_progress_func=None, force=False):
-        if self.cache_available(urls) and not force:
-            return self.cache["urls"]["extracted"], set(), set(), True
-        else:
-            pending_urls = set(urls)
-            self.cache["urls"]["original"] = pending_urls
-            failed_urls = set()
-            extracted_urls = set()
-            processed_url_count = 0
-            total_url_count = len(urls)
-            errors = set()
-            self.params = {
-                "extract_flat": "in_playlist",
-                "quiet": True,
-                "noplaylist": True,
-            }
+        pending_urls = set(urls)
+        failed_urls = set()
+        extracted_urls = set()
+        processed_url_count = 0
+        total_url_count = len(urls)
+        errors = set()
+        self.params = {
+            "extract_flat": "in_playlist",
+            "quiet": True,
+            "noplaylist": True,
+        }
 
-            for attempt in range(DOWNLOAD_ATTEMPTS):
-                for url in pending_urls:
-                    try:
-                        url_data = self.extract_info(url, download=False)
-                        if "entries" in url_data:
-                            for entry in url_data["entries"]:
-                                extracted_urls.add(entry["url"])
-                        else:
-                            extracted_urls.add(url)
-                        processed_url_count += 1
-                        failed_urls.discard(url)
-                    except yt_dlp.utils.DownloadError as e:
-                        print(e)
-                        errors.add(e)
-                        if not self.internet_connection():
-                            return extracted_urls, failed_urls, errors, False
-                        failed_urls.add(url)
-                        url = ""
+        for attempt in range(DOWNLOAD_ATTEMPTS):
+            for url in pending_urls:
+                try:
+                    url_data = self.extract_info(url, download=False)
+                    if "entries" in url_data:
+                        for entry in url_data["entries"]:
+                            extracted_urls.add(entry["url"])
+                    else:
+                        extracted_urls.add(url)
+                    processed_url_count += 1
+                    failed_urls.discard(url)
+                except yt_dlp.utils.DownloadError as e:
+                    print(e)
+                    errors.add(e)
+                    if not self.internet_connection():
+                        return extracted_urls, failed_urls, errors, False
+                    failed_urls.add(url)
+                    url = ""
 
-                    if url_progress_func:
-                        url_progress_func(processed_url_count, total_url_count, url)
+                if url_progress_func:
+                    url_progress_func(processed_url_count, total_url_count, url)
 
-                if failed_urls:
-                    pending_urls = failed_urls
-            
-            self.cache["urls"]["extracted"] = extracted_urls
-            return extracted_urls, failed_urls, errors, True
+            if failed_urls:
+                pending_urls = failed_urls
+        
+        return extracted_urls, failed_urls, errors, True
             
 
-    def fetch_pretty_data(self, urls, url_progress_func=None, force=False):
+    def fetch_pretty_data(self, urls, url_progress_func=None):
         current_urls = set(urls)
-        self.cache["urls"]["original"] = current_urls
         self.params = {
             "quiet": True,
             "noplaylist": True,
@@ -205,6 +186,7 @@ class Downloader(yt_dlp.YoutubeDL):
         data = []
         total_url_count = len(current_urls)
         processed_url_count = 0
+        errors = set()
 
         for attempt in range(DOWNLOAD_ATTEMPTS + 1):
             for url in current_urls:
@@ -230,8 +212,6 @@ class Downloader(yt_dlp.YoutubeDL):
                     url_progress_func(processed_url_count, total_url_count, url)
 
             current_urls = pending_urls
-            
-        self.cache["urls"]["extracted"] = extracted_urls
         
         all_bitrates = set()
         all_resolutions = set()
@@ -281,17 +261,11 @@ class Downloader(yt_dlp.YoutubeDL):
         percentage = None
         if progress_data["status"] == "downloading":            
             if "downloaded_bytes" in progress_data and "total_bytes" in progress_data:
-                if progress_data["downloaded_bytes"] and progress_data["total_bytes"]:
-                    try:
-                        percentage = int((progress_data["downloaded_bytes"] / progress_data["total_bytes"]) * 100)
-                    except:
-                        pass
+                if isinstance(progress_data["downloaded_bytes"], int) and isinstance(progress_data["total_bytes"], int):
+                    percentage = int((progress_data["downloaded_bytes"] / progress_data["total_bytes"]) * 100)
             elif "fragment_index" in progress_data and "fragment_count" in progress_data:
-                if progress_data["fragment_index"] and progress_data["fragment_count"]:
-                    try:
-                        percentage = int((progress_data["fragment_index"] / progress_data["fragment_count"]) * 100)
-                    except:
-                        pass
+                if isinstance(progress_data["fragment_index"], int) and isinstance(progress_data["fragment_count"], int):
+                    percentage = int((progress_data["fragment_index"] / progress_data["fragment_count"]) * 100)
         progress_func(percentage, processed_url_count, total_url_count)
 
 
@@ -301,11 +275,4 @@ class Downloader(yt_dlp.YoutubeDL):
             return True
         except BaseException as e:
             print(e)
-            return False
-    
-
-    def cache_available(self, urls):
-        if set(urls) == self.cache["urls"]["original"]:
-            return True
-        else:
             return False
