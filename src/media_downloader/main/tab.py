@@ -257,10 +257,10 @@ class Tab(QWidget):
             except SystemExit:
                 self.prep_thread_exit("download_cancelled")
                 return
-            except BaseException as e:
-                print(e)
-                self.prep_thread_exit("download_failed")
-                return
+            # except BaseException as e:
+            #     print(e)
+            #     self.prep_thread_exit("download_failed")
+            #     return
             if not exit_status:
                 self.prep_thread_exit("no_internet")
                 return
