@@ -240,34 +240,31 @@ class Tab(QWidget):
 
 
     def download(self, urls):
-        if self.downloader.cache_available(urls):
-            failed_urls1 = set()
-        else:
-            self.update_status_indicators(
-                status="extracting_urls",
-                progress=(1, len(urls)),
-                percentage=0
+        self.update_status_indicators(
+            status="extracting_urls",
+            progress=(1, len(urls)),
+            percentage=0
+        )
+        try:
+            urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
+                urls,
+                url_progress_hook=lambda *args, **kwargs:
+                    self.update_fetching_progress("extracting_urls", *args, **kwargs),
             )
-            try:
-                urls, failed_urls1, errors, exit_status = self.downloader.extract_urls(
-                    urls,
-                    url_progress_hook=lambda *args, **kwargs:
-                        self.update_fetching_progress("extracting_urls", *args, **kwargs),
-                )
-            except SystemExit:
-                self.prep_thread_exit("download_cancelled")
-                return
-            # except BaseException as e:
-            #     print(e)
-            #     self.prep_thread_exit("download_failed")
-            #     return
-            if not exit_status:
-                self.prep_thread_exit("no_internet")
-                return
-            elif not urls and failed_urls1:
-                self.handle_invalid_url_warning(failed_urls1)
-                self.prep_thread_exit("download_failed")
-                return
+        except SystemExit:
+            self.prep_thread_exit("download_cancelled")
+            return
+        # except BaseException as e:
+        #     print(e)
+        #     self.prep_thread_exit("download_failed")
+        #     return
+        if not exit_status:
+            self.prep_thread_exit("no_internet")
+            return
+        elif not urls and failed_urls1:
+            self.handle_invalid_url_warning(failed_urls1)
+            self.prep_thread_exit("download_failed")
+            return
 
         self.run_in_gui_thread(
             lambda:

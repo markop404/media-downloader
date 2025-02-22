@@ -30,3 +30,10 @@ class Invoker(QObject):
     def event(self, event):
         event.fn()
         return True
+
+
+def get_value_if_exists(_dict, value):
+    if value in _dict and _dict[value]:
+        return _dict[value]
+    else:
+        return None

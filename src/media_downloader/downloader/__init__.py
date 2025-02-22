@@ -23,13 +23,15 @@ import os
 
 import yt_dlp
 
+from ..utils import get_value_if_exists
+
 
 class Downloader(yt_dlp.YoutubeDL):
     def __init__(self):
         super().__init__()
 
-        DOWNLOAD_ATTEMPTS = 2
-        DNS = ("1.1.1.1", 53)
+        self.DOWNLOAD_ATTEMPTS = 2
+        self.DNS = ("1.1.1.1", 53)
 
 
     def _download(
@@ -101,7 +103,7 @@ class Downloader(yt_dlp.YoutubeDL):
             if quality:
                 self.params["format_sort"] = [f"abr:{quality}"]
 
-        for attempt in range(DOWNLOAD_ATTEMPTS):
+        for attempt in range(self.DOWNLOAD_ATTEMPTS):
             for url in pending_urls:
                 try:
                     ydl.download(url)
@@ -120,37 +122,38 @@ class Downloader(yt_dlp.YoutubeDL):
 
             if failed_urls:
                 if attempt == 1:
-                    new_ydl_config = {}
+                    basic_ydl_config = {}
                     if "progress_hooks" in self.params:
-                        new_ydl_config["progress_hooks"] = ydl_config["progress_hooks"]
+                        basic_ydl_config["progress_hooks"] = self.params["progress_hooks"]
                     if "postprocessor_hooks" in self.params:
-                        new_ydl_config["postprocessor_hooks"] = ydl_config["postprocessor_hooks"]
-                    self.params = new_ydl_config
+                        basic_ydl_config["postprocessor_hooks"] = self.params["postprocessor_hooks"]
+                    self.params = basic_ydl_config
                 pending_urls = failed_urls
 
         return failed_urls, errors, True
 
 
-    def extract_urls(self, urls, url_progress_func=None, force=False):
+    def extract_urls(self, urls, url_progress_func=None):
+        self.params = {
+            "extract_flat": "in_playlist",
+            "quiet": True,
+            "noplaylist": True,
+        }
         pending_urls = set(urls)
         failed_urls = set()
         extracted_urls = set()
         processed_url_count = 0
         total_url_count = len(urls)
         errors = set()
-        self.params = {
-            "extract_flat": "in_playlist",
-            "quiet": True,
-            "noplaylist": True,
-        }
 
-        for attempt in range(DOWNLOAD_ATTEMPTS):
+        for attempt in range(self.DOWNLOAD_ATTEMPTS):
             for url in pending_urls:
                 try:
                     url_data = self.extract_info(url, download=False)
-                    if "entries" in url_data:
-                        for entry in url_data["entries"]:
-                            extracted_urls.add(entry["url"])
+                    if entries := get_value_if_exists("entries", url_data):
+                        for entry in entries:
+                            if entry_url := get_value_if_exists("url", entry):
+                                extracted_urls.add(entry["url"])
                     else:
                         extracted_urls.add(url)
                     processed_url_count += 1
@@ -173,7 +176,6 @@ class Downloader(yt_dlp.YoutubeDL):
             
 
     def fetch_pretty_data(self, urls, url_progress_func=None):
-        current_urls = set(urls)
         self.params = {
             "quiet": True,
             "noplaylist": True,
@@ -181,24 +183,54 @@ class Downloader(yt_dlp.YoutubeDL):
             "allsubtitles": True,
             "extract_flat": "in_playlist",
         }
-        extracted_urls = set()
+        current_urls = set(urls)
         pending_urls = set()
-        data = []
         total_url_count = len(current_urls)
         processed_url_count = 0
         errors = set()
+        all_bitrates = set()
+        all_resolutions = set()
+        subtitles = {}
 
-        for attempt in range(DOWNLOAD_ATTEMPTS + 1):
+        for attempt in range(self.DOWNLOAD_ATTEMPTS + 1):
             for url in current_urls:
                 try:
                     url_data = self.extract_info(url, download=False)
-                    if "entries" in url_data:
-                        for entry in url_data["entries"]:
-                            pending_urls.add(entry["url"])
-                            total_url_count += 1
+                    if entries := get_value_if_exists(url_data, "entries"):
+                        for entry in entries:
+                            if entry_url := get_value_if_exists(entry, "url"):
+                                pending_urls.add(entry_url)
+                                total_url_count += 1
                     else:
-                        data.append(url_data)
-                        extracted_urls.add(url)
+                        if get_value_if_exists(url_data, "formats"):
+                            bitrates = set()
+                            resolutions = set()
+
+                            for _format in url_data["formats"]:
+                                if get_value_if_exists(_format, "vcodec"):
+                                    if _format["vcodec"] == "none":
+                                        if get_value_if_exists(_format, "abr"):
+                                            bitrate = _format["abr"]
+                                            if bitrate and bitrate != "0":
+                                                bitrates.add(int(bitrate))
+                                    elif get_value_if_exists(_format, "format_note"):
+                                        if resolution_search := re.search(r"([0-9]+)p", _format["format_note"]):
+                                            resolutions.add(int(resolution_search.group(1)))
+
+                            if not all_bitrates:
+                                all_bitrates = bitrates
+                            else:
+                                all_bitrates.intersection_update(bitrates)
+                            if not all_resolutions:
+                                all_resolutions = resolutions
+                            else:
+                                all_resolutions.intersection_update(resolutions)
+
+                        if subtitle_data := get_value_if_exists(url_data, "subtitles"):
+                            for subtitle_lang, subtitle_details in subtitle_data.items():
+                                if get_value_if_exists(subtitle_details, "name"):
+                                    subtitles[subtitle_lang] = subtitle_details["name"]
+
                     pending_urls.remove(url)
                     processed_url_count += 1
                 except yt_dlp.utils.DownloadError as e:
@@ -212,49 +244,14 @@ class Downloader(yt_dlp.YoutubeDL):
                     url_progress_func(processed_url_count, total_url_count, url)
 
             current_urls = pending_urls
-        
-        all_bitrates = set()
-        all_resolutions = set()
-        subtitles = {}
 
-        for url_data in data:
-            if "formats" in url_data:
-                formats = url_data["formats"]
-                bitrates = set()
-                resolutions = set()
-                
-                for _format in formats:
-                    if _format["vcodec"] != "none" and "format_note" in _format and "height" in _format:
-                        if resolution_search := re.search(r"([0-9]+)p", _format["format_note"]):
-                            resolution = int(resolution_search.group(1))
-                            resolutions.add(resolution)
+        pretty_data = {
+            "bitrates": sorted(all_bitrates, reverse=True),
+            "resolutions": sorted(all_resolutions, reverse=True),
+            "subtitles": dict(sorted(subtitles.items(), key=lambda item: item[1])),
+        }
 
-                    elif _format["vcodec"] == "none" and "abr" in _format:
-                        bitrate = _format["abr"]
-                        if bitrate and bitrate != "0":
-                            bitrates.add(int(bitrate))
-
-                if not all_bitrates:
-                    all_bitrates = bitrates
-                else:
-                    all_bitrates.intersection_update(bitrates)
-                if not all_resolutions:
-                    all_resolutions = resolutions
-                else:
-                    all_resolutions.intersection_update(resolutions)
-
-            if "subtitles" in url_data:
-                if subtitle_data := url_data["subtitles"]:
-                    for subtitle_lang, subtitle_details in subtitle_data.items():
-                        if isinstance(subtitle_details, dict) and "name" in subtitle_details:
-                            subtitles[subtitle_lang] = subtitle_details["name"]
-
-        all_bitrates = sorted(all_bitrates, reverse=True)
-        all_resolutions = sorted(all_resolutions, reverse=True)
-        qualities = {"bitrates": all_bitrates, "resolutions": all_resolutions}
-        subtitles = dict(sorted(subtitles.items(), key=lambda item: item[1]))
-
-        return qualities, subtitles, failed_urls, errors, True
+        return pretty_data, failed_urls, errors, True
 
 
     def download_progress_hook(self, progress_data, progress_func, processed_url_count, total_url_count):
@@ -266,12 +263,13 @@ class Downloader(yt_dlp.YoutubeDL):
             elif "fragment_index" in progress_data and "fragment_count" in progress_data:
                 if isinstance(progress_data["fragment_index"], int) and isinstance(progress_data["fragment_count"], int):
                     percentage = int((progress_data["fragment_index"] / progress_data["fragment_count"]) * 100)
+                    
         progress_func(percentage, processed_url_count, total_url_count)
 
 
     def internet_connection(self):
         try:
-            socket.create_connection(DNS).close()
+            socket.create_connection(self.DNS).close()
             return True
         except BaseException as e:
             print(e)
