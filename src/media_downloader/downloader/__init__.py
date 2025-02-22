@@ -51,11 +51,22 @@ class Downloader(yt_dlp.YoutubeDL):
             "quiet": True,
             "noplaylist": True,
             "noprogress": True,
-            "outtmpl": {"default": os.path.join(download_dir, "%(title)s.%(ext)s"), "pl_thumbnail": ""},
+            "outtmpl": {
+                "default": os.path.join(download_dir, "%(title)s.%(ext)s"),
+                "pl_thumbnail": ""
+            },
             "windowsfilenames": True,
             "postprocessors": [
-                {"key": "FFmpegMetadata", "add_chapters": True, "add_infojson": "if_exists", "add_metadata": True},
-                {"key": "EmbedThumbnail", "already_have_thumbnail": False}
+                {
+                    "key": "FFmpegMetadata",
+                    "add_chapters": True,
+                    "add_infojson": "if_exists",
+                    "add_metadata": True
+                },
+                {
+                    "key": "EmbedThumbnail",
+                    "already_have_thumbnail": False
+                },
             ],
             "writethumbnail": True,
         }
@@ -67,17 +78,15 @@ class Downloader(yt_dlp.YoutubeDL):
 
         if download_progress_func:
             self.params["progress_hooks"] = [
-                lambda data, progress_hook=download_progress_hook: 
-                    self.download_progress_hook(data, progress_hook, processed_url_count, total_url_count)
+                lambda data, progress_func=download_progress_func: 
+                    self.download_progress_hook(data, progress_func, processed_url_count, total_url_count)
             ]
         if conversion_progress_func:
             self.params["postprocessor_hooks"] = [
-                lambda data: postprocessor_progress_hook(processed_url_count, total_url_count)
+                lambda data: conversion_progress_func(processed_url_count, total_url_count)
             ]
         if crop_thumbnails:
-            self.params["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = [
-                "-c:v", "png", "-vf", "crop=ih"
-            ]
+            self.params["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-vf", "crop=ih"]
         if subtitle_lang:
             self.params["writesubtitles"] = True
             self.params["subtitleslangs"] = subtitle_lang
