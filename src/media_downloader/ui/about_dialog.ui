@@ -225,7 +225,7 @@
        <item>
         <widget class="QLabel" name="copyrightLabel">
          <property name="text">
-          <string>Copyright © 2024 Marko Pejić&lt;br&gt;&lt;br&gt;This application comes with absolutely no warranty. See the &lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.html&quot;&gt;GNU General Public License, version 3&lt;/a&gt; or later for details.</string>
+          <string>Copyright © 2024-2025 Marko Pejić&lt;br&gt;&lt;br&gt;This application comes with absolutely no warranty. See the &lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.html&quot;&gt;GNU General Public License, version 3&lt;/a&gt; or later for details.</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>

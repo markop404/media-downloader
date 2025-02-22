@@ -1,5 +1,5 @@
 # Media Downloader - Web video/audio downloader
-# Copyright (C) 2024  Marko Pejić
+# Copyright (C) 2024-2025  Marko Pejić
 
 # This file is part of Media Downloader
 

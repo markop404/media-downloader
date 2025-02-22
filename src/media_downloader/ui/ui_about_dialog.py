@@ -194,7 +194,7 @@ class Ui_AboutDialog(object):
         self.issueReportButton.setText(QCoreApplication.translate("AboutDialog", u"Report an Issue", None))
         self.sourceCodeButton.setText(QCoreApplication.translate("AboutDialog", u"Source Code", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.linksTab), QCoreApplication.translate("AboutDialog", u"Details", None))
-        self.copyrightLabel.setText(QCoreApplication.translate("AboutDialog", u"Copyright \u00a9 2024 Marko Peji\u0107<br><br>This application comes with absolutely no warranty. See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General Public License, version 3</a> or later for details.", None))
+        self.copyrightLabel.setText(QCoreApplication.translate("AboutDialog", u"Copyright \u00a9 2024-2025 Marko Peji\u0107<br><br>This application comes with absolutely no warranty. See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General Public License, version 3</a> or later for details.", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.legalTab), QCoreApplication.translate("AboutDialog", u"Legal", None))
     # retranslateUi
 
