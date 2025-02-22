@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabRMGcnE.ui'
+## Form generated from reading UI file 'tabRsWiVr.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+## Created by: Qt User Interface Compiler version 6.8.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -34,14 +34,7 @@ class Ui_Tab(object):
 
         self.verticalLayout.addWidget(self.plainTextEdit)
 
-        self.donationLinkLabel = QLabel(Tab)
-        self.donationLinkLabel.setObjectName(u"donationLinkLabel")
-        self.donationLinkLabel.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTop|Qt.AlignmentFlag.AlignTrailing)
-        self.donationLinkLabel.setOpenExternalLinks(True)
-
-        self.verticalLayout.addWidget(self.donationLinkLabel)
-
-        self.verticalSpacer = QSpacerItem(0, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer = QSpacerItem(0, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout.addItem(self.verticalSpacer)
 
@@ -240,10 +233,6 @@ class Ui_Tab(object):
 
     def retranslateUi(self, Tab):
         self.plainTextEdit.setPlaceholderText(QCoreApplication.translate("Tab", u"Paste URLs here...", None))
-#if QT_CONFIG(tooltip)
-        self.donationLinkLabel.setToolTip(QCoreApplication.translate("Tab", u"This app is the result of countless hours of development by Marko Peji\u0107. If it's useful to you, please consider supporting its development with a donation.<br>Thank you!", None))
-#endif // QT_CONFIG(tooltip)
-        self.donationLinkLabel.setText(QCoreApplication.translate("Tab", u"<a href=\"https://downloader.markopejic.com/donate\">Donate</a>", None))
         self.formatLabel.setText(QCoreApplication.translate("Tab", u"Format:", None))
 #if QT_CONFIG(tooltip)
         self.formatComboBox.setToolTip(QCoreApplication.translate("Tab", u"Format Options<br>(Alt+F)", None))

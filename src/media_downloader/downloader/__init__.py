@@ -37,12 +37,12 @@ class Downloader(yt_dlp.YoutubeDL):
     def _download(
         self,
         urls,
-        download_dest="",
+        download_dir="",
         download_progress_func=None,
         url_progress_func=None,
-        postprocessor_progress_func=None,
+        conversion_progress_func=None,
         file_type="mp4",
-        subtitle_lang=None,
+        subtitle_langs=None,
         quality=None,
         embed_subtitles=True,
         crop_thumbnails=False,
@@ -50,10 +50,11 @@ class Downloader(yt_dlp.YoutubeDL):
         self.params = {
             "quiet": True,
             "noplaylist": True,
-            "outtmpl": os.path.join(download_dest, "%(title)s.%(ext)s"),
+            "noprogress": True,
+            "outtmpl": {"default": os.path.join(download_dir, "%(title)s.%(ext)s"), "pl_thumbnail": ""},
             "windowsfilenames": True,
             "postprocessors": [
-                {"key": "FFmpegMetadata"},
+                {"key": "FFmpegMetadata", "add_chapters": True, "add_infojson": "if_exists", "add_metadata": True},
                 {"key": "EmbedThumbnail", "already_have_thumbnail": False}
             ],
             "writethumbnail": True,
@@ -69,37 +70,36 @@ class Downloader(yt_dlp.YoutubeDL):
                 lambda data, progress_hook=download_progress_hook: 
                     self.download_progress_hook(data, progress_hook, processed_url_count, total_url_count)
             ]
-        
-        if postprocessor_progress_func:
+        if conversion_progress_func:
             self.params["postprocessor_hooks"] = [
                 lambda data: postprocessor_progress_hook(processed_url_count, total_url_count)
             ]
-
         if crop_thumbnails:
             self.params["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = [
                 "-c:v", "png", "-vf", "crop=ih"
             ]
-        
         if subtitle_lang:
             self.params["writesubtitles"] = True
             self.params["subtitleslangs"] = subtitle_lang
             if embed_subtitles:
-                self.params["postprocessors"].append({"key": "FFmpegEmbedSubtitle"})
-
+                self.params["postprocessors"].append({"already_have_subtitle": False,
+                     "key": "FFmpegEmbedSubtitle"})
         if file_type == "mp4":
-            self.params["format"] = "bestvideo+bestaudio"
+            self.params["format"] = "bestvideo+bestaudio/best"
             self.params["merge_output_format"] = "mp4"
             if quality:
                 self.params["format_sort"] = ["fps", "abr", f"res:{quality}"]
-        
         elif file_type == "mp3":
+            self.params["format"] = "bestaudio/best"
+            self.params["final_ext"] = "mp3"
             self.params["postprocessors"] = [
                 {
                     "key": "FFmpegExtractAudio",
-                    "preferredcodec": "mp3"
+                    "nopostoverwrites": False,
+                    "preferredcodec": "mp3",
+                    "preferredquality": "5",
                 }
             ] + self.params["postprocessors"]
-            self.params["format"] = "bestaudio"
             if quality:
                 self.params["format_sort"] = [f"abr:{quality}"]
 
@@ -120,14 +120,7 @@ class Downloader(yt_dlp.YoutubeDL):
                 if url_progress_func:
                     url_progress_func(processed_url_count, total_url_count, url)
 
-            if failed_urls:
-                if attempt == 1:
-                    basic_ydl_config = {}
-                    if "progress_hooks" in self.params:
-                        basic_ydl_config["progress_hooks"] = self.params["progress_hooks"]
-                    if "postprocessor_hooks" in self.params:
-                        basic_ydl_config["postprocessor_hooks"] = self.params["postprocessor_hooks"]
-                    self.params = basic_ydl_config
+            if failed_urls and attempt != self.DOWNLOAD_ATTEMPTS:
                 pending_urls = failed_urls
 
         return failed_urls, errors, True
