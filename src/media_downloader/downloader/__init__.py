@@ -116,9 +116,7 @@ class Downloader(yt_dlp.YoutubeDL):
         for attempt in range(self.DOWNLOAD_ATTEMPTS):
             for url in pending_urls:
                 try:
-                    ydl.download(url)
-                    processed_url_count += 1
-                    failed_urls.discard(url)
+                    self.download(url)
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
                     if not self.internet_connection():
@@ -126,7 +124,9 @@ class Downloader(yt_dlp.YoutubeDL):
                     errors.add(e)
                     failed_urls.add(url)
                     url = ""
-
+                else:
+                    processed_url_count += 1
+                    failed_urls.discard(url)
                 if url_progress_func:
                     url_progress_func(processed_url_count, total_url_count, url)
 
@@ -153,6 +153,14 @@ class Downloader(yt_dlp.YoutubeDL):
             for url in pending_urls:
                 try:
                     url_data = self.extract_info(url, download=False)
+                except yt_dlp.utils.DownloadError as e:
+                    print(e)
+                    if not self.internet_connection():
+                        return self.ReturnData(no_internet=True)
+                    errors.add(e)
+                    failed_urls.add(url)
+                    url = ""
+                else:
                     if entries := get_value_if_exists("entries", url_data):
                         for entry in entries:
                             if entry_url := get_value_if_exists("url", entry):
@@ -161,14 +169,6 @@ class Downloader(yt_dlp.YoutubeDL):
                         extracted_urls.add(url)
                     processed_url_count += 1
                     failed_urls.discard(url)
-                except yt_dlp.utils.DownloadError as e:
-                    print(e)
-                    if not self.internet_connection():
-                        return self.ReturnData(no_internet=True)
-                    errors.add(e)
-                    failed_urls.add(url)
-                    url = ""
-
                 if url_progress_func:
                     url_progress_func(processed_url_count, total_url_count, url)
 
@@ -199,6 +199,13 @@ class Downloader(yt_dlp.YoutubeDL):
             for url in current_urls:
                 try:
                     url_data = self.extract_info(url, download=False)
+                except yt_dlp.utils.DownloadError as e:
+                    print(e)
+                    errors.add(e)
+                    if not self.internet_connection():
+                        return self.ReturnData(no_internet=True)
+                    url = ""
+                else:
                     if entries := get_value_if_exists("entries", url_data):
                         for entry in entries:
                             if entry_url := get_value_if_exists("url", entry):
@@ -236,13 +243,6 @@ class Downloader(yt_dlp.YoutubeDL):
 
                     pending_urls.remove(url)
                     processed_url_count += 1
-                except yt_dlp.utils.DownloadError as e:
-                    print(e)
-                    errors.add(e)
-                    if not self.internet_connection():
-                        return self.ReturnData(no_internet=True)
-                    url = ""
-            
                 if url_progress_func:
                     url_progress_func(processed_url_count, total_url_count, url)
 
@@ -260,12 +260,16 @@ class Downloader(yt_dlp.YoutubeDL):
     def download_progress_hook(self, progress_data, progress_func, processed_url_count, total_url_count):
         percentage = None
         if progress_data["status"] == "downloading":
-            if "downloaded_bytes" in progress_data and "total_bytes" in progress_data:
-                if isinstance(progress_data["downloaded_bytes"], int) and isinstance(progress_data["total_bytes"], int):
-                    percentage = int((progress_data["downloaded_bytes"] / progress_data["total_bytes"]) * 100)
-            elif "fragment_index" in progress_data and "fragment_count" in progress_data:
-                if isinstance(progress_data["fragment_index"], int) and isinstance(progress_data["fragment_count"], int):
-                    percentage = int((progress_data["fragment_index"] / progress_data["fragment_count"]) * 100)
+            if (
+                (downloaded_bytes := get_value_if_exists("downloaded_bytes", progress_data, int)) != None and
+                (total_bytes := get_value_if_exists("total_bytes", progress_data, int)) != None
+            ):
+                percentage = int((downloaded_bytes / total_bytes) * 100)
+            elif (
+                (fragment_index := get_value_if_exists("fragment_index", progress_data, int)) != None and
+                (fragment_count := get_value_if_exists("fragment_count", progress_data, int)) != None
+            ):
+                percentage = int((fragment_index / fragment_count) * 100)
                     
         progress_func(percentage, processed_url_count, total_url_count)
 
@@ -280,7 +284,7 @@ class Downloader(yt_dlp.YoutubeDL):
 
 
     class ReturnData:
-        def __init__(self, no_internet=False, failed_urls=set(), extracted_urls=set(), pretty_data={}, errors=set()):
+        def __init__(self, no_internet=False, failed_urls=None, extracted_urls=None, pretty_data=None, errors=None):
             self.no_internet = no_internet
             self.failed_urls = failed_urls
             self.extracted_urls = extracted_urls
