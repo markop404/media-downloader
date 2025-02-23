@@ -87,18 +87,18 @@ class Downloader(yt_dlp.YoutubeDL):
             ]
         if crop_thumbnails:
             self.params["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-vf", "crop=ih"]
-        if subtitle_lang:
+        if subtitle_langs:
             self.params["writesubtitles"] = True
-            self.params["subtitleslangs"] = subtitle_lang
+            self.params["subtitleslangs"] = ",".join(set(subtitle_langs))
             if embed_subtitles:
                 self.params["postprocessors"].append(
                     {"key": "FFmpegEmbedSubtitle", "already_have_subtitle": False}
                 )
         if file_type == "mp4":
-            self.params["format"] = "bestvideo+bestaudio/best"
+            self.params["format"] = "bestvideo*+bestaudio/best"
             self.params["merge_output_format"] = "mp4"
             if quality:
-                self.params["format_sort"] = ["fps", "abr", f"res:{quality}"]
+                self.params["format_sort"] = [f"res:{quality}"]
         elif file_type == "mp3":
             self.params["format"] = "bestaudio/best"
             self.params["final_ext"] = "mp3"
@@ -279,7 +279,7 @@ class Downloader(yt_dlp.YoutubeDL):
             return False
 
 
-    class ReturnData():
+    class ReturnData:
         def __init__(self, no_internet=False, failed_urls=set(), extracted_urls=set(), pretty_data={}, errors=set()):
             self.no_internet = no_internet
             self.failed_urls = failed_urls
