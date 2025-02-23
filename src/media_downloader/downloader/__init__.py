@@ -53,7 +53,7 @@ class Downloader(yt_dlp.YoutubeDL):
             "noprogress": True,
             "outtmpl": {
                 "default": os.path.join(download_dir, "%(title)s.%(ext)s"),
-                "pl_thumbnail": ""
+                "pl_thumbnail": "",
             },
             "windowsfilenames": True,
             "postprocessors": [
@@ -91,8 +91,9 @@ class Downloader(yt_dlp.YoutubeDL):
             self.params["writesubtitles"] = True
             self.params["subtitleslangs"] = subtitle_lang
             if embed_subtitles:
-                self.params["postprocessors"].append({"already_have_subtitle": False,
-                     "key": "FFmpegEmbedSubtitle"})
+                self.params["postprocessors"].append(
+                    {"key": "FFmpegEmbedSubtitle", "already_have_subtitle": False}
+                )
         if file_type == "mp4":
             self.params["format"] = "bestvideo+bestaudio/best"
             self.params["merge_output_format"] = "mp4"
@@ -120,9 +121,9 @@ class Downloader(yt_dlp.YoutubeDL):
                     failed_urls.discard(url)
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
-                    errors.add(e)
                     if not self.internet_connection():
-                        return failed_urls, errors, False
+                        return self.ReturnData(no_internet=True)
+                    errors.add(e)
                     failed_urls.add(url)
                     url = ""
 
@@ -132,7 +133,7 @@ class Downloader(yt_dlp.YoutubeDL):
             if failed_urls and attempt != self.DOWNLOAD_ATTEMPTS:
                 pending_urls = failed_urls
 
-        return failed_urls, errors, True
+        return self.ReturnData(failed_urls=failed_urls, errors=errors)
 
 
     def extract_urls(self, urls, url_progress_func=None):
@@ -155,16 +156,16 @@ class Downloader(yt_dlp.YoutubeDL):
                     if entries := get_value_if_exists("entries", url_data):
                         for entry in entries:
                             if entry_url := get_value_if_exists("url", entry):
-                                extracted_urls.add(entry["url"])
+                                extracted_urls.add(entry_url)
                     else:
                         extracted_urls.add(url)
                     processed_url_count += 1
                     failed_urls.discard(url)
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
-                    errors.add(e)
                     if not self.internet_connection():
-                        return extracted_urls, failed_urls, errors, False
+                        return self.ReturnData(no_internet=True)
+                    errors.add(e)
                     failed_urls.add(url)
                     url = ""
 
@@ -174,7 +175,7 @@ class Downloader(yt_dlp.YoutubeDL):
             if failed_urls:
                 pending_urls = failed_urls
         
-        return extracted_urls, failed_urls, errors, True
+        return self.ReturnData(extracted_urls=extracted_urls, failed_urls=failed_urls, errors=errors)
             
 
     def fetch_pretty_data(self, urls, url_progress_func=None):
@@ -198,25 +199,25 @@ class Downloader(yt_dlp.YoutubeDL):
             for url in current_urls:
                 try:
                     url_data = self.extract_info(url, download=False)
-                    if entries := get_value_if_exists(url_data, "entries"):
+                    if entries := get_value_if_exists("entries", url_data):
                         for entry in entries:
-                            if entry_url := get_value_if_exists(entry, "url"):
+                            if entry_url := get_value_if_exists("url", entry):
                                 pending_urls.add(entry_url)
                                 total_url_count += 1
                     else:
-                        if get_value_if_exists(url_data, "formats"):
+                        if formats := get_value_if_exists("formats", url_data):
                             bitrates = set()
                             resolutions = set()
 
-                            for _format in url_data["formats"]:
-                                if get_value_if_exists(_format, "vcodec"):
-                                    if _format["vcodec"] == "none":
-                                        if get_value_if_exists(_format, "abr"):
-                                            bitrate = _format["abr"]
-                                            if bitrate and bitrate != "0":
-                                                bitrates.add(int(bitrate))
-                                    elif get_value_if_exists(_format, "format_note"):
-                                        if resolution_search := re.search(r"([0-9]+)p", _format["format_note"]):
+                            for _format in formats:
+                                if get_value_if_exists("acodec", _format) != "none":
+                                    if abr := get_value_if_exists("abr", _format):
+                                        if isinstance(abr, str) and abr.isdigit():
+                                            if abr := int(abr):
+                                                bitrates.add(abr)
+                                if get_value_if_exists("vcodec", _format) != "none":
+                                    if format_note := get_value_if_exists("format_note", _format):
+                                        if resolution_search := re.search(r"([0-9]+)p", format_note):
                                             resolutions.add(int(resolution_search.group(1)))
 
                             if not all_bitrates:
@@ -228,10 +229,10 @@ class Downloader(yt_dlp.YoutubeDL):
                             else:
                                 all_resolutions.intersection_update(resolutions)
 
-                        if subtitle_data := get_value_if_exists(url_data, "subtitles"):
+                        if subtitle_data := get_value_if_exists("subtitles", url_data):
                             for subtitle_lang, subtitle_details in subtitle_data.items():
-                                if get_value_if_exists(subtitle_details, "name"):
-                                    subtitles[subtitle_lang] = subtitle_details["name"]
+                                if name := get_value_if_exists("name", subtitle_details):
+                                    subtitles[subtitle_lang] = name
 
                     pending_urls.remove(url)
                     processed_url_count += 1
@@ -239,7 +240,7 @@ class Downloader(yt_dlp.YoutubeDL):
                     print(e)
                     errors.add(e)
                     if not self.internet_connection():
-                        return {}, {}, failed_urls, errors, False
+                        return self.ReturnData(no_internet=True)
                     url = ""
             
                 if url_progress_func:
@@ -253,12 +254,12 @@ class Downloader(yt_dlp.YoutubeDL):
             "subtitles": dict(sorted(subtitles.items(), key=lambda item: item[1])),
         }
 
-        return pretty_data, failed_urls, errors, True
+        return self.ReturnData(pretty_data=pretty_data, failed_urls=failed_urls, errors=errors)
 
 
     def download_progress_hook(self, progress_data, progress_func, processed_url_count, total_url_count):
         percentage = None
-        if progress_data["status"] == "downloading":            
+        if progress_data["status"] == "downloading":
             if "downloaded_bytes" in progress_data and "total_bytes" in progress_data:
                 if isinstance(progress_data["downloaded_bytes"], int) and isinstance(progress_data["total_bytes"], int):
                     percentage = int((progress_data["downloaded_bytes"] / progress_data["total_bytes"]) * 100)
@@ -276,3 +277,12 @@ class Downloader(yt_dlp.YoutubeDL):
         except BaseException as e:
             print(e)
             return False
+
+
+    class ReturnData():
+        def __init__(self, no_internet=False, failed_urls=set(), extracted_urls=set(), pretty_data={}, errors=set()):
+            self.no_internet = no_internet
+            self.failed_urls = failed_urls
+            self.extracted_urls = extracted_urls
+            self.pretty_data = pretty_data
+            self.errors = errors

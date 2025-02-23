@@ -32,7 +32,7 @@ class Invoker(QObject):
         return True
 
 
-def get_value_if_exists(_dict, value):
+def get_value_if_exists(value, _dict):
     if value in _dict and _dict[value]:
         return _dict[value]
     else:
