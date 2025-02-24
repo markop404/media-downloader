@@ -20,6 +20,7 @@
 import socket
 import re
 import os
+import dataclasses
 
 import yt_dlp
 
@@ -119,8 +120,7 @@ class Downloader(yt_dlp.YoutubeDL):
                     self.download(url)
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
-                    if not self.internet_connection():
-                        return self.ReturnData(no_internet=True)
+                    self.internet_connection()
                     errors.add(e)
                     failed_urls.add(url)
                     url = ""
@@ -132,6 +132,8 @@ class Downloader(yt_dlp.YoutubeDL):
 
             if failed_urls and attempt != self.DOWNLOAD_ATTEMPTS:
                 pending_urls = failed_urls
+            else:
+                break
 
         return self.ReturnData(failed_urls=failed_urls, errors=errors)
 
@@ -155,14 +157,13 @@ class Downloader(yt_dlp.YoutubeDL):
                     url_data = self.extract_info(url, download=False)
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
-                    if not self.internet_connection():
-                        return self.ReturnData(no_internet=True)
+                    self.internet_connection()
                     errors.add(e)
                     failed_urls.add(url)
                     url = ""
                 else:
-                    if entries := get_value_if_exists("entries", url_data):
-                        for entry in entries:
+                    if url_data_entries := get_value_if_exists("entries", url_data):
+                        for entry in url_data_entries:
                             if entry_url := get_value_if_exists("url", entry):
                                 extracted_urls.add(entry_url)
                     else:
@@ -172,8 +173,10 @@ class Downloader(yt_dlp.YoutubeDL):
                 if url_progress_func:
                     url_progress_func(processed_url_count, total_url_count, url)
 
-            if failed_urls:
+            if failed_urls and attempt != self.DOWNLOAD_ATTEMPTS:
                 pending_urls = failed_urls
+            else:
+                break
         
         return self.ReturnData(extracted_urls=extracted_urls, failed_urls=failed_urls, errors=errors)
             
@@ -202,8 +205,7 @@ class Downloader(yt_dlp.YoutubeDL):
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
                     errors.add(e)
-                    if not self.internet_connection():
-                        return self.ReturnData(no_internet=True)
+                    self.internet_connection()
                     url = ""
                 else:
                     if entries := get_value_if_exists("entries", url_data):
@@ -215,17 +217,18 @@ class Downloader(yt_dlp.YoutubeDL):
                         if formats := get_value_if_exists("formats", url_data):
                             bitrates = set()
                             resolutions = set()
-
+                            
                             for _format in formats:
-                                if get_value_if_exists("acodec", _format) != "none":
-                                    if abr := get_value_if_exists("abr", _format):
-                                        if isinstance(abr, str) and abr.isdigit():
-                                            if abr := int(abr):
-                                                bitrates.add(abr)
-                                if get_value_if_exists("vcodec", _format) != "none":
-                                    if format_note := get_value_if_exists("format_note", _format):
-                                        if resolution_search := re.search(r"([0-9]+)p", format_note):
-                                            resolutions.add(int(resolution_search.group(1)))
+                                if(
+                                    (format_note := get_value_if_exists("format_note", _format, str)) and
+                                    (resolution_search := re.search(r"([0-9]+)p", format_note))
+                                ):
+                                    resolutions.add(int(resolution_search.group(1)))
+                                if (
+                                    (abr := get_value_if_exists("abr", _format, str)) and
+                                    (abr := int(abr))
+                                ):
+                                    bitrates.add(abr)
 
                             if not all_bitrates:
                                 all_bitrates = bitrates
@@ -241,12 +244,15 @@ class Downloader(yt_dlp.YoutubeDL):
                                 if name := get_value_if_exists("name", subtitle_details):
                                     subtitles[subtitle_lang] = name
 
-                    pending_urls.remove(url)
+                    pending_urls.discard(url)
                     processed_url_count += 1
                 if url_progress_func:
                     url_progress_func(processed_url_count, total_url_count, url)
 
-            current_urls = pending_urls
+            if pending_urls and attempt != self.DOWNLOAD_ATTEMPTS:
+                current_urls = pending_urls
+            else:
+                break
 
         pretty_data = {
             "bitrates": sorted(all_bitrates, reverse=True),
@@ -254,39 +260,41 @@ class Downloader(yt_dlp.YoutubeDL):
             "subtitles": dict(sorted(subtitles.items(), key=lambda item: item[1])),
         }
 
-        return self.ReturnData(pretty_data=pretty_data, failed_urls=failed_urls, errors=errors)
+        return self.ReturnData(pretty_data=pretty_data, failed_urls=pending_urls, errors=errors)
 
 
     def download_progress_hook(self, progress_data, progress_func, processed_url_count, total_url_count):
         percentage = None
-        if progress_data["status"] == "downloading":
-            if (
-                (downloaded_bytes := get_value_if_exists("downloaded_bytes", progress_data, int)) != None and
-                (total_bytes := get_value_if_exists("total_bytes", progress_data, int)) != None
-            ):
-                percentage = int((downloaded_bytes / total_bytes) * 100)
-            elif (
-                (fragment_index := get_value_if_exists("fragment_index", progress_data, int)) != None and
-                (fragment_count := get_value_if_exists("fragment_count", progress_data, int)) != None
-            ):
-                percentage = int((fragment_index / fragment_count) * 100)
-                    
+        if str_percentage := get_value_if_exists("_percent_str", progress_data, str):
+            percentage = int(round(float(str_percentage.replace("%", "")), 0))
+        
         progress_func(percentage, processed_url_count, total_url_count)
 
 
     def internet_connection(self):
         try:
             socket.create_connection(self.DNS).close()
-            return True
-        except BaseException as e:
+        except socket.error as e:
             print(e)
-            return False
+            raise self.NoInternet(e)
 
 
-    class ReturnData:
-        def __init__(self, no_internet=False, failed_urls=None, extracted_urls=None, pretty_data=None, errors=None):
-            self.no_internet = no_internet
-            self.failed_urls = failed_urls
-            self.extracted_urls = extracted_urls
-            self.pretty_data = pretty_data
-            self.errors = errors
+    @dataclasses.dataclass
+    class DownloaderStatus:
+        failed_urls: set = set()
+        errors: set = set()
+
+
+    @dataclasses.dataclass
+    class FetchedData:
+        resolutions: set = set()
+        bitrates: set = set()
+        subtitles: dict = {}
+
+
+    class NoInternet(BaseException):
+        pass
+
+
+    class ForceExit(BaseException):
+        pass
