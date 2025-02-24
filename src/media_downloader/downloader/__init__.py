@@ -31,9 +31,6 @@ class Downloader(yt_dlp.YoutubeDL):
     def __init__(self):
         super().__init__()
 
-        self.DOWNLOAD_ATTEMPTS = 2
-        self.DNS = ("1.1.1.1", 53)
-
 
     def _download(
         self,
@@ -43,7 +40,7 @@ class Downloader(yt_dlp.YoutubeDL):
         url_progress_func=None,
         conversion_progress_func=None,
         file_type="mp4",
-        subtitle_langs=None,
+        subtitles=None,
         quality=None,
         embed_subtitles=True,
         crop_thumbnails=False,
@@ -74,7 +71,7 @@ class Downloader(yt_dlp.YoutubeDL):
         pending_urls = set(urls)
         processed_url_count = 0
         total_url_count = len(urls)
-        downloader_status = self.DownloaderStatus(pending_urls=pending_urls)
+        downloader_status = self.ExitStatus(pending_urls=pending_urls)
 
         if download_progress_func:
             self.params["progress_hooks"] = [
@@ -87,9 +84,9 @@ class Downloader(yt_dlp.YoutubeDL):
             ]
         if crop_thumbnails:
             self.params["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-vf", "crop=ih"]
-        if subtitle_langs:
+        if subtitles:
             self.params["writesubtitles"] = True
-            self.params["subtitleslangs"] = ",".join(set(subtitle_langs))
+            self.params["subtitleslangs"] = ",".join(set(subtitles))
             if embed_subtitles:
                 self.params["postprocessors"].append(
                     {"key": "FFmpegEmbedSubtitle", "already_have_subtitle": False}
@@ -146,7 +143,7 @@ class Downloader(yt_dlp.YoutubeDL):
         extracted_urls = set()
         processed_url_count = 0
         total_url_count = len(urls)
-        downloader_status = self.DownloaderStatus(pending_urls=pending_urls)
+        downloader_status = self.ExitStatus(pending_urls=pending_urls)
 
         for attempt in range(self.DOWNLOAD_ATTEMPTS):
             for url in pending_urls:
@@ -188,8 +185,8 @@ class Downloader(yt_dlp.YoutubeDL):
         pending_urls = set(urls)
         total_url_count = len(pending_urls)
         processed_url_count = 0
-        fetched_data = self.FetchedData()
-        downloader_status = self.DownloaderStatus(pending_urls=pending_urls)
+        fetched_data = self.PrettyData()
+        downloader_status = self.ExitStatus(pending_urls=pending_urls)
 
         for attempt in range(self.DOWNLOAD_ATTEMPTS + 1):
             for url in pending_urls:
@@ -267,13 +264,13 @@ class Downloader(yt_dlp.YoutubeDL):
 
 
     @dataclasses.dataclass
-    class DownloaderStatus:
+    class ExitStatus:
         downloader_status.pending_urls: set = set()
         downloader_status.errors: set = set()
 
 
     @dataclasses.dataclass
-    class FetchedData:
+    class PrettyData:
         resolutions: set = set()
         bitrates: set = set()
         subtitles: dict = {}
@@ -285,3 +282,7 @@ class Downloader(yt_dlp.YoutubeDL):
 
     class ForceExit(BaseException):
         pass
+
+
+    DOWNLOAD_ATTEMPTS = 2
+    DNS = ("1.1.1.1", 53)
