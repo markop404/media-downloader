@@ -72,10 +72,9 @@ class Downloader(yt_dlp.YoutubeDL):
             "writethumbnail": True,
         }
         pending_urls = set(urls)
-        failed_urls = set()
         processed_url_count = 0
         total_url_count = len(urls)
-        errors = set()
+        downloader_status = self.DownloaderStatus(pending_urls=pending_urls)
 
         if download_progress_func:
             self.params["progress_hooks"] = [
@@ -121,21 +120,20 @@ class Downloader(yt_dlp.YoutubeDL):
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
                     self.internet_connection()
-                    errors.add(e)
-                    failed_urls.add(url)
+                    downloader_status.errors.add(e)
                     url = ""
                 else:
                     processed_url_count += 1
-                    failed_urls.discard(url)
+                    downloader_status.pending_urls.discard(url)
                 if url_progress_func:
                     url_progress_func(processed_url_count, total_url_count, url)
 
-            if failed_urls and attempt != self.DOWNLOAD_ATTEMPTS:
-                pending_urls = failed_urls
+            if downloader_status.pending_urls and attempt != self.DOWNLOAD_ATTEMPTS:
+                pending_urls = downloader_status.pending_urls
             else:
                 break
 
-        return self.ReturnData(failed_urls=failed_urls, errors=errors)
+        return downloader_status
 
 
     def extract_urls(self, urls, url_progress_func=None):
@@ -145,11 +143,10 @@ class Downloader(yt_dlp.YoutubeDL):
             "noplaylist": True,
         }
         pending_urls = set(urls)
-        failed_urls = set()
         extracted_urls = set()
         processed_url_count = 0
         total_url_count = len(urls)
-        errors = set()
+        downloader_status = self.DownloaderStatus(pending_urls=pending_urls)
 
         for attempt in range(self.DOWNLOAD_ATTEMPTS):
             for url in pending_urls:
@@ -158,8 +155,7 @@ class Downloader(yt_dlp.YoutubeDL):
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
                     self.internet_connection()
-                    errors.add(e)
-                    failed_urls.add(url)
+                    downloader_status.errors.add(e)
                     url = ""
                 else:
                     if url_data_entries := get_value_if_exists("entries", url_data):
@@ -169,16 +165,16 @@ class Downloader(yt_dlp.YoutubeDL):
                     else:
                         extracted_urls.add(url)
                     processed_url_count += 1
-                    failed_urls.discard(url)
+                    downloader_status.pending_urls.discard(url)
                 if url_progress_func:
                     url_progress_func(processed_url_count, total_url_count, url)
 
-            if failed_urls and attempt != self.DOWNLOAD_ATTEMPTS:
-                pending_urls = failed_urls
+            if downloader_status.pending_urls and attempt != self.DOWNLOAD_ATTEMPTS:
+                pending_urls = downloader_status.pending_urls
             else:
                 break
         
-        return self.ReturnData(extracted_urls=extracted_urls, failed_urls=failed_urls, errors=errors)
+        return downloader_status, extracted_urls
             
 
     def fetch_pretty_data(self, urls, url_progress_func=None):
@@ -189,29 +185,26 @@ class Downloader(yt_dlp.YoutubeDL):
             "allsubtitles": True,
             "extract_flat": "in_playlist",
         }
-        current_urls = set(urls)
-        pending_urls = set()
-        total_url_count = len(current_urls)
+        pending_urls = set(urls)
+        total_url_count = len(pending_urls)
         processed_url_count = 0
-        errors = set()
-        all_bitrates = set()
-        all_resolutions = set()
-        subtitles = {}
+        fetched_data = self.FetchedData()
+        downloader_status = self.DownloaderStatus(pending_urls=pending_urls)
 
         for attempt in range(self.DOWNLOAD_ATTEMPTS + 1):
-            for url in current_urls:
+            for url in pending_urls:
                 try:
                     url_data = self.extract_info(url, download=False)
                 except yt_dlp.utils.DownloadError as e:
                     print(e)
-                    errors.add(e)
+                    downloader_status.errors.add(e)
                     self.internet_connection()
                     url = ""
                 else:
                     if entries := get_value_if_exists("entries", url_data):
                         for entry in entries:
                             if entry_url := get_value_if_exists("url", entry):
-                                pending_urls.add(entry_url)
+                                downloader_status.pending_urls.add(entry_url)
                                 total_url_count += 1
                     else:
                         if formats := get_value_if_exists("formats", url_data):
@@ -230,37 +223,31 @@ class Downloader(yt_dlp.YoutubeDL):
                                 ):
                                     bitrates.add(abr)
 
-                            if not all_bitrates:
-                                all_bitrates = bitrates
+                            if not downloader_status.bitrates:
+                                downloader_status.bitrates = bitrates
                             else:
-                                all_bitrates.intersection_update(bitrates)
-                            if not all_resolutions:
-                                all_resolutions = resolutions
+                                downloader_status.bitrates.intersection_update(bitrates)
+                            if not downloader_status.resolutions:
+                                downloader_status.resolutions = resolutions
                             else:
-                                all_resolutions.intersection_update(resolutions)
+                                downloader_status.resolutions.intersection_update(resolutions)
 
                         if subtitle_data := get_value_if_exists("subtitles", url_data):
                             for subtitle_lang, subtitle_details in subtitle_data.items():
                                 if name := get_value_if_exists("name", subtitle_details):
-                                    subtitles[subtitle_lang] = name
+                                    fetched_data.subtitles[subtitle_lang] = name
 
-                    pending_urls.discard(url)
+                    downloader_status.pending_urls.discard(url)
                     processed_url_count += 1
                 if url_progress_func:
                     url_progress_func(processed_url_count, total_url_count, url)
 
-            if pending_urls and attempt != self.DOWNLOAD_ATTEMPTS:
-                current_urls = pending_urls
+            if downloader_status.pending_urls and attempt != self.DOWNLOAD_ATTEMPTS:
+                pending_urls = downloader_status.pending_urls
             else:
                 break
 
-        pretty_data = {
-            "bitrates": sorted(all_bitrates, reverse=True),
-            "resolutions": sorted(all_resolutions, reverse=True),
-            "subtitles": dict(sorted(subtitles.items(), key=lambda item: item[1])),
-        }
-
-        return self.ReturnData(pretty_data=pretty_data, failed_urls=pending_urls, errors=errors)
+        return downloader_status, fetched_data
 
 
     def download_progress_hook(self, progress_data, progress_func, processed_url_count, total_url_count):
@@ -281,8 +268,8 @@ class Downloader(yt_dlp.YoutubeDL):
 
     @dataclasses.dataclass
     class DownloaderStatus:
-        failed_urls: set = set()
-        errors: set = set()
+        downloader_status.pending_urls: set = set()
+        downloader_status.errors: set = set()
 
 
     @dataclasses.dataclass
