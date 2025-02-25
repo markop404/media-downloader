@@ -21,6 +21,7 @@ from PySide6.QtWidgets import QDialog, QLabel
 from PySide6.QtGui import QDesktopServices
 from ..ui import Ui_AboutDialog
 from ..__about__ import VERSION
+from .config import Config
 
 
 class AboutDialog(QDialog):

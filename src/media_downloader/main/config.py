@@ -22,11 +22,18 @@ from PySide6.QtCore import QSettings, QPoint, QSize, QStandardPaths, QByteArray
 
 
 class Settings(QSettings):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.save_setting = self.setValue
-    
-        self.ICONS = {
+    def load_setting(self, setting):
+        if setting in self.DEFAULT_SETTINGS:
+            default_value = self.DEFAULT_SETTINGS[setting]["value"]
+            value_type = self.DEFAULT_SETTINGS[setting]["type"]
+            return self.value(setting, type=value_type, defaultValue=default_value)
+        else:
+            return self.value(setting)
+
+
+class Config:
+    def __init__(self):
+        self.icon_cache = {
             "emblem-downloads": QIcon(
                 QIcon.fromTheme(
                     "emblem-downloads",
@@ -44,23 +51,8 @@ class Settings(QSettings):
             "network-offline": QIcon(QIcon.fromTheme("network-offline")),
             "media-playback-stop": QIcon(QIcon.fromTheme("media-playback-stop")),
         }
-        self.STATIC_SETTINGS = {
-            "status_label_text": {
-                "download_failed": "Downloading Failed.",
-                "download_cancelled": "Downloading Cancelled.",
-                "download_finished": "Downloading Finished.",
-                "cancelling_download": "Cancelling Download...",
-                "downloading": "Downloading...",
-                "extracting_urls": "Analyzing URLs...",
-                "data_fetch_failed": "Loading Options Failed.",
-                "data_fetch_cancelled": "Loading Options Cancelled.",
-                "data_fetch_finished": "Loading Options Finished.",
-                "cancelling_data_fetch": "Cancelling Option Loading...",
-                "fetching_data": "Loading Options...",
-                "converting": "Processing...",
-                "no_internet": "No internet connection.",
-            },
-            "status_label_icons": {
+        self.icon_mappings = {
+            "status_label": {
                 "download_failed": "dialog-error",
                 "download_cancelled": "media-playback-stop",
                 "download_finished": "emblem-default",
@@ -75,22 +67,7 @@ class Settings(QSettings):
                 "converting": "emblem-downloads",
                 "no_internet": "network-offline",
             },
-            "tab_text": {
-                "download_failed": "Failed",
-                "download_cancelled": "Cancelled",
-                "download_finished": "Finished",
-                "cancelling_download": "Cancelling",
-                "downloading": "Downloading",
-                "extracting_urls": "Analyzing",
-                "data_fetch_failed": "Failed",
-                "data_fetch_cancelled": "Cancelled",
-                "data_fetch_finished": "Finished",
-                "cancelling_data_fetch": "Cancelling",
-                "fetching_data": "Loading Options",
-                "converting": "Downloading",
-                "no_internet": "Failed",
-            },
-            "tab_icons": {
+            "tab": {
                 "download_failed": "dialog-error",
                 "download_cancelled": "media-playback-stop",
                 "download_finished": "emblem-default",
@@ -105,18 +82,50 @@ class Settings(QSettings):
                 "converting": "emblem-downloads",
                 "no_internet": "dialog-error",
             },
-            "window_titles": {
+        }
+        self.ui_text = {
+            "status_label": {
+                "download_failed": "Downloading Failed.",
+                "download_cancelled": "Downloading Cancelled.",
+                "download_finished": "Downloading Finished.",
+                "cancelling_download": "Cancelling Download...",
+                "downloading": "Downloading...",
+                "extracting_urls": "Analyzing URLs...",
+                "data_fetch_failed": "Loading Options Failed.",
+                "data_fetch_cancelled": "Loading Options Cancelled.",
+                "data_fetch_finished": "Loading Options Finished.",
+                "cancelling_data_fetch": "Cancelling Option Loading...",
+                "fetching_data": "Loading Options...",
+                "converting": "Processing...",
+                "no_internet": "No internet connection.",
+            },
+            "tab": {
+                "download_failed": "Failed",
+                "download_cancelled": "Cancelled",
+                "download_finished": "Finished",
+                "cancelling_download": "Cancelling",
+                "downloading": "Downloading",
+                "extracting_urls": "Analyzing",
+                "data_fetch_failed": "Failed",
+                "data_fetch_cancelled": "Cancelled",
+                "data_fetch_finished": "Finished",
+                "cancelling_data_fetch": "Cancelling",
+                "fetching_data": "Loading Options",
+                "converting": "Downloading",
+                "no_internet": "Failed",
+            },
+            "window_title": {
                 "error": "Error - Tab <tab_name>",
             },
-            "button_text": {
+            "button": {
                 "download": {"default": "&Download", "secondary": "Cancel &Downloading"},
                 "refresh": {"default": "&Load Options", "secondary": "Cancel Option &Loading"},
             },
-            "formats": {
+            "format": {
                 "mp4": "Video",
                 "mp3": "Audio",
             },
-            "preferred-resolutions": {
+            "preferred-resolution": {
                 0:  "Best",
                 2160: "2160p",
                 1440: "1440p",
@@ -126,7 +135,7 @@ class Settings(QSettings):
                 480: "480p",
                 360: "360p",
             },
-            "preferred-bitrates": {
+            "preferred-bitrate": {
                 0:  "Best",
                 320: "320 kbps",
                 256: "256 kbps",
@@ -137,7 +146,7 @@ class Settings(QSettings):
                 64: "64 kbps",
             },
         }
-        self.DEFAULT_SETTINGS = {
+        self.defaults = {
             "remember-tab-settings": {"value": True, "type": bool},
             "remove-downloaded-urls": {"value": True, "type": bool},
             "preferred-resolution": {"value": 1440, "type": int},
@@ -152,13 +161,11 @@ class Settings(QSettings):
             "window-geometry": {"value": QByteArray(), "type": QByteArray},
             "window-state": {"value": QByteArray(), "type": QByteArray},
         }
-
-
-    def load_setting(self, setting):
-        if setting in self.DEFAULT_SETTINGS:
-            default_value = self.DEFAULT_SETTINGS[setting]["value"]
-            value_type = self.DEFAULT_SETTINGS[setting]["type"]
-            
-            return self.value(setting, type=value_type, defaultValue=default_value)
-        else:
-            return self.value(setting)
+        self.external_urls = {
+            "funding": "https://downloader.markopejic.com/donate",
+            "homepage": "https://downloader.markopejic.com",
+            "supported_websites": "https://downloader.markopejic.com/supported-websites",
+            "changelog": "https://downloader.markopejic.com/whats-new",
+            "source_code": "https://downloader.markopejic.com/source-code",
+            "issues": "https://downloader.markopejic.com/report-an-issue",
+        }

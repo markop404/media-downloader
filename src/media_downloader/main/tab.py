@@ -459,7 +459,7 @@ class Tab(QWidget):
 
     def abort_if_requested(self):
         if self.abort_progress:
-            raise SystemExit
+            raise self.downloader.ForceExit
 
 
     def update_qualities(self, qualities=None, placeholder_text_only=False):
