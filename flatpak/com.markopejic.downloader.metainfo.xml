@@ -20,6 +20,15 @@
   <url type="vcs-browser">https://downloader.markopejic.com/source-code</url>
 
   <releases>
+    <release version="4.1.0" date="2025-05-02">
+      <description>
+        <ul>
+          <li>Fixed app not responding to global themes on Linux</li>
+          <li>Fixed progress bar not resetting to zero</li>
+          <li>Fixed app not showing up properly in various desktops on Linux</li>
+        </ul>
+      </description>
+    </release>
     <release version="4.0.0" date="2024-09-24">
       <description>
         <ul>
@@ -94,7 +103,7 @@
   
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/markop404/media-downloader/v4.0.0/screenshots/kde-plasma-light.png</image>
+      <image>https://raw.githubusercontent.com/markop404/media-downloader/v4.1.0/screenshots/kde-plasma-light.png</image>
     </screenshot>
   </screenshots>
 </component>
