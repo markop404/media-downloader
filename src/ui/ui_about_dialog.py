@@ -401,6 +401,6 @@ class Ui_AboutDialog(object):
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Noto Sans'; font-size:10pt;\">The GNU General Public License does not permit incorporating your program into proprie"
                         "tary programs. If your program is a subroutine library, you may consider it more useful to permit linking proprietary applications with the library. If this is what you want to do, use the GNU Lesser General Public License instead of this License. But first, please read &lt;</span><a href=\"https://www.gnu.org/licenses/why-not-lgpl.html\"><span style=\" font-family:'Noto Sans'; font-size:10pt; text-decoration: underline; color:#00d3b8;\">https://www.gnu.org/licenses/why-not-lgpl.html</span></a><span style=\" font-family:'Noto Sans'; font-size:10pt;\">&gt;. </span></p></body></html>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.licenseTab), QCoreApplication.translate("AboutDialog", u"License", None))
-        self.copyrightLabel.setText(QCoreApplication.translate("AboutDialog", u"Copyright \u00a9 2024 Marko Peji\u0107", None))
+        self.copyrightLabel.setText(QCoreApplication.translate("AboutDialog", u"Copyright \u00a9 2024-2025 Marko Peji\u0107", None))
         self.closeDialogButton.setText(QCoreApplication.translate("AboutDialog", u"Close", None))
     # retranslateUi
