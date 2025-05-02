@@ -17,15 +17,19 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import sys
+import sys, os
 from PySide6.QtWidgets import QApplication
 from src.main import MainWindow
 
 app = QApplication([])
-app.setStyle("Fusion")
-app.setApplicationName("Media Downloader")
-app.setOrganizationDomain("markopejic.com")
-app.setOrganizationName("Marko Pejić")
+
+app.setApplicationName("MediaDownloader")
+app.setOrganizationName("MarkoPejic")
+app.setDesktopFileName("com.markopejic.downloader")
+app.setApplicationDisplayName("Media Downloader")
+
+if os.name == "nt":
+    app.setStyle("Fusion")
 
 window = MainWindow()
 window.show()
