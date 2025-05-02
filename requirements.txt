@@ -1,2 +1,2 @@
-PySide6-Essentials==6.7.3
-yt-dlp==2024.9.27
+PySide6-Essentials==6.*
+yt-dlp[default]
