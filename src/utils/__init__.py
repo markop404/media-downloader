@@ -50,8 +50,10 @@ def plain_text_to_set(text):
 
 def list_to_plain_text(lines):
     text = ""
-    for line in lines:
+    lines = list(lines)
+    for line in lines[:-1]:
         text += line + "\n"
+    text += lines[-1]
     
     return text
 
