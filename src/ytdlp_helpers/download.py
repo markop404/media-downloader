@@ -56,7 +56,7 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
         options["subtitleslangs"] = subtitles
 
     if file_type == "video":
-        options["format"] = "bestvideo+bestaudio"
+        options["format"] = "bestvideo+(ba[format_note*=original]/ba)"
         options["merge_output_format"] = "mp4"
         if quality:
             options["format_sort"] = ["fps", "abr", f"res:{quality_int}"]
@@ -70,7 +70,7 @@ def download(urls, download_location="", on_progress=None, on_url_progress=None,
                 "preferredcodec": "mp3"
             }
         ] + options["postprocessors"]
-        options["format"] = "bestaudio"
+        options["format"] = "ba[format_note*=original]/ba"
         if quality:
             options["format_sort"] = [f"abr:{quality_int}"]
 
