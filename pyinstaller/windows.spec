@@ -1,9 +1,9 @@
 # -*- mode: python ; coding: utf-8 -*-
 
-VERSION = "v4.0.0"
+VERSION = "v4.1.1"
 ICON = "icons/icon.png"
 BINARIES = [("ffmpeg.exe", "."), ("ffprobe.exe", ".")]
-NAME = f"Media Downloader {VERSION}"
+NAME = f"Media_Downloader_{VERSION}"
 
 
 a = Analysis(

@@ -20,6 +20,13 @@
   <url type="vcs-browser">https://downloader.markopejic.com/source-code</url>
 
   <releases>
+      <release version="4.1.1" date="2025-05-03">
+      <description>
+        <ul>
+          <li>Fixed an issue where the app downloaded non-original (dubbed) audio</li>
+        </ul>
+      </description>
+    </release>
     <release version="4.1.0" date="2025-05-02">
       <description>
         <ul>
@@ -103,7 +110,7 @@
   
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/markop404/media-downloader/v4.1.0/screenshots/kde-plasma-light.png</image>
+      <image>https://raw.githubusercontent.com/markop404/media-downloader/v4.1.1/screenshots/kde-plasma-light.png</image>
     </screenshot>
   </screenshots>
 </component>
