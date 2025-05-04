@@ -17,9 +17,16 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import sys, os
+import sys
+import os
+import platform
+
 from PySide6.QtWidgets import QApplication
+from PySide6.QtGui import QIcon, QStyleHints
+from PySide6.QtCore import QProcessEnvironment, Qt
+
 from src.main import MainWindow
+
 
 app = QApplication([])
 
@@ -28,8 +35,14 @@ app.setOrganizationName("MarkoPejic")
 app.setDesktopFileName("com.markopejic.downloader")
 app.setApplicationDisplayName("Media Downloader")
 
-if os.name == "nt":
-    app.setStyle("Fusion")
+match platform.system():
+    case "Windows":
+        app.setStyle("Fusion")
+    case "Linux":
+        env = QProcessEnvironment.systemEnvironment()
+        if not "kde" in env.value("XDG_CURRENT_DESKTOP").casefold():
+            app.setStyle("Breeze")
+            QIcon.setThemeName("breeze")
 
 window = MainWindow()
 window.show()
