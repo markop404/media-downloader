@@ -177,7 +177,7 @@ class Ui_AboutDialog(object):
         AboutDialog.setWindowTitle(QCoreApplication.translate("AboutDialog", u"About", None))
         self.appIconLabel.setText("")
         self.appNameLabel.setText(QCoreApplication.translate("AboutDialog", u"Media Downloader", None))
-        self.aboutLabel.setText(QCoreApplication.translate("AboutDialog", u"<b>Web video / audio downloader</b><br>v4.1.1<br><br>Made by <a href=\"https://markopejic.com\">Marko Peji\u0107</a>", None))
+        self.aboutLabel.setText(QCoreApplication.translate("AboutDialog", u"<b>Web video / audio downloader</b><br>v4.1.2<br><br>Made by <a href=\"https://markopejic.com\">Marko Peji\u0107</a>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.aboutTab), QCoreApplication.translate("AboutDialog", u"About", None))
         self.websiteButton.setText(QCoreApplication.translate("AboutDialog", u"Website", None))
         self.whatsNewButton.setText(QCoreApplication.translate("AboutDialog", u"What's New", None))

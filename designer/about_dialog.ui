@@ -89,7 +89,7 @@
        <item>
         <widget class="QLabel" name="aboutLabel">
          <property name="text">
-          <string>&lt;b&gt;Web video / audio downloader&lt;/b&gt;&lt;br&gt;v4.1.1&lt;br&gt;&lt;br&gt;Made by &lt;a href=&quot;https://markopejic.com&quot;&gt;Marko Pejić&lt;/a&gt;</string>
+          <string>&lt;b&gt;Web video / audio downloader&lt;/b&gt;&lt;br&gt;v4.1.2&lt;br&gt;&lt;br&gt;Made by &lt;a href=&quot;https://markopejic.com&quot;&gt;Marko Pejić&lt;/a&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
