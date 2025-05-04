@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# flatpak
+.flatpak-builder
+repo
+builddir
+
 # Distribution / packaging
 .Python
 build/
