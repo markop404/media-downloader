@@ -13,9 +13,11 @@ A simple qt6 frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in 
 
 ## Project Status
 
-Currently, the ```main``` branch contains an older codebase that isn't particularly enjoyable to work with. So over the past year, I unsuccessfully tried to do a partial rewrite in the ```pending``` branch. So when I get the time, I will do a complete rewrite of the app in Python, potentially using QtQuick or Kirigami.
+Currently, the ```main``` branch contains an older codebase that isn't particularly enjoyable to work with. So over the past year, I unsuccessfully tried to do a partial rewrite in the ```pending``` branch.
 
-Development on this repository will be limited to weekends until early June as I am currently very busy with other things.
+So when I get the time, I will do a complete rewrite of the app in Python, potentially using QtQuick or Kirigami.
+
+Development on this repository will be **limited** to weekends until early June as I am currently very busy with other things.
 
 ## Installation
 
