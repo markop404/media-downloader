@@ -51,13 +51,7 @@ All versions above (including) 3.1.0 are licensed under [GPL version 3 or later]
 
 - **Settings menu with more customization options**
 
-- **Translations**
-
-There is currently no interest in translating this program to other languages. Also, the current code is not written in a way that fully supports translating.
-
-- **Installation & Updates on Windows**
-
-This program currently has no update mechanism or installer for Windows. However, there are plans to add those in a future version.
+- **Installer & automatic updates on Windows**
 
 ## Disclaimer
 
