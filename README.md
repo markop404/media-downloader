@@ -17,15 +17,6 @@ Development in this repository is currently **limited to maintenance and bug fix
 
 The ```main``` branch contains an older codebase that is difficult to work with. The ```partial``` branch contains an unsuccessful partial rewrite.
 
-## Installation
-
-<a href="https://flathub.org/apps/com.markopejic.downloader"><img width="150" alt="Download from Flathub" src="https://dl.flathub.org/assets/badges/flathub-badge-en.png"></a><br>
-<br><a href="https://github.com/markop404/media-downloader/releases"><img width="140" alt="Download for Windows" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Windows_logo_and_wordmark_-_2021.svg"></a><br>
-
-## Dependencies
-
-Apart from a few Python packages, listed in [requirements.txt](./requirements.txt), only [ffmpeg](https://ffmpeg.org) is required.
-
 ## Goals of this Project
 
 This project aims to create an application that:
@@ -35,22 +26,32 @@ This project aims to create an application that:
 - has a powerful yet simple and streamlined user interface
 - is lightweight and has a small amount of dependencies
 
+## Installation
+
+<a href="https://flathub.org/apps/com.markopejic.downloader"><img width="150" alt="Download from Flathub" src="https://dl.flathub.org/assets/badges/flathub-badge-en.png"></a><br>
+<br><a href="https://github.com/markop404/media-downloader/releases"><img width="140" alt="Download for Windows" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Windows_logo_and_wordmark_-_2021.svg"></a><br>
+
+### Dependencies
+
+Apart from a few Python packages, listed in [requirements.txt](./requirements.txt), only [ffmpeg](https://ffmpeg.org) is required.
+
 ## Contributing
 
-Any contributions are appreciated, but they have to follow the app's goals.
+Any contributions are appreciated as long as they follow the project's goals.
 
 ## Support
 
 The easiest way to support this project is to star it on GitHub. You can also support the developer by making a [donation](https://downloader.markopejic.com/donate).
 
-## License
-
-All versions above (including) 3.1.0 are licensed under [GPL version 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). All versions below 3.1.0 are closed source and are not available in this repository.
-
 ## Missing features / TO DO
 
 - Settings menu with more customization options
 - Installer & automatic updates on Windows
+- Remember previously used settings and window state
+
+## License
+
+All versions above (including) 3.1.0 are licensed under [GPL version 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). All versions below 3.1.0 are closed source and are not available in this repository.
 
 ## Disclaimer
 
