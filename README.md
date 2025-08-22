@@ -13,11 +13,9 @@ A simple qt6 frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in 
 
 ## Project Status
 
-Currently, the ```main``` branch contains an older codebase that isn't particularly enjoyable to work with. So over the past year, I unsuccessfully tried to do a partial rewrite in the ```pending``` branch.
+Development in this repository is currently **limited to maintenance and bug fixes only**. When I will have the time, I will do a complete rewrite of the app and implement some of the missing features / ideas I have.
 
-So when I get the time, I will do a complete rewrite of the app in Python, potentially using QtQuick or Kirigami.
-
-Development on this repository will be **limited** to weekends until early June as I am currently very busy with other things.
+The ```main``` branch contains an older codebase that is difficult to work with. The ```partial``` branch contains an unsuccessful partial rewrite.
 
 ## Installation
 
@@ -49,11 +47,10 @@ You can support this project by [donating](https://downloader.markopejic.com/don
 
 All versions above (including) 3.1.0 are licensed under [GPL version 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). All versions below 3.1.0 are closed source and are not available in this repository.
 
-## Missing features
+## Missing features / TO DO
 
-- **Settings menu with more customization options**
-
-- **Installer & automatic updates on Windows**
+- Settings menu with more customization options
+- Installer & automatic updates on Windows
 
 ## Disclaimer
 
