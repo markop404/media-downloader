@@ -39,9 +39,9 @@ This project aims to create an application that:
 
 Any contributions are appreciated, but they have to follow the app's goals.
 
-## Donating
+## Support
 
-You can support this project by [donating](https://downloader.markopejic.com/donate).
+The easiest way to support this project is to star it on GitHub. You can also support the developer by making a [donation](https://downloader.markopejic.com/donate).
 
 ## License
 
