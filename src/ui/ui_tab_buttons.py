@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonsPbDKXO.ui'
+## Form generated from reading UI file 'tab_buttonsXbXDYz.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.9.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,19 +15,24 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QHBoxLayout, QPushButton, QSizePolicy,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLayout, QPushButton,
+    QSizePolicy, QWidget)
 
 class Ui_TabButtons(object):
     def setupUi(self, TabButtons):
         if not TabButtons.objectName():
             TabButtons.setObjectName(u"TabButtons")
-        TabButtons.resize(184, 35)
         self.horizontalLayout = QHBoxLayout(TabButtons)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setSizeConstraint(QLayout.SizeConstraint.SetFixedSize)
         self.horizontalLayout.setContentsMargins(-1, 0, 0, 0)
         self.newTabButton = QPushButton(TabButtons)
         self.newTabButton.setObjectName(u"newTabButton")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.newTabButton.sizePolicy().hasHeightForWidth())
+        self.newTabButton.setSizePolicy(sizePolicy)
         self.newTabButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ListAdd))
         self.newTabButton.setIcon(icon)
@@ -36,24 +41,33 @@ class Ui_TabButtons(object):
 
         self.menuButton = QPushButton(TabButtons)
         self.menuButton.setObjectName(u"menuButton")
+        sizePolicy.setHeightForWidth(self.menuButton.sizePolicy().hasHeightForWidth())
+        self.menuButton.setSizePolicy(sizePolicy)
         self.menuButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.HelpFaq))
+        self.menuButton.setIcon(icon1)
 
         self.horizontalLayout.addWidget(self.menuButton)
 
 
         self.retranslateUi(TabButtons)
 
+        self.newTabButton.setDefault(True)
+
+
         QMetaObject.connectSlotsByName(TabButtons)
     # setupUi
 
     def retranslateUi(self, TabButtons):
 #if QT_CONFIG(tooltip)
-        self.newTabButton.setToolTip(QCoreApplication.translate("TabButtons", u"Ctrl+T", None))
+        self.newTabButton.setToolTip(QCoreApplication.translate("TabButtons", u"New Tab<br>(Ctrl+T)", None))
 #endif // QT_CONFIG(tooltip)
-        self.newTabButton.setText(QCoreApplication.translate("TabButtons", u"New Tab", None))
 #if QT_CONFIG(shortcut)
         self.newTabButton.setShortcut(QCoreApplication.translate("TabButtons", u"Ctrl+T", None))
 #endif // QT_CONFIG(shortcut)
-        self.menuButton.setText(QCoreApplication.translate("TabButtons", u"Menu", None))
+#if QT_CONFIG(tooltip)
+        self.menuButton.setToolTip(QCoreApplication.translate("TabButtons", u"Help", None))
+#endif // QT_CONFIG(tooltip)
         pass
     # retranslateUi
+

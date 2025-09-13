@@ -2,15 +2,10 @@
 <ui version="4.0">
  <class>TabButtons</class>
  <widget class="QWidget" name="TabButtons">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>184</width>
-    <height>35</height>
-   </rect>
-  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="sizeConstraint">
+    <enum>QLayout::SizeConstraint::SetFixedSize</enum>
+   </property>
    <property name="topMargin">
     <number>0</number>
    </property>
@@ -22,14 +17,17 @@
    </property>
    <item>
     <widget class="QPushButton" name="newTabButton">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="toolTip">
-      <string>Ctrl+T</string>
-     </property>
-     <property name="text">
-      <string>New Tab</string>
+      <string>New Tab&lt;br&gt;(Ctrl+T)</string>
      </property>
      <property name="icon">
       <iconset theme="QIcon::ThemeIcon::ListAdd"/>
@@ -37,15 +35,27 @@
      <property name="shortcut">
       <string>Ctrl+T</string>
      </property>
+     <property name="default">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
    <item>
     <widget class="QPushButton" name="menuButton">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
-     <property name="text">
-      <string>Menu</string>
+     <property name="toolTip">
+      <string>Help</string>
+     </property>
+     <property name="icon">
+      <iconset theme="QIcon::ThemeIcon::HelpFaq"/>
      </property>
     </widget>
    </item>
