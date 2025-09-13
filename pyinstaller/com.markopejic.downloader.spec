@@ -1,10 +1,15 @@
 # -*- mode: python ; coding: utf-8 -*-
 
-VERSION = "v4.1.2"
+from platform import system
+
+VERSION = "v5.0.0"
 ICON = "icons/icon.png"
-BINARIES = [("ffmpeg.exe", "."), ("ffprobe.exe", ".")]
+BINARIES = []
 NAME = f"Media_Downloader_{VERSION}"
 
+match system():
+    case "Windows":
+        BINARIES.extend([("ffmpeg.exe", "."), ("ffprobe.exe", ".")])
 
 a = Analysis(
     ['main.py'],
