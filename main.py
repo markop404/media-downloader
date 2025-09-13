@@ -18,31 +18,28 @@
 
 
 import sys
-import os
 import platform
 
 from PySide6.QtWidgets import QApplication
-from PySide6.QtGui import QIcon, QStyleHints
-from PySide6.QtCore import QProcessEnvironment, Qt
+from PySide6.QtGui import QIcon
 
 from src.main import MainWindow
-
+from src import resources
 
 app = QApplication([])
 
-app.setApplicationName("MediaDownloader")
 app.setOrganizationName("MarkoPejic")
+app.setOrganizationDomain("markopejic.com")
 app.setDesktopFileName("com.markopejic.downloader")
+app.setApplicationName("MediaDownloader")
 app.setApplicationDisplayName("Media Downloader")
+app.setWindowIcon(QIcon(":/icons/icon.png"))
 
 match platform.system():
     case "Windows":
         app.setStyle("Fusion")
-    case "Linux":
-        env = QProcessEnvironment.systemEnvironment()
-        if not "kde" in env.value("XDG_CURRENT_DESKTOP").casefold():
-            app.setStyle("Breeze")
-            QIcon.setThemeName("breeze")
+    case "Darwin":
+        app.setStyle("Fusion")
 
 window = MainWindow()
 window.show()
