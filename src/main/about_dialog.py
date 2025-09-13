@@ -37,3 +37,8 @@ class AboutDialog(QDialog):
         self.ui.whatsNewButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/whats-new"))
         self.ui.sourceCodeButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/source-code"))
         self.ui.issueReportButton.clicked.connect(lambda: QDesktopServices.openUrl("https://downloader.markopejic.com/report-an-issue"))
+    
+
+    def showEvent(self, event):
+        self.ui.tabWidget.setCurrentIndex(0)
+        return super().showEvent(event)
