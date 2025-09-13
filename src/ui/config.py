@@ -21,23 +21,21 @@ from PySide6.QtGui import QIcon
 
 class Config:
     APP_NAME = "Media Downloader"
-
     STATUS_LABEL_TEXT = {
-        "download_failed": "Downloading Failed.",
-        "download_cancelled": "Downloading Cancelled.",
-        "download_finished": "Downloading Finished.",
-        "cancelling_download": "Cancelling Download...",
+        "download_failed": "Downloading failed",
+        "download_cancelled": "Downloading cancelled",
+        "download_finished": "Downloading finished",
+        "cancelling_download": "Cancelling downloading...",
         "downloading": "Downloading...",
         "extracting_urls": "Analyzing URLs...",
-        "data_pull_failed": "Data Pull Failed.",
-        "data_pull_cancelled": "Data Pull Cancelled.",
-        "data_pull_finished": "Data Pull Finished.",
-        "cancelling_data_pull": "Cancelling Data Pull...",
-        "pulling_data": "Pulling Data...",
+        "data_pull_failed": "Loading options failed",
+        "data_pull_cancelled": "Loading options cancelled",
+        "data_pull_finished": "Loading options finished",
+        "cancelling_data_pull": "Cancelling option loading...",
+        "pulling_data": "Loading options...",
         "converting": "Processing...",
-        "no_internet": "No internet connection.",
+        "no_internet": "No internet connection",
     }
-
     STATUS_LABEL_ICONS = {
         "download_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
         "download_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
@@ -53,7 +51,6 @@ class Config:
         "converting": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
         "no_internet": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.NetworkOffline)),
     }
-
     TAB_TEXT = {
         "download_failed": "Failed",
         "download_cancelled": "Cancelled",
@@ -65,36 +62,17 @@ class Config:
         "data_pull_cancelled": "Cancelled",
         "data_pull_finished": "Finished",
         "cancelling_data_pull": "Cancelling",
-        "pulling_data": "Pulling Data",
+        "pulling_data": "Loading options",
         "converting": "Downloading",
         "no_internet": "Failed",
     }
-
-    TAB_ICONS = {
-        "download_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-        "download_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-        "download_finished": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.MediaPlaybackStart)),
-        "cancelling_download": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-        "downloading": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
-        "extracting_urls": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)),
-        "data_pull_failed": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-        "data_pull_cancelled": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-        "data_pull_finished": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogInformation)),
-        "cancelling_data_pull": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-        "pulling_data": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh)),
-        "converting": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown)),
-        "no_internet": QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogWarning)),
-    }
-
     WINDOW_TITLES = {
         "error": "Error - Tab <pretty_tab_number>",
     }
-
     BUTTON_TEXT = {
         "download": {"default": "&Download", "secondary": "Cancel &Download"},
-        "refresh": {"default": "&Pull Data", "secondary": "Cancel Data &Pull"},
+        "refresh": {"default": "&Load Options", "secondary": "Cancel Option &Load"},
     }
-
     FORMATS = {
         "Audio": "audio",
         "Video": "video",
