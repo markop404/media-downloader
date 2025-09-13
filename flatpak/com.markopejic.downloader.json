@@ -1,9 +1,11 @@
 {
     "id": "com.markopejic.downloader",
     "runtime": "org.kde.Platform",
-    "runtime-version": "6.7",
+    "runtime-version": "6.9",
     "sdk": "org.kde.Sdk",
-    "command": "com.markopejic.downloader",
+    "base": "io.qt.PySide.BaseApp",
+    "base-version": "6.9",
+    "command": "/usr/bin/env python /app/main.py",
     "finish-args": [
         "--share=network",
         "--socket=wayland",
@@ -13,68 +15,42 @@
         "--filesystem=xdg-download:create"
     ],
     "cleanup" : [
-        "/include",
-        "/lib/pkgconfig",
         "/man",
-        "/share/doc",
-        "/share/man",
-        "/share/pkgconfig",
-        "*.la",
         "*.a"
     ],
+    "cleanup-commands": [
+        "/app/cleanup-BaseApp.sh"
+    ],
+    "build-options": {
+        "env": [
+            "BASEAPP_REMOVE_WEBENGINE=1",
+            "BASEAPP_DISABLE_NUMPY=1"
+        ]
+    },
     "modules": [
+        "python3-yt-dlp.json",
         {
             "name": "ffmpeg",
-            "config-opts": [
-                "--disable-debug",
-                "--disable-doc",
-                "--disable-static",
-                "--enable-gpl",
-                "--enable-shared",
-                "--disable-ffplay",
-                "--disable-devices",
-                "--enable-gnutls",
-                "--enable-libmp3lame",
-                "--enable-libopus",
-                "--enable-libvorbis"
-            ],
-            "cleanup": [
-                "/share/ffmpeg"
+            "buildsystem": "simple",
+            "build-commands": [
+                "mv bin/* /app/bin/"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.xz",
-                    "sha256": "8646515b638a3ad303e23af6a3587734447cb8fc0a0c064ecdb8e95c4fd8b389"
-                }
-            ]
-        },
-        {
-            "name": "python3-PySide6",
-            "buildsystem": "simple",
-            "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"PySide6-Essentials\" --no-build-isolation"
-            ],
-            "sources": [
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/5c/4d/00a5716e56c35c5621368c89abb360f6e953e2be639cd5f11e8075894e41/PySide6_Essentials-6.7.3-cp39-abi3-manylinux_2_31_aarch64.whl",
-                    "sha256": "acdde06b74f26e7d26b4ae1461081b32a6cb17fcaa2a580050b5e0f0f12236c9"
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2025-09-07-14-18/ffmpeg-N-121008-gf4b044bbe3-linux64-gpl.tar.xz",
+                    "sha256": "a77135fe7aeefa49bea03865b160c83c766b2878764af31e016f0e963f346d20",
+                    "only-arches": [
+                        "x86_64"
+                    ]
                 },
                 {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/8d/d8/a08ca6eca6839be5d604e4035ce899f9d6df0f612191f4ed4d03e51f1e0e/PySide6_Essentials-6.7.3-cp39-abi3-manylinux_2_28_x86_64.whl",
-                    "sha256": "cda6fd26aead48f32e57f044d18aa75dc39265b49d7957f515ce7ac3989e7029"
-                },
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/ef/3c/bb524437df11ae79845b230d682b162935c7226b1fb7be2544dceca01e0f/shiboken6-6.7.3-cp39-abi3-manylinux_2_31_aarch64.whl",
-                    "sha256": "f0dd635178e64a45be2f84c9f33dd79ac30328da87f834f21a0baf69ae210e6e"
-                },
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/b2/e9/5c0c67de510da7818703d01123f7998cc495e99c0e6979a6ed6eb2ee09d0/shiboken6-6.7.3-cp39-abi3-manylinux_2_28_x86_64.whl",
-                    "sha256": "f0852e5781de78be5b13c140ec4c7fb9734e2aaf2986eb2d6a224363e03efccc"
+                    "type": "archive",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2025-09-07-14-18/ffmpeg-N-121008-gf4b044bbe3-linuxarm64-gpl.tar.xz",
+                    "sha256": "4914b6ffaaa55706ca9822e0f4614addc9521f480734ba530c4268a9394f6f84",
+                    "only-arches": [
+                        "aarch64"
+                    ]
                 }
             ]
         },
@@ -85,25 +61,22 @@
                 "install -D src/flatpak/com.markopejic.downloader.desktop /app/share/applications/com.markopejic.downloader.desktop",
                 "install -D src/flatpak/com.markopejic.downloader.metainfo.xml /app/share/metainfo/com.markopejic.downloader.metainfo.xml",
                 "install -D src/icons/icon.png /app/share/icons/hicolor/512x512/apps/com.markopejic.downloader.png",
-                "install -D src/icons/icon.png /app/icons/icon.png",
                 "install -D src/main.py /app/main.py",
-                "install -D src/flatpak/runner /app/bin/com.markopejic.downloader",
                 "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} --compile setuptools ./src --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/markop404/media-downloader/",
-                    "tag": "v4.0.0",
+                    "tag": "v4.1.2",
                     "dest": "src"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/ff/ae/f19306b5a221f6a436d8f2238d5b80925004093fa3edea59835b514d9057/setuptools-75.1.0-py3-none-any.whl",
-                    "sha256": "35ab7fd3bcd95e6b7fd704e4a1539513edad446c097797f2985e0e4b960772f2"
+                    "url": "https://files.pythonhosted.org/packages/a3/dc/17031897dae0efacfea57dfd3a82fdd2a2aeb58e0ff71b77b87e44edc772/setuptools-80.9.0-py3-none-any.whl",
+                    "sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
                 }
             ]
-        },
-        "python3-yt-dlp.json"
+        }
     ]
 }
