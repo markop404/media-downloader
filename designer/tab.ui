@@ -2,17 +2,15 @@
 <ui version="4.0">
  <class>Tab</class>
  <widget class="QWidget" name="Tab">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>636</width>
-    <height>682</height>
-   </rect>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QPlainTextEdit" name="plainTextEdit">
+     <property name="toolTip">
+      <string>Each URL should be pasted on it's own line.</string>
+     </property>
+     <property name="lineWrapMode">
+      <enum>QPlainTextEdit::LineWrapMode::NoWrap</enum>
+     </property>
      <property name="placeholderText">
       <string>Paste URLs here...</string>
      </property>
@@ -21,12 +19,15 @@
    <item>
     <spacer name="horizontalSpacer1">
      <property name="orientation">
-      <enum>Qt::Orientation::Horizontal</enum>
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>1166</width>
-       <height>40</height>
+       <width>0</width>
+       <height>20</height>
       </size>
      </property>
     </spacer>
@@ -37,7 +38,7 @@
       <enum>QFormLayout::FieldGrowthPolicy::FieldsStayAtSizeHint</enum>
      </property>
      <property name="rowWrapPolicy">
-      <enum>QFormLayout::RowWrapPolicy::WrapLongRows</enum>
+      <enum>QFormLayout::RowWrapPolicy::DontWrapRows</enum>
      </property>
      <property name="labelAlignment">
       <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
@@ -58,7 +59,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Show Options (Alt+F)</string>
+        <string>Format options&lt;br&gt;(Alt+F)</string>
        </property>
        <item>
         <property name="text">
@@ -85,7 +86,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Show Options (Alt+Q)</string>
+        <string>Quality options&lt;br&gt;(Alt+Q)</string>
        </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
@@ -108,7 +109,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Show Options (Alt+S)</string>
+        <string>Subtitle options&lt;br&gt;(Alt+S)</string>
        </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
@@ -143,10 +144,10 @@
           <enum>Qt::FocusPolicy::NoFocus</enum>
          </property>
          <property name="toolTip">
-          <string>Alt+C</string>
+          <string>Change download folder&lt;br&gt;(Alt+C)</string>
          </property>
          <property name="text">
-          <string>&amp;Change</string>
+          <string>&amp;Change...</string>
          </property>
          <property name="icon">
           <iconset theme="QIcon::ThemeIcon::DocumentSaveAs"/>
@@ -157,45 +158,16 @@
      </item>
     </layout>
    </item>
-   <item>
-    <spacer name="horizontalSpacer2">
-     <property name="orientation">
-      <enum>Qt::Orientation::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>697</width>
-       <height>15</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
    <item alignment="Qt::AlignmentFlag::AlignHCenter">
     <widget class="QCheckBox" name="cropThumbnailsCheckBox">
      <property name="focusPolicy">
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="toolTip">
-      <string>Useful when downloading music. (Alt+T)</string>
+      <string>Crop thumbnails / album arts to square shape (useful when downloading music)&lt;br&gt;(Alt+T)</string>
      </property>
      <property name="text">
-      <string>Crop &amp;thumbnails / album arts to square shape</string>
-     </property>
-    </widget>
-   </item>
-   <item alignment="Qt::AlignmentFlag::AlignHCenter">
-    <widget class="QCheckBox" name="urlremovalCheckBox">
-     <property name="focusPolicy">
-      <enum>Qt::FocusPolicy::NoFocus</enum>
-     </property>
-     <property name="toolTip">
-      <string>Removes each URL from the text entry when it finishes downloading. (Alt+U)</string>
-     </property>
-     <property name="text">
-      <string>Remove &amp;URLs as they are downloaded</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
+      <string>Crop &amp;thumbnails square</string>
      </property>
     </widget>
    </item>
@@ -205,10 +177,10 @@
       <enum>Qt::FocusPolicy::NoFocus</enum>
      </property>
      <property name="toolTip">
-      <string>Embeds subtitles instead of downloading them to a separate file. Only works if downloading in video format. (Alt+S)</string>
+      <string>Embed subtitles directly into audio / video files instead of downloading them to a separate file&lt;br&gt;(Alt+E)</string>
      </property>
      <property name="text">
-      <string>&amp;Embed subtitles to videos</string>
+      <string>&amp;Embed subtitles</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -218,11 +190,14 @@
    <item>
     <spacer name="horizontalSpacer3">
      <property name="orientation">
-      <enum>Qt::Orientation::Horizontal</enum>
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>697</width>
+       <width>0</width>
        <height>40</height>
       </size>
      </property>
@@ -245,20 +220,14 @@
      </item>
      <item>
       <widget class="QPushButton" name="dataPullButton">
-       <property name="minimumSize">
-        <size>
-         <width>110</width>
-         <height>32</height>
-        </size>
-       </property>
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download. (Alt+P)</string>
+        <string>Load subtitle and quality options&lt;br&gt;(Alt+L)</string>
        </property>
        <property name="text">
-        <string>&amp;Pull Data</string>
+        <string>&amp;Load Options</string>
        </property>
        <property name="icon">
         <iconset theme="QIcon::ThemeIcon::ViewRefresh"/>
@@ -270,12 +239,6 @@
      </item>
      <item alignment="Qt::AlignmentFlag::AlignHCenter">
       <widget class="QPushButton" name="downloadButton">
-       <property name="minimumSize">
-        <size>
-         <width>110</width>
-         <height>32</height>
-        </size>
-       </property>
        <property name="focusPolicy">
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
@@ -311,11 +274,14 @@
    <item>
     <spacer name="horizontalSpacer6">
      <property name="orientation">
-      <enum>Qt::Orientation::Horizontal</enum>
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>697</width>
+       <width>0</width>
        <height>60</height>
       </size>
      </property>
@@ -330,18 +296,14 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>0</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="statusIconLabel">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
+      <widget class="QLabel" name="statusIconLabel"/>
      </item>
      <item>
       <spacer name="horizontalSpacer8">
@@ -363,7 +325,6 @@
       <widget class="QLabel" name="statusLabel">
        <property name="font">
         <font>
-         <family>Cantarell</family>
          <pointsize>14</pointsize>
         </font>
        </property>
@@ -379,8 +340,8 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>0</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>

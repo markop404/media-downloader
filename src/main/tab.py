@@ -216,6 +216,8 @@ class Tab(QWidget):
 
 
     def url_download_progress(self, url, processed_url_count, total_url_count):
+        self.remove_urls_from_entry([url])
+        
         if self.cancel_progress:
             raise SystemExit
 
@@ -225,8 +227,6 @@ class Tab(QWidget):
             percentage = None
         if processed_url_count + 1 <= total_url_count:
             self.run_in_gui_thread(lambda: self.update_status_indicators("downloading", (processed_url_count + 1, total_url_count), percentage))
-        if self.ui.urlremovalCheckBox.isChecked():
-            self.remove_urls_from_entry([url])
     
 
     def postprocess_progress(self, data, processed_url_count, total_url_count):

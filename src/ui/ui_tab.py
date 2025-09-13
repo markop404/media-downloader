@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabNAGikJ.ui'
+## Form generated from reading UI file 'tabBvDHyX.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.9.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,28 +24,28 @@ class Ui_Tab(object):
     def setupUi(self, Tab):
         if not Tab.objectName():
             Tab.setObjectName(u"Tab")
-        Tab.resize(636, 682)
         self.verticalLayout = QVBoxLayout(Tab)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.plainTextEdit = QPlainTextEdit(Tab)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
+        self.plainTextEdit.setLineWrapMode(QPlainTextEdit.LineWrapMode.NoWrap)
 
         self.verticalLayout.addWidget(self.plainTextEdit)
 
-        self.horizontalSpacer1 = QSpacerItem(1166, 40, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer1 = QSpacerItem(0, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout.addItem(self.horizontalSpacer1)
 
         self.downloadOptionsFormLayout = QFormLayout()
         self.downloadOptionsFormLayout.setObjectName(u"downloadOptionsFormLayout")
         self.downloadOptionsFormLayout.setFieldGrowthPolicy(QFormLayout.FieldGrowthPolicy.FieldsStayAtSizeHint)
-        self.downloadOptionsFormLayout.setRowWrapPolicy(QFormLayout.RowWrapPolicy.WrapLongRows)
+        self.downloadOptionsFormLayout.setRowWrapPolicy(QFormLayout.RowWrapPolicy.DontWrapRows)
         self.downloadOptionsFormLayout.setLabelAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.downloadOptionsFormLayout.setFormAlignment(Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignTop)
         self.formatLabel = QLabel(Tab)
         self.formatLabel.setObjectName(u"formatLabel")
 
-        self.downloadOptionsFormLayout.setWidget(0, QFormLayout.LabelRole, self.formatLabel)
+        self.downloadOptionsFormLayout.setWidget(0, QFormLayout.ItemRole.LabelRole, self.formatLabel)
 
         self.formatComboBox = QComboBox(Tab)
         self.formatComboBox.addItem("")
@@ -53,36 +53,36 @@ class Ui_Tab(object):
         self.formatComboBox.setObjectName(u"formatComboBox")
         self.formatComboBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
-        self.downloadOptionsFormLayout.setWidget(0, QFormLayout.FieldRole, self.formatComboBox)
+        self.downloadOptionsFormLayout.setWidget(0, QFormLayout.ItemRole.FieldRole, self.formatComboBox)
 
         self.qualityLabel = QLabel(Tab)
         self.qualityLabel.setObjectName(u"qualityLabel")
 
-        self.downloadOptionsFormLayout.setWidget(1, QFormLayout.LabelRole, self.qualityLabel)
+        self.downloadOptionsFormLayout.setWidget(1, QFormLayout.ItemRole.LabelRole, self.qualityLabel)
 
         self.qualityComboBox = QComboBox(Tab)
         self.qualityComboBox.setObjectName(u"qualityComboBox")
         self.qualityComboBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.qualityComboBox.setSizeAdjustPolicy(QComboBox.SizeAdjustPolicy.AdjustToContents)
 
-        self.downloadOptionsFormLayout.setWidget(1, QFormLayout.FieldRole, self.qualityComboBox)
+        self.downloadOptionsFormLayout.setWidget(1, QFormLayout.ItemRole.FieldRole, self.qualityComboBox)
 
         self.subtitlesLabel = QLabel(Tab)
         self.subtitlesLabel.setObjectName(u"subtitlesLabel")
 
-        self.downloadOptionsFormLayout.setWidget(2, QFormLayout.LabelRole, self.subtitlesLabel)
+        self.downloadOptionsFormLayout.setWidget(2, QFormLayout.ItemRole.LabelRole, self.subtitlesLabel)
 
         self.subtitlesComboBox = QComboBox(Tab)
         self.subtitlesComboBox.setObjectName(u"subtitlesComboBox")
         self.subtitlesComboBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.subtitlesComboBox.setSizeAdjustPolicy(QComboBox.SizeAdjustPolicy.AdjustToContents)
 
-        self.downloadOptionsFormLayout.setWidget(2, QFormLayout.FieldRole, self.subtitlesComboBox)
+        self.downloadOptionsFormLayout.setWidget(2, QFormLayout.ItemRole.FieldRole, self.subtitlesComboBox)
 
         self.downloadFolderLabel = QLabel(Tab)
         self.downloadFolderLabel.setObjectName(u"downloadFolderLabel")
 
-        self.downloadOptionsFormLayout.setWidget(3, QFormLayout.LabelRole, self.downloadFolderLabel)
+        self.downloadOptionsFormLayout.setWidget(3, QFormLayout.ItemRole.LabelRole, self.downloadFolderLabel)
 
         self.downloadFolderLayout = QHBoxLayout()
         self.downloadFolderLayout.setObjectName(u"downloadFolderLayout")
@@ -101,27 +101,16 @@ class Ui_Tab(object):
         self.downloadFolderLayout.addWidget(self.setDownloadFolderButton)
 
 
-        self.downloadOptionsFormLayout.setLayout(3, QFormLayout.FieldRole, self.downloadFolderLayout)
+        self.downloadOptionsFormLayout.setLayout(3, QFormLayout.ItemRole.FieldRole, self.downloadFolderLayout)
 
 
         self.verticalLayout.addLayout(self.downloadOptionsFormLayout)
-
-        self.horizontalSpacer2 = QSpacerItem(697, 15, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.verticalLayout.addItem(self.horizontalSpacer2)
 
         self.cropThumbnailsCheckBox = QCheckBox(Tab)
         self.cropThumbnailsCheckBox.setObjectName(u"cropThumbnailsCheckBox")
         self.cropThumbnailsCheckBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
 
         self.verticalLayout.addWidget(self.cropThumbnailsCheckBox, 0, Qt.AlignmentFlag.AlignHCenter)
-
-        self.urlremovalCheckBox = QCheckBox(Tab)
-        self.urlremovalCheckBox.setObjectName(u"urlremovalCheckBox")
-        self.urlremovalCheckBox.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.urlremovalCheckBox.setChecked(True)
-
-        self.verticalLayout.addWidget(self.urlremovalCheckBox, 0, Qt.AlignmentFlag.AlignHCenter)
 
         self.embedSubtitlesCheckBox = QCheckBox(Tab)
         self.embedSubtitlesCheckBox.setObjectName(u"embedSubtitlesCheckBox")
@@ -130,7 +119,7 @@ class Ui_Tab(object):
 
         self.verticalLayout.addWidget(self.embedSubtitlesCheckBox, 0, Qt.AlignmentFlag.AlignHCenter)
 
-        self.horizontalSpacer3 = QSpacerItem(697, 40, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer3 = QSpacerItem(0, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout.addItem(self.horizontalSpacer3)
 
@@ -142,7 +131,6 @@ class Ui_Tab(object):
 
         self.dataPullButton = QPushButton(Tab)
         self.dataPullButton.setObjectName(u"dataPullButton")
-        self.dataPullButton.setMinimumSize(QSize(110, 32))
         self.dataPullButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh))
         self.dataPullButton.setIcon(icon1)
@@ -151,7 +139,6 @@ class Ui_Tab(object):
 
         self.downloadButton = QPushButton(Tab)
         self.downloadButton.setObjectName(u"downloadButton")
-        self.downloadButton.setMinimumSize(QSize(110, 32))
         self.downloadButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         icon2 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoDown))
         self.downloadButton.setIcon(icon2)
@@ -165,13 +152,13 @@ class Ui_Tab(object):
 
         self.verticalLayout.addLayout(self.actionButtonsLayout)
 
-        self.horizontalSpacer6 = QSpacerItem(697, 60, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer6 = QSpacerItem(0, 60, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout.addItem(self.horizontalSpacer6)
 
         self.statusIndicatorsLayout = QHBoxLayout()
         self.statusIndicatorsLayout.setObjectName(u"statusIndicatorsLayout")
-        self.horizontalSpacer7 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer7 = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.statusIndicatorsLayout.addItem(self.horizontalSpacer7)
 
@@ -187,13 +174,12 @@ class Ui_Tab(object):
         self.statusLabel = QLabel(Tab)
         self.statusLabel.setObjectName(u"statusLabel")
         font = QFont()
-        font.setFamilies([u"Cantarell"])
         font.setPointSize(14)
         self.statusLabel.setFont(font)
 
         self.statusIndicatorsLayout.addWidget(self.statusLabel)
 
-        self.horizontalSpacer9 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer9 = QSpacerItem(0, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.statusIndicatorsLayout.addItem(self.horizontalSpacer9)
 
@@ -217,51 +203,50 @@ class Ui_Tab(object):
     # setupUi
 
     def retranslateUi(self, Tab):
+#if QT_CONFIG(tooltip)
+        self.plainTextEdit.setToolTip(QCoreApplication.translate("Tab", u"Each URL should be pasted on it's own line.", None))
+#endif // QT_CONFIG(tooltip)
         self.plainTextEdit.setPlaceholderText(QCoreApplication.translate("Tab", u"Paste URLs here...", None))
         self.formatLabel.setText(QCoreApplication.translate("Tab", u"<u>F</u>ormat:", None))
         self.formatComboBox.setItemText(0, QCoreApplication.translate("Tab", u"Video", None))
         self.formatComboBox.setItemText(1, QCoreApplication.translate("Tab", u"Audio", None))
 
 #if QT_CONFIG(tooltip)
-        self.formatComboBox.setToolTip(QCoreApplication.translate("Tab", u"Show Options (Alt+F)", None))
+        self.formatComboBox.setToolTip(QCoreApplication.translate("Tab", u"Format options<br>(Alt+F)", None))
 #endif // QT_CONFIG(tooltip)
         self.qualityLabel.setText(QCoreApplication.translate("Tab", u"<u>Q</u>uality:", None))
 #if QT_CONFIG(tooltip)
-        self.qualityComboBox.setToolTip(QCoreApplication.translate("Tab", u"Show Options (Alt+Q)", None))
+        self.qualityComboBox.setToolTip(QCoreApplication.translate("Tab", u"Quality options<br>(Alt+Q)", None))
 #endif // QT_CONFIG(tooltip)
         self.qualityComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"Best", None))
         self.subtitlesLabel.setText(QCoreApplication.translate("Tab", u"<u>S</u>ubtitles:", None))
 #if QT_CONFIG(tooltip)
-        self.subtitlesComboBox.setToolTip(QCoreApplication.translate("Tab", u"Show Options (Alt+S)", None))
+        self.subtitlesComboBox.setToolTip(QCoreApplication.translate("Tab", u"Subtitle options<br>(Alt+S)", None))
 #endif // QT_CONFIG(tooltip)
         self.subtitlesComboBox.setPlaceholderText(QCoreApplication.translate("Tab", u"None", None))
         self.downloadFolderLabel.setText(QCoreApplication.translate("Tab", u"Download Folder:", None))
         self.downloadFolderIndicatorLabel.setText(QCoreApplication.translate("Tab", u"None", None))
 #if QT_CONFIG(tooltip)
-        self.setDownloadFolderButton.setToolTip(QCoreApplication.translate("Tab", u"Alt+C", None))
+        self.setDownloadFolderButton.setToolTip(QCoreApplication.translate("Tab", u"Change download folder<br>(Alt+C)", None))
 #endif // QT_CONFIG(tooltip)
-        self.setDownloadFolderButton.setText(QCoreApplication.translate("Tab", u"&Change", None))
+        self.setDownloadFolderButton.setText(QCoreApplication.translate("Tab", u"&Change...", None))
 #if QT_CONFIG(tooltip)
-        self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Useful when downloading music. (Alt+T)", None))
+        self.cropThumbnailsCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Crop thumbnails / album arts to square shape (useful when downloading music)<br>(Alt+T)", None))
 #endif // QT_CONFIG(tooltip)
-        self.cropThumbnailsCheckBox.setText(QCoreApplication.translate("Tab", u"Crop &thumbnails / album arts to square shape", None))
+        self.cropThumbnailsCheckBox.setText(QCoreApplication.translate("Tab", u"Crop &thumbnails square", None))
 #if QT_CONFIG(tooltip)
-        self.urlremovalCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Removes each URL from the text entry when it finishes downloading. (Alt+U)", None))
+        self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Embed subtitles directly into audio / video files instead of downloading them to a separate file<br>(Alt+E)", None))
 #endif // QT_CONFIG(tooltip)
-        self.urlremovalCheckBox.setText(QCoreApplication.translate("Tab", u"Remove &URLs as they are downloaded", None))
+        self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"&Embed subtitles", None))
 #if QT_CONFIG(tooltip)
-        self.embedSubtitlesCheckBox.setToolTip(QCoreApplication.translate("Tab", u"Embeds subtitles instead of downloading them to a separate file. Only works if downloading in video format. (Alt+S)", None))
+        self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Load subtitle and quality options<br>(Alt+L)", None))
 #endif // QT_CONFIG(tooltip)
-        self.embedSubtitlesCheckBox.setText(QCoreApplication.translate("Tab", u"&Embed subtitles to videos", None))
-#if QT_CONFIG(tooltip)
-        self.dataPullButton.setToolTip(QCoreApplication.translate("Tab", u"Pulls data from the URLs, allowing you to set a custom quality and subtitle language to download. (Alt+P)", None))
-#endif // QT_CONFIG(tooltip)
-        self.dataPullButton.setText(QCoreApplication.translate("Tab", u"&Pull Data", None))
+        self.dataPullButton.setText(QCoreApplication.translate("Tab", u"&Load Options", None))
 #if QT_CONFIG(tooltip)
         self.downloadButton.setToolTip(QCoreApplication.translate("Tab", u"Alt+D", None))
 #endif // QT_CONFIG(tooltip)
         self.downloadButton.setText(QCoreApplication.translate("Tab", u"&Download", None))
-        self.statusIconLabel.setText("")
         self.statusLabel.setText("")
         pass
     # retranslateUi
+
