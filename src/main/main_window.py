@@ -21,6 +21,7 @@ import sys
 import subprocess
 from threading import Thread
 
+from PySide6.QtCore import QSettings, QByteArray
 from PySide6.QtWidgets import QMainWindow, QWidget, QMenu
 from PySide6.QtGui import QIcon, QKeySequence, QShortcut
 
@@ -34,15 +35,31 @@ class MainWindow(QMainWindow):
         self.setup_ui()
         self.connect_signals_and_slots()
         
+        self.settings = QSettings()
         self.highest_tab_number = 0
         self.popup_window_running = False
-
-        if "__main__" in sys.modules:
-            self.create_new_instance_command = [sys.executable, sys.modules["__main__"].__file__]
-        else:
-            self.create_new_instance_command = None
         
         self.create_new_tab()
+        self.read_settings()
+    
+
+    def read_settings(self):
+        self.settings.beginGroup("MainWindow")
+        geometry = self.settings.value("geometry", QByteArray())
+        if not geometry.isEmpty():
+            self.restoreGeometry(geometry)
+        self.settings.endGroup()
+    
+
+    def write_settings(self):
+        self.settings.beginGroup("MainWindow")
+        self.settings.setValue("geometry", self.saveGeometry())
+        self.settings.endGroup()
+    
+
+    def closeEvent(self, event):
+        self.write_settings()
+        return super().closeEvent(event)
 
 
     def setup_ui(self):
@@ -57,7 +74,6 @@ class MainWindow(QMainWindow):
         self.tab_buttons.setupUi(self.tab_button_layout)
         
         self.main_menu = QMenu()
-        self.main_menu.addAction(self.ui.actionNewWindow)
         self.main_menu.addAction(self.ui.actionKeyboardShortcuts)
         self.main_menu.addAction(self.ui.actionAbout)
         self.tab_buttons.menuButton.setMenu(self.main_menu)
@@ -75,14 +91,8 @@ class MainWindow(QMainWindow):
 
     def connect_signals_and_slots(self):
         self.ui.actionAbout.triggered.connect(self.about_dialog.exec)
-        self.ui.actionNewWindow.triggered.connect(self.create_new_instance)
         self.ui.actionKeyboardShortcuts.triggered.connect(self.keyboard_shortcuts_dialog.exec)
         self.tab_buttons.newTabButton.clicked.connect(self.create_new_tab)
-
-
-    def create_new_instance(self):
-        if self.create_new_instance_command:
-            subprocess.Popen(self.create_new_instance_command)
     
 
     def create_new_tab(self):
@@ -119,7 +129,7 @@ class MainWindow(QMainWindow):
 
             text = f"{pretty_tab_number} - {ui.Config.TAB_TEXT[situation]}{progress_text}"
             self.ui.tabWidget.setTabText(index, text)
-            self.ui.tabWidget.setTabIcon(index, ui.Config.TAB_ICONS[situation])
+            self.ui.tabWidget.setTabIcon(index, ui.Config.STATUS_LABEL_ICONS[situation])
         else:
             self.ui.tabWidget.setTabText(index, f"{pretty_tab_number}")
             self.ui.tabWidget.setTabIcon(index, QIcon())
