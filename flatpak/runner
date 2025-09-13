@@ -1,4 +1,0 @@
-#!/bin/sh
-
-cd /app
-/usr/bin/env python /app/main.py
