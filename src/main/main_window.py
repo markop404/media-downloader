@@ -17,8 +17,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import sys
-import subprocess
+from time import sleep
 from threading import Thread
 
 from PySide6.QtCore import QSettings, QByteArray

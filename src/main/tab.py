@@ -19,7 +19,6 @@
 
 from threading import Thread
 from time import sleep
-import sys
 
 from PySide6.QtWidgets import QMessageBox, QWidget, QFileDialog
 from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize
