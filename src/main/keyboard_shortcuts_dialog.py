@@ -25,3 +25,4 @@ class KeyboardShortcutsDialog(QDialog):
         super().__init__(parent)
         self.ui = Ui_KeyboardShortcutsDialog()
         self.ui.setupUi(self)
+        self.ui.closeDialogButton.clicked.connect(self.close)

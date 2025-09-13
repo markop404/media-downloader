@@ -6,30 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>450</width>
-    <height>715</height>
+    <width>468</width>
+    <height>842</height>
    </rect>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>450</width>
-    <height>715</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>650</width>
-    <height>860</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>Keyboard Shortcuts</string>
   </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>icons/icon.png</normaloff>icons/icon.png</iconset>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="sizeConstraint">
+    <enum>QLayout::SizeConstraint::SetFixedSize</enum>
+   </property>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>0</width>
+       <height>12</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
    <item>
     <widget class="QLabel" name="sectionLabel3">
      <property name="font">
@@ -40,17 +43,11 @@
      <property name="text">
       <string>General</string>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
-     </property>
-     <property name="textInteractionFlags">
-      <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
-     </property>
     </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout13">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton11">
        <property name="maximumSize">
         <size>
@@ -69,7 +66,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator6">
        <property name="font">
         <font>
@@ -106,10 +103,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -128,7 +128,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout14">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton12">
        <property name="maximumSize">
         <size>
@@ -147,7 +147,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator7">
        <property name="font">
         <font>
@@ -172,7 +172,7 @@
         <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="text">
-        <string>P</string>
+        <string>L</string>
        </property>
        <property name="autoDefault">
         <bool>false</bool>
@@ -184,10 +184,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -195,7 +198,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel6">
        <property name="text">
-        <string>Pull Data</string>
+        <string>Load options</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -203,6 +206,22 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>0</width>
+       <height>12</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <widget class="QLabel" name="sectionLabel2">
@@ -214,17 +233,11 @@
      <property name="text">
       <string>Controls</string>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
-     </property>
-     <property name="textInteractionFlags">
-      <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
-     </property>
     </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout9">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton32">
        <property name="maximumSize">
         <size>
@@ -243,7 +256,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator17">
        <property name="font">
         <font>
@@ -280,10 +293,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -291,7 +307,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel16">
        <property name="text">
-        <string>Show Format Options</string>
+        <string>Show format options</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -302,7 +318,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout10">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton3">
        <property name="maximumSize">
         <size>
@@ -321,7 +337,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator2">
        <property name="font">
         <font>
@@ -358,10 +374,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -369,7 +388,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel2">
        <property name="text">
-        <string>Show Quality Options</string>
+        <string>Show quality options</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -380,7 +399,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout2">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton18">
        <property name="maximumSize">
         <size>
@@ -399,7 +418,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator10">
        <property name="font">
         <font>
@@ -436,10 +455,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -447,7 +469,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel9">
        <property name="text">
-        <string>Show Subtitle Options</string>
+        <string>Show subtitle options</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -458,7 +480,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout11">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton5">
        <property name="maximumSize">
         <size>
@@ -477,7 +499,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator3">
        <property name="font">
         <font>
@@ -514,10 +536,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -525,7 +550,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel3">
        <property name="text">
-        <string>Change Download Folder</string>
+        <string>Change download folder</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -536,7 +561,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout4">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton22">
        <property name="maximumSize">
         <size>
@@ -555,7 +580,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator12">
        <property name="font">
         <font>
@@ -592,10 +617,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -603,85 +631,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel11">
        <property name="text">
-        <string>Toggle Thumbnail Cropping</string>
-       </property>
-       <property name="textInteractionFlags">
-        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="shortcutLayout5">
-     <item alignment="">
-      <widget class="QPushButton" name="keyButton24">
-       <property name="maximumSize">
-        <size>
-         <width>55</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::FocusPolicy::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>Alt</string>
-       </property>
-       <property name="autoDefault">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item alignment="">
-      <widget class="QLabel" name="keySeparator13">
-       <property name="font">
-        <font>
-         <pointsize>15</pointsize>
-         <fontweight>Light</fontweight>
-        </font>
-       </property>
-       <property name="text">
-        <string>+</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="keyButton25">
-       <property name="maximumSize">
-        <size>
-         <width>35</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::FocusPolicy::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>U</string>
-       </property>
-       <property name="autoDefault">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer12">
-       <property name="orientation">
-        <enum>Qt::Orientation::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="shortcutDescriptionLabel12">
-       <property name="text">
-        <string>Toggle URL Removal</string>
+        <string>Toggle thumbnail cropping</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -692,7 +642,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout3">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton20">
        <property name="maximumSize">
         <size>
@@ -711,7 +661,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator11">
        <property name="font">
         <font>
@@ -748,10 +698,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -759,7 +712,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel10">
        <property name="text">
-        <string>Toggle Subtitle Embedding</string>
+        <string>Toggle subtitle embedding</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -767,6 +720,22 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>0</width>
+       <height>12</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <widget class="QLabel" name="sectionLabel1">
@@ -778,17 +747,11 @@
      <property name="text">
       <string>Tabs</string>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
-     </property>
-     <property name="textInteractionFlags">
-      <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
-     </property>
     </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout16">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton16">
        <property name="maximumSize">
         <size>
@@ -807,7 +770,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator9">
        <property name="font">
         <font>
@@ -844,10 +807,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -855,7 +821,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel8">
        <property name="text">
-        <string>New Tab</string>
+        <string>New tab</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -866,7 +832,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout8">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton30">
        <property name="maximumSize">
         <size>
@@ -885,7 +851,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator16">
        <property name="font">
         <font>
@@ -922,10 +888,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -933,7 +902,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel15">
        <property name="text">
-        <string>Close Tab</string>
+        <string>Close tab</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -944,7 +913,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout6">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton26">
        <property name="maximumSize">
         <size>
@@ -963,7 +932,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator14">
        <property name="font">
         <font>
@@ -994,10 +963,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -1005,7 +977,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel13">
        <property name="text">
-        <string>Switch to Tab on the Left</string>
+        <string>Switch to tab on the left</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -1016,7 +988,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout7">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton28">
        <property name="maximumSize">
         <size>
@@ -1035,7 +1007,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator15">
        <property name="font">
         <font>
@@ -1066,10 +1038,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -1077,7 +1052,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel14">
        <property name="text">
-        <string>Switch to Tab on the Right</string>
+        <string>Switch to tab on the right</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -1088,7 +1063,7 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="shortcutLayout12">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton8">
        <property name="maximumSize">
         <size>
@@ -1107,7 +1082,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator5">
        <property name="font">
         <font>
@@ -1142,7 +1117,7 @@
      <item>
       <widget class="QLabel" name="keySeparator4">
        <property name="text">
-        <string>....</string>
+        <string>...</string>
        </property>
       </widget>
      </item>
@@ -1170,10 +1145,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -1181,7 +1159,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel4">
        <property name="text">
-        <string>Switch to Tab Directly</string>
+        <string>Switch to tab directly</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -1189,6 +1167,22 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>0</width>
+       <height>12</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <widget class="QLabel" name="sectionLabel4">
@@ -1200,95 +1194,11 @@
      <property name="text">
       <string>Other</string>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
-     </property>
-     <property name="textInteractionFlags">
-      <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
-     </property>
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="shortcutLayout1">
-     <item alignment="">
-      <widget class="QPushButton" name="keyButton1">
-       <property name="maximumSize">
-        <size>
-         <width>55</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::FocusPolicy::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>Ctrl</string>
-       </property>
-       <property name="autoDefault">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item alignment="">
-      <widget class="QLabel" name="keySeparator1">
-       <property name="font">
-        <font>
-         <pointsize>15</pointsize>
-         <fontweight>Light</fontweight>
-        </font>
-       </property>
-       <property name="text">
-        <string>+</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="keyButton2">
-       <property name="maximumSize">
-        <size>
-         <width>35</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::FocusPolicy::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>N</string>
-       </property>
-       <property name="autoDefault">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer1">
-       <property name="orientation">
-        <enum>Qt::Orientation::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="shortcutDescriptionLabel1">
-       <property name="text">
-        <string>New Window</string>
-       </property>
-       <property name="textInteractionFlags">
-        <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
     <layout class="QHBoxLayout" name="shortcutLayout15">
-     <item alignment="">
+     <item>
       <widget class="QPushButton" name="keyButton14">
        <property name="maximumSize">
         <size>
@@ -1307,7 +1217,7 @@
        </property>
       </widget>
      </item>
-     <item alignment="">
+     <item>
       <widget class="QLabel" name="keySeparator8">
        <property name="font">
         <font>
@@ -1344,10 +1254,13 @@
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>80</width>
+         <height>0</height>
         </size>
        </property>
       </spacer>
@@ -1355,7 +1268,7 @@
      <item>
       <widget class="QLabel" name="shortcutDescriptionLabel7">
        <property name="text">
-        <string>View Shortcuts</string>
+        <string>View shortcuts</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -1363,6 +1276,38 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_5">
+     <property name="orientation">
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item alignment="Qt::AlignmentFlag::AlignRight">
+    <widget class="QPushButton" name="closeDialogButton">
+     <property name="text">
+      <string>Close</string>
+     </property>
+     <property name="icon">
+      <iconset theme="QIcon::ThemeIcon::WindowClose"/>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+     <property name="default">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

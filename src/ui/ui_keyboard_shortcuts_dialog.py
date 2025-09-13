@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'keyboard_shortcuts_dialogqKtBrM.ui'
+## Form generated from reading UI file 'keyboard_shortcuts_dialogPpsaYs.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.3
+## Created by: Qt User Interface Compiler version 6.9.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,28 +16,26 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QHBoxLayout, QLabel,
-    QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout,
-    QWidget)
+    QLayout, QPushButton, QSizePolicy, QSpacerItem,
+    QVBoxLayout, QWidget)
 
 class Ui_KeyboardShortcutsDialog(object):
     def setupUi(self, KeyboardShortcutsDialog):
         if not KeyboardShortcutsDialog.objectName():
             KeyboardShortcutsDialog.setObjectName(u"KeyboardShortcutsDialog")
-        KeyboardShortcutsDialog.resize(450, 715)
-        KeyboardShortcutsDialog.setMinimumSize(QSize(450, 715))
-        KeyboardShortcutsDialog.setMaximumSize(QSize(650, 860))
-        icon = QIcon()
-        icon.addFile(u"icons/icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        KeyboardShortcutsDialog.setWindowIcon(icon)
+        KeyboardShortcutsDialog.resize(468, 842)
         self.verticalLayout = QVBoxLayout(KeyboardShortcutsDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setSizeConstraint(QLayout.SizeConstraint.SetFixedSize)
+        self.verticalSpacer = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
+
         self.sectionLabel3 = QLabel(KeyboardShortcutsDialog)
         self.sectionLabel3.setObjectName(u"sectionLabel3")
         font = QFont()
         font.setBold(True)
         self.sectionLabel3.setFont(font)
-        self.sectionLabel3.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
-        self.sectionLabel3.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.verticalLayout.addWidget(self.sectionLabel3)
 
@@ -68,7 +66,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout13.addWidget(self.keyButton10)
 
-        self.horizontalSpacer5 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer5 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout13.addItem(self.horizontalSpacer5)
 
@@ -105,7 +103,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout14.addWidget(self.keyButton13)
 
-        self.horizontalSpacer6 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer6 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout14.addItem(self.horizontalSpacer6)
 
@@ -118,11 +116,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.verticalLayout.addLayout(self.shortcutLayout14)
 
+        self.verticalSpacer_2 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.verticalLayout.addItem(self.verticalSpacer_2)
+
         self.sectionLabel2 = QLabel(KeyboardShortcutsDialog)
         self.sectionLabel2.setObjectName(u"sectionLabel2")
         self.sectionLabel2.setFont(font)
-        self.sectionLabel2.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
-        self.sectionLabel2.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.verticalLayout.addWidget(self.sectionLabel2)
 
@@ -150,7 +150,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout9.addWidget(self.keyButton33)
 
-        self.horizontalSpacer16 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer16 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout9.addItem(self.horizontalSpacer16)
 
@@ -187,7 +187,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout10.addWidget(self.keyButton4)
 
-        self.horizontalSpacer2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer2 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout10.addItem(self.horizontalSpacer2)
 
@@ -224,7 +224,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout2.addWidget(self.keyButton19)
 
-        self.horizontalSpacer9 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer9 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout2.addItem(self.horizontalSpacer9)
 
@@ -261,7 +261,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout11.addWidget(self.keyButton6)
 
-        self.horizontalSpacer3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer3 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout11.addItem(self.horizontalSpacer3)
 
@@ -298,7 +298,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout4.addWidget(self.keyButton23)
 
-        self.horizontalSpacer11 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer11 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout4.addItem(self.horizontalSpacer11)
 
@@ -310,43 +310,6 @@ class Ui_KeyboardShortcutsDialog(object):
 
 
         self.verticalLayout.addLayout(self.shortcutLayout4)
-
-        self.shortcutLayout5 = QHBoxLayout()
-        self.shortcutLayout5.setObjectName(u"shortcutLayout5")
-        self.keyButton24 = QPushButton(KeyboardShortcutsDialog)
-        self.keyButton24.setObjectName(u"keyButton24")
-        self.keyButton24.setMaximumSize(QSize(55, 16777215))
-        self.keyButton24.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton24.setAutoDefault(False)
-
-        self.shortcutLayout5.addWidget(self.keyButton24)
-
-        self.keySeparator13 = QLabel(KeyboardShortcutsDialog)
-        self.keySeparator13.setObjectName(u"keySeparator13")
-        self.keySeparator13.setFont(font1)
-
-        self.shortcutLayout5.addWidget(self.keySeparator13)
-
-        self.keyButton25 = QPushButton(KeyboardShortcutsDialog)
-        self.keyButton25.setObjectName(u"keyButton25")
-        self.keyButton25.setMaximumSize(QSize(35, 16777215))
-        self.keyButton25.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton25.setAutoDefault(False)
-
-        self.shortcutLayout5.addWidget(self.keyButton25)
-
-        self.horizontalSpacer12 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.shortcutLayout5.addItem(self.horizontalSpacer12)
-
-        self.shortcutDescriptionLabel12 = QLabel(KeyboardShortcutsDialog)
-        self.shortcutDescriptionLabel12.setObjectName(u"shortcutDescriptionLabel12")
-        self.shortcutDescriptionLabel12.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
-
-        self.shortcutLayout5.addWidget(self.shortcutDescriptionLabel12)
-
-
-        self.verticalLayout.addLayout(self.shortcutLayout5)
 
         self.shortcutLayout3 = QHBoxLayout()
         self.shortcutLayout3.setObjectName(u"shortcutLayout3")
@@ -372,7 +335,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout3.addWidget(self.keyButton21)
 
-        self.horizontalSpacer10 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer10 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout3.addItem(self.horizontalSpacer10)
 
@@ -385,11 +348,13 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.verticalLayout.addLayout(self.shortcutLayout3)
 
+        self.verticalSpacer_3 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.verticalLayout.addItem(self.verticalSpacer_3)
+
         self.sectionLabel1 = QLabel(KeyboardShortcutsDialog)
         self.sectionLabel1.setObjectName(u"sectionLabel1")
         self.sectionLabel1.setFont(font)
-        self.sectionLabel1.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
-        self.sectionLabel1.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.verticalLayout.addWidget(self.sectionLabel1)
 
@@ -417,7 +382,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout16.addWidget(self.keyButton17)
 
-        self.horizontalSpacer8 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer8 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout16.addItem(self.horizontalSpacer8)
 
@@ -454,7 +419,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout8.addWidget(self.keyButton31)
 
-        self.horizontalSpacer15 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer15 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout8.addItem(self.horizontalSpacer15)
 
@@ -490,7 +455,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout6.addWidget(self.keyButton27)
 
-        self.horizontalSpacer13 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer13 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout6.addItem(self.horizontalSpacer13)
 
@@ -526,7 +491,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout7.addWidget(self.keyButton29)
 
-        self.horizontalSpacer14 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer14 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout7.addItem(self.horizontalSpacer14)
 
@@ -576,7 +541,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout12.addWidget(self.keyButton7)
 
-        self.horizontalSpacer4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer4 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout12.addItem(self.horizontalSpacer4)
 
@@ -589,50 +554,15 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.verticalLayout.addLayout(self.shortcutLayout12)
 
+        self.verticalSpacer_4 = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.verticalLayout.addItem(self.verticalSpacer_4)
+
         self.sectionLabel4 = QLabel(KeyboardShortcutsDialog)
         self.sectionLabel4.setObjectName(u"sectionLabel4")
         self.sectionLabel4.setFont(font)
-        self.sectionLabel4.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft)
-        self.sectionLabel4.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
         self.verticalLayout.addWidget(self.sectionLabel4)
-
-        self.shortcutLayout1 = QHBoxLayout()
-        self.shortcutLayout1.setObjectName(u"shortcutLayout1")
-        self.keyButton1 = QPushButton(KeyboardShortcutsDialog)
-        self.keyButton1.setObjectName(u"keyButton1")
-        self.keyButton1.setMaximumSize(QSize(55, 16777215))
-        self.keyButton1.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton1.setAutoDefault(False)
-
-        self.shortcutLayout1.addWidget(self.keyButton1)
-
-        self.keySeparator1 = QLabel(KeyboardShortcutsDialog)
-        self.keySeparator1.setObjectName(u"keySeparator1")
-        self.keySeparator1.setFont(font1)
-
-        self.shortcutLayout1.addWidget(self.keySeparator1)
-
-        self.keyButton2 = QPushButton(KeyboardShortcutsDialog)
-        self.keyButton2.setObjectName(u"keyButton2")
-        self.keyButton2.setMaximumSize(QSize(35, 16777215))
-        self.keyButton2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.keyButton2.setAutoDefault(False)
-
-        self.shortcutLayout1.addWidget(self.keyButton2)
-
-        self.horizontalSpacer1 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.shortcutLayout1.addItem(self.horizontalSpacer1)
-
-        self.shortcutDescriptionLabel1 = QLabel(KeyboardShortcutsDialog)
-        self.shortcutDescriptionLabel1.setObjectName(u"shortcutDescriptionLabel1")
-        self.shortcutDescriptionLabel1.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
-
-        self.shortcutLayout1.addWidget(self.shortcutDescriptionLabel1)
-
-
-        self.verticalLayout.addLayout(self.shortcutLayout1)
 
         self.shortcutLayout15 = QHBoxLayout()
         self.shortcutLayout15.setObjectName(u"shortcutLayout15")
@@ -658,7 +588,7 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.shortcutLayout15.addWidget(self.keyButton15)
 
-        self.horizontalSpacer7 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer7 = QSpacerItem(80, 0, QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
 
         self.shortcutLayout15.addItem(self.horizontalSpacer7)
 
@@ -671,8 +601,23 @@ class Ui_KeyboardShortcutsDialog(object):
 
         self.verticalLayout.addLayout(self.shortcutLayout15)
 
+        self.verticalSpacer_5 = QSpacerItem(0, 30, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.verticalLayout.addItem(self.verticalSpacer_5)
+
+        self.closeDialogButton = QPushButton(KeyboardShortcutsDialog)
+        self.closeDialogButton.setObjectName(u"closeDialogButton")
+        icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.WindowClose))
+        self.closeDialogButton.setIcon(icon)
+        self.closeDialogButton.setAutoDefault(False)
+
+        self.verticalLayout.addWidget(self.closeDialogButton, 0, Qt.AlignmentFlag.AlignRight)
+
 
         self.retranslateUi(KeyboardShortcutsDialog)
+
+        self.closeDialogButton.setDefault(True)
+
 
         QMetaObject.connectSlotsByName(KeyboardShortcutsDialog)
     # setupUi
@@ -686,68 +631,61 @@ class Ui_KeyboardShortcutsDialog(object):
         self.shortcutDescriptionLabel5.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Download", None))
         self.keyButton12.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
-        self.keyButton13.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"P", None))
-        self.shortcutDescriptionLabel6.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Pull Data", None))
+        self.keyButton13.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"L", None))
+        self.shortcutDescriptionLabel6.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Load options", None))
         self.sectionLabel2.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Controls", None))
         self.keyButton32.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator17.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton33.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"F", None))
-        self.shortcutDescriptionLabel16.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Show Format Options", None))
+        self.shortcutDescriptionLabel16.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Show format options", None))
         self.keyButton3.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator2.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Q", None))
-        self.shortcutDescriptionLabel2.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Show Quality Options", None))
+        self.shortcutDescriptionLabel2.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Show quality options", None))
         self.keyButton18.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator10.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton19.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"S", None))
-        self.shortcutDescriptionLabel9.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Show Subtitle Options", None))
+        self.shortcutDescriptionLabel9.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Show subtitle options", None))
         self.keyButton5.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator3.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton6.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"C", None))
-        self.shortcutDescriptionLabel3.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Change Download Folder", None))
+        self.shortcutDescriptionLabel3.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Change download folder", None))
         self.keyButton22.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator12.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton23.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"T", None))
-        self.shortcutDescriptionLabel11.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle Thumbnail Cropping", None))
-        self.keyButton24.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
-        self.keySeparator13.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
-        self.keyButton25.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"U", None))
-        self.shortcutDescriptionLabel12.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle URL Removal", None))
+        self.shortcutDescriptionLabel11.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle thumbnail cropping", None))
         self.keyButton20.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator11.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton21.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"E", None))
-        self.shortcutDescriptionLabel10.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle Subtitle Embedding", None))
+        self.shortcutDescriptionLabel10.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Toggle subtitle embedding", None))
         self.sectionLabel1.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Tabs", None))
         self.keyButton16.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
         self.keySeparator9.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton17.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"T", None))
-        self.shortcutDescriptionLabel8.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"New Tab", None))
+        self.shortcutDescriptionLabel8.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"New tab", None))
         self.keyButton30.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
         self.keySeparator16.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton31.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"W", None))
-        self.shortcutDescriptionLabel15.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Close Tab", None))
+        self.shortcutDescriptionLabel15.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Close tab", None))
         self.keyButton26.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
         self.keySeparator14.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton27.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Page Up", None))
-        self.shortcutDescriptionLabel13.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Switch to Tab on the Left", None))
+        self.shortcutDescriptionLabel13.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Switch to tab on the left", None))
         self.keyButton28.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
         self.keySeparator15.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton29.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Page Down", None))
-        self.shortcutDescriptionLabel14.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Switch to Tab on the Right", None))
+        self.shortcutDescriptionLabel14.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Switch to tab on the right", None))
         self.keyButton8.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Alt", None))
         self.keySeparator5.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton9.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"0", None))
-        self.keySeparator4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"....", None))
+        self.keySeparator4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"...", None))
         self.keyButton7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"9", None))
-        self.shortcutDescriptionLabel4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Switch to Tab Directly", None))
+        self.shortcutDescriptionLabel4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Switch to tab directly", None))
         self.sectionLabel4.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Other", None))
-        self.keyButton1.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
-        self.keySeparator1.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
-        self.keyButton2.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"N", None))
-        self.shortcutDescriptionLabel1.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"New Window", None))
         self.keyButton14.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Ctrl", None))
         self.keySeparator8.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"+", None))
         self.keyButton15.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"?", None))
-        self.shortcutDescriptionLabel7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"View Shortcuts", None))
+        self.shortcutDescriptionLabel7.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"View shortcuts", None))
+        self.closeDialogButton.setText(QCoreApplication.translate("KeyboardShortcutsDialog", u"Close", None))
     # retranslateUi
 
