@@ -1,5 +1,5 @@
 # Media Downloader - Web video/audio downloader
-# Copyright (C) 2024  Marko Pejić
+# Copyright (C) 2024-2025  Marko Pejić
 
 # This file is part of Media Downloader
 
@@ -16,9 +16,4 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
-import main
-import ytdlp_helpers
-import utils
-import ui
-import resources
+from . import resources_rc
