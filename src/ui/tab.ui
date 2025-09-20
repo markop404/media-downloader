@@ -303,7 +303,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="statusIconLabel"/>
+      <widget class="QLabel" name="statusIconLabel">
+       <property name="minimumSize">
+        <size>
+         <width>28</width>
+         <height>28</height>
+        </size>
+       </property>
+      </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer8">
@@ -327,9 +334,6 @@
         <font>
          <pointsize>14</pointsize>
         </font>
-       </property>
-       <property name="text">
-        <string/>
        </property>
       </widget>
      </item>

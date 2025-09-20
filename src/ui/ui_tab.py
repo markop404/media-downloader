@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tabBvDHyX.ui'
+## Form generated from reading UI file 'tabEkOnBv.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.9.2
 ##
@@ -164,6 +164,7 @@ class Ui_Tab(object):
 
         self.statusIconLabel = QLabel(Tab)
         self.statusIconLabel.setObjectName(u"statusIconLabel")
+        self.statusIconLabel.setMinimumSize(QSize(28, 28))
 
         self.statusIndicatorsLayout.addWidget(self.statusIconLabel)
 
@@ -246,7 +247,6 @@ class Ui_Tab(object):
         self.downloadButton.setToolTip(QCoreApplication.translate("Tab", u"Alt+D", None))
 #endif // QT_CONFIG(tooltip)
         self.downloadButton.setText(QCoreApplication.translate("Tab", u"&Download", None))
-        self.statusLabel.setText("")
         pass
     # retranslateUi
 

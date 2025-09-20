@@ -95,15 +95,15 @@ class Tab(QWidget):
         tab_index = self.parent.ui.tabWidget.indexOf(self)
         if situation:
             if progress and len(progress) == 2:
-                progress_text = f" ({progress[0]}/{progress[1]})"
+                progress_text = f"  {progress[0]} / {progress[1]}"
             else:
                 progress_text = ""
 
-            self.ui.statusLabel.setText(f"{ui.Config.STATUS_LABEL_TEXT[situation]}{progress_text}")
+            self.ui.statusLabel.setText(f"{Config.STATUS_LABEL_TEXT[situation]}{progress_text}")
             if isinstance(percentage, int):
                 self.ui.progressBar.setValue(percentage)
             self.parent.update_tab(tab_index, self.pretty_tab_number, situation, progress)
-            self.ui.statusIconLabel.setPixmap(ui.Config.STATUS_LABEL_ICONS[situation].pixmap(QSize(28, 28)))
+            self.ui.statusIconLabel.setPixmap(Config.STATUS_LABEL_ICONS[situation].pixmap(QSize(28, 28)))
         else:
             self.ui.statusLabel.setText(str())
             self.ui.progressBar.setValue(0)
@@ -151,8 +151,8 @@ class Tab(QWidget):
         self.ui.cropThumbnailsCheckBox.setEnabled(True)
         self.ui.dataPullButton.setEnabled(True)
         self.ui.downloadButton.setEnabled(True)
-        self.ui.dataPullButton.setText(ui.Config.BUTTON_TEXT["refresh"]["default"])
-        self.ui.downloadButton.setText(ui.Config.BUTTON_TEXT["download"]["default"])
+        self.ui.dataPullButton.setText(Config.BUTTON_TEXT["refresh"]["default"])
+        self.ui.downloadButton.setText(Config.BUTTON_TEXT["download"]["default"])
         self.update_status_indicators(situation, percentage=percentage)
     
     
