@@ -302,7 +302,7 @@ class Tab(QWidget):
             self.prep_thread_exit("download_failed")
             return
         if self.downloader.logs.pending_urls or self.downloader.cache.failed_urls:
-            self.handle_invalid_url_warning(self.downloader.logs.pending_urls + self.downloader.cache.failed_urls, error_type="download")
+            self.handle_invalid_url_warning(self.downloader.logs.pending_urls | self.downloader.cache.failed_urls, error_type="download")
         if self.downloader.logs.all_failed():
             self.prep_thread_exit("download_failed")
             return
