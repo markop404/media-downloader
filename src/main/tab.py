@@ -26,7 +26,7 @@ from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 
 from src import ui
 from src import utils
-from src import ytdlp_helpers
+from src.downloader import Downloader
 
 
 class Tab(QWidget):
@@ -38,6 +38,21 @@ class Tab(QWidget):
         self.update_download_directory_indicators()
         self.event_invoker = utils.Invoker()
         self.connect_signals_and_slots()
+        self.downloader = Downloader(
+            download_progress_func=self.download_progress,
+            url_downloaded_func=self.url_download_progress,
+            url_extracted_func=lambda
+                processed_url_count,
+                total_url_count,
+                situation="extracting_urls":
+                    self.url_extraction_progress(situation, processed_url_count, total_url_count),
+            url_fetched_func=lambda
+                processed_url_count,
+                total_url_count,
+                situation="pulling_data":
+                    self.url_extraction_progress(situation, processed_url_count, total_url_count),
+            conversion_progress_func=self.postprocess_progress
+        )
 
 
     def setup_ui(self):
@@ -113,11 +128,8 @@ class Tab(QWidget):
 
         urls = utils.plain_text_to_set(self.ui.plainTextEdit.toPlainText())
         self.change_plain_text_edit(utils.list_to_plain_text(urls))
-        self.update_status_indicators(situation="extracting_urls", progress=(1, len(urls)))
 
         self.ui.plainTextEdit.setReadOnly(True)
-        self.ui.qualityComboBox.setEnabled(False)
-        self.ui.subtitlesComboBox.setEnabled(False)
 
         return urls
     
@@ -149,8 +161,11 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            self.ui.dataPullButton.setText(ui.Config.BUTTON_TEXT["refresh"]["secondary"])
+            self.update_status_indicators("pulling_data", (1, len(urls)), 0)
+            self.ui.dataPullButton.setText(Config.BUTTON_TEXT["refresh"]["secondary"])
             self.ui.downloadButton.setEnabled(False)
+            self.ui.qualityComboBox.setEnabled(False)
+            self.ui.subtitlesComboBox.setEnabled(False)
             Thread(target=lambda: self.update_info(urls), daemon=True).start()
         elif self.thread_running:
             self.cancel_progress = True
@@ -164,12 +179,12 @@ class Tab(QWidget):
 
         if not self.thread_running:
             urls = self.prep_thread_start()
-            self.ui.downloadButton.setText(ui.Config.BUTTON_TEXT["download"]["secondary"])
+            if self.downloader.cache.available(urls):
+                self.update_status_indicators("downloading", (1, self.downloader.cache.extracted_url_count), 0)
+            else:
+                self.update_status_indicators("extracting_urls", (1, len(urls)), 0)
+            self.ui.downloadButton.setText(Config.BUTTON_TEXT["download"]["secondary"])
             self.ui.dataPullButton.setEnabled(False)
-            self.ui.formatComboBox.setEnabled(False)
-            self.ui.setDownloadFolderButton.setEnabled(False)
-            self.ui.embedSubtitlesCheckBox.setEnabled(False)
-            self.ui.cropThumbnailsCheckBox.setEnabled(False)
             Thread(target=lambda: self.download(urls), daemon=True).start()
         else:
             self.cancel_progress = True
@@ -179,7 +194,7 @@ class Tab(QWidget):
 
     def url_extraction_progress(self, situation, processed_url_count, total_url_count):
         if self.cancel_progress:
-            raise SystemExit
+            raise self.ForceCancel
         if processed_url_count + 1 <= total_url_count:
             processed_url_count += 1
 
@@ -191,34 +206,17 @@ class Tab(QWidget):
         self.run_in_gui_thread(lambda: self.update_status_indicators(situation, (processed_url_count, total_url_count), percentage))
 
 
-    def download_progress(self, data, processed_url_count, total_url_count):
+    def download_progress(self, percentage, processed_url_count, total_url_count):
         if self.cancel_progress:
-            raise SystemExit
-        percentage = None
-    
-        if data["status"] == "downloading":            
-            if "downloaded_bytes" in data and "total_bytes" in data:
-                if data["downloaded_bytes"] and data["total_bytes"]:
-                    try:
-                        percentage = int((data["downloaded_bytes"] / data["total_bytes"]) * 100)
-                    except:
-                        percentage = None
-            elif "fragment_index" in data and "fragment_count" in data:
-                if data["fragment_index"] and data["fragment_count"]:
-                    try:
-                        percentage = int((data["fragment_index"] / data["fragment_count"]) * 100)
-                    except:
-                        percentage = None
-        
+            raise self.ForceCancel
         if processed_url_count + 1 <= total_url_count:
             self.run_in_gui_thread(lambda: self.update_status_indicators("downloading", (processed_url_count + 1, total_url_count), percentage))
 
 
-    def url_download_progress(self, url, processed_url_count, total_url_count):
-        self.remove_urls_from_entry([url])
-        
+    def url_download_progress(self, processed_url_count, total_url_count, url):
+        if url: self.remove_urls_from_entry([url])
         if self.cancel_progress:
-            raise SystemExit
+            raise self.ForceCancel
 
         if processed_url_count < total_url_count:
             percentage = 0
@@ -228,163 +226,93 @@ class Tab(QWidget):
             self.run_in_gui_thread(lambda: self.update_status_indicators("downloading", (processed_url_count + 1, total_url_count), percentage))
     
 
-    def postprocess_progress(self, data, processed_url_count, total_url_count):
+    def postprocess_progress(self, processed_url_count, total_url_count):
         if self.cancel_progress:
-            raise SystemExit
+            raise self.ForceCancel
         self.run_in_gui_thread(lambda: self.update_status_indicators("converting", (processed_url_count + 1, total_url_count), 100))
 
 
     def update_info(self, urls):
         try:
-            urls, failed_urls1, exit_status, errors = ytdlp_helpers.extract_urls(
-                urls,
-                on_progress=lambda
-                    processed_url_count,
-                    total_url_count,
-                    situation="extracting_urls":
-                        self.url_extraction_progress(situation, processed_url_count, total_url_count),
-            )
-        except SystemExit:
+            self.downloader.fetch_metadata(urls)
+        except self.ForceCancel:
             self.prep_thread_exit("data_pull_cancelled")
             return
-        except BaseException as e:
-            self.prep_thread_exit("data_pull_failed")
-            print(e)
-            return
-        if not exit_status:
+        except self.downloader.NoInternet:
             self.prep_thread_exit("no_internet")
-            return
-        elif not urls and failed_urls1:
-            self.handle_invalid_url_warning(failed_urls1, error_type="data_pull")
-            self.prep_thread_exit("data_pull_failed")
-            return
-
-        self.run_in_gui_thread(lambda: self.update_status_indicators("pulling_data", (1, len(urls)), 0))
-        
-        try:
-            data, failed_urls2, exit_status, errors = ytdlp_helpers.extract_data(
-                urls,
-                on_progress=lambda
-                    processed_url_count,
-                    total_url_count,
-                    situation="pulling_data":
-                        self.url_extraction_progress(situation, processed_url_count, total_url_count),
-            )
-        except SystemExit:
-            self.prep_thread_exit("data_pull_cancelled")
             return
         except BaseException as e:
             print(e)
-            self.prep_thread_exit("data_pull_failed")
-            return
-        failed_urls = failed_urls1.union(failed_urls2)
-        if not exit_status:
-            self.prep_thread_exit("no_internet")
-            return
-        elif failed_urls and not data:
-            self.handle_invalid_url_warning(failed_urls, error_type="data_pull")
             self.prep_thread_exit("data_pull_failed")
             return
         
-        if failed_urls and data:
-            self.handle_invalid_url_warning(failed_urls, error_type="data_pull")
+        if self.downloader.logs.pending_urls:
+            self.handle_invalid_url_warning(self.downloader.logs.pending_urls, error_type="data_pull")
 
-        try:
-            data = ytdlp_helpers.extract_basic_info(data)
-        except BaseException as e:
-            print(e)
+        if self.downloader.logs.all_failed():
             self.prep_thread_exit("data_pull_failed")
             return
 
-        self.qualities = data[0]
+        self.run_in_gui_thread(self.show_new_subtitles)
         self.run_in_gui_thread(self.show_new_qualities)
-        
-        subtitles = data[1]
-        if subtitles:
-            self.subtitles["None"] = "none"
-            self.subtitles.update(subtitles)
-            utils.update_combobox_items(self.ui.subtitlesComboBox, self.subtitles.keys())
         
         self.prep_thread_exit("data_pull_finished", percentage=100)
 
 
     def download(self, urls):
         try:
-            urls, failed_urls1, exit_status, errors = ytdlp_helpers.extract_urls(
-                urls,
-                lambda
-                    processed_url_count,
-                    total_url_count,
-                    situation="extracting_urls":
-                        self.url_extraction_progress(situation, processed_url_count, total_url_count))
-        except SystemExit:
-            self.prep_thread_exit("download_cancelled")
-            return
-        except BaseException as e:
-            print(e)
-            self.prep_thread_exit("download_failed")
-            return
-        if not exit_status:
-            self.prep_thread_exit("no_internet")
-            return
-        elif not urls and failed_urls1:
-            self.handle_invalid_url_warning(failed_urls1)
-            self.prep_thread_exit("download_failed")
-            return
+            if not self.downloader.cache.available(urls):
+                self.downloader.extract_urls(urls)
+                if self.downloader.logs.all_failed():
+                    self.handle_invalid_url_warning(self.downloader.logs.pending_urls, error_type="data_pull")
+                    self.prep_thread_exit("download_failed")
+                    return
+                self.run_in_gui_thread(lambda: self.update_status_indicators("downloading", (1, self.downloader.cache.extracted_url_count), 0))
+            
+            self.run_in_gui_thread(lambda: self.ui.formatComboBox.setEnabled(False))
+            self.run_in_gui_thread(lambda: self.ui.qualityComboBox.setEnabled(False))
+            self.run_in_gui_thread(lambda: self.ui.subtitlesComboBox.setEnabled(False))
+            self.run_in_gui_thread(lambda: self.ui.setDownloadFolderButton.setEnabled(False))
+            self.run_in_gui_thread(lambda: self.ui.embedSubtitlesCheckBox.setEnabled(False))
+            self.run_in_gui_thread(lambda: self.ui.cropThumbnailsCheckBox.setEnabled(False))
+            
+            if subtitles := self.ui.subtitlesComboBox.currentData():
+               subtitles = [subtitles]
+            else:
+                subtitles = None 
 
-        self.run_in_gui_thread(lambda: self.update_status_indicators("downloading", (1, len(urls)), 0))
-
-        file_type = ui.Config.FORMATS[self.ui.formatComboBox.currentText()]
-        selected_quality = self.ui.qualityComboBox.currentText()
-        if file_type == "video" and selected_quality in self.qualities["video"]:
-            quality = self.qualities["video"][selected_quality]
-        else:
-            quality = selected_quality
-
-        subtitles = self.ui.subtitlesComboBox.currentText()
-        if subtitles == "":
-            subtitles = None
-        else:
-            subtitles = [self.subtitles[subtitles]]
-
-        try:
-            failed_urls2, exit_status, errors = ytdlp_helpers.download(
+            self.downloader.download(
                 urls=urls,
+                download_dir=self.download_location,
+                file_type=Config.FORMATS[self.ui.formatComboBox.currentText()],
                 subtitles=subtitles,
-                on_progress=self.download_progress,
-                download_location=self.download_location,
-                file_type=file_type,
-                quality=quality,
-                postprocessor_progress=self.postprocess_progress,
-                on_url_progress=self.url_download_progress,
+                quality=self.ui.qualityComboBox.currentData(),
                 embed_subtitles=self.ui.embedSubtitlesCheckBox.isChecked(),
-                crop_thumbnails=self.ui.cropThumbnailsCheckBox.isChecked(),
+                crop_thumbnails=self.ui.cropThumbnailsCheckBox.isChecked()
             )
-        except SystemExit:
+        except self.ForceCancel:
             self.prep_thread_exit("download_cancelled")
+            return
+        except self.downloader.NoInternet:
+            self.prep_thread_exit("no_internet")
             return
         except BaseException as e:
             print(e)
             self.prep_thread_exit("download_failed")
             return
-        failed_urls = failed_urls1.union(failed_urls2)
-        if not exit_status:
-            self.prep_thread_exit("no_internet")
-            return
-        elif failed_urls == urls:
-            self.handle_invalid_url_warning(failed_urls)
+        if self.downloader.logs.pending_urls or self.downloader.cache.failed_urls:
+            self.handle_invalid_url_warning(self.downloader.logs.pending_urls + self.downloader.cache.failed_urls, error_type="download")
+        if self.downloader.logs.all_failed():
             self.prep_thread_exit("download_failed")
             return
 
-        if failed_urls:
-            self.handle_invalid_url_warning(failed_urls)
         self.prep_thread_exit("download_finished", 100)
 
 
     def display_invalid_url_warning(self, text):
         answer = QMessageBox.warning(
             self,
-            ui.Config.WINDOW_TITLES["error"].replace("<pretty_tab_number>", str(self.pretty_tab_number)),
+            Config.WINDOW_TITLES["error"].replace("<pretty_tab_number>", str(self.pretty_tab_number)),
             text,
             buttons=QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
             defaultButton=QMessageBox.StandardButton.Yes,
@@ -434,8 +362,7 @@ class Tab(QWidget):
             utils.update_combobox_items(self.ui.qualityComboBox)
             utils.update_combobox_items(self.ui.subtitlesComboBox)
             self.update_status_indicators()
-            self.subtitles = {}
-            self.qualities = {"video": {}, "audio": []}
+            self.downloader.metadata.clear()
 
 
     def show_combobox_popup(self, combobox):
@@ -458,13 +385,25 @@ class Tab(QWidget):
 
     def show_new_qualities(self):
         _format = self.ui.formatComboBox.currentText()
-        if ui.Config.FORMATS[_format] == "audio":
-            utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["audio"])
-        elif ui.Config.FORMATS[_format] == "video":
-            utils.update_combobox_items(self.ui.qualityComboBox, self.qualities["video"].keys())
+        if Config.FORMATS[_format] == "mp3":
+            utils.update_combobox_items(self.ui.qualityComboBox, self.downloader.metadata.bitrates)
+        elif Config.FORMATS[_format] == "mp4":
+            utils.update_combobox_items(self.ui.qualityComboBox, self.downloader.metadata.resolutions)
+
+
+    def show_new_subtitles(self):
+        if self.downloader.metadata.subtitles:
+            subtitles = {None: "None"} | self.downloader.metadata.subtitles
+        else:
+            subtitles = {}
+        utils.update_combobox_items(
+            self.ui.subtitlesComboBox, subtitles)
     
 
     def change_plain_text_edit(self, text=""):
         self.changing_plain_text_edit = True
         self.ui.plainTextEdit.setPlainText(text)
         self.changing_plain_text_edit = False
+
+
+    class ForceCancel(BaseException): pass
