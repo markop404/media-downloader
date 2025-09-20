@@ -74,6 +74,6 @@ class Config:
         "refresh": {"default": "&Load Options", "secondary": "Cancel Option &Load"},
     }
     FORMATS = {
-        "Audio": "audio",
-        "Video": "video",
+        "Audio": "mp3",
+        "Video": "mp4",
     }

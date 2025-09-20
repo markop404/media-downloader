@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QHBoxLayout,
     QLabel, QLayout, QPushButton, QSizePolicy,
     QSpacerItem, QTabWidget, QVBoxLayout, QWidget)
-import src.resources.resources_rc
+from . import icons_rc
 
 class Ui_AboutDialog(object):
     def setupUi(self, AboutDialog):
@@ -147,7 +147,7 @@ class Ui_AboutDialog(object):
     def retranslateUi(self, AboutDialog):
         AboutDialog.setWindowTitle(QCoreApplication.translate("AboutDialog", u"About", None))
         self.appNameLabel.setText(QCoreApplication.translate("AboutDialog", u"Media Downloader", None))
-        self.aboutLabel.setText(QCoreApplication.translate("AboutDialog", u"<p><strong>Web video / audio downloader</strong><br>v4.1.2</p><p>Made by <a href=\"https://markopejic.com\">Marko Peji\u0107</a></p>", None))
+        self.aboutLabel.setText(QCoreApplication.translate("AboutDialog", u"<p><strong>Web video / audio downloader</strong><br>v5.0.0</p><p>Made by <a href=\"https://markopejic.com\">Marko Peji\u0107</a></p>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.aboutTab), QCoreApplication.translate("AboutDialog", u"About", None))
         self.donateButton.setText(QCoreApplication.translate("AboutDialog", u"Donate", None))
         self.supportedWebsitesButton.setText(QCoreApplication.translate("AboutDialog", u"Supported Websites", None))

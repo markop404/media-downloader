@@ -68,8 +68,8 @@ def remove_lines(text, urls):
     return text
 
 
-def update_combobox_items(combobox, items=[]):
+def update_combobox_items(combobox, items={}):
     combobox.clear()
-    for item in items:
-        combobox.addItem(item)
+    for data, value in items.items():
+        combobox.addItem(value, data)
     combobox.setCurrentIndex(0)

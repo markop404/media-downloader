@@ -24,7 +24,6 @@ from PySide6.QtWidgets import QApplication
 from PySide6.QtGui import QIcon
 
 from src.main import MainWindow
-from src import resources
 
 app = QApplication([])
 

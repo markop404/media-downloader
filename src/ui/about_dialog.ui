@@ -20,7 +20,7 @@
         </size>
        </property>
        <property name="pixmap">
-        <pixmap resource="../src/resources/resources.qrc">:/icons/icon.png</pixmap>
+        <pixmap resource="icons.qrc">:/icons/icon.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -197,7 +197,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../src/resources/resources.qrc"/>
+  <include location="icons.qrc"/>
  </resources>
  <connections/>
 </ui>
