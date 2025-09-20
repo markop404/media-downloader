@@ -95,7 +95,7 @@ class Tab(QWidget):
         tab_index = self.parent.ui.tabWidget.indexOf(self)
         if situation:
             if progress and len(progress) == 2:
-                progress_text = f"  {progress[0]} / {progress[1]}"
+                progress_text = f" {progress[0]}/{progress[1]}"
             else:
                 progress_text = ""
 
