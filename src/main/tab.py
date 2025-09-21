@@ -17,7 +17,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from threading import Thread
 from time import sleep
 
 from PySide6.QtWidgets import QMessageBox, QWidget, QFileDialog
@@ -69,10 +68,10 @@ class Tab(QWidget):
         self.parent = parent
         self.pretty_tab_number = pretty_tab_number
         self.download_location = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
-        self.thread_running = False
+        self.thread_future = None
         self.cancel_progress = False
-        self.subtitles = {}
-        self.qualities = {"video": {}, "audio": []}
+        self.thread_running = False
+        self.being_destroyed = False
         self.user_answer = None
         self.changing_plain_text_edit = False
     
@@ -136,9 +135,10 @@ class Tab(QWidget):
     
 
     def prep_thread_exit(self, situation=None, percentage=0):
-        self.thread_running = False
-        self.cancel_progress = False
-        self.run_in_gui_thread(lambda: self.restore_widgets_to_normal(situation, percentage))
+        if not self.being_destroyed:
+            self.thread_running = False
+            self.cancel_progress = False
+            self.run_in_gui_thread(lambda: self.restore_widgets_to_normal(situation, percentage))
     
 
     def restore_widgets_to_normal(self, situation, percentage):
@@ -160,25 +160,29 @@ class Tab(QWidget):
         if not self.ui.plainTextEdit.toPlainText():
             return
 
-        if not self.thread_running:
+        if self.thread_alive():
+            self.cancel_thread("data_pull_cancelled")
+            self.ui.dataPullButton.setEnabled(False)
+            self.update_status_indicators("cancelling_data_pull")
+        else:
             urls = self.prep_thread_start()
             self.update_status_indicators("pulling_data", (1, len(urls)), 0)
             self.ui.dataPullButton.setText(Config.BUTTON_TEXT["refresh"]["secondary"])
             self.ui.downloadButton.setEnabled(False)
             self.ui.qualityComboBox.setEnabled(False)
             self.ui.subtitlesComboBox.setEnabled(False)
-            Thread(target=lambda: self.update_info(urls), daemon=True).start()
-        elif self.thread_running:
-            self.cancel_progress = True
-            self.ui.dataPullButton.setEnabled(False)
-            self.update_status_indicators("cancelling_data_pull")
+            self.thread_future = self.parent.executor.submit(self.update_info, urls)
 
 
     def start_download(self):
         if not self.ui.plainTextEdit.toPlainText():
             return
 
-        if not self.thread_running:
+        if self.thread_alive():
+            self.cancel_thread("download_cancelled")
+            self.ui.downloadButton.setEnabled(False)
+            self.update_status_indicators(situation="cancelling_download")
+        else:
             urls = self.prep_thread_start()
             if self.downloader.cache.available(urls):
                 self.update_status_indicators("downloading", (1, self.downloader.cache.extracted_url_count), 0)
@@ -186,11 +190,7 @@ class Tab(QWidget):
                 self.update_status_indicators("extracting_urls", (1, len(urls)), 0)
             self.ui.downloadButton.setText(Config.BUTTON_TEXT["download"]["secondary"])
             self.ui.dataPullButton.setEnabled(False)
-            Thread(target=lambda: self.download(urls), daemon=True).start()
-        else:
-            self.cancel_progress = True
-            self.ui.downloadButton.setEnabled(False)
-            self.update_status_indicators(situation="cancelling_download")
+            self.thread_future = self.parent.executor.submit(self.download, urls)
 
 
     def url_extraction_progress(self, situation, processed_url_count, total_url_count):
@@ -405,6 +405,23 @@ class Tab(QWidget):
         self.changing_plain_text_edit = True
         self.ui.plainTextEdit.setPlainText(text)
         self.changing_plain_text_edit = False
+
+
+    def cancel_thread(self, situation=None):
+        if self.thread_future:
+            if self.thread_future.cancel() and situation:
+                self.prep_thread_exit(situation)
+            else:
+                self.cancel_progress = True
+
+
+    def thread_alive(self):
+        return self.thread_running or (self.thread_future and self.thread_future.running())
+
+
+    def destroy(self):
+        self.being_destroyed = True
+        self.cancel_thread()
 
 
     class ForceCancel(BaseException): pass
