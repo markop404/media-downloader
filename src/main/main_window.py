@@ -18,7 +18,7 @@
 
 
 from time import sleep
-from threading import Thread
+from concurrent.futures import ThreadPoolExecutor
 
 from PySide6.QtCore import QSettings, QByteArray
 from PySide6.QtWidgets import QMainWindow, QWidget, QMenu
@@ -27,7 +27,6 @@ from PySide6.QtGui import QIcon, QKeySequence, QShortcut
 from src import ui
 from src import main
 
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -35,6 +34,7 @@ class MainWindow(QMainWindow):
         self.connect_signals_and_slots()
         
         self.settings = QSettings()
+        self.executor = ThreadPoolExecutor()
         self.highest_tab_number = 0
         self.popup_window_running = False
         
@@ -57,8 +57,11 @@ class MainWindow(QMainWindow):
     
 
     def closeEvent(self, event):
+        for i in range(self.ui.tabWidget.count()):
+            self.ui.tabWidget.widget(i).destroy()
+        self.executor.shutdown(wait=False)
         self.write_settings()
-        return super().closeEvent(event)
+        event.accept()
 
 
     def setup_ui(self):
@@ -106,18 +109,11 @@ class MainWindow(QMainWindow):
             self.close()
         if not index:
             index = self.ui.tabWidget.currentIndex()
-
         tab_object = self.ui.tabWidget.widget(index)
+        
         self.ui.tabWidget.removeTab(index)
-        Thread(target=lambda: self.delete_tab_ui(tab_object), daemon=True).start()
+        tab_object.destroy()
 
-
-    def delete_tab_ui(self, tab_object):
-        tab_object.cancel_progress = True
-        while tab_object.thread_running:
-            sleep(0.001)
-        tab_object.deleteLater()
-    
 
     def update_tab(self, index, pretty_tab_number, situation=None, progress=None):
         if situation:
