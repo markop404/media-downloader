@@ -40,7 +40,7 @@ class Ui_AboutDialog(object):
         self.appNameLabel = QLabel(AboutDialog)
         self.appNameLabel.setObjectName(u"appNameLabel")
         font = QFont()
-        font.setPointSize(20)
+        font.setPointSize(18)
         font.setWeight(QFont.ExtraBold)
         self.appNameLabel.setFont(font)
         self.appNameLabel.setMargin(4)

@@ -31,7 +31,7 @@
       <widget class="QLabel" name="appNameLabel">
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
+         <pointsize>18</pointsize>
          <fontweight>ExtraBold</fontweight>
         </font>
        </property>
