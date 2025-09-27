@@ -32,7 +32,7 @@ class DirectoryPicker:
 
     def open(self):
         self.update_paths(
-            QFileDialog.getExistingDirectory(self.parent, dir=self.path)
+            QFileDialog.getExistingDirectory(self.parent, dir=self.path, options=QFileDialog.ShowDirsOnly)
         )
 
 
