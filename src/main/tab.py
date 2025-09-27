@@ -78,7 +78,7 @@ class Tab(QWidget):
     def connect_signals_and_slots(self):
         self.ui.dataPullButton.clicked.connect(self.start_update_info)
         self.ui.downloadButton.clicked.connect(self.start_download)
-        self.ui.setDownloadFolderButton.clicked.connect(self.set_download_location)
+        self.ui.setDownloadFolderButton.clicked.connect(self.directory_picker.open)
         self.ui.formatComboBox.currentTextChanged.connect(self.show_new_qualities)
         self.ui.plainTextEdit.textChanged.connect(self.on_text_change)
 
@@ -103,9 +103,9 @@ class Tab(QWidget):
             self.ui.statusIconLabel.setPixmap(QPixmap())
 
 
-    def update_download_directory_indicators(self):
-        self.ui.downloadFolderIndicatorLabel.setText(self.directory_picker.anchor)
-        self.ui.downloadFolderIndicatorLabel.setToolTip(self.directory_picker.path)
+    def update_download_directory_indicators(self, path, anchor):
+        self.ui.downloadFolderIndicatorLabel.setText(anchor)
+        self.ui.downloadFolderIndicatorLabel.setToolTip(path)
 
 
     def prep_thread_start(self):
@@ -361,12 +361,6 @@ class Tab(QWidget):
             self.event_invoker,
             utils.InvokeEvent(fn)
         )
-
-
-    def set_download_location(self):
-        if self.file_dialog.exec():
-            self.download_location = self.file_dialog.selectedFiles()[0]
-            self.update_download_directory_indicators()
 
 
     def show_new_qualities(self):

@@ -25,18 +25,18 @@ from PySide6.QtCore import QStandardPaths
 
 class DirectoryPicker:
     def __init__(self, parent, on_select=None):
-        self.update_paths()
         self.parent = parent
         self.on_select = on_select
+        self.update_paths()
 
 
     def open(self):
         self.update_paths(
-            QFileDialog.getExistingDirectory(self.parent, "Select a Download Folder", self.path)
+            QFileDialog.getExistingDirectory(self.parent, dir=self.path)
         )
 
 
-    def update_paths(self, path=QStandardPaths.DownloadLocation):
+    def update_paths(self, path=QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)):
         if path:
             path = Path(path)
             str_path = str(path.resolve())
@@ -49,4 +49,4 @@ class DirectoryPicker:
             self.anchor = f"<a href=\"{path.as_uri()}\">{name}</a>"
 
             if self.on_select:
-                self.on_select()
+                self.on_select(self.path, self.anchor)
