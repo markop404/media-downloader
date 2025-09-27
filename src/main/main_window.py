@@ -111,10 +111,9 @@ class MainWindow(QMainWindow):
             index = self.ui.tabWidget.currentIndex()
         tab_object = self.ui.tabWidget.widget(index)
         
-        tab_object.destroy()
         self.ui.tabWidget.removeTab(index)
-        tab_object.deleteLater()
-    
+        tab_object.destroy()
+
 
     def update_tab(self, index, pretty_tab_number, situation=None, progress=None):
         if situation:

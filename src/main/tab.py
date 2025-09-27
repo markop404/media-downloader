@@ -422,6 +422,7 @@ class Tab(QWidget):
     def destroy(self):
         self.being_destroyed = True
         self.cancel_thread()
+        self.deleteLater()
 
 
     class ForceCancel(BaseException): pass
