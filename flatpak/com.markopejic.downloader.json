@@ -5,14 +5,14 @@
     "sdk": "org.kde.Sdk",
     "base": "io.qt.PySide.BaseApp",
     "base-version": "6.9",
-    "command": "/usr/bin/env python /app/main.py",
+    "command": "/app/main.py",
     "finish-args": [
         "--share=network",
         "--socket=wayland",
         "--socket=fallback-x11",
         "--share=ipc",
         "--device=dri",
-        "--filesystem=xdg-download:create"
+        "--filesystem=xdg-download"
     ],
     "cleanup" : [
         "/man",
@@ -38,16 +38,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2025-09-07-14-18/ffmpeg-N-121008-gf4b044bbe3-linux64-gpl.tar.xz",
-                    "sha256": "a77135fe7aeefa49bea03865b160c83c766b2878764af31e016f0e963f346d20",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2025-09-26-14-41/ffmpeg-N-121245-gc605d2a7ae-linux64-gpl.tar.xz",
+                    "sha256": "b20712e9c886c8b122781787d29554cffd01113e3524300327cdb7ba49acf983",
                     "only-arches": [
                         "x86_64"
                     ]
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2025-09-07-14-18/ffmpeg-N-121008-gf4b044bbe3-linuxarm64-gpl.tar.xz",
-                    "sha256": "4914b6ffaaa55706ca9822e0f4614addc9521f480734ba530c4268a9394f6f84",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2025-09-26-14-41/ffmpeg-N-121245-gc605d2a7ae-linuxarm64-gpl.tar.xz",
+                    "sha256": "a70eadae7888c2adc6330b66a092053bd0f66217a978b2e2ce27edf320b8adc3",
                     "only-arches": [
                         "aarch64"
                     ]
@@ -68,7 +68,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/markop404/media-downloader/",
-                    "tag": "v4.1.2",
+                    "branch": "main",
                     "dest": "src"
                 },
                 {
