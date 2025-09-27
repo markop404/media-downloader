@@ -81,6 +81,7 @@ class Downloader:
                     "already_have_thumbnail": False,
                 },
             ],
+            "postprocessor_args": {},
             "writethumbnail": True
         }
         if self.progress_func.download:
@@ -95,7 +96,7 @@ class Downloader:
             params["postprocessor_args"]["thumbnailsconvertor+ffmpeg_o"] = ["-vf", "crop=ih"]
         if subtitles:
             params["writesubtitles"] = True
-            params["subtitleslangs"] = list(subtitles)
+            params["subtitleslangs"] = subtitles
             if embed_subtitles:
                 params["postprocessors"].append(
                     {"key": "FFmpegEmbedSubtitle", "already_have_subtitle": False}
