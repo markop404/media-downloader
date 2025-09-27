@@ -22,3 +22,4 @@ from .keyboard_shortcuts_dialog import KeyboardShortcutsDialog
 from .tab import Tab
 from .main_window import MainWindow
 from .config import Config
+from .directory_picker import DirectoryPicker

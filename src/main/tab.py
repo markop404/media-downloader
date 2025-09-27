@@ -20,10 +20,11 @@
 from time import sleep
 
 from PySide6.QtWidgets import QMessageBox, QWidget, QFileDialog
-from PySide6.QtCore import QCoreApplication, QUrl, QDir, QStandardPaths, QSize
+from PySide6.QtCore import QCoreApplication, QSize
 from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 
 from .config import Config
+from .directory_picker import DirectoryPicker
 from src import ui
 from src import utils
 from src.downloader import Downloader
@@ -34,8 +35,7 @@ class Tab(QWidget):
         super().__init__()
         self.setup_ui()
         self.setup_vars(parent, pretty_tab_number)
-        self.setup_filedialog()
-        self.update_download_directory_indicators()
+        self.directory_picker = DirectoryPicker(parent, on_select=self.update_download_directory_indicators)
         self.event_invoker = utils.Invoker()
         self.connect_signals_and_slots()
         self.downloader = Downloader(
@@ -67,19 +67,12 @@ class Tab(QWidget):
     def setup_vars(self, parent, pretty_tab_number):
         self.parent = parent
         self.pretty_tab_number = pretty_tab_number
-        self.download_location = QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)
         self.thread_future = None
         self.cancel_progress = False
         self.thread_running = False
         self.being_destroyed = False
         self.user_answer = None
         self.changing_plain_text_edit = False
-    
-
-    def setup_filedialog(self):
-        self.file_dialog = QFileDialog(self)
-        self.file_dialog.setFileMode(QFileDialog.Directory)
-        self.file_dialog.setDirectory(self.download_location)
     
 
     def connect_signals_and_slots(self):
@@ -111,16 +104,8 @@ class Tab(QWidget):
 
 
     def update_download_directory_indicators(self):
-        base_name = QDir(self.download_location).dirName()
-        href = QUrl.fromLocalFile(self.download_location).toString()
-
-        if base_name:
-            new_text = f"<a href=\"{href}\">{base_name}</a>"
-        else:
-            new_text = f"<a href=\"{href}\">{self.download_location}</a>"
-
-        self.ui.downloadFolderIndicatorLabel.setText(new_text)
-        self.ui.downloadFolderIndicatorLabel.setToolTip(self.download_location)
+        self.ui.downloadFolderIndicatorLabel.setText(self.directory_picker.anchor)
+        self.ui.downloadFolderIndicatorLabel.setToolTip(self.directory_picker.path)
 
 
     def prep_thread_start(self):
