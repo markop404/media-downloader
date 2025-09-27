@@ -35,9 +35,6 @@
      <property name="shortcut">
       <string>Ctrl+T</string>
      </property>
-     <property name="default">
-      <bool>true</bool>
-     </property>
     </widget>
    </item>
    <item>
@@ -55,7 +52,10 @@
       <string>Help</string>
      </property>
      <property name="icon">
-      <iconset theme="QIcon::ThemeIcon::HelpFaq"/>
+      <iconset theme="QIcon::ThemeIcon::DialogQuestion"/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
      </property>
     </widget>
    </item>

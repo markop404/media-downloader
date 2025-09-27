@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_buttonsXbXDYz.ui'
+## Form generated from reading UI file 'tab_buttonsKMrmro.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.9.2
 ##
@@ -44,16 +44,14 @@ class Ui_TabButtons(object):
         sizePolicy.setHeightForWidth(self.menuButton.sizePolicy().hasHeightForWidth())
         self.menuButton.setSizePolicy(sizePolicy)
         self.menuButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.HelpFaq))
+        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogQuestion))
         self.menuButton.setIcon(icon1)
+        self.menuButton.setFlat(True)
 
         self.horizontalLayout.addWidget(self.menuButton)
 
 
         self.retranslateUi(TabButtons)
-
-        self.newTabButton.setDefault(True)
-
 
         QMetaObject.connectSlotsByName(TabButtons)
     # setupUi
