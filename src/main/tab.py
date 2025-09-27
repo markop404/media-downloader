@@ -269,7 +269,7 @@ class Tab(QWidget):
 
             self.downloader.download(
                 urls=urls,
-                download_dir=self.download_location,
+                download_dir=self.directory_picker.path,
                 file_type=Config.FORMATS[self.ui.formatComboBox.currentText()],
                 subtitles=subtitles,
                 quality=self.ui.qualityComboBox.currentData(),

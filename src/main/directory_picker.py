@@ -32,21 +32,26 @@ class DirectoryPicker:
 
     def open(self):
         self.update_paths(
-            QFileDialog.getExistingDirectory(self.parent, dir=self.path, options=QFileDialog.ShowDirsOnly)
+            QFileDialog.getExistingDirectory(
+                self.parent,
+                caption="Choose a Folder",
+                dir=self.path,
+                options=QFileDialog.ShowDirsOnly
+            )
         )
 
 
     def update_paths(self, path=QStandardPaths.writableLocation(QStandardPaths.DownloadLocation)):
         if path:
             path = Path(path)
-            str_path = str(path.resolve())
+            self.path = str(path.resolve())
+            
             if path.name:
                 name = path.name
             else:
-                name = str_path
+                name = self.path
             
-            self.path = str_path
-            self.anchor = f"<a href=\"{path.as_uri()}\">{name}</a>"
+            anchor = f"<a href=\"{path.as_uri()}\">{name}</a>"
 
             if self.on_select:
-                self.on_select(self.path, self.anchor)
+                self.on_select(self.path, anchor)
