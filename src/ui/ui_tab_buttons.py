@@ -44,7 +44,7 @@ class Ui_TabButtons(object):
         sizePolicy.setHeightForWidth(self.menuButton.sizePolicy().hasHeightForWidth())
         self.menuButton.setSizePolicy(sizePolicy)
         self.menuButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DialogQuestion))
+        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.HelpAbout))
         self.menuButton.setIcon(icon1)
         self.menuButton.setFlat(True)
 

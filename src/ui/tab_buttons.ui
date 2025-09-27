@@ -52,7 +52,7 @@
       <string>Help</string>
      </property>
      <property name="icon">
-      <iconset theme="QIcon::ThemeIcon::DialogQuestion"/>
+      <iconset theme="QIcon::ThemeIcon::HelpAbout"/>
      </property>
      <property name="flat">
       <bool>true</bool>
