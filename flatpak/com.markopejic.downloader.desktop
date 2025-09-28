@@ -9,5 +9,5 @@ Categories=AudioVideo;Network;
 Keywords=YouTube;Downloader;ytdlp;Tube;Converter;audio;video;media;download;
 
 Icon=com.markopejic.downloader
-Exec=/app/main.py
+Exec=media-downloader
 Terminal=false

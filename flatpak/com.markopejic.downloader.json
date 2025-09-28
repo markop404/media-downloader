@@ -5,7 +5,7 @@
     "sdk": "org.kde.Sdk",
     "base": "io.qt.PySide.BaseApp",
     "base-version": "6.9",
-    "command": "/app/main.py",
+    "command": "media-downloader",
     "finish-args": [
         "--share=network",
         "--socket=wayland",
@@ -33,7 +33,7 @@
             "name": "ffmpeg",
             "buildsystem": "simple",
             "build-commands": [
-                "mv bin/* /app/bin/"
+                "mv bin/* $FLATPAK_DEST/bin/"
             ],
             "sources": [
                 {
@@ -58,10 +58,10 @@
             "name": "com.markopejic.downloader",
             "buildsystem": "simple",
             "build-commands": [
-                "install -D src/flatpak/com.markopejic.downloader.desktop /app/share/applications/com.markopejic.downloader.desktop",
-                "install -D src/flatpak/com.markopejic.downloader.metainfo.xml /app/share/metainfo/com.markopejic.downloader.metainfo.xml",
-                "install -D src/icons/icon.png /app/share/icons/hicolor/512x512/apps/com.markopejic.downloader.png",
-                "install -D src/main.py /app/main.py",
+                "install -D src/flatpak/com.markopejic.downloader.desktop $FLATPAK_DEST/share/applications/com.markopejic.downloader.desktop",
+                "install -D src/flatpak/com.markopejic.downloader.metainfo.xml $FLATPAK_DEST/share/metainfo/com.markopejic.downloader.metainfo.xml",
+                "install -D src/icons/icon.png $FLATPAK_DEST/share/icons/hicolor/512x512/apps/com.markopejic.downloader.png",
+                "install -D src/main.py $FLATPAK_DEST/bin/media-downloader",
                 "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} --compile setuptools ./src --no-build-isolation"
             ],
             "sources": [
