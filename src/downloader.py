@@ -317,7 +317,7 @@ class Downloader:
 
         def download_hook(self, progress_data, processed_url_count, total_url_count):
             if percentage := Downloader.get_value_if_exists("_percent", progress_data, float):
-                percentage = int(round(percentage, 0))
+                percentage = int(percentage)
             else:
                 percentage = None       
             self.download(percentage, processed_url_count, total_url_count)
