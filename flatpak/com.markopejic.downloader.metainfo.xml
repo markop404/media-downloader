@@ -20,14 +20,24 @@
   <url type="vcs-browser">https://downloader.markopejic.com/source-code</url>
 
   <releases>
-      <release version="4.1.2" date="2025-05-04">
+    <release version="5.0.0" date="2025-09-28">
+      <description>
+        <ul>
+          <li>Many parts of the UI have been improved</li>
+          <li>Improved performance</li>
+          <li>Fixed a bug where downloads outside of the Downloads folder get stuck inside the app's sandbox</li>
+          <li>The app now follows desktop themes</li>
+        </ul>
+      </description>
+    </release>
+    <release version="4.1.2" date="2025-05-04">
       <description>
         <ul>
           <li>The app now defaults to the Breeze theme</li>
         </ul>
       </description>
     </release>
-      <release version="4.1.1" date="2025-05-03">
+    <release version="4.1.1" date="2025-05-03">
       <description>
         <ul>
           <li>Fixed an issue where the app downloaded non-original (dubbed) audio</li>
