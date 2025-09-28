@@ -17,7 +17,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import main
+from . import main
 from . import downloader
 from . import utils
-import ui
+from . import ui
