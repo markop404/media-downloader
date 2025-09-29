@@ -1,6 +1,10 @@
 <div align="center">
-  <br>
-  <h1>Media Downloader</h1>
+  <h1>
+    <p>
+      <img height="100" src="./icons/icon.png">
+      <br>Media Downloader
+    </p>
+  </h1>
   <p>
     Web video/audio downloader
     ·
@@ -21,7 +25,7 @@
     </tr>
   </table>
   <img src="screenshots/kde-plasma-light.png" width="650px">
-  <br>
+  <br><br>
 </div>
 
 A simple qt6 frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in Python using PySide6.
