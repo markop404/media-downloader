@@ -15,8 +15,6 @@ A simple qt6 frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in 
 
 Development in this repository is currently **limited to maintenance and bug fixes only**. When I will have the time, I will do a complete rewrite of the app and implement some of the missing features / ideas I have.
 
-The ```main``` branch contains an older codebase that is difficult to work with. The ```partial``` branch contains an unsuccessful partial rewrite.
-
 ## Goals of this Project
 
 This project aims to create an application that:
