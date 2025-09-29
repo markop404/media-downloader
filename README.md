@@ -14,7 +14,7 @@
         </a>
       </td>
       <td>
-        <a href="https://github.com/markop404/media-downloader/releases">
+        <a href="https://github.com/markop404/media-downloader/releases/latest">
           <img width="140" alt="Download for Windows" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Windows_logo_and_wordmark_-_2021.svg">
         </a>
       </td>
