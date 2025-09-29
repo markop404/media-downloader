@@ -4,17 +4,17 @@
   <p>
     Web video/audio downloader
     ·
-    <a href="https://downloader.markopejic.com/" target="_blank">downloader.markopejic.com</a>
+    <a href="https://downloader.markopejic.com/">downloader.markopejic.com</a>
   </p>
   <table>
     <tr>
       <td>
-        <a href="https://flathub.org/apps/com.markopejic.downloader" target="_blank">
+        <a href="https://flathub.org/apps/com.markopejic.downloader">
           <img width="150" alt="Download from Flathub" src="https://flathub.org/api/badge?locale=en">
         </a>
       </td>
       <td>
-        <a href="https://github.com/markop404/media-downloader/releases" target="_blank">
+        <a href="https://github.com/markop404/media-downloader/releases">
           <img width="140" alt="Download for Windows" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Windows_logo_and_wordmark_-_2021.svg">
         </a>
       </td>
