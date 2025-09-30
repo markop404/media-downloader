@@ -35,13 +35,13 @@ A simple qt6 frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in 
 - Automatically embeds video chapters, thumbnails & metadata
 - Supports cropping thumbnails / album arts to square shape (useful when downloading music)
 
-## Support
-
-The easiest way to support this project is to star it on GitHub. You can also support the developer by making a [donation](https://downloader.markopejic.com/donate).
-
 ## Status
 
 Development in this repository is currently **limited to maintenance and bug fixes only**. When I will have the time, I will do a complete rewrite of the app and implement some of the missing features / ideas I have.
+
+## Support
+
+The easiest way to support this project is to star it on GitHub. You can also support the developer by making a [donation](https://downloader.markopejic.com/donate).
 
 ## Goals
 
@@ -63,9 +63,43 @@ Any contributions are highly appreciated as long as they follow the project's go
 - Remember previously used settings
 - Support for macOS
 
-## Dependencies (for running from source)
+## Running from source on macOS
 
-Apart from a few Python packages, listed in [requirements.txt](./requirements.txt), only [ffmpeg](https://ffmpeg.org) is required.
+> [!NOTE]
+> macOS will be supported in the future, at which point the instructions will be removed.
+
+> [!IMPORTANT]
+> The instructions below assume you have brew installed. If not, go to [brew.sh](https://brew.sh/) and install it.
+
+1. Install Python
+
+```bash
+brew install python
+```
+
+2. Install FFmpeg
+
+```bash
+brew install ffmpeg
+```
+
+3. Clone the source code
+
+```bash
+git clone https://github.com/markop404/media-downloader/ && cd media-downloader
+```
+
+4. Install pip dependencies
+
+```bash
+pip3 install -r requirements.txt
+```
+
+5. Run the app
+
+```bash
+python3 main.py
+```
 
 ## License
 
