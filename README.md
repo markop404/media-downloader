@@ -1,9 +1,7 @@
 <div align="center">
   <h1>
-    <p>
       <img height="100" src="./icons/icon.png">
       <br>Media Downloader
-    </p>
   </h1>
   <p>
     Web video/audio downloader
