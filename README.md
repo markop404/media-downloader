@@ -1,32 +1,22 @@
 <div align="center">
   <h1>
-      <img height="100" src="./icons/icon.png">
-      <br>Media Downloader
+      <img height="80" src="./icons/icon.png" align="center"> &nbsp;Media Downloader
   </h1>
   <p>
-    Web video/audio downloader
-    ·
-    <a href="https://downloader.markopejic.com/">downloader.markopejic.com</a>
+    Web video/audio downloader &nbsp;·&nbsp; <a href="https://downloader.markopejic.com/">downloader.markopejic.com</a>
   </p>
-  <table>
-    <tr>
-      <td>
-        <a href="https://flathub.org/apps/com.markopejic.downloader">
-          <img width="150" alt="Download from Flathub" src="https://flathub.org/api/badge?locale=en">
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/markop404/media-downloader/releases/latest">
-          <img width="140" alt="Download for Windows" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Windows_logo_and_wordmark_-_2021.svg">
-        </a>
-      </td>
-    </tr>
-  </table>
+  <p>
+    <a href="https://flathub.org/apps/com.markopejic.downloader"><img width="140" align="center" alt="Download from Flathub" src="https://flathub.org/api/badge?locale=en"></a>
+    &nbsp; &nbsp;
+    <a href="https://github.com/markop404/media-downloader/releases/latest"><img width="130" align="center" alt="Download for Windows" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Windows_logo_and_wordmark_-_2021.svg"></a>
+  </p>
   <img src="screenshots/kde-plasma-light.png" width="650px">
   <br><br>
 </div>
 
-A simple qt6 frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in Python using PySide6.
+## About
+
+A simple Qt frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in Python.
 
 - Supports [hundreds of websites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
 - Supports downloading mp3 and mp4
@@ -71,31 +61,31 @@ Any contributions are highly appreciated as long as they follow the project's go
 > [!IMPORTANT]
 > The instructions below assume you have brew installed. If not, go to [brew.sh](https://brew.sh/) and install it.
 
-1. Install Python
+1. Install Python:
 
 ```bash
 brew install python
 ```
 
-2. Install FFmpeg
+2. Install FFmpeg:
 
 ```bash
 brew install ffmpeg
 ```
 
-3. Clone the source code
+3. Clone this repo:
 
 ```bash
 git clone https://github.com/markop404/media-downloader/ && cd media-downloader
 ```
 
-4. Install pip dependencies
+4. Install pip dependencies:
 
 ```bash
 pip3 install -r requirements.txt
 ```
 
-5. Run the app
+5. Run the app:
 
 ```bash
 python3 main.py
