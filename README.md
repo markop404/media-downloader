@@ -10,8 +10,8 @@
     &nbsp; &nbsp;
     <a href="https://github.com/markop404/media-downloader/releases/latest"><img width="130" align="center" alt="Download for Windows" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Windows_logo_and_wordmark_-_2021.svg"></a>
   </p>
-  <img src="screenshots/kde-plasma-light.png" width="650px">
-  <br><br>
+  <img src="screenshots/kde-plasma-light.png" width="600px">
+  <br>
 </div>
 
 ## About
