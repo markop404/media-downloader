@@ -38,16 +38,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2025-09-26-14-41/ffmpeg-N-121245-gc605d2a7ae-linux64-gpl.tar.xz",
-                    "sha256": "b20712e9c886c8b122781787d29554cffd01113e3524300327cdb7ba49acf983",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2025-10-01-14-44/ffmpeg-N-121293-gcb4052beae-linux64-gpl.tar.xz",
+                    "sha256": "2398768b9d838d4503b51c9b5436fdddc135ddec916cfa9479d612758995a953",
                     "only-arches": [
                         "x86_64"
                     ]
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2025-09-26-14-41/ffmpeg-N-121245-gc605d2a7ae-linuxarm64-gpl.tar.xz",
-                    "sha256": "a70eadae7888c2adc6330b66a092053bd0f66217a978b2e2ce27edf320b8adc3",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2025-10-01-14-44/ffmpeg-N-121293-gcb4052beae-linuxarm64-gpl.tar.xz",
+                    "sha256": "681db9226c23bcd253832f2e6821fff277bd9fb4c751117c3e23b026c03619d0",
                     "only-arches": [
                         "aarch64"
                     ]
@@ -58,23 +58,17 @@
             "name": "com.markopejic.downloader",
             "buildsystem": "simple",
             "build-commands": [
-                "install -D src/flatpak/com.markopejic.downloader.desktop $FLATPAK_DEST/share/applications/com.markopejic.downloader.desktop",
-                "install -D src/flatpak/com.markopejic.downloader.metainfo.xml $FLATPAK_DEST/share/metainfo/com.markopejic.downloader.metainfo.xml",
-                "install -D src/icons/icon.png $FLATPAK_DEST/share/icons/hicolor/512x512/apps/com.markopejic.downloader.png",
-                "install -D src/main.py $FLATPAK_DEST/bin/media-downloader",
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} --compile setuptools ./src --no-build-isolation"
+                "install -D flatpak/com.markopejic.downloader.desktop $FLATPAK_DEST/share/applications/com.markopejic.downloader.desktop",
+                "install -D flatpak/com.markopejic.downloader.metainfo.xml $FLATPAK_DEST/share/metainfo/com.markopejic.downloader.metainfo.xml",
+                "install -D icons/icon.png $FLATPAK_DEST/share/icons/hicolor/512x512/apps/com.markopejic.downloader.png",
+                "install -D main.py $FLATPAK_DEST/bin/media-downloader",
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} --compile . --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/markop404/media-downloader/",
-                    "branch": "main",
-                    "dest": "src"
-                },
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/a3/dc/17031897dae0efacfea57dfd3a82fdd2a2aeb58e0ff71b77b87e44edc772/setuptools-80.9.0-py3-none-any.whl",
-                    "sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
+                    "commit": "c6a9a84e7de4b9c27793fd384b2b3909bf8d9954"
                 }
             ]
         }
