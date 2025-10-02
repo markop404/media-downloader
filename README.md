@@ -1,6 +1,6 @@
 <div align="center">
   <h1>
-      <img height="80" src="./icons/icon.png" align="center"> &nbsp;Media Downloader
+      <img height="90" src="./icons/icon.png" align="center"> &nbsp;Media Downloader
   </h1>
   <p>
     Web video/audio downloader &nbsp;·&nbsp; <a href="https://downloader.markopejic.com/">downloader.markopejic.com</a>
