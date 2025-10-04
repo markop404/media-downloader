@@ -79,6 +79,12 @@ brew install ffmpeg
 git clone https://github.com/markop404/media-downloader/ && cd media-downloader
 ```
 
+4. Create & enter a Python virtual environment:
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+```
+
 4. Install pip dependencies:
 
 ```bash
@@ -89,6 +95,12 @@ pip3 install -r requirements.txt
 
 ```bash
 python3 main.py
+```
+
+To update the app in the future:
+
+```bash
+git pull && pip install --upgrade -r requirements.txt
 ```
 
 ## License
