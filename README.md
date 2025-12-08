@@ -1,18 +1,19 @@
+<h1 align="center">
+  <img height="90" src="/icons/icon.svg" align="center">
+  &nbsp;Media Downloader
+</h1>
+<p align="center">
+  Web video/audio downloader &nbsp;·&nbsp; <a href="https://downloader.markopejic.com/">downloader.markopejic.com</a>
+</p>
 <div align="center">
-  <h1>
-      <img height="90" src="./icons/icon.svg" align="center"> &nbsp;Media Downloader
-  </h1>
-  <p>
-    Web video/audio downloader &nbsp;·&nbsp; <a href="https://downloader.markopejic.com/">downloader.markopejic.com</a>
-  </p>
-  <p>
-    <a href="https://flathub.org/apps/com.markopejic.downloader"><img height="50" align="center" alt="Get it on Flathub" src="icons/flathub-badge.svg"></a>
-    &nbsp; &nbsp;
-    <a href="https://apps.microsoft.com/store/detail/9PGDP7TDQVX7"><img height="48" align="center" alt="Get it from Microsoft" src="icons/microsoft-badge.svg"></a>
-  </p>
-  <img src="screenshots/kde-plasma-light.png" width="600px">
-  <br>
+  <a href="https://flathub.org/apps/com.markopejic.downloader"><img height="50" alt="Get it on Flathub" src="/icons/flathub-badge.svg"></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://apps.microsoft.com/store/detail/9PGDP7TDQVX7"><img height="50" alt="Get it from Microsoft" src="/icons/microsoft-badge.svg"></a>
 </div>
+<div align="center">
+  <img src="/screenshots/kde-plasma-light.png" align="center" width="600px">
+</div>
+<br>
 
 ## About
 
