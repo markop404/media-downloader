@@ -6,9 +6,9 @@
     Web video/audio downloader &nbsp;·&nbsp; <a href="https://downloader.markopejic.com/">downloader.markopejic.com</a>
   </p>
   <p>
-    <a href="https://flathub.org/apps/com.markopejic.downloader"><img width="140" align="center" alt="Download from Flathub" src="https://flathub.org/api/badge?locale=en"></a>
+    <a href="https://flathub.org/apps/com.markopejic.downloader"><img height="50" align="center" alt="Get it on Flathub" src="icons/flathub-badge.svg"></a>
     &nbsp; &nbsp;
-    <a href="https://github.com/markop404/media-downloader/releases/latest"><img width="130" align="center" alt="Download for Windows" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Windows_logo_and_wordmark_-_2021.svg"></a>
+    <a href="https://github.com/markop404/media-downloader/releases/latest"><img height="48" align="center" alt="Get it from Microsoft" src="icons/microsoft-badge.svg"></a>
   </p>
   <img src="screenshots/kde-plasma-light.png" width="600px">
   <br>
@@ -59,7 +59,7 @@ Any contributions are highly appreciated as long as they follow the project's go
 > macOS will be supported in the future, at which point the instructions will be removed.
 
 > [!IMPORTANT]
-> The instructions below assume you have brew installed. If not, go to [brew.sh](https://brew.sh/) and install it.
+> The instructions below assume you have [Homebrew](https://brew.sh/) installed.
 
 1. Install Python:
 
