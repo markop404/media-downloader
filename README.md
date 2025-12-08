@@ -8,7 +8,7 @@
   <p>
     <a href="https://flathub.org/apps/com.markopejic.downloader"><img height="50" align="center" alt="Get it on Flathub" src="icons/flathub-badge.svg"></a>
     &nbsp; &nbsp;
-    <a href="https://github.com/markop404/media-downloader/releases/latest"><img height="48" align="center" alt="Get it from Microsoft" src="icons/microsoft-badge.svg"></a>
+    <a href="https://apps.microsoft.com/store/detail/9PGDP7TDQVX7"><img height="48" align="center" alt="Get it from Microsoft" src="icons/microsoft-badge.svg"></a>
   </p>
   <img src="screenshots/kde-plasma-light.png" width="600px">
   <br>
