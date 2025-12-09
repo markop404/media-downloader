@@ -46,7 +46,7 @@ You can also support the developer by making a [donation](https://downloader.mar
 
 <p>
   <a href="https://flathub.org/apps/com.markopejic.downloader">
-    <img src="/icons/flathub-badge.svg" height="50">
+    <img src="/icons/flathub-badge.svg" width="150">
   </a>
 </p>
 
@@ -58,7 +58,7 @@ flatpak install com.markopejic.downloader
 
 <p>
   <a href="https://apps.microsoft.com/store/detail/9PGDP7TDQVX7">
-    <img src="/icons/microsoft-badge.svg" height="50">
+    <img src="/icons/microsoft-badge.svg" width="150">
   </a>
 </p>
 
