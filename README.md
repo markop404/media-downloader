@@ -1,19 +1,23 @@
-<h1 align="center">
-  <img height="90" src="/icons/icon.svg" align="center">
-  &nbsp;Media Downloader
-</h1>
+<h1>
 <p align="center">
-  Web video/audio downloader &nbsp;·&nbsp; <a href="https://downloader.markopejic.com/">downloader.markopejic.com</a>
+  <img width="100" src="/icons/icon.svg" alt="Logo">
+  <br>Media Downloader
+</h1>
+  <p align="center">
+    Web video/audio downloader
+    <br>
+    <a href="https://downloader.markopejic.com/">Website</a>
+    ·
+    <a href="#installation">Installation</a>
+    ·
+    <a href="#about">About</a>
+    ·
+    <a href="#support">Support</a>
+  </p>
+  <p align="center">
+    <img src="/screenshots/kde-plasma-light.png" width="650" alt="Screenshot">
+  </p>
 </p>
-<div align="center">
-  <a href="https://flathub.org/apps/com.markopejic.downloader"><img height="50" alt="Get it on Flathub" src="/icons/flathub-badge.svg"></a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://apps.microsoft.com/store/detail/9PGDP7TDQVX7"><img height="50" alt="Get it from Microsoft" src="/icons/microsoft-badge.svg"></a>
-</div>
-<div align="center">
-  <img src="/screenshots/kde-plasma-light.png" align="center" width="600px">
-</div>
-<br>
 
 ## About
 
@@ -32,7 +36,39 @@ Development in this repository is currently **limited to maintenance and bug fix
 
 ## Support
 
-The easiest way to support this project is to star it on GitHub. You can also support the developer by making a [donation](https://downloader.markopejic.com/donate).
+The easiest way to support this project is to star it on GitHub.
+
+You can also support the developer by making a [donation](https://downloader.markopejic.com/donate).
+
+## Installation
+
+### Linux
+
+<p>
+  <a href="https://flathub.org/apps/com.markopejic.downloader">
+    <img src="/icons/flathub-badge.svg" height="50">
+  </a>
+</p>
+
+```bash
+flatpak install com.markopejic.downloader
+```
+
+### Windows
+
+<p>
+  <a href="https://apps.microsoft.com/store/detail/9PGDP7TDQVX7">
+    <img src="/icons/microsoft-badge.svg" height="50">
+  </a>
+</p>
+
+```bash
+winget install --id 9PGDP7TDQVX7
+```
+
+### macOS
+
+No binaries are currently built for macOS, see [instructions for running from source](#running-from-source-on-macos).
 
 ## Goals
 
@@ -45,7 +81,7 @@ This project aims to create an application that:
 
 ## Contributing
 
-Any contributions are highly appreciated as long as they follow the project's goals.
+Any contributions are highly appreciated as long as they follow project's goals.
 
 ## Planned features
 
@@ -53,6 +89,14 @@ Any contributions are highly appreciated as long as they follow the project's go
 - Installer & automatic updates on Windows
 - Remember previously used settings
 - Support for macOS
+
+## License
+
+All versions above (including) 3.1.0 are licensed under [GPL version 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). All versions below 3.1.0 are closed source and are not available in this repository.
+
+## Disclaimer
+
+Videos on YouTube and other sites may be subject to DMCA protection. The authors of Media Downloader do not endorse, and are not responsible for, the use of this application in means that will violate these laws.
 
 ## Running from source on macOS
 
@@ -103,11 +147,3 @@ To update the app in the future:
 ```bash
 git pull && pip install --upgrade -r requirements.txt
 ```
-
-## License
-
-All versions above (including) 3.1.0 are licensed under [GPL version 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). All versions below 3.1.0 are closed source and are not available in this repository.
-
-## Disclaimer
-
-Videos on YouTube and other sites may be subject to DMCA protection. The authors of Media Downloader do not endorse, and are not responsible for, the use of this application in means that will violate these laws.
