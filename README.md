@@ -15,7 +15,7 @@
     <a href="#support">Support</a>
   </p>
   <p align="center">
-    <img src="/screenshots/kde-plasma-light.png" width="650" alt="Screenshot">
+    <img src="/screenshots/kde-plasma-light.png" width="600" alt="Screenshot">
   </p>
 </p>
 
