@@ -1,6 +1,6 @@
 <h1>
 <p align="center">
-  <img width="100" src="/icons/icon.svg" alt="Logo">
+  <img width="100" src="/resources/icon.svg" alt="Logo">
   <br>Media Downloader
 </h1>
   <p align="center">
@@ -15,7 +15,7 @@
     <a href="#support">Support</a>
   </p>
   <p align="center">
-    <img src="/screenshots/kde-plasma-light.png" width="600" alt="Screenshot">
+    <img src="/resources/screenshots/plasma-light.png" width="600" alt="Screenshot">
   </p>
 </p>
 
@@ -46,7 +46,7 @@ You can also support the developer by making a [donation](https://downloader.mar
 
 <p>
   <a href="https://flathub.org/apps/com.markopejic.downloader">
-    <img src="/icons/flathub-badge.svg" width="150">
+    <img src="/resources/readme/flathub-badge.svg" width="150">
   </a>
 </p>
 
@@ -58,7 +58,7 @@ flatpak install com.markopejic.downloader
 
 <p>
   <a href="https://apps.microsoft.com/store/detail/9PGDP7TDQVX7">
-    <img src="/icons/microsoft-badge.svg" width="150">
+    <img src="/resources/readme/microsoft-badge.svg" width="150">
   </a>
 </p>
 

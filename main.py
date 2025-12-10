@@ -34,7 +34,7 @@ app.setOrganizationDomain("markopejic.com")
 app.setDesktopFileName("com.markopejic.downloader")
 app.setApplicationName("MediaDownloader")
 app.setApplicationDisplayName("Media Downloader")
-app.setWindowIcon(QIcon(":/icons/icon.png"))
+app.setWindowIcon(QIcon(":icon.png"))
 
 match platform.system():
     case "Windows":

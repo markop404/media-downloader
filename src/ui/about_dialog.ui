@@ -20,7 +20,7 @@
         </size>
        </property>
        <property name="pixmap">
-        <pixmap resource="icons.qrc">:/icons/icon.png</pixmap>
+        <pixmap resource="icons.qrc">:icon.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
