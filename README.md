@@ -58,7 +58,7 @@ flatpak install com.markopejic.downloader
 
 <p>
   <a href="https://apps.microsoft.com/store/detail/9PGDP7TDQVX7">
-    <img src="/resources/readme/microsoft-badge.svg" width="150">
+    <img src="/resources/readme/microsoft-badge.svg" width="210">
   </a>
 </p>
 
