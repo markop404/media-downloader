@@ -63,7 +63,7 @@ flatpak install com.markopejic.downloader
 </p>
 
 ```bash
-winget install --id 9PGDP7TDQVX7
+winget install --id 9PGDP7TDQVX7 --source msstore
 ```
 
 ### macOS
