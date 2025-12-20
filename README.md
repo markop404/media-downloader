@@ -4,7 +4,7 @@
   <br>Media Downloader
 </h1>
   <p align="center">
-    Web video/audio downloader
+    <strong>Web video/audio downloader</strong>
     <br>
     <a href="https://downloader.markopejic.com/">Website</a>
     ·
@@ -32,7 +32,7 @@ A simple Qt frontend for [yt-dlp](https://github.com/yt-dlp/yt-dlp) written in P
 
 ## Status
 
-Development in this repository is currently **limited to maintenance and bug fixes only**. When I will have the time, I will do a complete rewrite of the app and implement some of the missing features / ideas I have.
+Development in this repository is currently **limited to maintenance and bug fixes only**. When I will have the time, I will do a complete rewrite of the app and implement some of the missing features/ideas I have.
 
 ## Support
 
@@ -51,14 +51,14 @@ You can also support the developer by making a [donation](https://downloader.mar
 </p>
 
 ```bash
-flatpak install com.markopejic.downloader
+flatpak install flathub com.markopejic.downloader
 ```
 
 ### Windows
 
 <p>
   <a href="https://apps.microsoft.com/store/detail/9PGDP7TDQVX7">
-    <img src="/resources/readme/microsoft-badge.svg" width="150">
+    <img src="/resources/readme/microsoft-badge.svg" width="210">
   </a>
 </p>
 
@@ -85,8 +85,7 @@ Any contributions are highly appreciated as long as they follow project's goals.
 
 ## Planned features
 
-- Settings menu with more customization options
-- Installer & automatic updates on Windows
+- More advanced options
 - Remember previously used settings
 - Support for macOS
 
@@ -133,7 +132,7 @@ python3 -m venv .venv && source .venv/bin/activate
 4. Install the app:
 
 ```bash
-pip3 install .
+pip install .
 ```
 
 5. Run the app:
