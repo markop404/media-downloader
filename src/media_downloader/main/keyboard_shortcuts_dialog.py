@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 # Media Downloader - Web video/audio downloader
 # Copyright (C) 2024  Marko Pejić
 
@@ -19,31 +17,12 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import sys
-import platform
+from PySide6.QtWidgets import QDialog
+from ..ui import Ui_KeyboardShortcutsDialog
 
-from PySide6.QtWidgets import QApplication
-from PySide6.QtGui import QIcon
-
-from src.main import MainWindow
-
-app = QApplication([])
-
-app.setOrganizationName("MarkoPejic")
-app.setOrganizationDomain("markopejic.com")
-app.setDesktopFileName("com.markopejic.downloader")
-app.setApplicationName("MediaDownloader")
-app.setApplicationDisplayName("Media Downloader")
-app.setWindowIcon(QIcon(":icon.png"))
-
-match platform.system():
-    case "Windows":
-        app.setStyle("Fusion")
-    case "Darwin":
-        app.setStyle("Fusion")
-
-window = MainWindow()
-window.show()
-
-if __name__ == "__main__":
-    sys.exit(app.exec())
+class KeyboardShortcutsDialog(QDialog):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.ui = Ui_KeyboardShortcutsDialog()
+        self.ui.setupUi(self)
+        self.ui.closeDialogButton.clicked.connect(self.close)

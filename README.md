@@ -58,7 +58,7 @@ flatpak install com.markopejic.downloader
 
 <p>
   <a href="https://apps.microsoft.com/store/detail/9PGDP7TDQVX7">
-    <img src="/resources/readme/microsoft-badge.svg" width="210">
+    <img src="/resources/readme/microsoft-badge.svg" width="150">
   </a>
 </p>
 
@@ -109,7 +109,7 @@ Videos on YouTube and other sites may be subject to DMCA protection. The authors
 1. Install Python:
 
 ```bash
-brew install python
+brew install python3
 ```
 
 2. Install FFmpeg:
@@ -130,20 +130,20 @@ git clone https://github.com/markop404/media-downloader/ && cd media-downloader
 python3 -m venv .venv && source .venv/bin/activate
 ```
 
-4. Install pip dependencies:
+4. Install the app:
 
 ```bash
-pip3 install -r requirements.txt
+pip3 install .
 ```
 
 5. Run the app:
 
 ```bash
-python3 main.py
+media-downloader
 ```
 
 To update the app in the future:
 
 ```bash
-git pull && pip install --upgrade -r requirements.txt
+git pull && pip install --upgrade .
 ```

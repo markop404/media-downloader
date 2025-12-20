@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['../main.py'],
+    ['../src/media_downloader/__main__.py'],
     pathex=[],
     binaries=[('../ffmpeg.exe', '.'), ('../ffprobe.exe', '.'), ('../deno.exe', '.')],
     datas=[],
@@ -32,7 +32,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['../icons/icon.png'],
+    icon=['../resources/icon.png'],
 )
 coll = COLLECT(
     exe,

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "media-downloader"
+dynamic = ["version"]
+dependencies = [
+    "yt-dlp[default,curl-cffi] > 2025.1.12",
+    "PySide6-Essentials > 6.7.0",
+]
+
+[dependency-groups]
+build = [
+    "pyinstaller > 6.12.0; platform_system == 'Windows'",
+    "pillow > 11.0.0; platform_system == 'Windows'",
+]
+dev = [
+    {include-group = "build"},
+]
+
+[project.gui-scripts]
+media-downloader = "media_downloader:__main__"
+
+[tool.setuptools.dynamic]
+version = { attr = "media_downloader.__init__.VERSION" }

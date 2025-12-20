@@ -1,2 +1,0 @@
-PySide6-Essentials==6.*
-yt-dlp[default,curl-cffi]

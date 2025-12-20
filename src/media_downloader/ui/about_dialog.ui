@@ -20,7 +20,7 @@
         </size>
        </property>
        <property name="pixmap">
-        <pixmap resource="icons.qrc">:icon.png</pixmap>
+        <pixmap>:icon.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -60,24 +60,59 @@
    </item>
    <item>
     <widget class="QTabWidget" name="tabWidget">
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
      <widget class="QWidget" name="aboutTab">
       <attribute name="title">
        <string>About</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <item>
-        <widget class="QLabel" name="aboutLabel">
+        <widget class="QLabel" name="descriptionLabel">
+         <property name="font">
+          <font>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
-          <string>&lt;p&gt;&lt;strong&gt;Web video / audio downloader&lt;/strong&gt;&lt;br&gt;v5.0.0&lt;/p&gt;&lt;p&gt;Made by &lt;a href=&quot;https://markopejic.com&quot;&gt;Marko Pejić&lt;/a&gt;&lt;/p&gt;</string>
+          <string>Web video/audio downloader</string>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+         <property name="textInteractionFlags">
+          <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
          </property>
-         <property name="wordWrap">
-          <bool>true</bool>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="versionLabel">
+         <property name="text">
+          <string>Unspecified version</string>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Policy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>12</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="creditsLabel">
+         <property name="text">
+          <string>Made by &lt;a href=&quot;https://markopejic.com&quot;&gt;Marko Pejić&lt;/a&gt;</string>
          </property>
          <property name="openExternalLinks">
           <bool>true</bool>
@@ -86,6 +121,16 @@
           <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
          </property>
         </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Policy::Expanding</enum>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>

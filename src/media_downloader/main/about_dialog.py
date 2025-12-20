@@ -17,9 +17,11 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from PySide6.QtWidgets import QDialog
+from PySide6.QtWidgets import QDialog, QLabel
 from PySide6.QtGui import QDesktopServices
-from src.ui import Ui_AboutDialog
+
+from ..ui import Ui_AboutDialog
+from ..__init__ import VERSION
 
 class AboutDialog(QDialog):
     def __init__(self, parent):
@@ -27,7 +29,8 @@ class AboutDialog(QDialog):
         self.ui = Ui_AboutDialog()
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
-    
+        self.ui.tabWidget.widget(0).findChild(QLabel, "versionLabel").setText(VERSION)
+
 
     def connect_signals_and_slots(self):
         self.ui.closeDialogButton.clicked.connect(self.close)

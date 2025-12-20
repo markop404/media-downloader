@@ -19,15 +19,15 @@
 
 from time import sleep
 
-from PySide6.QtWidgets import QMessageBox, QWidget, QFileDialog
+from PySide6.QtWidgets import QMessageBox, QWidget
 from PySide6.QtCore import QCoreApplication, QSize
 from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 
 from .config import Config
 from .directory_picker import DirectoryPicker
-from src import ui
-from src import utils
-from src.downloader import Downloader
+from ..ui import Ui_Tab
+from .. import utils
+from ..downloader import Downloader
 
 
 class Tab(QWidget):
@@ -56,7 +56,7 @@ class Tab(QWidget):
 
 
     def setup_ui(self):
-        self.ui = ui.Ui_Tab()
+        self.ui = Ui_Tab()
         self.ui.setupUi(self)
 
         QShortcut(QKeySequence("Alt+f"), self).activated.connect(lambda: self.show_combobox_popup(self.ui.formatComboBox))

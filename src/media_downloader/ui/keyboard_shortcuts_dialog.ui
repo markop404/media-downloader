@@ -2,14 +2,6 @@
 <ui version="4.0">
  <class>KeyboardShortcutsDialog</class>
  <widget class="QDialog" name="KeyboardShortcutsDialog">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>468</width>
-    <height>842</height>
-   </rect>
-  </property>
   <property name="windowTitle">
    <string>Keyboard Shortcuts</string>
   </property>

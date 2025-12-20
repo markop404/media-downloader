@@ -1,5 +1,7 @@
+#!/usr/bin/env python
+
 # Media Downloader - Web video/audio downloader
-# Copyright (C) 2024 Marko Pejić
+# Copyright (C) 2024  Marko Pejić
 
 # This file is part of Media Downloader
 
@@ -17,9 +19,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from setuptools import setup, find_packages
+import sys
+from .main.application import Application
 
-setup(
-    name="src",
-    packages=find_packages(),
-)
+sys.exit(Application().exec())

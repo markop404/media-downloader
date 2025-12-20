@@ -17,15 +17,17 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from time import sleep
 from concurrent.futures import ThreadPoolExecutor
 
 from PySide6.QtCore import QSettings, QByteArray
 from PySide6.QtWidgets import QMainWindow, QWidget, QMenu
 from PySide6.QtGui import QIcon, QKeySequence, QShortcut
 
-from src import ui
-from src import main
+from ..ui import Ui_MainWindow, Ui_TabButtons
+from .config import Config
+from .tab import Tab
+from .about_dialog import AboutDialog
+from .keyboard_shortcuts_dialog import KeyboardShortcutsDialog
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -65,14 +67,14 @@ class MainWindow(QMainWindow):
 
 
     def setup_ui(self):
-        self.ui = ui.Ui_MainWindow()
+        self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         
-        self.about_dialog = main.AboutDialog(self)
-        self.keyboard_shortcuts_dialog = main.KeyboardShortcutsDialog(self)
+        self.about_dialog = AboutDialog(self)
+        self.keyboard_shortcuts_dialog = KeyboardShortcutsDialog(self)
 
         self.tab_button_layout = QWidget()
-        self.tab_buttons = ui.Ui_TabButtons()
+        self.tab_buttons = Ui_TabButtons()
         self.tab_buttons.setupUi(self.tab_button_layout)
         
         self.main_menu = QMenu()
@@ -99,7 +101,7 @@ class MainWindow(QMainWindow):
 
     def create_new_tab(self):
         self.highest_tab_number += 1
-        new_tab = main.Tab(self, self.highest_tab_number)
+        new_tab = Tab(self, self.highest_tab_number)
         new_tab_index = self.ui.tabWidget.addTab(new_tab, f"{self.highest_tab_number}")
         self.ui.tabWidget.setCurrentIndex(new_tab_index)
     
@@ -122,9 +124,9 @@ class MainWindow(QMainWindow):
             else:
                 progress_text = ""
 
-            text = f"{pretty_tab_number} - {main.Config.TAB_TEXT[situation]}{progress_text}"
+            text = f"{pretty_tab_number} - {Config.TAB_TEXT[situation]}{progress_text}"
             self.ui.tabWidget.setTabText(index, text)
-            self.ui.tabWidget.setTabIcon(index, main.Config.STATUS_LABEL_ICONS[situation])
+            self.ui.tabWidget.setTabIcon(index, Config.STATUS_LABEL_ICONS[situation])
         else:
             self.ui.tabWidget.setTabText(index, f"{pretty_tab_number}")
             self.ui.tabWidget.setTabIcon(index, QIcon())

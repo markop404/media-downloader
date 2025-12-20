@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'about_dialog.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.2
+## Created by: Qt User Interface Compiler version 6.10.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -59,15 +59,37 @@ class Ui_AboutDialog(object):
         self.aboutTab = QWidget()
         self.aboutTab.setObjectName(u"aboutTab")
         self.verticalLayout_3 = QVBoxLayout(self.aboutTab)
+        self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.aboutLabel = QLabel(self.aboutTab)
-        self.aboutLabel.setObjectName(u"aboutLabel")
-        self.aboutLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
-        self.aboutLabel.setWordWrap(True)
-        self.aboutLabel.setOpenExternalLinks(True)
-        self.aboutLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+        self.descriptionLabel = QLabel(self.aboutTab)
+        self.descriptionLabel.setObjectName(u"descriptionLabel")
+        font1 = QFont()
+        font1.setBold(True)
+        self.descriptionLabel.setFont(font1)
+        self.descriptionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
-        self.verticalLayout_3.addWidget(self.aboutLabel)
+        self.verticalLayout_3.addWidget(self.descriptionLabel)
+
+        self.versionLabel = QLabel(self.aboutTab)
+        self.versionLabel.setObjectName(u"versionLabel")
+        self.versionLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+
+        self.verticalLayout_3.addWidget(self.versionLabel)
+
+        self.verticalSpacer = QSpacerItem(0, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer)
+
+        self.creditsLabel = QLabel(self.aboutTab)
+        self.creditsLabel.setObjectName(u"creditsLabel")
+        self.creditsLabel.setOpenExternalLinks(True)
+        self.creditsLabel.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+
+        self.verticalLayout_3.addWidget(self.creditsLabel)
+
+        self.verticalSpacer_2 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer_2)
 
         self.tabWidget.addTab(self.aboutTab, "")
         self.linksTab = QWidget()
@@ -138,16 +160,15 @@ class Ui_AboutDialog(object):
 
         self.retranslateUi(AboutDialog)
 
-        self.tabWidget.setCurrentIndex(0)
-
-
         QMetaObject.connectSlotsByName(AboutDialog)
     # setupUi
 
     def retranslateUi(self, AboutDialog):
         AboutDialog.setWindowTitle(QCoreApplication.translate("AboutDialog", u"About", None))
         self.appNameLabel.setText(QCoreApplication.translate("AboutDialog", u"Media Downloader", None))
-        self.aboutLabel.setText(QCoreApplication.translate("AboutDialog", u"<p><strong>Web video / audio downloader</strong><br>v5.0.0</p><p>Made by <a href=\"https://markopejic.com\">Marko Peji\u0107</a></p>", None))
+        self.descriptionLabel.setText(QCoreApplication.translate("AboutDialog", u"Web video/audio downloader", None))
+        self.versionLabel.setText(QCoreApplication.translate("AboutDialog", u"Unspecified version", None))
+        self.creditsLabel.setText(QCoreApplication.translate("AboutDialog", u"Made by <a href=\"https://markopejic.com\">Marko Peji\u0107</a>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.aboutTab), QCoreApplication.translate("AboutDialog", u"About", None))
         self.donateButton.setText(QCoreApplication.translate("AboutDialog", u"Donate", None))
         self.supportedWebsitesButton.setText(QCoreApplication.translate("AboutDialog", u"Supported Websites", None))
