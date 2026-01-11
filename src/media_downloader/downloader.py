@@ -65,7 +65,7 @@ class Downloader:
             "noplaylist": True,
             "noprogress": True,
             "outtmpl": {
-                "default": os.path.join(download_dir, "%(title)s.%(ext)s"),
+                "default": os.path.join(download_dir, "%(title)s (%(id)s).%(ext)s"),
                 "pl_thumbnail": "",
             },
             "windowsfilenames": True,
