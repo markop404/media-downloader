@@ -6,7 +6,7 @@ Type=Application
 Name=Media Downloader
 Comment=Web video/audio downloader
 Categories=AudioVideo;Network;
-Keywords=YouTube;Downloader;ytdlp;Tube;Converter;audio;video;media;download;
+Keywords=youtube;tube;downloader;converter;audio;video;media;download;youtube-dl;yt-dlp;ytdlp;youtubedl;music;mp3;mp4;
 
 Icon=com.markopejic.downloader
 Exec=media-downloader

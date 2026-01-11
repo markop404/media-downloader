@@ -1,10 +1,10 @@
 {
     "id": "com.markopejic.downloader",
     "runtime": "org.kde.Platform",
-    "runtime-version": "6.9",
+    "runtime-version": "6.10",
     "sdk": "org.kde.Sdk",
     "base": "io.qt.PySide.BaseApp",
-    "base-version": "6.9",
+    "base-version": "6.10",
     "command": "media-downloader",
     "finish-args": [
         "--share=network",
@@ -38,16 +38,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2025-12-08-14-18/ffmpeg-N-122031-gc4d22f2d2c-linux64-gpl.tar.xz",
-                    "sha256": "cfb4622901a709710bfa38ece9e0278bd3654edfb3ce98ee344f24093fda1f43",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-01-11-14-17/ffmpeg-N-122414-g24213d5db3-linux64-gpl.tar.xz",
+                    "sha256": "09fc34bd94058116a5159bca0bfbb65637e423770d78e0ab17c854781a46b206",
                     "only-arches": [
                         "x86_64"
                     ]
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2025-12-08-14-18/ffmpeg-N-122031-gc4d22f2d2c-linuxarm64-gpl.tar.xz",
-                    "sha256": "b806c30ad58c53931fe6c2910868414b6b3b5cf2c14fe854bc3906cdfa9cdc20",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-01-11-14-17/ffmpeg-N-122414-g24213d5db3-linuxarm64-gpl.tar.xz",
+                    "sha256": "d9f92554b0afd2a8b0de3f719da95be238feb22479a2b541806a0ee2248fde07",
                     "only-arches": [
                         "aarch64"
                     ]
@@ -63,16 +63,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/denoland/deno/releases/download/v2.5.6/deno-x86_64-unknown-linux-gnu.zip",
-                    "sha256": "fd4f6abc1b6a134fa9a4dba56519f1631f44c88e04e4e3e9a8ff5975dfa66e1a",
+                    "url": "https://github.com/denoland/deno/releases/download/v2.6.4/deno-x86_64-unknown-linux-gnu.zip",
+                    "sha256": "9100bbd0450c17b82002d3948bb8e7e1953c9e6506e63b586e2daa4042eca7f6",
                     "only-arches": [
                         "x86_64"
                     ]
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/denoland/deno/releases/download/v2.5.6/deno-aarch64-unknown-linux-gnu.zip",
-                    "sha256": "f5e60ae3dfceb61e5e5a41f22129e40a8bc17f6393b59e75d7ca19ceef32d824",
+                    "url": "https://github.com/denoland/deno/releases/download/v2.6.4/deno-aarch64-unknown-linux-gnu.zip",
+                    "sha256": "dafb54c5454d7fcca81305215442e832e0c34e90b76a2e9a31d0676cbb06bfc6",
                     "only-arches": [
                         "aarch64"
                     ]
@@ -83,17 +83,17 @@
             "name": "com.markopejic.downloader",
             "buildsystem": "simple",
             "build-commands": [
-                "install -D flatpak/com.markopejic.downloader.desktop $FLATPAK_DEST/share/applications/com.markopejic.downloader.desktop",
-                "install -D flatpak/com.markopejic.downloader.metainfo.xml $FLATPAK_DEST/share/metainfo/com.markopejic.downloader.metainfo.xml",
-                "install -D icons/icon.svg $FLATPAK_DEST/share/icons/hicolor/scalable/apps/com.markopejic.downloader.svg",
-                "install -D main.py $FLATPAK_DEST/bin/media-downloader",
+                "install -D resources/linux/com.markopejic.downloader.desktop $FLATPAK_DEST/share/applications/com.markopejic.downloader.desktop",
+                "install -D resources/linux/com.markopejic.downloader.metainfo.xml $FLATPAK_DEST/share/metainfo/com.markopejic.downloader.metainfo.xml",
+                "install -D resources/icon.svg $FLATPAK_DEST/share/icons/hicolor/scalable/apps/com.markopejic.downloader.svg",
+                "install -D resources/icon.png $FLATPAK_DEST/share/icons/hicolor/512x512/apps/com.markopejic.downloader.png",
                 "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} --compile . --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/markop404/media-downloader/",
-                    "commit": "c6a9a84e7de4b9c27793fd384b2b3909bf8d9954"
+                    "tag": "v5.0.2"
                 }
             ]
         }

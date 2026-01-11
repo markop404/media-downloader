@@ -209,7 +209,7 @@
        <item>
         <widget class="QLabel" name="disclaimerLabel">
          <property name="text">
-          <string>&lt;p&gt;Copyright © 2024-2025 Marko Pejić&lt;/p&gt;&lt;p&gt;Videos on YouTube and other sites may be subject to DMCA protection. The authors of Media Downloader do not endorse, and are not responsible for, the use of this application in means that will violate these laws. &lt;/p&gt;&lt;p&gt;This application comes with absolutely no warranty. See the &lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.html&quot;&gt;GNU General Public License, version 3&lt;/a&gt; or later for details.&lt;/p&gt;</string>
+          <string>&lt;p&gt;Copyright © 2024-2026 Marko Pejić&lt;/p&gt;&lt;p&gt;Videos on YouTube and other sites may be subject to DMCA protection. The authors of Media Downloader do not endorse, and are not responsible for, the use of this application in means that will violate these laws. &lt;/p&gt;&lt;p&gt;This application comes with absolutely no warranty. See the &lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.html&quot;&gt;GNU General Public License, version 3&lt;/a&gt; or later for details.&lt;/p&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>

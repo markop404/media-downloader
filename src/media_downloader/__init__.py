@@ -22,4 +22,4 @@ from . import downloader
 from . import utils
 from . import ui
 
-VERSION = "v5.0.0"
+VERSION = "v5.0.2"

@@ -177,7 +177,7 @@ class Ui_AboutDialog(object):
         self.issueReportButton.setText(QCoreApplication.translate("AboutDialog", u"Report an Issue", None))
         self.sourceCodeButton.setText(QCoreApplication.translate("AboutDialog", u"Source Code", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.linksTab), QCoreApplication.translate("AboutDialog", u"Links", None))
-        self.disclaimerLabel.setText(QCoreApplication.translate("AboutDialog", u"<p>Copyright \u00a9 2024-2025 Marko Peji\u0107</p><p>Videos on YouTube and other sites may be subject to DMCA protection. The authors of Media Downloader do not endorse, and are not responsible for, the use of this application in means that will violate these laws. </p><p>This application comes with absolutely no warranty. See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General Public License, version 3</a> or later for details.</p>", None))
+        self.disclaimerLabel.setText(QCoreApplication.translate("AboutDialog", u"<p>Copyright \u00a9 2024-2026 Marko Peji\u0107</p><p>Videos on YouTube and other sites may be subject to DMCA protection. The authors of Media Downloader do not endorse, and are not responsible for, the use of this application in means that will violate these laws. </p><p>This application comes with absolutely no warranty. See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General Public License, version 3</a> or later for details.</p>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.legalTab), QCoreApplication.translate("AboutDialog", u"Legal", None))
         self.closeDialogButton.setText(QCoreApplication.translate("AboutDialog", u"Close", None))
     # retranslateUi

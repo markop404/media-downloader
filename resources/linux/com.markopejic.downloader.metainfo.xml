@@ -20,6 +20,13 @@
   <url type="vcs-browser">https://downloader.markopejic.com/source-code</url>
 
   <releases>
+    <release version="5.0.2" date="2026-01-11">
+      <description>
+        <ul>
+          <li>Fixed a bug where the app would try to download files with the same filename</li>
+        </ul>
+      </description>
+    </release>
     <release version="5.0.0" date="2025-09-28">
       <description>
         <ul>
@@ -127,7 +134,7 @@
   
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/markop404/media-downloader/v5.0.0/screenshots/kde-plasma-light.png</image>
+      <image>https://raw.githubusercontent.com/markop404/media-downloader/v5.0.2/resources/screenshots/plasma-light.png</image>
     </screenshot>
   </screenshots>
 </component>
