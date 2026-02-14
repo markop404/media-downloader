@@ -22,7 +22,6 @@ from pathlib import Path
 from PySide6.QtWidgets import QFileDialog
 from PySide6.QtCore import QStandardPaths
 
-
 class DirectoryPicker:
     def __init__(self, parent, on_select=None):
         self.parent = parent

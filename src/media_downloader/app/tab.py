@@ -29,7 +29,6 @@ from ..ui import Ui_Tab
 from .. import utils
 from ..downloader import Downloader
 
-
 class Tab(QWidget):
     def __init__(self, parent, pretty_tab_number):
         super().__init__()

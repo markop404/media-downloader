@@ -17,10 +17,4 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from .about_dialog import AboutDialog
-from .keyboard_shortcuts_dialog import KeyboardShortcutsDialog
-from .tab import Tab
-from .main_window import MainWindow
-from .config import Config
-from .directory_picker import DirectoryPicker
 from .application import Application

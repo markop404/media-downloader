@@ -24,7 +24,6 @@ from PySide6.QtGui import QIcon
 
 from .main_window import MainWindow
 
-
 class Application(QApplication):
     def __init__(self):
         super().__init__([])
