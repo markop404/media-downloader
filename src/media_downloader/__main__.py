@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 # Media Downloader - Web video/audio downloader
 # Copyright (C) 2024  Marko Pejić
 
@@ -20,6 +18,6 @@
 
 
 import sys
-from .main.application import Application
+from . import main
 
-sys.exit(Application().exec())
+sys.exit(main())

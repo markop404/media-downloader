@@ -1,0 +1,1 @@
+import media_downloader.__main__

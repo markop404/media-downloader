@@ -17,9 +17,9 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from . import main
-from . import downloader
-from . import utils
-from . import ui
-
 VERSION = "v5.0.2"
+
+from .app import Application
+
+def main():
+    return Application().exec()

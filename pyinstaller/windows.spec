@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['../src/media_downloader/__main__.py'],
+    ['../scripts/run.py'],
     pathex=[],
     binaries=[('../ffmpeg.exe', '.'), ('../ffprobe.exe', '.'), ('../deno.exe', '.')],
     datas=[],

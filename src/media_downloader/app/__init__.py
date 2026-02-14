@@ -23,3 +23,4 @@ from .tab import Tab
 from .main_window import MainWindow
 from .config import Config
 from .directory_picker import DirectoryPicker
+from .application import Application
