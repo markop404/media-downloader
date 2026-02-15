@@ -6,9 +6,9 @@
 >
     <Identity
         Name="MarkoPeji.Media-Downloader"
-        Version="5.0.1.0"
+        Version=""
         Publisher="CN=60AF5940-22F9-489E-A6BB-146BF30CECF6"
-        ProcessorArchitecture="x64"
+        ProcessorArchitecture=""
     />
     <Properties>
         <DisplayName>Media-Downloader</DisplayName>
@@ -20,7 +20,7 @@
         <Resource Language="en-us" />
     </Resources>
     <Dependencies>
-        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
+        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26200.6584" />
     </Dependencies>
     <Capabilities>
          <rescap:Capability Name="runFullTrust" />

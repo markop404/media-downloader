@@ -1,0 +1,25 @@
+[
+    {
+        "name": "ffmpeg",
+        "files": [
+            "ffmpeg-N-122744-ga2489b3ac6-win64-gpl/bin/ffmpeg.exe",
+            "ffmpeg-N-122744-ga2489b3ac6-win64-gpl/bin/ffprobe.exe"
+        ],
+        "sources": {
+            "x64": {
+                "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-02-14-14-26/ffmpeg-N-122744-ga2489b3ac6-win64-gpl.zip",
+                "sha256": "b1fcbff4105767f0682c4c247707697226f494501b49133dd81541276636c504"
+            }
+        }
+    },
+    {
+        "name": "deno",
+        "files": ["deno.exe"],
+        "sources": {
+            "x64": {
+                "url": "https://github.com/denoland/deno/releases/download/v2.6.9/deno-x86_64-pc-windows-msvc.zip",
+                "sha256": "2d2feaed5aa9ac55c2207adcbe45fc0773632c2fac8cf5f3d41b691fe2246ed3"
+            }
+        }
+    }
+]
