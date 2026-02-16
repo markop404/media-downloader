@@ -12,16 +12,16 @@ if ([RuntimeInformation]::OSArchitecture -ne [Architecture]::X64) {
 
 $arch = [RuntimeInformation]::OSArchitecture.ToString().ToLower()
 $sw = [System.Diagnostics.Stopwatch]::StartNew()
-$resources = "resources/windows"
+$resources = "resources\windows"
 $appName = "MediaDownloader"
 $appBundleDir = Join-Path "dist" $appName
 $outputPath = Join-Path "dist" "${appName}_${arch}.msix"
 $deps = Get-Content (Join-Path $resources "deps.json") | ConvertFrom-Json
 $manifest = [xml](Get-Content (Join-Path $resources "AppxManifest.xml"))
-$tempBinDir = ".tmp/bin"
-$tempDownloadsDir = ".tmp/dl"
-$tempExpandDir = ".tmp/expand"
-$pythonBuildVenv = ".tmp/buildenv"
+$tempBinDir = ".tmp\bin"
+$tempDownloadsDir = ".tmp\dl"
+$tempExpandDir = ".tmp\expand"
+$pythonBuildVenv = ".tmp\buildenv"
 $buildFiles = @(
     "build"
     "$appName.spec"
@@ -30,10 +30,10 @@ $buildFiles = @(
     $tempExpandDir
 )
 $pyinstallerArgs = @(
-    "scripts/run.py"
+    "scripts\run.py"
     "--name", $appName
     "--windowed"
-    "--icon", "resources/icon.png"
+    "--icon", "resources\icon.png"
     "--noconfirm"
     "--clean"
 )
@@ -126,7 +126,7 @@ foreach ($dep in $deps) {
 }
 
 Invoke-CommandOrExit { python -m venv $pythonBuildVenv }
-. "$pythonBuildVenv/Scripts/Activate.ps1"
+. (Join-Path $pythonBuildVenv "Scripts\Activate.ps1")
 Invoke-CommandOrExit { pip install . --group build }
 $version = (python -c "from media_downloader import VERSION; print(VERSION)") `
     -replace '^[^\d]*(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+).*$', `
