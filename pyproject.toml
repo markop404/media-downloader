@@ -6,13 +6,13 @@ build-backend = "setuptools.build_meta"
 name = "media-downloader"
 dynamic = ["version"]
 dependencies = [
-    "yt-dlp[default,curl-cffi] == 2026.2.4",
+    "yt-dlp[default,curl-cffi] == 2026.3.3",
     "PySide6-Essentials == 6.10.2",
 ]
 
 [dependency-groups]
 build = [
-    "pyinstaller == 6.18.0; platform_system == 'Windows'",
+    "pyinstaller == 6.19.0; platform_system == 'Windows'",
     "pillow == 12.1.1; platform_system == 'Windows'",
 ]
 dev = [
