@@ -307,10 +307,11 @@ class Downloader:
 
 
     def check_internet(self):
+        socket.setdefaulttimeout(2)
         try:
-            socket.create_connection(self.DNS, timeout=5).close()
-        except BaseException as e:
-            raise self.NoInternet(e)
+            socket.gethostbyname("www.cloudflare.com")
+        except (socket.error, socket.timeout):
+            raise self.NoInternet
 
 
     def get_yt_dlp(self):
