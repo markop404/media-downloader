@@ -23,6 +23,9 @@ class AboutDialog(QDialog):
     
 
     def showEvent(self, event):
-        self.ui.tabWidget.widget(0).findChild(QLabel, "versionLabel").setText(f"{VERSION} (yt-dlp {QApplication.instance().updater.version})")
+        updater = QApplication.instance().updater
+        asset_name = updater.ASSET_NAME
+        asset_version = updater.version
+        self.ui.tabWidget.widget(0).findChild(QLabel, "versionLabel").setText(f"{VERSION} ({asset_name} {asset_version})")
         self.ui.tabWidget.setCurrentIndex(0)
         return super().showEvent(event)

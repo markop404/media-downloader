@@ -5,11 +5,6 @@ using namespace System.IO
 
 $ErrorActionPreference = "Stop"
 
-if ([RuntimeInformation]::OSArchitecture -ne [Architecture]::X64) {
-    Write-Error "Only x86_64 builds are supported."
-    exit 1
-}
-
 $arch = [RuntimeInformation]::OSArchitecture.ToString().ToLower()
 $sw = [System.Diagnostics.Stopwatch]::StartNew()
 $resources = "resources\windows"
