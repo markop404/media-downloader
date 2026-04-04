@@ -2,10 +2,6 @@ import socket
 import re
 import os
 
-from yt_dlp import YoutubeDL
-from yt_dlp.utils import DownloadError
-
-
 class Downloader:
     def __init__(
         self,
@@ -13,7 +9,8 @@ class Downloader:
         url_downloaded_func=None,
         url_extracted_func=None,
         url_fetched_func=None,
-        conversion_progress_func=None
+        conversion_progress_func=None,
+        import_lock=None
     ):
         self.logs = self.Logs()
         self.metadata = self.Metadata()
@@ -25,6 +22,7 @@ class Downloader:
             fetched=url_fetched_func,
             conversion=conversion_progress_func
         )
+        self.import_lock = import_lock
 
     def download(
         self,
@@ -38,6 +36,7 @@ class Downloader:
     ):
         if self.cache.available(urls) or not urls:
             urls = self.cache.extracted_urls
+        YoutubeDL, DownloadError = self.get_yt_dlp()
         self.logs.__init__(pending_urls=urls.copy())
         pending_urls = urls.copy()
         processed_url_count = 0
@@ -128,6 +127,8 @@ class Downloader:
         if self.cache.available(urls):
             self.logs.clear()
             return
+        
+        YoutubeDL, DownloadError = self.get_yt_dlp()
         downloader = YoutubeDL({
             "extract_flat": "in_playlist",
             "quiet": True,
@@ -167,6 +168,7 @@ class Downloader:
             
 
     def fetch_metadata(self, urls):
+        YoutubeDL, DownloadError = self.get_yt_dlp()
         downloader = YoutubeDL({
             "quiet": True,
             "noplaylist": True,
@@ -309,6 +311,19 @@ class Downloader:
             socket.create_connection(self.DNS, timeout=5).close()
         except BaseException as e:
             raise self.NoInternet(e)
+
+
+    def get_yt_dlp(self):
+        if self.import_lock:
+            self.import_lock.acquire()
+
+        from yt_dlp import YoutubeDL
+        from yt_dlp.utils import DownloadError
+        
+        if self.import_lock:
+            self.import_lock.release()
+
+        return YoutubeDL, DownloadError
         
 
     @staticmethod

@@ -1,6 +1,6 @@
 from time import sleep
 
-from PySide6.QtWidgets import QMessageBox, QWidget
+from PySide6.QtWidgets import QMessageBox, QWidget, QApplication
 from PySide6.QtCore import QCoreApplication, QSize
 from PySide6.QtGui import QPixmap, QKeySequence, QShortcut
 
@@ -31,7 +31,8 @@ class Tab(QWidget):
                 total_url_count,
                 situation="pulling_data":
                     self.url_extraction_progress(situation, processed_url_count, total_url_count),
-            conversion_progress_func=self.postprocess_progress
+            conversion_progress_func=self.postprocess_progress,
+            import_lock=QApplication.instance().updater.LOCK
         )
 
 

@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QDialog, QLabel
+from PySide6.QtWidgets import QDialog, QLabel, QApplication
 from PySide6.QtGui import QDesktopServices
 
 from ..ui import Ui_AboutDialog
@@ -10,7 +10,6 @@ class AboutDialog(QDialog):
         self.ui = Ui_AboutDialog()
         self.ui.setupUi(self)
         self.connect_signals_and_slots()
-        self.ui.tabWidget.widget(0).findChild(QLabel, "versionLabel").setText(VERSION)
 
 
     def connect_signals_and_slots(self):
@@ -24,5 +23,6 @@ class AboutDialog(QDialog):
     
 
     def showEvent(self, event):
+        self.ui.tabWidget.widget(0).findChild(QLabel, "versionLabel").setText(f"{VERSION} (yt-dlp {QApplication.instance().updater.version})")
         self.ui.tabWidget.setCurrentIndex(0)
         return super().showEvent(event)

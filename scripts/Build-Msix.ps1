@@ -36,6 +36,7 @@ $pyinstallerArgs = @(
     "--icon", "resources\icon.png"
     "--noconfirm"
     "--clean"
+    "--copy-metadata", "yt_dlp"
 )
 
 function Remove-PathRecursive {
