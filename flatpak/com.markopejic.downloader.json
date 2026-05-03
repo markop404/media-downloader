@@ -38,16 +38,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-04-03-14-49/ffmpeg-N-123825-g1f6699ef26-linux64-gpl.tar.xz",
-                    "sha256": "a87c7256a5faf3ae7dfe61681141e34cbe81e1a2e003030d4e048e7dd246dace",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-05-03-14-58/ffmpeg-N-124342-g2678bce860-linux64-gpl.tar.xz",
+                    "sha256": "fcc967d87dd9baab15c15f90505d6fc05da36466241aa2a53fd23c1050fe144a",
                     "only-arches": [
                         "x86_64"
                     ]
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-04-03-14-49/ffmpeg-N-123825-g1f6699ef26-linuxarm64-gpl.tar.xz",
-                    "sha256": "abb923319b5872e2bb66ba5ff663c1c639352e999ea9a03a2152782c75864727",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-05-03-14-58/ffmpeg-N-124342-g2678bce860-linuxarm64-gpl.tar.xz",
+                    "sha256": "3159c9fc97889f2bc79b19221ccdd2fe30604aa99f1f53b14f6a7e257bc32552",
                     "only-arches": [
                         "aarch64"
                     ]

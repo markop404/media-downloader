@@ -8,14 +8,14 @@ dynamic = ["version"]
 dependencies = [
     "yt-dlp[default,deno,curl-cffi]==2026.3.17",
     "PySide6-Essentials==6.11.0; platform_system!='Linux'",
-    "packaging==26.0",
+    "packaging==26.2",
     "requests==2.33.1",
     "PGPym==0.6.1"
 ]
 
 [dependency-groups]
 build = [
-    "pyinstaller==6.19.0; platform_system!='Linux'",
+    "pyinstaller==6.20.0; platform_system!='Linux'",
     "pillow==12.2.0; platform_system=='Windows'",
 ]
 dev = [
