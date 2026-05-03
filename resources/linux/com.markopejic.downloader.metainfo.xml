@@ -20,6 +20,13 @@
   <url type="vcs-browser">https://downloader.markopejic.com/source-code</url>
 
   <releases>
+    <release version="5.1.0" date="2026-05-03">
+      <description>
+        <ul>
+          <li>The app now updates frequently updated libraries on startup (which should make the app more reliable)</li>
+        </ul>
+      </description>
+    </release>
     <release version="5.0.2" date="2026-01-11">
       <description>
         <ul>
