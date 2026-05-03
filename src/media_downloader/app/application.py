@@ -37,6 +37,7 @@ class Application(QApplication):
                 QStandardPaths.AppLocalDataLocation
             )
         )
+        self.updater.start_update()
 
         match platform.system():
             case "Windows":
