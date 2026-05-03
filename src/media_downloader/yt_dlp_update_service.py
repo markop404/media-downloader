@@ -2,17 +2,17 @@ import sys
 import os
 import importlib
 import threading
-import hashlib
 import ast
 from textwrap import dedent
 from zipfile import ZipFile
+from hashlib import sha256
 
 import requests
 import pgpy
 from packaging import version
 
 
-class YtDlpUpdater:
+class YtDlpUpdateService:
     ASSET_NAME = "yt-dlp"
     MODULE_NAME = "yt_dlp"
     SUMS_ASSET_NAME = "SHA2-256SUMS"
@@ -134,7 +134,7 @@ class YtDlpUpdater:
                     for line in sums_response.content.splitlines():
                         expected_hash, name = line.decode().split(None, 1)
                         if name == self.ASSET_NAME:
-                            calculated_hash = hashlib.sha256(bin_response.content).hexdigest()
+                            calculated_hash = sha256(bin_response.content).hexdigest()
                             break
                     else:
                         calculated_hash = None

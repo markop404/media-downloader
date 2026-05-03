@@ -1,8 +1,11 @@
 import socket
-import re
-import os
+from os import path
+from re import search
+
 
 class Downloader:
+    DOWNLOAD_ATTEMPTS = 2
+
     def __init__(
         self,
         download_progress_func=None,
@@ -45,7 +48,7 @@ class Downloader:
             "noplaylist": True,
             "noprogress": True,
             "outtmpl": {
-                "default": os.path.join(download_dir, "%(title)s (%(id)s).%(ext)s"),
+                "default": path.join(download_dir, "%(title)s (%(id)s).%(ext)s"),
                 "pl_thumbnail": "",
             },
             "windowsfilenames": True,
@@ -61,8 +64,7 @@ class Downloader:
                     "already_have_thumbnail": False,
                 },
             ],
-            "postprocessor_args": {},
-            "writethumbnail": True
+            "writethumbnail": True,
         }
         if self.progress_func.download:
             params["progress_hooks"] = [
@@ -117,11 +119,10 @@ class Downloader:
                 if self.progress_func.downloaded:
                     self.progress_func.downloaded(processed_url_count, self.logs.total_url_count, url)
 
-            if self.logs.pending_urls and attempt != self.DOWNLOAD_ATTEMPTS:
+            if self.logs.pending_urls and attempt != (self.DOWNLOAD_ATTEMPTS - 1):
                 pending_urls = self.logs.pending_urls.copy()
             else:
                break
-
 
     def extract_urls(self, urls):
         if self.cache.available(urls):
@@ -159,13 +160,12 @@ class Downloader:
                 if self.progress_func.extracted:
                     self.progress_func.extracted(processed_url_count, self.logs.total_url_count)
 
-            if self.logs.pending_urls and attempt != self.DOWNLOAD_ATTEMPTS:
+            if self.logs.pending_urls and attempt != (self.DOWNLOAD_ATTEMPTS - 1):
                 pending_urls = self.logs.pending_urls.copy()
             else:
                 break
         
         self.cache.__init__(urls=urls.copy(), extracted_urls=extracted_urls, failed_urls=self.logs.pending_urls)
-            
 
     def fetch_metadata(self, urls):
         YoutubeDL, DownloadError = self.get_yt_dlp()
@@ -208,7 +208,7 @@ class Downloader:
                             for _format in formats:
                                 if (
                                     (format_note := self.get_value_if_exists("format_note", _format, str)) and
-                                    (resolution_search := re.search(r"([0-9]+)p", format_note))
+                                    (resolution_search := search(r"([0-9]+)p", format_note))
                                 ):
                                     resolutions.add(int(resolution_search.group(1)))
                                 if format_abr := self.get_value_if_exists("abr", _format, float):
@@ -236,7 +236,7 @@ class Downloader:
                 if self.progress_func.fetched:
                     self.progress_func.fetched(processed_url_count, self.logs.total_url_count)
 
-            if self.logs.pending_urls and attempt != self.DOWNLOAD_ATTEMPTS:
+            if self.logs.pending_urls and attempt != (self.DOWNLOAD_ATTEMPTS - 1):
                 pending_urls = self.logs.pending_urls.copy()
             else:
                 break
@@ -251,7 +251,6 @@ class Downloader:
             bitrates[bitrate] = f"{bitrate} kbps"
         subtitles = dict(sorted(all_subtitles.items(), key=lambda i: i[1]))
         self.metadata.__init__(resolutions=resolutions, bitrates=bitrates, subtitles=subtitles)
-        
 
     class Logs:
         def __init__(self, pending_urls=set(), errors=set()):
@@ -265,7 +264,6 @@ class Downloader:
         def clear(self):
             self.__init__()
 
-
     class Metadata:
         def __init__(self, resolutions={}, bitrates={}, subtitles={}):
             self.resolutions = resolutions
@@ -278,7 +276,6 @@ class Downloader:
         def clear(self):
             self.__init__()
 
-
     class Cache:
         def __init__(self, urls=set(), extracted_urls=set(), failed_urls=set()):
             self.urls = urls
@@ -288,7 +285,6 @@ class Downloader:
 
         def available(self, urls):
             return urls == self.urls
-
 
     class ProgressFunc:
         def __init__(self, download=None, downloaded=None, extracted=None, fetched=None, conversion=None):
@@ -305,14 +301,12 @@ class Downloader:
                 percentage = None       
             self.download(percentage, processed_url_count, total_url_count)
 
-
     def check_internet(self):
         socket.setdefaulttimeout(2)
         try:
             socket.gethostbyname("www.cloudflare.com")
         except (socket.error, socket.timeout):
             raise self.NoInternet
-
 
     def get_yt_dlp(self):
         if self.import_lock:
@@ -325,7 +319,6 @@ class Downloader:
             self.import_lock.release()
 
         return YoutubeDL, DownloadError
-        
 
     @staticmethod
     def get_value_if_exists(value, _dict, _type=None):
@@ -336,9 +329,4 @@ class Downloader:
             elif not _type:
                 return value
 
-
     class NoInternet(BaseException): pass
-
-
-    DOWNLOAD_ATTEMPTS = 2
-    DNS = ("1.1.1.1", 53)

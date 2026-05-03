@@ -7,7 +7,7 @@ from PySide6.QtCore import QStandardPaths
 from PySide6.QtNetwork import QLocalServer, QLocalSocket
 
 from .main_window import MainWindow
-from ..yt_dlp_updater import YtDlpUpdater
+from ..yt_dlp_update_service import YtDlpUpdateService
 
 class Application(QApplication):
     APP_ID = "com.markopejic.downloader"
@@ -32,12 +32,11 @@ class Application(QApplication):
         self.setApplicationDisplayName("Media Downloader")
         self.setWindowIcon(QIcon(":icon.png"))
 
-        self.updater = YtDlpUpdater(
+        self.updater = YtDlpUpdateService(
             QStandardPaths.writableLocation(
                 QStandardPaths.AppLocalDataLocation
             )
         )
-        self.updater.start_update()
 
         match platform.system():
             case "Windows":
