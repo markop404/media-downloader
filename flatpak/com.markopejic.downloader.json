@@ -40,7 +40,6 @@
                     "type": "archive",
                     "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-05-30-15-19/ffmpeg-N-124683-g3023060139-linux64-gpl.tar.xz",
                     "sha256": "c89e986a72674f00fdc618bdd6d24ddf736227ca061706b1f508625347b6f4e0",
-                    "strip-components": 0,
                     "only-arches": [
                         "x86_64"
                     ]
@@ -49,7 +48,6 @@
                     "type": "archive",
                     "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-05-30-15-19/ffmpeg-N-124683-g3023060139-linuxarm64-gpl.tar.xz",
                     "sha256": "94b37bb797a3649cbcb29cefa2c1bc0ed85ab0eeae33643905205d76314f0a53",
-                    "strip-components": 0,
                     "only-arches": [
                         "aarch64"
                     ]
@@ -67,6 +65,7 @@
                     "type": "archive",
                     "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v1.5.6/curl-impersonate-v1.5.6.x86_64-linux-gnu.tar.gz",
                     "sha256": "b60344f63b9ed8806f0e9f7fd357d9f6c9a82aca279ed1e9e257d544885dcbde",
+                    "strip-components": 0,
                     "only-arches": [
                         "x86_64"
                     ]
@@ -75,6 +74,7 @@
                     "type": "archive",
                     "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v1.5.6/curl-impersonate-v1.5.6.aarch64-linux-gnu.tar.gz",
                     "sha256": "6766bc67fd3e8e2313875f32b36b5a3fab02beffe77e5f1cf7fc5da99731d403",
+                    "strip-components": 0,
                     "only-arches": [
                         "aarch64"
                     ]
