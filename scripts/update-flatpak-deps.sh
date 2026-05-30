@@ -10,7 +10,8 @@ curl -o $generator "https://raw.githubusercontent.com/flatpak/flatpak-builder-to
 python3 $generator \
     --pyproject-file "pyproject.toml" \
     --output "flatpak/python-modules" \
-    --runtime "org.kde.Platform//6.10"
+    --runtime "org.kde.Sdk//6.10" \
+    --prefer-wheels "deno,cryptography"
 deactivate
 rm -r $venv
 rm $generator
