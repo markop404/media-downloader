@@ -64,6 +64,7 @@ class Downloader:
                     "already_have_thumbnail": False,
                 },
             ],
+            "postprocessor_args": {},
             "writethumbnail": True,
         }
         if self.progress_func.download:
