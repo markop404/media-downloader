@@ -38,16 +38,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-05-30-15-19/ffmpeg-N-124683-g3023060139-linux64-gpl.tar.xz",
-                    "sha256": "c89e986a72674f00fdc618bdd6d24ddf736227ca061706b1f508625347b6f4e0",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-06-18-17-15/ffmpeg-N-125100-g10e9f273ee-linux64-gpl.tar.xz",
+                    "sha256": "e4d49bf75516c4d20a9d8c38b4cc8936026ca92509c1e8633c647744f71929f5",
                     "only-arches": [
                         "x86_64"
                     ]
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-05-30-15-19/ffmpeg-N-124683-g3023060139-linuxarm64-gpl.tar.xz",
-                    "sha256": "94b37bb797a3649cbcb29cefa2c1bc0ed85ab0eeae33643905205d76314f0a53",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-06-18-17-15/ffmpeg-N-125100-g10e9f273ee-linuxarm64-gpl.tar.xz",
+                    "sha256": "ace1c6bfa2d66f2e452ad1181492c0f20ed3f95d3562686017a0b68499f1eee2",
                     "only-arches": [
                         "aarch64"
                     ]
@@ -95,7 +95,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/markop404/media-downloader/",
-                    "tag": "v5.1.0"
+                    "tag": "v5.1.1"
                 }
             ]
         }

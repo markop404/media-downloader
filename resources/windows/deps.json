@@ -2,13 +2,13 @@
     {
         "name": "ffmpeg",
         "files": [
-            "ffmpeg-N-124342-g2678bce860-win64-gpl/bin/ffmpeg.exe",
-            "ffmpeg-N-124342-g2678bce860-win64-gpl/bin/ffprobe.exe"
+            "ffmpeg-N-125100-g10e9f273ee-win64-gpl/bin/ffmpeg.exe",
+            "ffmpeg-N-125100-g10e9f273ee-win64-gpl/bin/ffprobe.exe"
         ],
         "sources": {
             "x64": {
-                "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-05-03-14-58/ffmpeg-N-124342-g2678bce860-win64-gpl.zip",
-                "sha256": "03fffa5ea7e5c2621ed204fbb46b77ce908994aff46c51a0c55c12a79d06fdd2"
+                "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-06-18-17-15/ffmpeg-N-125100-g10e9f273ee-win64-gpl.zip",
+                "sha256": "77c685eb576374e24a736239c2183e52eabec3d1fb6201ad349caf2973112fc7"
             }
         }
     }
