@@ -20,6 +20,13 @@
   <url type="vcs-browser">https://downloader.markopejic.com/source-code</url>
 
   <releases>
+    <release version="5.1.1" date="2026-06-19">
+      <description>
+        <ul>
+          <li>Fixed downloads failing when the crop thumbnails option was enabled</li>
+        </ul>
+      </description>
+    </release>
     <release version="5.1.0" date="2026-05-03">
       <description>
         <ul>
