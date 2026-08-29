@@ -111,8 +111,11 @@ foreach ($dep in $deps) {
         $expandedArchivePath = Join-Path $tempExpandDir ([Path]::GetFileNameWithoutExtension($url))
         Expand-Archive $downloadFilePath -DestinationPath $expandedArchivePath
         foreach ($file in $dep.files) {
-            Move-Item (Join-Path $expandedArchivePath $file) $tempBinDir
-            $pyinstallerArgs += "--add-binary", ((Join-Path $tempBinDir ([Path]::GetFileName($file))) + ":.")
+            $paths = @(Resolve-Path (Join-Path $expandedArchivePath $file) | ForEach-Object Path)
+            foreach ($path in $paths) {
+                Move-Item $path $tempBinDir
+                $pyinstallerArgs += "--add-binary", ((Join-Path $tempBinDir ([Path]::GetFileName($path))) + ":.")
+            }
         }
         Remove-PathRecursive $expandedArchivePath
     } else {

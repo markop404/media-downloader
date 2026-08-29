@@ -1,10 +1,10 @@
 {
     "id": "com.markopejic.downloader",
     "runtime": "org.kde.Platform",
-    "runtime-version": "6.10",
+    "runtime-version": "6.11",
     "sdk": "org.kde.Sdk",
     "base": "io.qt.PySide.BaseApp",
-    "base-version": "6.10",
+    "base-version": "6.11",
     "command": "media-downloader",
     "finish-args": [
         "--share=network",
@@ -38,16 +38,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-06-18-17-15/ffmpeg-N-125100-g10e9f273ee-linux64-gpl.tar.xz",
-                    "sha256": "e4d49bf75516c4d20a9d8c38b4cc8936026ca92509c1e8633c647744f71929f5",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-08-28-23-37/ffmpeg-N-126312-gdf48dc624e-linux64-gpl.tar.xz",
+                    "sha256": "094daeb0c8307fd00fae19f2a7aafed2acf157e1d44d108c0ad38c9cbdf9a05b",
                     "only-arches": [
                         "x86_64"
                     ]
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-06-18-17-15/ffmpeg-N-125100-g10e9f273ee-linuxarm64-gpl.tar.xz",
-                    "sha256": "ace1c6bfa2d66f2e452ad1181492c0f20ed3f95d3562686017a0b68499f1eee2",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-08-28-23-37/ffmpeg-N-126312-gdf48dc624e-linuxarm64-gpl.tar.xz",
+                    "sha256": "00edba02e8218157161c446df5f42810d92f2f9b1ee3d06bcbb17eb444a0f0f2",
                     "only-arches": [
                         "aarch64"
                     ]
@@ -63,8 +63,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v1.5.6/curl-impersonate-v1.5.6.x86_64-linux-gnu.tar.gz",
-                    "sha256": "b60344f63b9ed8806f0e9f7fd357d9f6c9a82aca279ed1e9e257d544885dcbde",
+                    "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v2.1.1/curl-impersonate-v2.1.1.x86_64-linux-gnu.tar.gz",
+                    "sha256": "29972a063db87a6697f1273706d63f47bfe947ef4245391096b60f0ca8b53ad3",
                     "strip-components": 0,
                     "only-arches": [
                         "x86_64"
@@ -72,8 +72,8 @@
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v1.5.6/curl-impersonate-v1.5.6.aarch64-linux-gnu.tar.gz",
-                    "sha256": "6766bc67fd3e8e2313875f32b36b5a3fab02beffe77e5f1cf7fc5da99731d403",
+                    "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v2.1.1/curl-impersonate-v2.1.1.aarch64-linux-gnu.tar.gz",
+                    "sha256": "69087a501ec2fb2111dc0af1df2d82c1bf7880b3bad5c1c90a0c62eba57c587e",
                     "strip-components": 0,
                     "only-arches": [
                         "aarch64"
@@ -95,7 +95,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/markop404/media-downloader/",
-                    "tag": "v5.1.1"
+                    "tag": "v5.1.2"
                 }
             ]
         }

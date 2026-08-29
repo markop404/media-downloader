@@ -20,6 +20,13 @@
   <url type="vcs-browser">https://downloader.markopejic.com/source-code</url>
 
   <releases>
+    <release version="5.1.2" date="2026-08-29">
+      <description>
+        <ul>
+          <li>Updated libraries</li>
+        </ul>
+      </description>
+    </release>
     <release version="5.1.1" date="2026-06-19">
       <description>
         <ul>
