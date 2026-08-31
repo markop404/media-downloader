@@ -38,16 +38,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-08-28-23-37/ffmpeg-N-126312-gdf48dc624e-linux64-gpl.tar.xz",
-                    "sha256": "094daeb0c8307fd00fae19f2a7aafed2acf157e1d44d108c0ad38c9cbdf9a05b",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-08-30-18-16/ffmpeg-N-126337-g818cecc6e1-linux64-gpl.tar.xz",
+                    "sha256": "e89888df3771c904b467f7a7171dfa0ba114b73d763257b4537a82383f9f0795",
                     "only-arches": [
                         "x86_64"
                     ]
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-08-28-23-37/ffmpeg-N-126312-gdf48dc624e-linuxarm64-gpl.tar.xz",
-                    "sha256": "00edba02e8218157161c446df5f42810d92f2f9b1ee3d06bcbb17eb444a0f0f2",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-08-30-18-16/ffmpeg-N-126337-g818cecc6e1-linuxarm64-gpl.tar.xz",
+                    "sha256": "d4d5fd0b54d99e707f420c81c3202ecdf3cf02501be1841c90436133909e3d4f",
                     "only-arches": [
                         "aarch64"
                     ]
@@ -63,8 +63,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v2.1.1/curl-impersonate-v2.1.1.x86_64-linux-gnu.tar.gz",
-                    "sha256": "29972a063db87a6697f1273706d63f47bfe947ef4245391096b60f0ca8b53ad3",
+                    "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v2.2.0/curl-impersonate-v2.2.0.x86_64-linux-gnu.tar.gz",
+                    "sha256": "30fe86c7d3f92c1b22c37e1a1d3904fff928f0cf0da02c79a556ac2bdbf25951",
                     "strip-components": 0,
                     "only-arches": [
                         "x86_64"
@@ -72,8 +72,8 @@
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v2.1.1/curl-impersonate-v2.1.1.aarch64-linux-gnu.tar.gz",
-                    "sha256": "69087a501ec2fb2111dc0af1df2d82c1bf7880b3bad5c1c90a0c62eba57c587e",
+                    "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v2.2.0/curl-impersonate-v2.2.0.aarch64-linux-gnu.tar.gz",
+                    "sha256": "6f65ea16e411a9566e54e72243348d9b9bbe8965d0efe97802e0c7b6d7094c45",
                     "strip-components": 0,
                     "only-arches": [
                         "aarch64"
