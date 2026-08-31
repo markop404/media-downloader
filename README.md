@@ -1,6 +1,6 @@
 <h1>
 <p align="center">
-  <img width="100" src="/resources/icon.svg" alt="Logo">
+  <img width="100" src="/resources/icon.png" alt="Logo">
   <br>Media Downloader
 </h1>
   <p align="center">
