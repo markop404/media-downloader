@@ -7,8 +7,8 @@
         ],
         "sources": {
             "x64": {
-                "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-08-28-23-37/ffmpeg-N-126312-gdf48dc624e-win64-gpl.zip",
-                "sha256": "705c7f5b16600c977c0f825bc165c245c483794364489dedbd024148ea218e06"
+                "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-08-30-18-16/ffmpeg-N-126337-g818cecc6e1-win64-gpl.zip",
+                "sha256": "671a2bca2a0cefcba09495fea705a3c664720a626f07375cae61e4f6d2ed87c3"
             }
         }
     },
@@ -17,8 +17,8 @@
         "files": ["curl*"],
         "sources": {
             "x64": {
-                "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v2.1.1/curl-impersonate-v2.1.1.x86_64-win32.tar.gz",
-                "sha256": "c89bd43f0becf0c4f50c58257bf09a900eb69679056cddbe3c5f4e34dcb2bf3f"
+                "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v2.2.0/curl-impersonate-v2.2.0.x86_64-win32.tar.gz",
+                "sha256": "72dd58983b844c692ca4bbce7a1d7f2904ef7768a9e2721b1f274ed8f04866e4"
             }
         }
     }
