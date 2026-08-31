@@ -55,33 +55,6 @@
             ]
         },
         {
-            "name": "curl-impersonate",
-            "buildsystem": "simple",
-            "build-commands": [
-                "install -Dm755 curl* /app/bin/"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v2.2.0/curl-impersonate-v2.2.0.x86_64-linux-gnu.tar.gz",
-                    "sha256": "30fe86c7d3f92c1b22c37e1a1d3904fff928f0cf0da02c79a556ac2bdbf25951",
-                    "strip-components": 0,
-                    "only-arches": [
-                        "x86_64"
-                    ]
-                },
-                {
-                    "type": "archive",
-                    "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v2.2.0/curl-impersonate-v2.2.0.aarch64-linux-gnu.tar.gz",
-                    "sha256": "6f65ea16e411a9566e54e72243348d9b9bbe8965d0efe97802e0c7b6d7094c45",
-                    "strip-components": 0,
-                    "only-arches": [
-                        "aarch64"
-                    ]
-                }
-            ]
-        },
-        {
             "name": "com.markopejic.downloader",
             "buildsystem": "simple",
             "build-commands": [

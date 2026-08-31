@@ -11,15 +11,5 @@
                 "sha256": "671a2bca2a0cefcba09495fea705a3c664720a626f07375cae61e4f6d2ed87c3"
             }
         }
-    },
-    {
-        "name": "curl-impersonate",
-        "files": ["curl*"],
-        "sources": {
-            "x64": {
-                "url": "https://github.com/lexiforest/curl-impersonate/releases/download/v2.2.0/curl-impersonate-v2.2.0.x86_64-win32.tar.gz",
-                "sha256": "72dd58983b844c692ca4bbce7a1d7f2904ef7768a9e2721b1f274ed8f04866e4"
-            }
-        }
     }
 ]

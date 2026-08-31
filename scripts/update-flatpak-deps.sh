@@ -14,6 +14,6 @@ python3 $generator \
     --pyproject-file "pyproject.toml" \
     --output "flatpak/python-modules" \
     --runtime $runtime \
-    --prefer-wheels "deno,cryptography"
+    --prefer-wheels "deno,cryptography,curl-cffi"
 deactivate
 rm -r $venv $generator
