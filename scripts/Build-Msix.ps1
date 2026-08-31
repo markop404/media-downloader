@@ -109,7 +109,8 @@ foreach ($dep in $deps) {
     
     if ("files" -in $dep.PSObject.Properties.Name) {
         $expandedArchivePath = Join-Path $tempExpandDir ([Path]::GetFileNameWithoutExtension($url))
-        Expand-Archive $downloadFilePath -DestinationPath $expandedArchivePath
+	    New-Item -ItemType Directory $expandedArchivePath
+        tar -xvf $downloadFilePath -C $expandedArchivePath
         foreach ($file in $dep.files) {
             $paths = @(Resolve-Path (Join-Path $expandedArchivePath $file) | ForEach-Object Path)
             foreach ($path in $paths) {
