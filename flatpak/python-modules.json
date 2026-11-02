@@ -7,7 +7,7 @@
             "name": "python3-yt-dlp",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"yt-dlp[deno,curl-cffi,default]==2026.8.19\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"yt-dlp[default,deno,curl-cffi]==2026.10.26\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -32,16 +32,16 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/72/01/2bbf141baa0fc3921d31a90de5465b7a94188845a8fe84dee86bf7bd90f1/curl_cffi-0.16.3-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-                    "sha256": "a875a661e2f9a949be29454880bbb9553307a487c4c08819738298cf5c1622e2",
+                    "url": "https://files.pythonhosted.org/packages/e5/ef/7bb612007cf254ad6406e9563201baf87f57686308353b0fefde4b356212/curl_cffi-0.17.0-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+                    "sha256": "af0782d5e340b65fd76701630f0284a8f8243d77df5f2637efd09a4b009f4e24",
                     "only-arches": [
                         "x86_64"
                     ]
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/97/2d/25b106e64178829be1ce171b6cd45ba354ab7a2a5169001866b38d4c440f/curl_cffi-0.16.3-cp310-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
-                    "sha256": "d5a4103f2baa1fcf619ec3101b419827d367044ba106b206228137cc71a5a9c5",
+                    "url": "https://files.pythonhosted.org/packages/e6/6f/063eb68f3353bde506f4ca01005b24a07f59103bc8640889ea1954af9302/curl_cffi-0.17.0-cp310-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+                    "sha256": "aa91d26234516ddb9eb97310d5fe1705aa6f677f101d57ffdb76d5f75439506e",
                     "only-arches": [
                         "aarch64"
                     ]
@@ -99,8 +99,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/69/b2/8cd1613f56eed7ceb64fbd4df3f1c01246bfb098e6f398228bafda22b80b/yt_dlp-2026.8.19-py3-none-any.whl",
-                    "sha256": "1d57897e94c6665a0a6f9bc54b34e584284e32c034ffab3a7df25d8f7b24eedf"
+                    "url": "https://files.pythonhosted.org/packages/7f/3d/16ea7d5638cf585991f2c5705e8083688dde633d32d0871f2404e0f4d827/yt_dlp-2026.10.26-py3-none-any.whl",
+                    "sha256": "a05c5b5d8562f7e8a62f5334348b406af4930d56d3a65f8021d14af0e22339ae"
                 },
                 {
                     "type": "file",
