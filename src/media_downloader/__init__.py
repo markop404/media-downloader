@@ -1,4 +1,4 @@
-VERSION = "v5.1.3"
+VERSION = "v5.1.4"
 
 from .app import Application
 

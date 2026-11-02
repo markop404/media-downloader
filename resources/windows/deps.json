@@ -7,8 +7,8 @@
         ],
         "sources": {
             "x64": {
-                "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-08-30-18-16/ffmpeg-N-126337-g818cecc6e1-win64-gpl.zip",
-                "sha256": "671a2bca2a0cefcba09495fea705a3c664720a626f07375cae61e4f6d2ed87c3"
+                "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-11-01-19-06/ffmpeg-N-128280-ga88838af48-win64-gpl.zip",
+                "sha256": "68085d2ec5ae3b700d7558b2c826fb5b03a6cf9b5500f6200540fc8f66adedda"
             }
         }
     }
