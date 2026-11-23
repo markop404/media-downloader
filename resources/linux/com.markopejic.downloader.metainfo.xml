@@ -20,6 +20,13 @@
   <url type="vcs-browser">https://downloader.markopejic.com/source-code</url>
 
   <releases>
+    <release version="5.1.5" date="2026-11-23">
+      <description>
+        <ul>
+          <li>Fixed an issue where closing the first tab would close the currently opened one</li>
+        </ul>
+      </description>
+    </release>
     <release version="5.1.4" date="2026-11-02">
       <description>
         <ul>

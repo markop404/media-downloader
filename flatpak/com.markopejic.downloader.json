@@ -38,16 +38,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-11-01-19-06/ffmpeg-N-128280-ga88838af48-linux64-gpl.tar.xz",
-                    "sha256": "8f581751ab4e6c4ca5f5a15c9abe375a088d68405c3e7b79097669ce459ac270",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-11-16-23-35/ffmpeg-N-128970-g11337618b2-linux64-gpl.tar.xz",
+                    "sha256": "49d74477584a7a5d786003d7ef67e1e42304c022239ee1186ade87eefb480687",
                     "only-arches": [
                         "x86_64"
                     ]
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-11-01-19-06/ffmpeg-N-128280-ga88838af48-linuxarm64-gpl.tar.xz",
-                    "sha256": "fb8c67ad9b79273d89c6e854e173c36f9eb714cc0edc5cdfe39c25445a6edc86",
+                    "url": "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-11-16-23-35/ffmpeg-N-128970-g11337618b2-linuxarm64-gpl.tar.xz",
+                    "sha256": "ed02df7476f6d5faf57ccbb434519b2e52d53e91d09d03c8608261bee69af79d",
                     "only-arches": [
                         "aarch64"
                     ]
@@ -68,7 +68,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/markop404/media-downloader/",
-                    "tag": "v5.1.4"
+                    "tag": "v5.1.5"
                 }
             ]
         }
