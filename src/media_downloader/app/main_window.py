@@ -90,7 +90,7 @@ class MainWindow(QMainWindow):
     def close_tab(self, index=None):
         if self.ui.tabWidget.count() == 1:
             self.close()
-        if not index:
+        if index is None:
             index = self.ui.tabWidget.currentIndex()
         tab_object = self.ui.tabWidget.widget(index)
         
